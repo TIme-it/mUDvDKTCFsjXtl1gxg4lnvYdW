@@ -1,0 +1,17 @@
+DirectoryIndex index.html index.php
+ErrorDocument 404 /404.html
+Options +FollowSymLinks
+
+AddDefaultCharset utf-8
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /
+	RewriteCond %{REQUEST_FILENAME}	!-f
+	RewriteCond %{REQUEST_FILENAME}	!-d
+	
+	RewriteRule ^(.*)$ index.php
+</IfModule>
+
+AddType php5-script .php
+Action php5-script /cgi-php/php5

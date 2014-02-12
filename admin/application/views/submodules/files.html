@@ -1,0 +1,28 @@
+<fieldset class="blue_block">
+	<a href="#" class="toggler" onclick="listing({id}, 'files', {module_id})">
+		<span class="arrow"></span>
+		<span>Файлы на страницу <span id="files_list_count">{files_count}</span></span>
+	</a>
+	<span class="help" rel="6"></span>
+	<div>
+		<div id="files_list"></div>
+		<form class="page_form upload_form" id="files_form" action="/admin/application/files/{module_id}/" method="post" enctype="multipart/form-data">
+			<fieldset class="upload_place">
+				<div class="upload_button">
+					<input value="Добавить файлы"  type="button" id="uploadify_files" />
+				</div>
+				<div class="upload_button">
+					<input value="Загрузить" type="button" id="uploadify_files_button" onClick="multi_upload_press('files');" disabled="disabled" />
+				</div>
+				<div class="group_delete_place">
+					отмеченные:
+					<input type="button" value="Удалить"  class="group_button" id="delete_files" disabled="disabled" rel="files:скрыть:delete:файлов" />
+					<input type="button" value="Скрыть"   class="group_button" id="hide_files"   disabled="disabled" rel="files:скрыть:hide:файлов"   />
+					<input type="button" value="Показать" class="group_button" id="show_files"   disabled="disabled" rel="files:показать:show:файлов" />
+				</div><br clear="all" />
+				<div id="fileQueue_files"></div>
+			</fieldset>
+		</form>
+		<script type="text/javascript">multi_upload_init('files', {id}, {module_id});</script>
+	</div>
+</fieldset>

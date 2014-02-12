@@ -1,0 +1,29 @@
+<div id="newsactions_box">	
+	<div class="news_items">
+		<h2>Новости</h2>
+		<div class="gray_line"></div>
+		<ul>
+		{news_list}		
+			<li>
+				<span class="date">{date}</span>
+				<a href="{url}" title="Подробнее...">{title}</a>
+			</li>
+		{/news_list}
+		</ul>
+	</div>
+	<div class="clear"></div>
+
+	<div class="action_items">
+		<h2>Акции</h2>
+		<div class="gray_line"></div>
+		<ul>
+		{actions_list}		
+			<li class="actions_item">
+				<a href="{url}" title="Подробнее...">{title}</a>
+				{note}
+			</li>
+			{?%2}<div class="clear"></div>{/?%2}	
+		{/actions_list}
+		</ul>
+	</div>
+</div>

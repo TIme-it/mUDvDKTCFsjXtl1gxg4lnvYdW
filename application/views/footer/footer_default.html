@@ -1,0 +1,84 @@
+<ul class="footer_block">
+<div class="middle_wrap">
+	<li class="foot_logo">
+		<img src="/application/includes/images/logos/footer_logo.png" width="72" height="61" alt="" />
+	</li>
+	<li class="foot_menu">
+		<!-- <ul>
+			{list}
+			<li>
+				<a href="{url}">{title}</a>
+			</li>
+			{/list}
+			<div class="clear"></div>
+		</ul> -->
+		<ul>
+			<li>
+				<a href="{footer_link_item1}">{footer_item1}</a>
+			</li>
+			<li>
+				<a href="{footer_link_item2}">{footer_item2}</a>
+			</li>
+			<li>
+				<a href="{footer_link_item3}">{footer_item3}</a>
+			</li>
+			<li>
+				<a href="{footer_link_item4}">{footer_item4}</a>
+			</li>
+			<li>
+				<a href="{footer_link_item5}">{footer_item5}</a>
+			</li>
+			<form action="/popup/search/view/" method="POST" class="formSearch">
+				<input type="text" id="search" name="search_text" placeholder="Поиск">
+				<a href="#" id="search_btn" class="submit_button">&nbsp</a>
+			</form>
+		</ul>
+	</li>
+	<li class="made">
+		<p>Сделано в</p>
+		<a href="http://time-it.ru" class="timeit">Time IT</a>
+	</li>
+</div>
+</ul>
+
+<script type="text/javascript" src="/application/includes/js/jquery.fancybox.js"></script>
+<script type="text/javascript" src="/application/includes/js/jquery.form-2.43.js"></script>
+<script type="text/javascript" src="/application/includes/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/application/includes/js/swfobject.js"></script>
+<script type="text/javascript" src="/application/includes/js/jquery.scrollTo.js"></script>
+<script type="text/javascript" src="/application/includes/js/jquery.jscrollpane.js"></script>
+<script type="text/javascript" src="/application/includes/js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="/application/includes/js/iepngfix_tilebg.js"></script>
+<script type="text/javascript" src="/application/includes/js/functions.js"></script>
+
+<script type="text/javascript" src="/application/includes/js/base.js"></script>
+<script type="text/javascript" src="/application/includes/js/profile.js"></script>
+<script type="text/javascript" src="/application/includes/js/jquery.ui.datepicker-ru.js"></script>
+
+<script type="text/javascript">
+	(function($) {
+			CheckFooterForm = function(form) {
+				var errors = [];
+				
+				var obj = form.find('#footer_fio');
+				if (obj.val() == '' || obj.val() == obj.attr('rel')) errors.push('Представьтесь, пожалуйста');
+				
+				obj = form.find('#footer_phone');
+				if (obj.val() == '' || obj.val() == obj.attr('rel')) {
+					errors.push('Укажите номер телефона');
+				}
+
+				if (errors.length > 0) {
+					alert(errors.join('\n\r'));
+					return false;
+				}
+				return true;
+			}
+		})(jQuery);
+</script>
+
+{?alert}
+  <script type="text/javascript">
+    $.fancybox('<div class="alertMessage"><p>{alert}</p></div>');
+  </script>
+{/?alert}

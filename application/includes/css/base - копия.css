@@ -1,0 +1,146 @@
+/** @TODO A.Lidonov 20.01 Вынести формы в отдельную секцию
+ * 
+ */
+
+/* 
+    BASIC STYLE
+*/
+
+.clear {
+    font-size: 0 !important;
+    line-height: 0 !important;
+    clear: both;
+    float:none !important;
+}
+
+span {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+#wrapper {
+    width: 100%;
+    min-width: 550px;
+    min-height: 320px;
+    margin: 0 auto;
+}
+
+.middle_wrap {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* HEADER BLOCK BEGIN */
+
+.header_block {
+    padding: 15px;
+}
+
+.header_block .head_logo{
+    float: left;
+}
+
+/* HEADER BLOCK END */
+
+
+/* MENU BLOCK BEGIN */
+
+.menu_block * {
+    padding: 0;
+    margin: 0;
+}
+
+.menu_block {
+    min-width: 400px;
+    max-width: 1000px;
+    margin: 10px auto;
+    border: 1px solid;
+}
+
+.menu_block ul {
+    display: table-row;
+}
+
+.menu_block ul li.main_menu {
+    display: table-cell;
+    height: 50px;
+    width: auto;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.menu_block ul li.main_menu {
+    position: relative;
+}
+
+.menu_block ul li a {
+    text-decoration: none;
+    color: #111;
+    display: table-cell;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    width: 1000px;
+}
+
+.menu_block ul .submenu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: left;
+}
+
+/* MENU BLOCK END */
+
+/* FOOTMENU BLOCK BEGIN */
+
+.info_block{
+    float: left;
+}
+
+.menu_copyright {
+    float: right;
+}
+
+.foot_menu_block {
+    margin-bottom: 11px;
+}
+
+.menu_copyright p{
+    margin-left: 15px;
+}
+
+.foot_menu_block ul {
+    display: table-row;
+}
+
+.foot_menu_block ul li{
+    display: table-cell;
+}
+
+.foot_menu_block ul li a{
+    padding: 0px 15px;
+    width: 100px;
+    white-space: nowrap;
+    color: #111;
+    text-decoration: none;
+}
+
+/* FOOTMENU BLOCK END */
+
+
+
+#slider_background .link_adress{
+    position: absolute;
+    width: 536px;
+    height: 305px;
+}
+
+#shadow {
+    position: absolute;
+    top: 760px;
+    width: 100%;
+    height: 15px;
+    background: url(/application/includes/images/shadow.png) no-repeat;
+}

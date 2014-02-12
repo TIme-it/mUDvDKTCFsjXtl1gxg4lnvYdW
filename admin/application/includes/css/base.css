@@ -1,0 +1,140 @@
+@CHARSET "UTF-8";
+/** {
+	margin:0;
+	padding:0;
+}*/
+html,body {
+	background:#F2F2F2;
+	height:100%;
+	margin:0;
+	padding:0;
+	min-height:100%;
+}
+a img {
+	border:none;
+}
+h1 {
+	color:#fff;
+	font:bold 16px Tahoma;
+}
+h2 {
+	display:inline-block;
+	font:bold 14px Tahoma;
+	margin:10px 0;
+}
+h3 {
+	font:bold 12px Tahoma;
+	display:inline-block;
+	margin:0 10px;
+}
+a:focus {
+	outline:none;
+}
+.clear {
+	display: block;
+	width: 100%;
+	height: 1px;
+	line-height: 1px;
+	font-size: 1px;
+	clear: both;
+}
+.left {
+	float:left !important;
+}
+.right {
+	float:right !important;
+}
+.border_none {
+	border:none !important;
+}
+.display_none {
+	display:none !important;
+}
+.error {
+	color:maroon;
+	font-weight:bold;
+}
+
+.label_info {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	line-height: 12px;
+	background: transparent url(../images/info.gif) no-repeat 100% 0;
+	padding: 0 0 0 5px;
+}
+
+
+#shadow {
+	background:#555;
+	display:none;
+	opacity:0.81;
+	-moz-opacity:0.81;
+	filter:alpha(opacity=81);
+	padding:0 0 30px 0;
+	left: 0;
+	top: 0;
+	position: absolute;
+	width:100%;
+	z-index:999;
+	height:100%;
+}
+
+.logo_image img{
+	width: 50px;
+	height: 50px;
+}
+.check_image{
+	margin-top: 10px;
+	margin-right: 10px;
+	width: 61px;
+	height: 59px;
+	float: left;
+	position: relative;
+
+}
+.check_image img{
+
+}
+.check_image input{
+    position: absolute;
+    right: 3px;
+}
+
+#dl_file {
+	display: none;
+} 
+
+.file_name {
+	float: left;
+	margin-top: 5px;
+	height: 15px;
+	display: none;
+}
+
+.div_add_file .add_file {
+	padding: 2px 60px 2px 65px;
+	color: #777 !important;
+	border: 1px solid #ccc;
+	text-decoration: none;
+	background-color: #efefef;
+	background: -moz-linear-gradient(top, #efefef, #d1d4d9);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efefef), color-stop(100%,#d1d4d9));
+	background: -webkit-linear-gradient(top, #efefef, #d1d4d9);
+	background: -o-linear-gradient(top, #efefef, #d1d4d9);
+	background: -ms-linear-gradient(top, #efefef, #d1d4d9);
+	background: linear-gradient(top, #efefef, #d1d4d9);
+}
+
+.div_add_file .add_file:hover {
+	box-shadow: 0 0 5px black;
+}
+
+.delfile {
+	cursor: pointer;
+}
+
+.kss_item{
+	float: left;
+	margin-right: 10px;
+}

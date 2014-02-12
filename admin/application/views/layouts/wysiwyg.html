@@ -1,0 +1,42 @@
+<script type="text/javascript" src="/admin/application/includes/js/tiny/jquery.tinymce.min.js"></script> 
+<script type="text/javascript" src="/admin/application/includes/js/tiny/tinymce.min.js"></script> 
+<script type="text/javascript" src="/admin/application/includes/js/tiny/langs/ru.js"></script> 
+<script type="text/javascript"> 
+// Расширенный модуль текста
+
+	tinymce.init({
+	    selector: "textarea.mceEditor",
+	    theme: "modern",
+	    width: 655,
+	    height: 450,
+	    extended_valid_elements : 'script[type|src],iframe[src|style|width|height|scrolling|marginwidth|marginheight|frameborder],div[*],p[*],object[width|height|classid|codebase|embed|param],param[name|value],embed[param|src|type|width|height|flashvars|wmode]',
+		media_strict: false,
+	    plugins: [
+	         "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+	         "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+	         "save table contextmenu directionality emoticons template paste textcolor",
+	   ],
+	   image_list: "/admin/application/includes/js/tiny/lists/image_list.js",
+	   image_advtab: true,
+	   content_css: "/admin/application/includes/css/content.css?"+Math.random(),
+	   toolbar: "insertfile undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image table link | print preview media fullpage | forecolor backcolor emoticons", 
+	   style_formats: [
+	        {title: 'Заголовок 1', block: 'h1'},
+	        {title: 'Заголовок 2', block: 'h2'},
+	        {title: 'Заголовок 3', block: 'h3'}
+	    ]
+	 }); 
+	
+</script>
+
+<script type="text/javascript"> 
+//Простой модуль текста
+	tinyMCE.init({
+		selector: "#note_id, #note_id1, #note_id2, #note_id3, #note_id4, #direktor_word",
+		theme : "modern",
+		width: 430,
+		content_css: "/admin/application/includes/css/content.css?"+Math.random(),
+		toolbar: "bold italic underline",
+		menubar : false
+	});
+</script>

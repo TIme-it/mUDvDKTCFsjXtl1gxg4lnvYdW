@@ -1,0 +1,48 @@
+{wysiwyg}
+<h2>{title}</h2>
+<form action="/{admin_dir}/firms/firms_edit/{id}/" method="post" class="page_form" enctype="multipart/form-data">
+	<fieldset>
+		<label for="title">Заголовок для страницы</label>
+		<input type="text" name="title_page" class="text_field" value="{title_page}" />
+	</fieldset>
+	<fieldset>
+		<label for="title">Заголовок для меню</label>
+		<input type="text" name="title" class="text_field" value="{title}" />
+	</fieldset>
+	{settings_block}
+	
+	<fieldset>
+		<a href="#" class="toggler">
+			<span class="arrow"></span>
+			<span>Описание для поисковых систем</span>
+		</a>
+		<div>
+			<label for="description">Описание страницы</label>
+			<input type="text" class="text_field" name="description" value="{description}"/>
+			<label for="keywords">Ключевые слова</label>
+			<input type="text" class="text_field" name="keywords" value="{keywords}" />
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<label for="text" class="block">Текст страницы<span class="help" rel="1:1"></span></label>
+		<textarea name="text" class="text_field big_text mceEditor">{text}</textarea>
+	</fieldset>
+	
+	<fieldset>
+		<a href="/admin/firms/view_items/{id}"><b>Список организаций</b></a>
+	</fieldset>
+	
+	<!-- {yandex_maps_block} -->
+	{modules_block}
+	
+	<fieldset class="yellow">
+		<input type="submit" name="submit" value="Сохранить" />
+		{delete_page}
+	</fieldset>
+</form>
+<br clear="all"/>
+<h2>Дополнительные модули</h2>
+{photos_block}
+{images_block}
+{files_block}

@@ -1,0 +1,69 @@
+<div id="phone_form" class="content_block_inner">
+	<h2>Заказать звонок</h2>
+	<form id="faqForm" class="form" action="/popup/question/phone_call/" method="post" onsubmit="return CheckFeedbackForm($(this));">
+		<input type="hidden" name="pid" value="{id}" />
+		<fieldset>
+			<label for ="fio">Как к Вам обращаться?</label>
+			<input type="text" name="fio" id="fio" placeholder="Ф.И.О." rel=""/>
+		</fieldset>	
+		<fieldset class="left">
+			<label for ="phone">Контактный телефон для связи</label>
+			<input type="text" name="phone" id="phone" placeholder="8 (960) 123 45 67" rel=""/>
+		</fieldset>
+		<fieldset class="right">
+			<label for ="email">Ваш адрес электронной почты</label> 
+			<input type="text" name="email" id="email" placeholder="info@primer.com" rel=""/>
+		</fieldset>
+		<div class="clear"></div>
+		<fieldset class="field_capcha">
+			<input type="text" name="capcha" id="capcha" placeholder="Введите защитный код" />
+			<img src="/popup/captcha/cap" />
+			<a href = "#" class = "submit_button confirm_button">
+				<span>Заказать</span>
+			</a>
+		</fieldset> 
+		<div class ="clear"></div>
+	</form>
+</div>
+
+<script type="text/javascript">
+	(function($) {
+			CheckFeedbackForm = function(form) {
+				var errors = [];
+				var obj = form.find('#fio');
+				if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите свое имя');
+
+				obj = form.find('#phone');
+				if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите номер телефона');
+
+				obj = form.find('#email');
+				if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите электронную почту');
+				
+				if (obj.val() != '') {
+					var template = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
+					if (! template.test(obj.val())) {
+						errors.push('Введен не корректный e-mail');
+					}
+				} else {
+					// errors.push('Введите свой e-mail');
+				}
+	
+				obj = form.find('#capcha');
+				if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите защитный код');
+				
+				if (errors.length > 0) {
+					alert(errors.join('\n\r'));
+					return false;
+				}
+				return true;
+			}
+
+			$(document).ready(function() {
+				$('#phone_form .submit_button').on('click', function(){
+					$(this).parents('form').submit();
+					// $.fancybox.close();
+					return false;
+				})
+			})
+		})(jQuery);
+</script>

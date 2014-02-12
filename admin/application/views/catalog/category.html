@@ -1,0 +1,160 @@
+{wysiwyg}
+<h2>{title_catalog} / {title_page}</h2>
+<form action="/{admin_dir}/catalog/save_category/{main_cid}/{main_pid}/{main_id}/" method="post" class="page_form" enctype="multipart/form-data">
+	<fieldset>
+		<label for="title_category">Название категории</label>
+		<input type="text" name="title" class="text_field" value="{main_title}" {!id}onkeyup="translit($(this).val());" onchange="translit($(this).val());" {/!id} />
+			<label for="title_category">Название страницы</label>
+		<input type="text" name="taitle" class="text_field" value="{taitle}" />
+	</fieldset>
+	<fieldset>
+		<label for="alias" class="block">URL (например, turmalin)</label>
+		<input type="text" name="alias" id = "url" value="{alias}" class="text_field"/>
+	</fieldset>
+	<fieldset>
+		<label for="note">Описание</label>
+		<textarea name="note" class="text_field" style="resize: none;">{note}</textarea>
+	</fieldset>
+	{?timage}
+	<fieldset>
+		<label for="" class="block"><span style="color:red">Подчистить ссылки на триос. (Менять только в поле расположенном выше)</span><span class="help" rel="1:1"></span></label>
+		<textarea name="" class="text_field big_text mceEditor">{timage}</textarea><br clear="all"/>
+	</fieldset>
+	{/?timage}
+	<fieldset>
+		<label for="character">Характеризующая картинка</label>
+		<input type="file" name="main_img" />
+		<a href="/application/includes/catalog/catalog_category/b/{id}.png" target="_blank">Смотреть</a>
+	</fieldset>
+	<fieldset>
+		<a href="#" class="toggler">
+			<span class="arrow"></span>
+			<span>Описание для поисковых систем</span>
+		</a>
+		<div>
+			<label for="description">Описание страницы</label>
+			<input type="text" class="text_field" name="description" value="{description}"/>
+			<label for="keywords">Ключевые слова</label>
+			<input type="text" class="text_field" name="keywords" value="{keywords}" />
+		</div>
+	</fieldset>
+	<fieldset>
+		<label for="text" class="block">Текст страницы</label>
+		<textarea name="text" class="text_field mceEditor" >{text}</textarea>
+	</fieldset>
+<!-- 	<fieldset>
+		<label for="text" class="block">Название первого столбца</label>
+		<input type="text" class="text_field" name="first_name_column" value="{first_name_column}" />
+	</fieldset> -->
+	<fieldset class="yellow">
+		<input type="submit" value="Сохранить" />
+		{delete_button}
+	</fieldset>
+</form>
+<h2>Характеристики для товаров категории</h2>
+<form class="page_form">
+<div>
+	<fieldset>
+		<h2>Доступные характеристики</h2>
+		<br />
+		<select id="addTechchars">
+			{techchars}
+				<option value="{id}">{name}</option>
+			{/techchars}
+		</select>
+		<a href="#" class="add_category_techchar" rel="{cat_id}">добавить</a>
+		<br />
+	</fieldset>
+	<div id="techcharList">
+		<fieldset>
+			<h2>Активные характеристики</h2>
+			<div id="sortable_area">
+				{dirs}
+			</div>
+		</fieldset>
+			
+		<fieldset class="yellow">
+			<input type="button" id="buttonchik" value="Применить" onClick="sendSort();" />
+		</fieldset>
+	</div>
+</div>
+	</form>
+<h2>Дополнительные модули</h2>
+{photos_block}
+{files_block}
+{images_block}
+<div style="display: {prod_display};">
+	<h2>Товары</h2>
+	<ul class="listing">
+		{product_list}
+		<li>
+			<a href="/{admin_dir}/catalog/delete_product/{id}/" class="delete_button" onclick="if(!confirm('Вы действительно хотите удалить?')) return false;">&nbsp;</a>
+			<a href="/{admin_dir}/catalog/product/{cid}/{pid}/{id}/" {option_style}>{title}</a>
+		</li>
+		{/product_list}
+	</ul>
+	<div class="yellow">
+		<button type="button" onclick="window.location='/{admin_dir}/catalog/product/{main_cid}/{main_id}/0/'">Добавить товар</button>
+	</div>
+	<!-- <h2>Подкатегории</h2>
+	<ul class="listing">
+		{category_list}
+		<li>
+			<a href="/{admin_dir}/catalog/delete_category/{id}/" class="delete_button" onclick="if(!confirm('Вы действительно хотите удалить?')) return false;">&nbsp;</a>
+			<a href="/{admin_dir}/catalog/category/{cid}/{pid}/{id}/">{title}</a>
+		</li>
+		{/category_list}
+	</ul>
+	<div class="yellow">
+		<button type="button" onclick="window.location='/{admin_dir}/catalog/category/{main_cid}/{main_id}/0/'">Добавить подкатегорию</button>
+	</div> -->
+</div>
+
+
+	<style type="text/css">
+	#sortable {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+	#sortable li .usd {
+		width: 430px;
+		height: 1.5em;
+		background: #E9F1F5;
+		border: 1px solid #8E9192;
+		padding: 5px;
+		margin: 0 5px 5px 0;
+	}
+	html > body #sortable li .usd {
+		height: 1.5em;
+		line-height: 1.2em;
+		padding: 5px;
+		margin: 0 5px 5px 0;
+	}
+	.ui-state-highlight {
+		height: 1.5em;
+		line-height: 1.2em;
+		padding: 5px;
+		margin: 0 5px 5px 0;
+	}
+</style>
+<script type="text/javascript">
+	function sendSort() {
+		var arr = new Array();
+		$('#sortable .usd').each(function() {
+			arr.push($(this).attr('title'));
+			//alert($(this).attr('title'));
+		});
+		$.ajax({
+			url: "/admin/catalog/update/",
+			type: "POST",
+			cache: false,
+			data: 'tree='+arr,
+			success: function(response) {
+				alert('изменения сохранены');
+			}
+		});
+	}
+</script>
+	
+

@@ -1,0 +1,83 @@
+{wysiwyg}
+<h2>Администрирование</h2>
+<form action="/{admin_dir}/role/" method="post" class="page_form" enctype="multipart/form-data">
+	
+	{?self}
+	<fieldset>
+	<a href="/admin/role/self/">Личные данные</a>
+	</fieldset>
+	{/?self}
+	
+	<h3 style="margin-top: 20px;">Список пользователей</h3>
+	{message}
+	{?users}
+	<table class="listing_tbl roles">
+	<tr>
+		<th style="width: 1%">#</th>
+		<th>Логин</th>
+		<th>Роль</th>
+		<th>Создатель</th>
+		
+		{users}
+			<tr {!%2}class="even"{/!%2}>
+				<td>
+					<a href="/admin/role/DeleteUser/{id}/" class="del_service_row" onClick="if (!confirm('Вы дествительно хотите удалить пользователя?')) return false;"></a>
+				</td>
+				<td>
+					<a href="/admin/role/user/{id}/" style="margin-left: 3px;">{login}</a>
+				</td>
+				<td>
+					{role}
+				</td>
+				<td>
+					{creator}
+				</td>
+			</tr>
+		{/users}
+		
+	</tr>
+	</table>
+	{/?users}
+	
+	<fieldset class="yellow">
+		<input type="button" value="Добавить пользователя" onClick="window.location.href='/admin/role/add_user/'" />
+	</fieldset>
+	
+	
+	<hr style="margin: 20px 0;">
+	<h3>Список ролей</h3>
+	{message2}
+	{?roles}
+	<table class="listing_tbl roles">
+	<tr>
+		<th style="width: 1%">#</th>
+		<th>Название</th>
+		<th>Кол-во пользователей</th>
+		<th>Родительская роль</th>
+		
+		{roles}
+			<tr {!%2}class="even"{/!%2}>
+				<td>
+					<a href="/admin/role/DeleteRole/{id}/" class="del_service_row" onClick="if (!confirm('Вы дествительно хотите удалить роль?')) return false;"></a>
+				</td>
+				<td>
+					<a href="/admin/role/role/{id}/" style="margin-left: 3px;">{title}</a>
+				</td>
+				<td>
+					{count}
+				</td>
+				<td>
+					{creator}
+				</td>
+			</tr>
+		{/roles}
+		
+	</tr>
+	</table>
+	{/?roles}
+	
+	<fieldset class="yellow">
+		<input type="button" value="Добавить роль" onClick="window.location.href='/admin/role/add_role/'" />
+	</fieldset>
+	
+</form>

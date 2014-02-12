@@ -1,0 +1,60 @@
+{wysiwyg}
+<h2> <a href = "\admin\mailer\">Рассылка</a> / Создание задачи</h2>
+<form action="/admin/mailer/create_task/" method="post" class="page_form" enctype="multipart/form-data">
+	<fieldset style = "display:none;">
+		<label for="all" style="
+  		  display: inline;">Выбрать всех</label> 
+		<input class="check_actions" type="checkbox" name="all" />
+		<label for="users_group">Укажите пользователей</label> 
+		<select name="users_group" class="autocomplete_users" id="to">	
+		</select>	
+	</fieldset>
+
+	<!-- <fieldset>
+		<label for="emails">Emails:</label>
+		<input type="text" name="emails" value="{emails}">
+	</fieldset> -->
+	<fieldset>
+			<label for="emails">Emails:</label>
+				
+			<textarea name="emails" class="text_field" id="">{emails}</textarea>
+	</fieldset>
+	<fieldset>
+		<label for="title">Название задачи</label>
+		<input type="text" name="title" value="{title}">
+	</fieldset>
+	<fieldset>
+		<label for="try_count">Количество попыток отправки:</label>
+		<input type="text" name="try_count" value="3">
+	</fieldset>
+
+	<fieldset>
+		<label for="groups">Выберите группу</label>
+		<select name="groups">
+			<option>Выберите группу</option>
+			{groups}
+			<option value  = "{id}">{title}</option>
+			{/groups}
+		</select>	
+	</fieldset>
+
+	<fieldset>
+		<label for="text">Укажите текст письма</label> 
+		<textarea name="text" class="text_field big_text" id="text_id"></textarea>
+	</fieldset>
+
+	<fieldset>
+	
+		<label for="priority">Укажите приоритет</label> 
+		<select name="priority">	
+			<option value = "1">Низкий</option>
+			<option value = "2" selected>Средний</option>
+			<option value = "3">Высокий</option>
+		</select>	
+	</fieldset>
+	<fieldset class="yellow">
+		<input type="submit" value="Сохранить" />
+	</fieldset>
+
+
+</form>

@@ -1,0 +1,18 @@
+<ul id="news_list">
+{list}
+	<li>
+		<img src="/application/includes/actions/{id}.jpg" width="106" height="100" alt="">
+		<div class="note_wrap">
+			<a href="{url}"><span>{title}</span></a>
+			{?note}
+				<div class="note">
+					<span class="date">{date}</span>
+					{note}
+				</div>
+			{/?note}
+		</div>
+	</li>
+	<div class="clear"></div>
+{/list}
+{pagination}
+</ul>

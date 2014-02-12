@@ -1,0 +1,21 @@
+<div style="margin-left: 30px">
+	<h1>Заказ #{order_num}</h1>
+	<div class="text_style">
+		<table id="order_table">
+			<tr><th>Наименование товара</th>
+				<th>Стоимость</th>
+				<th>Количество</th>
+				<th>Общая стоимость</th></tr>
+			{list}
+			<tr><td><a href="/catalog/product/{id}/">{title}</a></td>
+				<td>{price}</td>
+				<td>{count} шт.</td>
+				<td>{price_all}</td></tr>
+			{/list}
+		</table>
+		<p><b>Общая стоимость заказа</b>: {total_sum}</p>
+		<p><a href="/basket/history/">к списку заказов</a></p>
+	</div>
+</div>
+
+

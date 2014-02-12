@@ -1,0 +1,13 @@
+<h2>Баннеры</h2>
+{msg}
+<ul class="listing">
+	{list}
+	<li>
+		<a href="/{admin_dir}/visban/delete/{id}/" class="del_service_row" onclick="if(!confirm('Вы действительно хотите удалить баннер?')) return false;">&nbsp;</a>
+		<!-- <small style="color: gray;">{date}</small> --> <a href="/{admin_dir}/visban/one/{id}/">{title}</a>
+	</li>
+	{/list}
+</ul>
+<div class="yellow">
+	<button type="button" {button_disable} onclick="window.location='/admin/visban/add/'">Добавить</button>
+</div>

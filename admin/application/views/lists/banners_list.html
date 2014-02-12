@@ -1,0 +1,13 @@
+<h2>Баннеры</h2>
+<ul class="listing">
+	{list}
+	<li>
+		<a href="/{admin_dir}/banner/deleteBanner/" class="delete_button" onclick="if(!confirm('Вы действительно хотите удалить баннер?')) return false;">&nbsp;</a>
+		<a href="/{admin_dir}/banner/viewOne/{id}/">{title}</a>
+		<span class="date">{date_begin} - {date_end}</span>
+	</li>
+	{/list}
+</ul>
+<div class="yellow">
+	<button type="button" onclick="window.location='/admin/banner/addBanner/'">Добавить новый</button>
+</div>

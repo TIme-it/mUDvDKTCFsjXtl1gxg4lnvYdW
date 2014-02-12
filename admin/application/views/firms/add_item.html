@@ -1,0 +1,37 @@
+{wysiwyg}
+<h2> <a href="/admin/firms/{pid}">{header}</a> {add_header}</h2>
+<form action="/{admin_dir}/firms/edit_item/" method="post" class="page_form" enctype="multipart/form-data">
+	<fieldset>
+		<label for="title">Наименование организации</label>
+		<input type="text" name="title" class="text_field" value="{title}" />
+	</fieldset>
+	
+	<fieldset>
+		<label for="note" class="block">Описание</label>
+		<textarea name="note" class="text_field" id="note_id">{note}</textarea>
+	</fieldset>
+	
+	<fieldset>
+		<label for="character_image">Характеризующая картинка</label>
+		<input type="file" name="character_image" /> {character}
+	</fieldset>
+	
+	<fieldset>
+		<label for="text" class="block">Текст страницы<span class="help" rel="1:1"></span></label>
+		<textarea name="text" class="text_field big_text mceEditor">{text}</textarea><br clear="all"/>
+	</fieldset>
+	
+	<!-- {yandex_maps_block} -->
+	{modules_block}
+	
+	<fieldset class="yellow">
+		<input type="hidden" name="id" value="{id}" />
+		<input type="hidden" name="pid" value="{pid}" />
+		<input type="submit" name="submit" value="Сохранить" />
+		{delete_firm}
+	</fieldset>
+</form>
+<h2>Дополнительные модули</h2>
+{photos_block}
+{images_block}
+{files_block}

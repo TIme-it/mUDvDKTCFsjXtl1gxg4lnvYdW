@@ -1,0 +1,51 @@
+span.help {
+    background: url("/admin/application/includes/images/q.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: inline-block;
+    height: 16px;
+    margin-left: 10px;
+    width: 16px;
+	position: relative;
+	vertical-align: middle;
+    z-index: 99;
+}
+
+#helperOuter{font:12px/14px Arial,Verdana;color:#000;width:894px;margin:0 auto;height:616px;border:4px #dbdbdb solid;position:absolute;left:50%;margin-left:-451px;z-index:1000;background:#FFF}
+  #helperMenu{width:214px;border-right:4px #dbdbdb solid;float:left;height:100%;position:relative}
+    #helperMenu h2{font-size: 16px;margin: 28px 0 22px 20px;}
+    #helperMenuList{list-style:none;margin:0 8px;padding:0;height:494px;overflow:scroll;}
+	  #helperMenuList li{margin:0 0 2px 0;}
+	    #helperMenuList li a{display:block;padding:9px 12px;background:#e9f1f5;text-decoration:none;color:black;}
+		#helperMenuList li a:hover{background:#6f8a9f;color:#FFF}
+		#helperMenuList li.childs > a{background:url(../images/helper/arrow_right.gif) #e9f1f5 no-repeat 12px 13px; padding-left:25px;}
+		#helperMenuList li.childs > a:hover{background-color:#6f8a9f}
+		#helperMenuList li.clicked > a{background:url(../images/helper/arrow_down.gif) no-repeat #dbdbdb 12px 15px;}
+		#helperMenuList li.active > a{background-color:#dbdbdb!important;}
+		#helperMenuList li.active > a:hover{color:black!important;}
+	    #helperMenuList ul{list-style:none;padding:0;margin:2px 0 15px 12px;display:none}
+    #helperMenu #helperContact{position:absolute;bottom:4px;left:0;padding:12px;width:190px;background:white}
+      #helperMenu #helperContact a{color:#6f8a9f}
+  #helperClose{position:absolute;right:-13px;top:-14px;background:url(../images/helper/close_corner3.png);width:37px;height:37px;}
+    #helperClose a{display:block;width:15px;height:15px;background:url(../images/helper/close_button.gif);position:absolute;left:11px;top:11px;}
+	#helperClose a:hover{background-position:0 -15px;}
+  #helperContent{margin-left:218px;padding:18px;}
+    #helperSlideShow{width:640px;height:480px;overflow:hidden;position:relative;}
+	  #helperSlideShow ul{width:10000px;height:480px;list-style:none;margin:0;padding:0;position:absolute;left:0;top:0;z-index:1}
+	    #helperSlideShow ul li{float:left;cursor:pointer}
+		  #helperSlideShow ul li .text{display:none}
+	  #helperSlideShowLeft{position:absolute;width:45px;height:90px;background:url(../images/helper/button_left_basic.png);left:0;top:50%;margin-top:-58px;z-index:2}
+	  #helperSlideShowLeft:hover{background-image:url(../images/helper/button_left_hover.png);}
+	  #helperSlideShowRight{position:absolute;width:45px;height:90px;background:url(../images/helper/button_right_basic.png);right:0;top:50%;margin-top:-58px;z-index:2}
+	  #helperSlideShowRight:hover{background-image:url(../images/helper/button_right_hover.png);}
+	#helperSlideNavigation{margin:18px 26px;position:relative;display:inline-block;height:26px;padding:0 25px 0 0;}
+	  #helperSlideNavigation  .grayLine{height:1px;background:#dbdbdb;position:absolute;width:100%;top:13px;}
+	  #helperSlideNavigation  #helperSlideStart{position:absolute;display:block;width:26px;height:28px;left:-26px;top:0;background:url(../images/helper/start_button.gif) no-repeat 0 0px;}
+	  #helperSlideNavigation  #helperSlideStart:hover{background-position:0 -28px;}
+	  #helperSlideNavigation  #helperSlideEnd{position:absolute;display:block;width:20px;height:28px;right:-20px;top:0;background:url(../images/helper/end_button.gif) no-repeat 0 0px;}
+	  #helperSlideNavigation  #helperSlideEnd:hover{background-position:0 -28px;}
+	  #helperSlideNavigation ul{list-style:none;margin:0;padding:0;position:relative;z-index:2}
+	    #helperSlideNavigation ul li{float:left;padding-left:24px;font-size:15px;}
+		  #helperSlideNavigation ul li a{display:block;width:26px;height:26px;line-height:26px;text-align:center;background:url(../images/helper/step_button.gif) no-repeat 0 -1px;color:#6f8a9f;font-weight:bold;text-decoration:none;padding:0 0 0 0px}
+		  #helperSlideNavigation ul li a:hover{background-position:0 -29px;}
+		#helperSlideNavigation ul li.active a{background-position:0 -57px;color:white}
+#helperSlideText p{margin:0;}	

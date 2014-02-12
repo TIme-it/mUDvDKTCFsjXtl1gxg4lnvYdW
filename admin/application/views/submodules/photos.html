@@ -1,0 +1,90 @@
+<fieldset class="blue_block">
+	<a href="#" class="toggler" onclick="listing({id}, 'photos', {module_id})">
+		<span class="arrow"></span>
+		<span>Фото на страницу <span id="photos_list_count">{photos_count}</span></span>
+	</a>
+	<span class="help" rel="2:2"></span>
+	<div>
+		<div id="photos_list"></div>
+		<form class="page_form upload_form" id="photos_form" action="/admin/application/photos/{module_id}/" method="post" enctype="multipart/form-data">
+			<fieldset id="GalleryFormat" class="vTop">
+				<label for="fotoGallery" style="vertical-align: top;">Размер фото</label>
+				<div id="photos_resize_block">
+					
+					<div class="radio_btns">
+						<input type="radio" name="new_size" value="0">					<span>Без изменений</span>
+						<input type="radio" name="new_size" value="300x200">	<span>300x200</span>
+						<input type="radio" name="new_size" value="170x115" checked>			<span>170x115</span>
+					</div>
+					
+					<input type="radio" name="new_size" value="-1"> <span>Другой</span>
+					<div id="resize_block">
+						<table id="resize_tbl">
+							<tr><td id="restbl_w"><input type="text" value="" id="resize-w" name="resize-w"  onChange="change_size();" title="ширина"/></td>
+								<td id="restbl_x" style="vertical-align: middle;">X</td>
+								<td id="restbl_h"><input type="text" value="" id="resize-h" name="resize-h" onChange="change_size();" title="высота"/></td>
+						</table>
+					</div>
+					
+				</div>
+			</fieldset>
+			<fieldset class="upload_place">
+				<div class="upload_button">
+					<input type="file" name="uploadify_photos" id="uploadify_photos" />
+				</div>
+				<div class="upload_button">
+					<input value="Загрузить" type="button" id="uploadify_photos_button" onClick="multi_upload_press('photos');" disabled="disabled" />
+				</div>
+				<div class="group_delete_place">
+					отмеченные:
+					<input type="button" value="Удалить" class="group_button" id="delete_photos" disabled="disabled" rel="photos:удалить:delete:фото" />
+				</div><br clear="all" />
+				<div id="fileQueue_photos"></div>
+			</fieldset>
+		</form>
+		<script type="text/javascript">
+			multi_upload_init('photos', {id}, {module_id}, 170, 115);
+			
+			$(document).ready(function() {
+				
+				change_size = function() {
+					var rw;
+					var rh;
+					var size = $('#photos_resize_block input:checked').val();
+		
+					if (size == '0') {
+						rw = 0;
+						rh = 0;
+						$('#resize_block').hide();
+					} else if (size == '-1') {
+						rw = parseInt($('#resize-w').val());
+						rh = parseInt($('#resize-h').val());
+						if(isNaN(rw)) rw = '0';
+						if(isNaN(rh)) rh = '0';
+						$('#resize-w').val(rw);
+						$('#resize-h').val(rh);
+						
+						var tmp = $('#resize_block');
+						if (tmp.css('display') == 'none')
+							tmp.css({ 'display':'inline-block', 'opacity': '0'}).animate({ opacity: '1'}, 200);
+					} else {
+						var arr = size.split('x');
+						rw = parseInt(arr[0]);
+						rh = parseInt(arr[1]);
+						$('#resize_block').hide();
+					}
+					
+					$('#uploadify_photos').uploadifySettings('scriptData', {
+						'type'       : 'photos',
+						'pid'        : {id},
+						'mid'        : {module_id},
+						'resize-w'   : rw,
+						'resize-h'   : rh
+					});
+				}
+				
+				$('#photos_resize_block input:radio').live('click', change_size);
+			});
+		</script>
+	</div>
+</fieldset>

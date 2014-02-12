@@ -1,0 +1,32 @@
+#main, .images_listing, .blue_block,#menu {
+	height:auto !important;
+	height:1px !important;
+	overflow:visible;
+}
+#left #menu ul {
+	position:relative;
+	margin:-18px 0 0 0;
+}
+.modules span label {
+	display:inline;
+	padding:0 0 5px 0;
+	margin:0 10px;
+}
+.modules .inline {
+	display:inline;
+	width:190px;
+	vertical-align:middle;
+}
+#datepicker_button {
+	position:relative;
+	top:-8px;
+	margin:0 0 0 5px;
+}
+.images_listing li {
+	display:block;
+	float:left;
+}
+
+#loginForm .text_field {
+	font:bold 16px/38px Arial;
+}

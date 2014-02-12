@@ -1,0 +1,32 @@
+<form method="post" action="/basket/order/">
+<table id="basket">
+	<tr><th>&nbsp;</th>
+		<th>Фото</th>
+		<th>Товар</th>
+		<th>Стоимость</th>
+		<th>Кол-во</th>
+		<th>Общая стоимость</th></tr>
+	{list}
+	<tr><td><button class="button_del" rel="{id}">X</button></td>
+		<td><a href="/catalog/product/{id}/"><img src="{img_src}" height="50" /></a></td>
+		<td><a href="/catalog/product/{id}/">{title}</a></td>
+		<td>{price}</td>
+		<td><button class="button_m" rel="{id}">-</button>
+			<span class="count">{count}</span> шт.
+			<button class="button_p" rel="{id}">+</button></td>
+		<td>{price_all}</td></tr>
+	{/list}
+	<tr><td align="right" colspan="6">
+			<b>Итого:</b> {price_sum}
+		</td></tr>
+</table>
+
+
+<div class="enter_seminar" style="margin:10px 0 5px 0;">
+	<div class="button_left"></div>
+	<input class="button_center" type="submit" value="Оформить заказ" onClick="return confirm('Вы действительно хотите оформить заказ?');" />
+	<div class="button_right"></div>
+</div>
+
+
+</form>

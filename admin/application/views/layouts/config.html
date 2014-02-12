@@ -1,0 +1,179 @@
+{wysiwyg}
+<h2>Конфигурация</h2>
+<form action="/admin/config/add/1/" method="post" class="config_form page_form" id="form_1" enctype="multipart/form-data" {style_1}>
+	<fieldset>
+		<a href="#" class="toggler">
+			<span class="arrow"></span>
+			<span>Шапка</span>
+		</a>
+		<div>
+			<fieldset>
+				<label for="title_browser">Заголовок веб-браузера (тег &lt;TITLE&gt;)</label>
+				<input type="text" name="title_browser" class="text_field" value="{title_browser}" />
+			</fieldset>
+			<!-- <fieldset>
+				<label for="logop">Логотип сайта для печати</label>
+				<input type="file" name="logop" /> {logop_show}
+			</fieldset> -->
+			<fieldset>
+				<label for="header_phone">Телефон</label>
+				<textarea name="header_phone" id="note_id" cols="30" rows="10">{header_phone}</textarea>
+			</fieldset>
+			<fieldset>
+				<label for="header_mail">Адрес электронной почты</label>
+				<input type="text" name="header_mail" class="text_field" value="{header_mail}" />
+			</fieldset>
+		</div>
+	</fieldset>
+	<fieldset>
+		<a href="#" class="toggler">
+			<span class="arrow"></span>
+			<span>Блок "Запись на консультацию"</span>
+		</a>
+		<div>
+			<fieldset>
+				<label for="bubble_text">Основной Текст</label>
+				<textarea name="bubble_text" id="note_id1" cols="30" rows="10">{bubble_text}</textarea>
+			</fieldset>
+			<fieldset>
+				<label for="bubble_undertext">Дополнительный текст</label>
+				<textarea name="bubble_undertext" class="mceEditor" cols="30" rows="10">{bubble_undertext}</textarea>
+			</fieldset>
+			
+		</div>
+	</fieldset>
+	<fieldset>
+		<a href="#" class="toggler">
+			<span class="arrow"></span>
+			<span>Футер</span>
+		</a>
+		<div>
+			<fieldset>
+				<h2>Пункт #1</h2>
+				<label for="footer_items">Текст</label>
+				<input type="text" name="footer_item1" class="text_field" value="{footer_item1}" />
+				<label for="footer_items">Ссылка</label>
+				<input type="text" name="footer_link_item1" class="text_field" value="{footer_link_item1}" />
+				<hr />
+
+				<h2>Пункт #2</h2>
+				<label for="footer_items">Текст</label>
+				<input type="text" name="footer_item2" class="text_field" value="{footer_item2}" />
+				<label for="footer_items">Ссылка</label>
+				<input type="text" name="footer_link_item2" class="text_field" value="{footer_link_item2}" />
+				<hr />
+
+				<h2>Пункт #3</h2>
+				<label for="footer_items">Текст</label>
+				<input type="text" name="footer_item3" class="text_field" value="{footer_item3}" />
+				<label for="footer_items">Ссылка</label>
+				<input type="text" name="footer_link_item3" class="text_field" value="{footer_link_item3}" />
+				<hr />
+
+				<h2>Пункт #4</h2>
+				<label for="footer_items">Текст</label>
+				<input type="text" name="footer_item4" class="text_field" value="{footer_item4}" />
+				<label for="footer_items">Ссылка</label>
+				<input type="text" name="footer_link_item4" class="text_field" value="{footer_link_item4}" />
+				<hr />
+
+				<h2>Пункт #5</h2>
+				<label for="footer_items">Текст</label>
+				<input type="text" name="footer_item5" class="text_field" value="{footer_item5}" />
+				<label for="footer_items">Ссылка</label>
+				<input type="text" name="footer_link_item5" class="text_field" value="{footer_link_item5}" />
+			</fieldset>
+		</div>
+	</fieldset>
+	<fieldset>
+		<a href="#" class="toggler">
+			<span class="arrow"></span>
+			<span>Контактные E-mail</span>
+		</a>
+		<div>
+			<label for="contact_email">Общий контактный E-mail</label>
+			<input type="text" name="contact_email" class="text_field" value="{contact_email}" />
+			<label for="feedback_email">Подмодуль &laquo;Обратная связь&raquo;</label>
+			<input type="text" name="feedback_email" class="text_field" value="{feedback_email}" />
+		</div>
+	</fieldset>
+	
+<!-- 	<fieldset>
+		<a href="#" class="toggler">
+			<span class="arrow"></span>
+			<span>Количество элементов на странице</span>
+		</a>
+		<div>
+			<label for="images_count">Количество изображений фотогалереи на странице</label>
+			<input type="text" name="images_count" class="text_field min" value="{images_count}" />
+			<label for="news_count">Количество публикаций на странице (Модуль &laquo;Новости / Статьи&raquo;)</label>
+			<input type="text" name="news_count" class="text_field min" value="{news_count}" />
+			<label for="faq_count">Количество вопросов на странице (Модуль &laquo;Вопрос &ndash; ответ&raquo;)</label>
+			<input type="text" name="faq_count" class="text_field min" value="{faq_count}" />
+			<label for="search_count">Количество результатов поиска на странице</label>
+			<input type="text" name="search_count" class="text_field min" value="{search_count}" />
+			<label for="title_browser">Количество опросов на странице (Модуль &laquo;Голосование&raquo;)</label>
+			<input type="text" name="count_question" class="text_field min" value="{count_question}" />
+			
+			<label for="title_browser">Количество продуктов на странице (Модуль &laquo;Каталог&raquo;)</label>
+			<input type="text" name="product_count" class="text_field min" value="{product_count}" />
+		</div>
+	</fieldset> -->
+
+<!-- 	<fieldset>
+		<a href="#" class="toggler">
+			<span class="arrow"></span>
+			<span>Заголовки подмодулей</span>
+		</a>
+		<div>
+			<label for="title_browser">Подмодуль &laquo;Обратная связь&raquo; (пример: "Отправить сообщение")</label>
+			<input type="text" name="header_feedback" class="text_field" value="{header_feedback}" />
+			<label for="title_browser">Подмодуль &laquo;Вопрос-ответ&raquo; (пример: "Задать вопрос")</label>
+			<input type="text" name="header_faq" class="text_field" value="{header_faq}" />
+			<label for="title_browser">Подмодуль &laquo;Фотогалерея&raquo; (пример: "Фотогалерея")</label>
+			<input type="text" name="header_photo" class="text_field" value="{header_photo}" />
+			<label for="title_browser">Подмодуль &laquo;Файлы на страницу&raquo; (пример: "Прикрепленные файлы")</label>
+			<input type="text" name="header_files" class="text_field" value="{header_files}" />
+			<label for="title_browser">Подмодуль &laquo;Видео на страницу&raquo; (пример: "Видео")</label>
+			<input type="text" name="header_video" class="text_field" value="{header_video}" />
+			<label for="title_browser">Подмодуль &laquo;Показывать подразделы&raquo; (пример: "Подрубрики раздела &laquo;%NAME%&raquo;")</label>
+			<input type="text" name="header_subsection" class="text_field" value="{header_subsection}" />
+		</div>
+	</fieldset> -->
+	
+	<!-- <fieldset>
+		<a href="#" class="toggler">
+			<span class="arrow"></span>
+			<span>Ссылки</span>
+		</a>
+		<div>
+			<label for="quick_link1">Мобильная версия ВХОД</label>
+			<input type="text" name="quick_link1" class="text_field" value="{quick_link1}" />
+			
+			<label for="quick_link2">План сайта</label>
+			<input type="text" name="quick_link2" class="text_field" value="{quick_link2}" />
+			
+			<label for="quick_link3">Написать письмо</label>
+			<input type="text" name="quick_link3" class="text_field" value="{quick_link3}" />
+		</div>
+	</fieldset> -->
+	
+
+	
+<!-- 	<fieldset>
+		<label for="title_browser">Формат слова "на печать"</label>
+		<input type="text" name="print_word" class="text_field" value="{print_word}" />
+	</fieldset> -->
+	<fieldset>
+		<label for="search_count">Количество пунктов на странице "Результаты поиска"</label>
+		<input type="text" name="search_count" class="min text_field" value="{search_count}"/>
+	</fieldset>
+	<fieldset>
+		<label for="certificate_link">Ссылка на Сертификаты</label>
+		<input type="text" name="certificate_link" class="text_field" value="{certificate_link}" />
+	</fieldset>
+	
+	<fieldset class="yellow">
+		<input type="submit" value="Сохранить" class="submit" />
+	</fieldset>
+</form>

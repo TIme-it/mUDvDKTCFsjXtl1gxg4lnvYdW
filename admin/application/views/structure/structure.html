@@ -1,0 +1,63 @@
+<style type="text/css">
+	#sortable {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+	#sortable li .usd {
+		width: 430px;
+		height: 1.5em;
+		background: #E9F1F5;
+		border: 1px solid #8E9192;
+		padding: 5px;
+		margin: 0 5px 5px 0;
+	}
+	html > body #sortable li .usd {
+		height: 1.5em;
+		line-height: 1.2em;
+		padding: 5px;
+		margin: 0 5px 5px 0;
+	}
+	.ui-state-highlight {
+		height: 1.5em;
+		line-height: 1.2em;
+		padding: 5px;
+		margin: 0 5px 5px 0;
+	}
+</style>
+<script type="text/javascript">
+	function sendSort() {
+		var arr = new Array();
+		$('#sortable .usd').each(function() {
+			arr.push($(this).attr('title'));
+		});
+		$.ajax({
+			url: "/admin/structure/update/",
+			type: "POST",
+			cache: false,
+			data: 'tree='+arr,
+			success: function(response) {
+				alert('{alert_change_data}');
+			}
+		});
+	}
+</script>
+<h2>Структура сайта</h2>
+<form class="page_form">
+	<fieldset>
+		<label>Директория для сортировки</label>
+		<select name="directory" onchange="sort_this($(this).val())">
+		{option_list}
+			<option value="{id}">{title}</option>
+		{/option_list}
+	</select>
+	</fieldset>
+	<fieldset>
+		<div id="sortable_area">
+			{dirs}
+		</div>
+	</fieldset>
+	<fieldset class="yellow">
+		<input type="button" id="buttonchik" value="Сохранить" onClick="sendSort();" />
+	</fieldset>
+</form>

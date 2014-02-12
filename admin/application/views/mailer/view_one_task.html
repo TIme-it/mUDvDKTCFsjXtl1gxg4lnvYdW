@@ -1,0 +1,23 @@
+<h2> <a href = "\admin\mailer\">Рассылка</a> / Задача</h2>
+<table cellpadding="0" cellspacing="0" class="listing listing_tbl" id="listing_{gid}" {style}>
+	<tr>
+		<th> # </th>
+		<th> email</th>
+		<th> попытки</th>
+		<th> текст</th>
+		<th> Статус</th>
+
+	</tr>
+{letters}
+<tr {!%2}class="even"{/!%2}>
+
+	<td>{#}</td>
+	<td>{email}</td>
+	<td>{try_count}</td>
+	<td>{text}</td>
+	<td>{state}</td>
+	
+	
+</tr>
+{/letters}
+</table>

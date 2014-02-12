@@ -1,0 +1,26 @@
+<div class="sub-links">
+	{?author}
+		<div class="sub-author"><span>Автор: </span>{author}</div>
+	{/?author}
+	
+	{?print}
+		<ul class="sub-print menu_block right_menu_block">
+			<li>
+			<a href="/all/onprint/{mid}/{pid}/" target="_blank">
+				<span class="menu_left"></span>
+				<span class="menu_right"></span>
+				<span class="img"></span>
+				<span>{print_word}</span>
+			</a>
+			</li>
+		</ul>
+	{/?print}
+	
+	<div class="clear"></div>
+
+	{?source}
+		<div class="sub-source"><span>Источник: </span>{source}</div>
+	{/?source}
+	
+	<div class="clear"></div>
+</div>

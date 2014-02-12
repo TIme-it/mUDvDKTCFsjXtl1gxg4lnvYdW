@@ -1,0 +1,69 @@
+<!-- {breadcrumbs} -->
+{main}
+<div class="breadcrumbs">
+	<p><a href="/">Главная</a> / <a href="/catalog/">Каталог продукции</a> / <a href="">{title}</a></p>
+</div>
+<h1 class="title">{title}</h1>
+<div class="print_div"><a href="#" class="print">Версия для печати</a></div>
+<div class="pages_container">
+	<!-- {breadcrumbs} -->
+	<div class="text">
+		{text}
+	</div>
+{/main}
+</div>
+<div class="clear"></div>
+ <div class="five_best_selling">
+  <div class="box">
+    {subfamily}
+    <div class="clear"></div>
+    <a href="{url}">
+      <div class="hover_layout">
+        <div class="fbs_item">
+            <div class="left_fbs">
+              <img src="/application/includes/catalog/subfamily/small/{id}.jpg" alt="" />
+            </div>
+            <div class="right_fbs">
+              <p class="fbs_title">{mods_title} {title}</p>
+              <table>
+                <tr>
+                  <td>
+                    <p class="efficiency">Эффективность:</p>
+                  </td>
+                  <td>
+                    <p class="network">Световой поток:</p>
+                  </td>
+                  <td>
+                    <p class="power">Мощность:</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="characteristics">до {efficiency} лм/вт</p>
+                  </td>
+                  <td>
+                    <p class="characteristics">до {stream} лм</p>
+                  </td>
+                  <td>
+                    <p class="characteristics">до {power} Вт</p>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        </a>
+    {/subfamily}
+  </div>
+</div>
+
+{five_best_sell}
+
+{?galleryBlock}
+<div class="gallery">
+  <p class="title">Фотогалерея</p>
+  <div class="boxery">
+    {galleryBlock}
+  </div>
+</div>
+{/?galleryBlock}

@@ -1,0 +1,21 @@
+<div class="container"><h1>{title}</h1></div>
+<div class="left_block">
+	{productBlock}
+</div>
+<div class="right_block">
+	{actions_news_block}
+</div>
+
+<script type="text/javascript">
+	(function($) {
+		$(document).ready(function() { 
+			$('.action_item div').each(function(){
+				m_height = $('.action_item').height();
+				d_height = $(this).outerHeight(true);
+				css_top = (m_height - d_height)/2;
+				$(this).css('top', css_top+'px');
+			})
+		});
+
+	})(jQuery);
+</script>

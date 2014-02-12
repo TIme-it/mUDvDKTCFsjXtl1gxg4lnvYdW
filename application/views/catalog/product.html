@@ -1,0 +1,47 @@
+<div id="product_top">
+	<div class="container"><h1>{title}</h1></div>
+		<div class="item">
+			<div class="left_side">
+				<div class="item_img">
+					<img src="/application/includes/catalog/catalog_product/b/{id}.png" alt="">
+				</div>
+				<div class="add_img">
+					{?minigallery}
+						<a href="#" id="minigal_item0" class="active" data-imgtype="orig" data-id="{id}"><img src="/application/includes/catalog/catalog_product/s/{id}.png" alt="" width="69" height="69" ></a> 
+						{minigallery}
+				        	<a href="#" id="minigal_item{#}" data-imgtype="add" data-id="{id}" ><img src="/application/includes/catalog/catalog_product/d/s/{id}.png" width="69" height="69" alt=""/></a> 
+				        {/minigallery}
+					{/?minigallery}
+				</div>
+			</div>
+			<div class="right_side">
+				{text}
+				{?text}
+				<div class="order">
+					<p class="price"><span>{tchars}{model_price}{/tchars} <img src="/application/includes/images/rub_big_ico.png"/></span></p>
+					<a href="/popup/catalog/order/" class="order_button fancy" data-fancybox-type="ajax" data-id="{id}" data-title="{title}">
+						<span>ЗАКАЗАТЬ</span>
+					</a>
+				</div>
+					<div class="gray_line"></div>
+				{/?text}
+			</div>
+		</div>
+
+	
+</div>
+
+<script type="text/javascript">
+	(function($) {
+		$(document).ready(function() { 
+			$('.middle_wrap').css('overflow', 'inherit');
+			$('#main_page').children('.middle_wrap').prepend('<div class="return"><a href="{parent_url}">Вернуться к покупкам</a></div>');
+
+			// Отсчитывает отступ от подменю
+			var height = $('#menu .submenu').height() / 2;
+			var newTop = parseInt($('.middle_wrap .return').css('top')) + height;
+			$('.middle_wrap .return').css('top', newTop);
+		});
+
+	})(jQuery);
+</script>

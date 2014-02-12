@@ -1,0 +1,1 @@
+<?php	class character_image_helpner {				public function __construct() {			die('Hello!!!');		}				public function test() {			die('Test!!!');		}			}?>

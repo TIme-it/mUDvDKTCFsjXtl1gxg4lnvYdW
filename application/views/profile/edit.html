@@ -1,0 +1,46 @@
+<link rel="stylesheet" type="text/css" href="/application/includes/js/uploadify/uploadify.css" />
+<script type="text/javascript" src="/application/includes/js/uploadify/swfobject.js"></script>
+<script type="text/javascript" src="/application/includes/js/uploadify/jquery.uploadify.min.js"></script>
+<script type="text/javascript" src="/application/includes/js/avatar.js"></script>
+<script type="text/javascript" src="/application/includes/js/avatar_editor.js"></script>
+<h1>Редактировать профиль</h1>
+<table><tr><td style="vertical-align:top;padding-right:20px;">
+		<div id="avatar_big"><img src="{ava_src}" width="230" height="230" /></div>
+		<button style="float: right;" id="uploadify_up" disabled="disabled">Загрузить</button>
+		<button id="uploadify">Добавить файлы</button><br clear="all" />
+		<div id="fileQueue"></div>
+		<script type="text/javascript">uploadifyInit({user_id}, '{avatar_token}');</script>
+	</td><td>
+		<form method="post" class="form">
+			<input type="hidden" name="sex" value="0" />
+			<fieldset>
+				<label>Логин:</label>
+				<span><b>{login}</b></span>
+			</fieldset>
+			<fieldset>
+				<label>E-mail:</label>
+				<span><b>{email}</b></span>
+			</fieldset>
+			<fieldset>
+				<label>Дата рождения:</label>
+				<select name="bday[d]"><option value="0">--</option>{bday_opt_d}</select>
+				<select name="bday[m]"><option value="0">--</option>{bday_opt_m}</select>
+				<select name="bday[y]"><option value="0">--</option>{bday_opt_y}</select>
+			</fieldset>
+			<fieldset>
+				<label>Пол:</label><input type="radio" value="1" name="sex" id="sex_m" {sex_1} />
+				<label style="float:none;display:inline;" for="sex_m">Мужской</label><br />
+				<label>&nbsp;</label><input type="radio" value="2" name="sex" id="sex_f" {sex_2} />
+				<label style="float:none;display:inline;" for="sex_f">Женский</label>
+			</fieldset>
+			<fieldset>
+				<label>О себе:</label>
+				<textarea name="about">{about}</textarea>
+			</fieldset>
+			<fieldset>
+				<label>&nbsp;</label>
+				<input type="submit" value="Сохранить" /> или <a href="/profile/">вернуться в профиль</a	>
+			</fieldset>
+		</form>
+	</td></tr>
+</table>

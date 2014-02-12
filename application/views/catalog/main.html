@@ -1,0 +1,49 @@
+<div class="breadcrumbs">
+	<p><a href="/">Главная</a> <a>/</a> <a>Каталог продукции</a> </p>
+</div>
+{main}
+<h1 class="title">{title}</h1>
+<div class="print_div print_nopic"><a class="print"></a></div>
+<div class="pages_container">
+	<!-- {breadcrumbs} -->
+	<div class="text">
+		<span>{text}</span>
+	</div>
+{/main}
+</div>
+{types}
+<div class="five_best_selling">
+	<a href="{url}"><p class="title">{title} светильники</p></a>
+	<div class="box">
+		{mods}
+		<div class="clear"></div>
+		<a href="{url}">
+			<div class="hover_layout">
+				<div class="fbs_item catalog_mods">
+					<div class="left_fbs">
+			        	<img src="/application/includes/catalog/modifications/small/{id}.jpg" alt="" />
+			     	</div>
+
+					<div class="right_fbs">
+			        <p class="fbs_title">{title}</p>
+			        {text}
+			        <!-- <p class="price">от {price} Р</p> -->
+			      	</div>
+	      		</div>
+      		</div>
+      	</a>
+      	{/mods}
+		<div class="clear"></div>
+	</div>
+</div>
+{/types}
+{five_best_sell}
+
+{?galleryBlock}
+<div class="gallery">
+	<p class="title">Фотогалерея</p>
+	<div class="boxery">
+		{galleryBlock}
+	</div>
+</div>
+{/?galleryBlock}

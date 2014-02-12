@@ -1,0 +1,25 @@
+<div id = "top_block">
+  
+    <div id = "slider_background" style=" background: transparent url('/application/includes/slides/{f_id}.jpg') 0 0 no-repeat; ">
+      <div class = "left_arrow_block">
+        <a href=  "#" class ="left_arrow"></a>
+      </div>     
+      <a href = "{f_link}" target = "_blank"class = "link_adress"></a>       
+      <div class = "right_arrow_block">
+        <a href=  "#" class ="right_arrow"></a>
+      </div>
+      <div class ="blocks_on_slide">
+        
+        <div class = "slider_links">
+          {slides}
+            <span class = "slider_link_nv hide_class" data-link-id = "{id}">{link}</span>
+            <h2 class = "slider_header_nv hide_class" data-header-id = "{id}">{title}</h2>
+            <a href = "{num}" class ="slider_link{?sel} active{/?sel}" data-id="{id}"></a>
+          {/slides}
+        </div>
+          <div class = "clear"></div>
+      </div>
+    </div>
+ 
+  
+</div>

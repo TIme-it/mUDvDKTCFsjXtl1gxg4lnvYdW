@@ -1,0 +1,19 @@
+<table cellpadding="0" cellspacing="0" class="listing listing_tbl" id="listing_{gid}" {style}>
+	<tr>
+		<th style="width:1%">#</th>
+		<th style="width:1%">#</th>
+		<th>Вопрос</th>
+		<th>Автор</th>
+		<th>Дата</th>
+	</tr>
+	{list}
+	<tr {!%2}class="even"{/!%2}>
+		<td><input class="check_faq" type="checkbox" name="ids[]" value="{id}" /></td>
+		<td><a href="/admin/faq/delete/{id}/" class="del_service_row" onClick="if(!confirm('Вы действительно хотите удалить этот вопрос?')) return false;">&nbsp;</a></td>
+		
+		<td><a href="/admin/faq/edit/{id}/" title="{full_title}">{question}</a></td>
+		<td><small style="color: gray;">{fioUser}</small></td>
+		<td><small style="color: gray;">{dateQuestion}</small></td>
+	</tr>
+	{/list}
+</table>

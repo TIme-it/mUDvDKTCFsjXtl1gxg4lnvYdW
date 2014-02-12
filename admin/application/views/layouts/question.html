@@ -1,0 +1,32 @@
+{wysiwyg}
+<h2>Отправить вопрос в службу поддержки</h2>
+<script type="text/javascript">
+	function send_support() {
+		var reg = /^\s*([a-z0-9_\-\.])+\@([a-z0-9_\-\.])+\.[a-z]+\s*$/i;
+		if(reg.test($('#response_mail').val())) {
+			$('#support_form').submit();
+			return true;
+		}
+		alert('Необходимо указать корректный E-mail для ответа');
+		return false;
+	}
+</script>
+<form action="/admin/config/question/" method="POST" class="page_form" id="support_form">
+	<input type="hidden" name="action" value="question" />
+	<fieldset>
+		<label for="response_mail">E-mail для ответа</label>
+		<input type="text" name="response_mail" class="text_field" id="response_mail" />
+	</fieldset>
+	<fieldset>
+		<label for="from">Ваше имя</label>
+		<input type="text" name="from" class="text_field"/>
+	</fieldset>
+	<fieldset>
+		<label for="text">Ваш вопрос</label>
+		<textarea name="question" class="text_field" class="sall_wysi"></textarea>
+	</fieldset>
+	<fieldset class="yellow">
+		<input type="button" value="Отправить" onClick="send_support();" />
+	</fieldset>
+</form>
+{message}

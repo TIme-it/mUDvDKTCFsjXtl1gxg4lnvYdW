@@ -1,0 +1,71 @@
+{wysiwyg}
+<h2>{main_title}</h2>
+<form action="/{admin_dir}/faq/edit_category/{main_id}/" method="post" class="page_form">
+	<fieldset>
+		<label for="title">Заголовок для страницы</label>
+		<input type="text" name="title_page" class="text_field" value="{title_page}" />
+	</fieldset>
+	
+	<fieldset>
+		<label for="title">Заголовок для меню</label>
+		<input type="text" name="title" class="text_field" value="{main_title}" />
+	</fieldset>
+	{settings_block}
+	
+	<fieldset>
+		<a href="#" class="toggler">
+			<span class="arrow"></span>
+			<span>Описание для поисковых систем</span>
+		</a>
+		<div>
+			<label for="description">Описание страницы</label>
+			<input type="text" class="text_field" name="description" value="{description}"/>
+			<label for="keywords">Ключевые слова</label>
+			<input type="text" class="text_field" name="keywords" value="{keywords}" />
+		</div>
+	</fieldset>
+	
+	<fieldset>
+		<label for="text" class="block">Текст страницы<span class="help" rel="1:1"></span></label>
+		<textarea name="text" class="text_field big_text mceEditor">{text}</textarea>
+	</fieldset>
+	
+	<fieldset>
+		<b><a href="/admin/faq/view_items/{pid}">Список вопросов</a></b>
+	</fieldset>
+	
+	<fieldset>
+		<ul class="inside_fields">
+			<li><label for="faq_count">Количество вопросов на странице</label>
+				<input type="text" name="faq_count" id="faq_count" class="min text_field" value="{faq_count}" /></li>
+<!-- 			<li><input type="hidden"   name="config[out_valid]" value="0" />
+				<input type="checkbox" name="config[out_valid]" value="1" id="out_valid" {checked_out_valid} />
+				<label for="out_valid" class="inline">Вопросы отображаются на сайте до момента ответа или проверки модератором</label></li>
+			<li><input type="hidden"   name="config[send_notice]" value="0" />
+				<input type="checkbox" name="config[send_notice]" value="1" id="send_notice" {checked_send_notice} />
+				<label for="send_notice" class="inline">Отправлять уведомление администратору</label></li> -->
+		</ul>
+	</fieldset>
+	
+	<input type="hidden" name="template" value="layoutFaq">
+	<!--<fieldset>
+		<label for="template">Выберите шаблон</label>
+		<select name="template" id="template">
+			<option value="layoutFaq"  {layoutFaqSelected}>Первый шаблон</option>
+			<option value="layoutFaq2" {layoutFaq2Selected}>Второй шаблон</option>
+		</select>
+		<a href="/{admin_dir}/application/includes/images/templates/{template}.png" class="ajax_link" id="templateLink" target="_blank">Посмотреть шаблон</a>
+	</fieldset>-->
+	
+	<!-- {yandex_maps_block} -->
+
+	
+	<fieldset class="yellow">
+		<input type="submit" value="Сохранить" />
+		<a href="/{admin_dir}/module/delete/{main_id}/" onclick="if(!confirm('Вы действительно хотите удалить этот раздел?')) return false" class="trash_button">Удалить раздел</a>
+	</fieldset>
+</form>
+<h2>Дополнительные модули</h2>
+{photos_block}
+{images_block}
+{files_block}

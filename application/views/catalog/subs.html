@@ -1,0 +1,123 @@
+<!-- {breadcrumbs} -->
+<div class="breadcrumbs">
+	<p><a href="/">Главная</a> <a>/</a> <a href="/catalog/">Каталог продукции</a> <a>/</a> <a href="{type}{url}{/type}">{type}{title} светильники{/type}</a> <a>/</a> <a href="{mods}{url}{/mods}">Lumier {mods}{title}{/mods}</a> <a>/</a> <a>{main}{title}{/main}</a></p>
+</div>
+{main}
+<h1 class="title">{mods_title} {title}</h1>
+<div class="print_div"><a href="#" class="print">Версия для печати</a></div>
+<div class="pages_container">
+	<!-- {breadcrumbs} -->
+	<div class="foto_image">
+		<img src="/application/includes/catalog/subfamily/big/{id}.jpg" alt="">
+	</div>
+	<div class="character_img">
+		{images}
+			{?state}<img src="/application/includes/small_lamps/{num}.jpg" {?%12} style = "margin-right:0px;" {/?%12} alt="">{/?state}
+		{/images}
+	</div>
+	<div class="tabs">
+		<table class="table_tabs">
+			<tr>
+				{?first_inset}<td><a href="#tabs-1">{first_inset}</a></td>{/?first_inset}
+				{?second_inset}<td><a href="#tabs-2">{second_inset}</a></td>{/?second_inset}
+				<td><a href="#tabs-3">Комплектация</a></td>
+			</tr>
+		</table>
+		{?first_inset}
+			<div id="tabs-1" class="dim">
+				<span>{lumpt8}</span>
+				<div class="ies_sketch_kss">
+					<a href="/popup/all/feedback_ajax/2" class="orange_button fancy" data-fancybox-type="ajax">Заказать .ies файлы</a>
+					<div class="sketch">
+						<h2>Эскиз</h2>
+						<img src="/application/includes/catalog/subfamily/sketch/{id}.jpg" alt="">
+					</div>
+					<div class="kss">
+						<h2>Кривая КСС</h2>
+						{kss_images} 
+							<a href="/application/includes/catalog/subfamily/kss/big/{id}.jpg" class="fancy"><img src="/application/includes/catalog/subfamily/kss/small/{id}.jpg" {?kss_count_1}width="220px" height="220px"{/?kss_count_1} {?kss_count_2}width="220px" height="220px"{/?kss_count_2} {?kss_count_3}width="140px" height="140px"{/?kss_count_3}></a>
+						{/kss_images}
+					</div>
+				</div>
+			</div>
+		{/?first_inset}
+		{?second_inset}
+			<div id="tabs-2" class="dim">
+				<span>{lumpt5}</span>
+				<div class="ies_sketch_kss">
+					<a href="/popup/all/feedback_ajax/2" class="orange_button fancy" data-fancybox-type="ajax">Заказать .ies файлы</a>
+					<div class="sketch">
+						<h2>Эскиз</h2>
+						<img src="/application/includes/catalog/subfamily/sketch/{id}.jpg" alt="">
+					</div>
+					<div class="kss">
+						<h2>Кривая КСС</h2>
+						{kss_images} 
+							<a href="/application/includes/catalog/subfamily/kss/big/{id}.jpg" class="fancy"><img src="/application/includes/catalog/subfamily/kss/small/{id}.jpg" {?kss_count_1}width="220px" height="220px"{/?kss_count_1} {?kss_count_2}width="220px" height="220px"{/?kss_count_2} {?kss_count_3}width="140px" height="140px"{/?kss_count_3}></a>
+						{/kss_images}
+					</div>
+				</div>
+			</div>
+		{/?second_inset}
+		<div id="tabs-3"><span>{equipment}</span></div>
+	</div>
+	{/main}
+	<div class="clear"></div>
+	{?galleryBlock}
+		<div class="gallery">
+			<div class="boxery">
+				{galleryBlock}
+			</div>
+		</div>
+	{/?galleryBlock}
+	{main}
+	<div class="five_best_selling">
+		<p class="title">Другие модификации {mods_title}</p>
+	{/main}
+		<div class="box">
+			{subfamilys}
+			<div class="clear"></div>
+			<a href="{url}">
+				<div class="hover_layout">
+					<div class="fbs_item">
+				      <div class="left_fbs">
+				        <img src="/application/includes/catalog/subfamily/small/{id}.jpg" alt="" />
+				      </div>
+				      <div class="right_fbs">
+				        <p class="fbs_title">{mods_title} {title}</p>
+				        <table>
+				          <tr>
+				            <td>
+				              <p class="efficiency">Эффективность:</p>
+				            </td>
+				            <td>
+				              <p class="network">Световой поток:</p>
+				            </td>
+				            <td>
+				              <p class="power">Мощность:</p>
+				            </td>
+				          </tr>
+				          <tr>
+				            <td>
+				              <p class="characteristics">до {efficiency} лм/вт</p>
+				            </td>
+				            <td>
+				              <p class="characteristics">до {stream} лм</p>
+				            </td>
+				            <td>
+				              <p class="characteristics">до {power} Вт</p>
+				            </td>
+				          </tr>
+				        </table>
+				      </div>
+				    </div>
+	      		</div>
+	      	</a>
+	      	{/subfamilys}
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+
+{five_best_sell}
+<div class="clear"></div>

@@ -1,0 +1,35 @@
+<div id="YMapsID" style="height: 400px; margin-top: 10px;"></div>
+<br>
+<table cellpadding="0" cellspacing="0" class="yamap_table">
+<tr>
+	<td class="marks_list">
+		<h3 style="margin: 0">Список точек</h3>
+		<ul>
+			{marks_list}
+			<li rel="{id}">
+				<a href="javascript: void(0)" class="delete_button"></a>
+				<a href="javascript: void(0)" class="mark_edit" rel="{#}">{title}</a>
+			</li>
+			{/marks_list}
+		</ul>
+		<input type="button" onClick="create_mark();" value="Создать точку">
+	</td>
+	<td class="edit_list">
+		
+	</td>
+</tr>
+</table>
+<input type="hidden" value="{mapid}" id="yamap_id">
+
+<script type="text/javascript">
+	map_points = [];
+	var point;
+	{marks_list}
+		point = {	lat: {latitude}, 
+						lon: {longitude},
+						tit: '{title}',
+						not: '{note}'
+					};
+		map_points.push(point);
+	{/marks_list}
+</script>

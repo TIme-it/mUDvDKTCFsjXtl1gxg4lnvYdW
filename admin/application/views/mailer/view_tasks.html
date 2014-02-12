@@ -1,0 +1,20 @@
+<h2> <a href = "\admin\mailer\">Рассылка</a> / Список задач</h2>
+<table cellpadding="0" cellspacing="0" class="listing listing_tbl" id="plug_table" {style}>
+	<thead>
+	<tr>
+		<th> id</th>
+		<th> задачи</th>
+
+	</tr>
+	</thead>
+	<tbody>
+	{task_list}
+	<tr {!%2}class="even"{/!%2}>
+		<td>{id}</td>
+	<td><a href="/admin/mailer/view_one_task/{id}/">{title}</a></td>
+	
+	
+	</tr>
+	{/task_list}
+	</tbody>
+</table>

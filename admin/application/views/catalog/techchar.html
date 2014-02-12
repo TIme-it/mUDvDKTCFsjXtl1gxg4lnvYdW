@@ -1,0 +1,25 @@
+<h2>Каталог</h2>
+<br />
+<a href="/admin/catalog/edit_techchar/">Добавить</a>
+<br />
+<table class="listing listing_tbl">
+	<thead>
+		<th></th>
+		<th>Название</th>
+		<th>Заголовок</th>
+		<th>Подпись слева</th>
+		<th>Подпись справа</th>
+	</thead>
+	{techchars}
+		<tr>
+			<td><a href="#" class="del_techchar" rel="{id}">x</td>
+			<td>{name}</td>
+			<td>{title}</td>
+			<td>{left_part}</td>
+			<td>{right_part}</td>			
+		</tr>
+	{/techchars}
+</table>
+<br />
+<a href="/admin/catalog/edit_techchar/">Добавить</a>
+<br />

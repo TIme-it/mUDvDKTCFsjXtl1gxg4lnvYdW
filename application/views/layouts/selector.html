@@ -1,0 +1,20 @@
+<div id="mod_iservicegroup_price_1261" class="mod_iservicegroup_price">
+  <div class="sm">
+    Прайс на ремонт iPhone/iPad/сотовых:&nbsp;
+  </div>
+  <select name="brands" id="brands" data-placeholder="Выберите производителя">
+    <option value="-1">
+      Выберите производителя
+    </option>
+      {list}
+      <option value="{alias}"> 
+        {title}
+      </option>
+      {/list}                    
+  </select>
+  <select name="models" id="models" data-placeholder="Выберите модель" disabled="disabled">
+    <option value="-1">
+      Выберите модель
+    </option>
+  </select>
+ </div>

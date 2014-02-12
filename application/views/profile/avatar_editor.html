@@ -1,0 +1,11 @@
+<div id="pic_editor_img">
+	<a href="#" class="pic_but" id="pic_1" onClick="return close_win();"><img src="/spacer.gif" width="16" height="16" /><span>закрыть окно</span></a>
+	<a href="#" class="pic_but" id="pic_2" onClick="return pic_rotate(90);"><img src="/spacer.gif" width="16" height="16" /><span>повернуть<br />на 90&deg;по ЧС</span></a>
+	<a href="#" class="pic_but" id="pic_3" onClick="return pic_rotate(-90);"><img src="/spacer.gif" width="16" height="16" /><span>повернуть<br />на 90&deg; против ЧС</span></a>
+	<a href="#" class="pic_but" id="pic_4" onClick="return pic_complete({user_id}, '{token}');"><img src="/spacer.gif" width="16" height="16" /><span>применить</span></a>
+	<img id="pic_shadow_img" style="width:{only_w}px;height:{only_h}px;display:block;" src="/application/includes/profile/ava_temp/{user_id}.jpg?_={rand}" />
+	<div id="pic_shadow" style="width:{only_w}px;height:{only_h}px;">&nbsp;</div>
+	<div id="pic_area">
+		<img id="pic_area_img" src="/application/includes/profile/ava_temp/{user_id}.jpg?_={rand}" {w_and_h} />
+	</div>
+</div>

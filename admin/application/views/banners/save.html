@@ -1,0 +1,49 @@
+<h2><a href="/admin/visban/">Баннеры</a> / {caption}</h2>
+<form action="/{admin_dir}/visban/add/" method="post" enctype="multipart/form-data" class="page_form" >
+	<input type="hidden" name="banner_id" value="{id}">
+	<fieldset>
+		<label for="title">Заголовок</label>
+		<input type="text" name="title" value="{title}" class="text_field" />
+	</fieldset>
+	<fieldset>
+		<label for="link">Ссылка (Например, http://time-it.ru)</label>
+		<input type="text" name="link" value="{link}" class="text_field"/>
+	</fieldset>
+	<fieldset>
+		<label for="banner">Баннер</label><input type="file" name="banner" /> {view}
+	</fieldset>
+	<fieldset>
+		<label for="category_id">Категория</label>
+		<select name="category_id" id="banners_category">
+			{categories}
+				<option value="{category_id}" {selected}>{category_title}</option>
+			{/categories}
+		</select>
+	</fieldset>
+	
+<!-- 	<fieldset>
+		<script type="text/javascript">
+			function forever_change(o) {
+				if(o.checked) {
+					$('.dates').attr('disabled', 'disabled');
+				} else {
+					$('.dates').removeAttr('disabled');
+				}
+			}
+		</script>
+		<label>Период действия</label>
+		<table class="row">
+			<tr><td><nobr><label for="is_forever" class="inline">Дата начала:</label></nobr>&nbsp;&nbsp;</td>
+				<td><input type="text" class="dates text_field min" name="date_begin" id="date_input" {forever_hide} value="{date_begin}" /></td>
+				<td>&nbsp;&nbsp;<nobr><label for="is_forever" class="inline">Дата окончания: </label></nobr>&nbsp;&nbsp;</td>
+				<td><input type="text" class="dates text_field min" name="date_end" id="date_input_2" {forever_hide} value="{date_end}" /></td>
+				<td>&nbsp;&nbsp;<nobr><label for="is_forever" class="inline">Бесконечно: </label></nobr>&nbsp;&nbsp;</td>
+				<td><input type="hidden" name="is_forever" value="0" />
+					<input type="checkbox" id="is_forever" name="is_forever" value="1" onChange="forever_change(this);" {forever_checked} />
+				</td></tr>
+		</table>
+	</fieldset> -->
+	<fieldset class="yellow">
+		<input type="submit" value="Сохранить">
+	</fieldset>
+</form>

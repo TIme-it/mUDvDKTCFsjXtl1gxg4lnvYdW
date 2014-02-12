@@ -1,0 +1,85 @@
+{wysiwyg}
+<h2><a href="/admin/portfolio/view/{pid}">{volume_title}</a> / <a href="/admin/portfolio/view_items/{pid}">Список портфолио</a> / {caption}</h2>
+<form action="/admin/portfolio/add_portfolio/" method="post" class="page_form" enctype="multipart/form-data">
+	<input type="hidden" name="id" value="{id}" id="page_id"/>
+	<input type="hidden" value="{module_id}" id="module_id"/>
+	<input type="hidden" name="pid" value="{pid}" />
+	<fieldset>
+			<label for="title">Название страницы</label><input type="text" name="title" class="text_field" value="{title}" onChange="translit($(this).val())" onKeyup="translit($(this).val())"/>
+	</fieldset>
+	<fieldset>
+		<label for="note" class="block">Описание</label>
+		<textarea name="note" class="text_field" id="note_id">{note}</textarea>
+	</fieldset>
+	<fieldset>
+			<label for="alias" class="block">URL (например, novosti_kompanii)</label>
+			<input type="text" name="alias" {!id}id="url"{/!id}value="{alias}" class="text_field"/>
+	</fieldset>
+	<fieldset>
+		<label for="character_image">Характеризующая картинка</label>
+		<input type="file" name="character_image" /> {character}
+	</fieldset>
+	<fieldset>
+		<span>Видимость:</span>
+		<input type="hidden" name="active" value="0">
+		<input type="checkbox" name="active" value="1" style="vertical-align: middle;" {active}>
+	</fieldset>
+	<fieldset>
+		<span>Отображать в блоке "Наши проекты"</span>
+		<input type="hidden" name="show_in_main" value="0">
+		<input type="checkbox" name="show_in_main" value="1" style="vertical-align: middle;" {show_in_main}>
+	</fieldset>
+	<fieldset>
+		<label for="text" class="block">Текст страницы<span class="help" rel="1:1"></span></label>
+		<textarea name="text" class="text_field big_text mceEditor">{text}</textarea>
+	</fieldset>
+	<!-- <fieldset>
+		<label for="task" class="block">Задача</label>
+		<textarea name="task" class="text_field" id="task">{task}</textarea>
+	</fieldset>
+	<fieldset>
+		<label for="created" class="block">Что сделано</label>
+		<textarea name="created" class="text_field" id="created">{created}</textarea>
+	</fieldset>
+	<fieldset>
+		<label for="result" class="block">Результат</label>
+		<textarea name="result" class="text_field" id="result">{result}</textarea>
+	</fieldset> -->
+
+
+
+	<fieldset>
+		<label for="review_head">Отзыв, название компании</label>
+		<input type="text" name="review_head" class="text_field" value="{review_head}"/>
+	</fieldset>
+	<fieldset>
+		<label for="review" class="block">Отзыв</label>
+		<textarea name="review" class="text_field" id="review">{review}</textarea>
+	</fieldset>
+
+
+
+	<fieldset>
+		<label for="date">Дата добавления</label>
+		<input type="hidden" name="time" value="{time}">
+		<table class="row">
+			<tr><td><input type="hidden" name="date" value="{date}" />
+					<input type="text" name="date" value="{date}" {date_disabled} class="min text_field" id="date_input" />
+					<button id="datepicker_button"></button></td>
+				<td>&nbsp;&nbsp;<nobr><label class="inline">Показывать дату:</label></nobr>&nbsp;</td>
+				<td><input type="hidden" name="is_show_date" value="0" />
+					<input type="checkbox" name="is_show_date" value="1" {is_show_date} onChange="if(this.checked) $('#date_input').removeAttr('disabled'); else $('#date_input').attr('disabled','disabled');" /></td></tr>
+		</table>
+	</fieldset>
+	<!-- {yandex_maps_block} -->
+
+	<fieldset class="yellow">
+		<input type="submit" value="Сохранить" />
+		{delete_portfolio}
+	</fieldset>
+</form><br/>
+<h2>Дополнительные модули</h2>
+{photos_block}
+{images_block}
+{files_block}
+	<!-- modules_block} -->

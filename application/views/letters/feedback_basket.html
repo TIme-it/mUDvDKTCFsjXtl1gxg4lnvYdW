@@ -1,0 +1,31 @@
+<h3>Пришел новый заказ с сайта</h3>
+<h3>{header_feedback}</h3>
+<table border="0" cellpadding="5">
+	<tr><td valign="top"><b>Ф.И.О.:</b></td>
+		<td valign="top">{fio}</td></tr>
+	<tr><td valign="top"><b>Организация:</b></td>
+		<td valign="top">{org}</td></tr>
+	<tr><td valign="top"><b>e-mail:</b></td>
+		<td valign="top">{email}</td></tr>
+	<tr><td valign="top"><b>Номер телефона:</b></td>
+		<td valign="top">{phone}</td></tr>
+	<tr><td valign="top"><b>Примечание:</b></td>
+		<td valign="top">{text}</td></tr>
+</table>
+<table border="0" cellpadding="5">
+	<tr><td valign="top"><b>Товар:</b></td></tr>
+	{subs}
+	<tr>
+		<td>{mod_title} {title} в кол-ве: {number} шт.</td>
+	</tr>
+	{/subs}
+</table>
+
+<table border="0" cellpadding="5">
+	<tr><td valign="top"><b>Дополнительные услуги:</b></td></tr>
+	{bservices}
+	<tr>
+		<td>{title}</td>
+	</tr>
+	{/bservices}
+</table>

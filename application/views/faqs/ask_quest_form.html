@@ -1,0 +1,51 @@
+<div class="faq">
+	<div id="ask_question_form" class="content_block_inner">
+		<h2>Спрашивайте</h2>
+		<form id="faqForm" class="form" action="/popup/faq/sendQuestion/" method="post" onsubmit="return CheckFaqForm($(this));">
+			<input type="hidden" name="pid" value="{id}" />
+			<fieldset>
+				<label class ="faq_label" for ="fio">Как к Вам обращаться</label>
+				<input type="text" class="text_f def_text" name="fio" id="fio" placeholder="Ф.И.О." rel=""/>
+			</fieldset>	
+			<fieldset>
+				<label class ="faq_label" for ="question">Сообщение</label>
+				<textarea name="question" id="question" class="text_f def_text" placeholder="" rel=""></textarea>
+			</fieldset>
+			<fieldset class="field_capcha">
+					<input type="text" name="capcha" id="capcha" placeholder="Введите защитный код" />
+					<img src="/popup/captcha/cap" />
+					<a href = "#" class = "submit_button confirm_button">
+						<span>Отправить</span>
+					</a>
+				</fieldset> 
+			<div class ="clear"></div>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+	(function($) {
+			CheckFaqForm = function(form) {
+				var errors = [];
+				
+				var obj = form.find('#fio');
+				if (obj.val() == '' || obj.val() == obj.attr('rel')) errors.push('Введите свое имя');
+						
+				obj = form.find('textarea');
+				if (obj.val() == '' || obj.val() == obj.attr('rel')) errors.push('Введите вопрос');
+
+				
+				if (errors.length > 0) {
+					alert(errors.join('\n\r'));
+					return false;
+				}
+				return true;
+			}
+		})(jQuery);
+</script>
+
+{?alert}
+  <script type="text/javascript">
+    $.fancybox('<div class="alertMessage"><p>{alert}</p></div>');
+  </script>
+{/?alert}

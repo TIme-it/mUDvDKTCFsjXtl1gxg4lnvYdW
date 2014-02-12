@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	{head}
+</head>
+<body onLoad="print();">
+	<div id="content">
+		<a id="logo" href="/"><img src="/application/includes/images/logop.jpg" /></a>
+		<div class="clear"></div>
+		<h1>{title}</h1>
+		{text}
+		
+		<div class="clear"></div>
+		<div class="sub-links">
+			{?is_show_date}
+				<div class="sub-date">{date}</div>
+			{/?is_show_date}
+			
+			{?author}
+				<div class="sub-author">{author}</div>
+			{/?author}
+			<div class="clear"></div>
+		</div>
+		
+		<div class="clear"></div>
+		<div id="footer_block">
+			{?address}<p><b>Адрес:</b> {address}</p>{?/address}
+			{?phone}<p><b>Телефон:</b> {phone}</p>{/?phone}
+		</div>
+		
+	</div>
+</body>
+</html>

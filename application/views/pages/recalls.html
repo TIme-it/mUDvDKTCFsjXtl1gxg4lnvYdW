@@ -1,0 +1,26 @@
+<h2>Оставить отзыв</h2>
+<form id="recallsForm" class="form" action="/all/recalls/" method="post">
+	<fieldset>
+		<label for="fio">Имя:</label>
+		<input type="text" name="fio" class="text full" />
+	</fieldset>
+	<fieldset>
+		<label for="email">E-mail:</label>
+		<input type="text" name="email" class="text full" />
+	</fieldset>
+	<fieldset>
+		<label for="text">Вопрос:</label>
+		<textarea name="text" class="full"></textarea>
+	</fieldset>
+	<fieldset class="captcha">
+		<label for="captcha">Защитный код:</label>
+		<div>
+			<img src="/application/captcha/recalls/" alt="Введите код с картинки" title="Введите код с картинки"/>
+			<input type="text" name="captcha" class="text captcha" />
+		</div>
+	</fieldset>
+	<fieldset class="submit">
+		<input type="hidden" name="pid" value="{pid}" />
+		<input class="submit" type="submit" value="Отправить" />
+	</fieldset>
+</form>

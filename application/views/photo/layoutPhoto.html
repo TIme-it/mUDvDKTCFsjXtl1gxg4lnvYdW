@@ -1,0 +1,21 @@
+<div id="galereya">
+<script type="text/javascript"></script>
+	<table id="photos" {ajax}>
+		<tr>
+			{imageList}
+				<td class="partner_item item" style="width:140px;">
+					<script type="text/javascript">var photo_ids = new Array();</script>
+		<!--<a href="#{id}"> <img src="/application/includes/img/l/{id}.jpg" style="width:{width};height:{height};"{onclick} /></a>-->		
+					<a href="#{id}" {onclick} >
+						<img width="135px" height="90px" src="/application/includes/img/l/{id}.jpg" />						
+					</a>
+					<span class="img_note">{note}</span>
+				</td>
+				{?%4}</tr><tr>{/?%4}
+				<!-- {!%4}<td>&nbsp;</td>{/!%4} -->
+			{/imageList}
+		</tr>
+		{imageData}
+	</table>
+	{pagination}
+</div>

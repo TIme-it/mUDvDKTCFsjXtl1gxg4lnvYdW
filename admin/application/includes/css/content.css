@@ -1,0 +1,187 @@
+@font-face {
+    font-family: AgoraBold; /* Имя шрифта */
+    src: url('/application/includes/fonts/AgoraSerifPro/PFAgoraSerifPro-Bold.ttf') format('truetype'); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: PTSansRegular; /* Имя шрифта */
+    src: url('/application/includes/fonts/PTSans/PT Sans Regular.ttf') format('truetype'); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: PTSansItalic; /* Имя шрифта */
+    src: url('/application/includes/fonts/PTSans/PT Sans Italic.ttf') format('truetype'); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: PTSansBold; /* Имя шрифта */
+    src: url('/application/includes/fonts/PTSans/PT Sans Bold.ttf') format('truetype'); /* Путь к файлу со шрифтом */
+}
+
+.content h1, #tinymce h1 {
+	font: 43px/40px AgoraBold, Verdana, Tahoma, Arial;
+	margin-bottom: 12px;
+	text-decoration: none;
+	display: block;
+}
+
+.content h2, #tinymce h2 {
+    font: 32px/30px AgoraBold, Verdana, Tahoma, Arial;
+    color: #000;
+    margin-bottom: 28px;
+}
+.content h3, #tinymce h3 {
+	font: 18px/22px PTSansBold, Verdana, Tahoma, Arial;
+}
+em{
+	font-size: inherit;
+	line-height: inherit;
+	font-style: italic;
+}
+
+.content p, #tinymce p, .content a, #tinymce a, .content li, #tinymce li, .content ul, #tinymce ul, .content td, #tinymce td, .content span, #tinymce span, .content b, #tinymce b {
+	font: 16px/22px PTSansRegular, Verdana, Arial;
+	color:#111;
+}
+.content span, #tinymce span {
+	float:none;
+	text-align:left;
+	font-weight: inherit;
+}
+
+.content p, #tinymce p {
+	margin-bottom:15px;
+	font-weight: inherit;
+}
+
+.content p em, #tinymce p em {
+	font: 16px/22px PTSansItalic, Verdana, Arial;
+}
+
+.content strong, #tinymce strong {
+	font-size: inherit;
+}
+.content a, #tinymce a{
+	color:#d02650;
+}
+
+.content a:hover, #tinymce a:hover {
+	color: #ff0000;
+}
+
+.content a:visited, #tinymce a:visited{
+	color:#692F9B;
+}
+
+.content ul, .content ol, #tinymce ul, #tinymce ol {
+	-webkit-padding-start: 20px;
+	-moz-padding-start: 20px;
+}
+
+.content ul,ol, #tinymce ul,ol {
+	/*margin-left:15px;*/
+	margin-bottom:17px;
+}
+
+.content ul, #tinymce ul {
+	margin-left: -5px;
+	list-style:  outside disc;
+}
+
+.content ul li, #tinymce ul li {
+	padding-left: 5px;
+}
+
+.content ol{
+	list-style: outside decimal;
+}
+
+.content li, #tinymce li {
+	/*margin-left: 18px;*/
+	margin-top: 6px;
+	line-height: 32px;
+}
+
+.content ul li, #tinymce ul li {
+	list-style-image: url(/application/includes/images/list_marker.png) !important;
+}
+
+.content ol li{
+
+}
+
+
+.content table, #tinymce table {
+	width:100%;
+	margin-bottom: 17px;
+	border: 1px solid #fff;
+}
+
+.content table caption, #tinymce table caption {
+	text-align:left;
+	padding-left: 20px;
+	line-height:18px;
+}
+
+.content table caption span, #tinymce table caption span {
+	color: #888;
+}
+
+.content table .table_header, #tinymce table .table_header {
+	background: #02234f;  /* Для старых браузров */
+    background: -moz-linear-gradient(top, #04509e, #02234f); /* Firefox 3.6+ */
+    /* Chrome 1-9, Safari 4-5 */
+    background: -webkit-gradient(linear, left top, left bottom, 
+                color-stop(0%,#04509e), color-stop(100%,#02234f));
+    /* Chrome 10+, Safari 5.1+ */
+    background: -webkit-linear-gradient(top, #04509e, #02234f);
+    background: -o-linear-gradient(top, #04509e, #02234f); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #04509e, #02234f); /* IE10 */
+    background: linear-gradient(top, #04509e, #02234f); /* CSS3 */ 
+    margin-bottom:12px;
+}
+
+.content table .table_header td, #tinymce table .table_header td {
+	font: 14px/31px sansationregular;
+	border: 1px solid #fff;
+	color: white;
+}
+
+.content table tr, #tinymce table tr {
+	border-bottom: 1px solid #fff;
+}
+
+.content table tr.odd, #tinymce table tr.odd {
+	/*background-color: #f5f5f5; */
+}
+
+.content table td, #tinymce table td{
+	border: 1px solid #fff;
+	background-color: #F0F0F0;
+	font: 12px/30px Arial;
+	padding:0px 10px;
+}
+
+.content img, #tinymce img {
+/*	border:10px solid transparent;
+	margin:5px;*/
+}
+.content .left, #tinymce .left {
+	float:left;
+	margin-left:0px;
+}
+.content .right, #tinymce .right {
+	float:right;
+	margin-right:0px;
+}
+
+#tinymce script {
+	display: block;
+	width: 200px;
+	height: 20px;
+}
+
+
+#tinymce script:before {
+	content: '{Яндекс.карты}';
+}

@@ -1,0 +1,16 @@
+<p><strong>Контактная информация</strong></p>
+<p><span>Контактное лицо:&nbsp;</span><span>Сергей Ефимов</span></p>
+<p><span>Сайт компании:&nbsp;</span><a href="http://tsp-fs.ru/" target="_blank">http://tsp-fs.ru</a></p>
+<p><strong>Общая информация</strong></p>
+<p><span>Название:&nbsp;</span><span>ООО "ТСП"</span></p>
+<p><span>Тип компании: &nbsp;&nbsp;</span><span>Производитель</span></p>
+<div><span style="white-space: pre;"> </span>Торговая компания</div>
+<div><span style="white-space: pre;"> </span>Компания, предоставляющая услуги</div>
+<div><span style="white-space: pre;"> </span>Дистрибьютор / Реселлер</div>
+<div><span style="white-space: pre;"> </span>Представительство</div>
+<div><span>Адрес:&nbsp;</span><span>ул. Новозаводская 10а, Тольятти, 445007, Россия</span></div>
+<div><span>Телефон:&nbsp;</span><span>+7 (8482) 98-00-65,&nbsp;</span><span>+7 (987) 964-90-00</span></div>
+<div><span><br /></span></div>
+<div><strong>Информация о производстве</strong></div>
+<div><span>Местонахождение производства:&nbsp;</span><span>г. Тольятти</span></div>
+<div><span>Контроль качества:&nbsp;</span><span>Внутренний</span></div>

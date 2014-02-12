@@ -1,0 +1,77 @@
+{wysiwyg}
+<script type="text/javascript">
+	function direktor_vis(o) {
+		if(o.checked) {
+			$('#direktor').show();
+		} else {
+			$('#direktor').hide();
+		}
+	}
+</script>
+<h2>{title} {fio}</h2>
+<form action="/{admin_dir}/personal/add_person/" method="post" enctype="multipart/form-data" class="page_form" >
+	<fieldset>
+		<label for="fio">ФИО сотрудника</label>
+		<input type="text" name="data[personal][fio]" class="text_field" value="{fio}"/>
+	</fieldset>
+	<fieldset>
+		<label for="person">Фото</label>
+		<input type="file" name="person" /> {person_img}
+	</fieldset>
+	<fieldset>
+		<label for="post">Должность</label>
+		<input type="text" name="data[personal][post]" class="text_field" value="{post}"/>
+	</fieldset>
+	<fieldset>
+		<ul class="inside_fields">
+			<li><input type="hidden"   name="is_direktor" value="0" />
+				<input type="checkbox" name="is_direktor" id="is_direktor" value="1" {checked_is_direktor} onClick="direktor_vis(this);" />
+				<label class="inline" for="is_direktor">Отметить если руководитель</label></li>
+		</ul>
+	</fieldset>
+	<fieldset id="direktor" {direktor_word_show}>
+		<label>Вводное слово руководителя</label>
+		<textarea name="direktor_word" class="text_field" id="note2_id">{direktorWord}</textarea>
+	</fieldset>
+	<fieldset>
+		<label for="department">Отдел</label>
+		<select name="data[personal][department]">
+			<option value="">Выберите отдел</option>
+			{departments}
+				<option {selected}>{dep_title}</option>
+			{/departments}
+		</select>
+		<br /><br clear="all" />
+		<label for="new_department" class="block">Заполнить если нет в списке</label>
+		<input type="text" name="new_department" class="text_field" value="" />
+	</fieldset>
+	<fieldset>
+		<label for="phone" class="block">Телефон</label>
+		<input type="text" name="data[personal][phone]" class="text_field" value="{phone}" />
+		<label for="workPhone" class="block">Рабочий телефон</label>
+		<input type="text" name="data[personal][workPhone]" class="text_field" value="{workPhone}" />
+		<label for="mobilePhone" class="block">Сотовый телефон</label>
+		<input type="text" name="data[personal][mobilePhone]" class="text_field" value="{mobilePhone}" />
+		<label for="email" class="block">Email</label>
+		<input type="text" name="data[personal][email]" class="text_field" value="{email}" />
+		<label for="icq" class="block">ICQ</label>
+		<input type="text" name="data[personal][icq]" class="text_field" value="{icq}" />
+		<label for="address" class="block">Адрес</label>
+		<input type="text" name="data[personal][address]" class="text_field" value="{address}" />
+	</fieldset>
+	<fieldset>
+		<label for="about" class="block">Краткая информация</label>
+		<textarea name="data[personal][about]" class="text_field" id="note_id">{about}</textarea>
+	</fieldset>
+	<!-- {yandex_maps_block} -->
+	{modules_block}
+	<fieldset class="yellow">
+		<input type="hidden" name="data[personal][id]"  value="{id}" />
+		<input type="hidden" name="data[personal][pid]" value="{pid}" />
+		<input type="submit" value="Сохранить" />
+	</fieldset>
+</form><br/>
+<h2>Дополнительные модули</h2>
+{photos_block}
+{images_block}
+{files_block}

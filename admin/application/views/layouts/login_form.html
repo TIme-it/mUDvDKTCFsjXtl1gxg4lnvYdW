@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<!-- <link href="/admin/application/includes/css/base.css" type="text/css" rel="stylesheet" />
+	<link href="/admin/application/includes/css/forms.css" type="text/css" rel="stylesheet" /> -->
+	<link href="/admin/application/includes/css/login.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="/admin/application/includes/js/jquery.js"></script>
+	<script type="text/javascript">	
+		$('.submit').live('click',function(){
+			$('form').submit();
+			return false;
+		})
+
+		$('form input').live('keydown',function(event){
+ 			if(event.keyCode=='13') {
+   				$(this).parents('form').submit();
+ 				return false;
+ 			}
+		})
+	</script>
+	<!--[if lt IE 7]>
+		<link href="/admin/application/includes/css/ie6_fix.css" rel="stylesheet" type="text/css"/>
+	<![endif]-->
+	<!--[if IE 7]>
+		<link href="/admin/application/includes/css/ie7_fix.css" rel="stylesheet" type="text/css"/>
+	<![endif]-->
+	<title>TimeITWeb</title>
+</head>
+<body class="loginPage">
+	<div id="wrapper">
+		<div id="card">			
+			<div id="logo">
+				<p id="title"><span>{title_common}</span></p>
+				<!-- <p id="slogan">Участвуй и получай!</p> -->
+			</div>
+			<div id="open_soon">
+			<img src="/application/includes/images/timeit.png" alt="" />
+				<form id="loginForm" action="/admin/login/enter/" method="post">
+					<span class="error">&nbsp;{error}</span>	
+						<fieldset>
+							<label for="login">Логин</label><input type="text" class="text_field" name="login" /><br />
+						</fieldset>				
+						<fieldset>
+							<label for="login">Пароль</label><input type="password" class="text_field" name="pwd" />
+						</fieldset>
+					<a href="" class="btn submit">Войти</a>
+				</form>	
+			</div>
+		</div>
+	</div>
+</body>
+</html>

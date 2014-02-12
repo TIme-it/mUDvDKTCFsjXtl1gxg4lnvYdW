@@ -1,0 +1,18 @@
+<form method="post" name="files_action_form" id="files_action_form">
+<ul class="listing" id="video_list">
+	{listing}
+		<li id="video_{id}">
+			<table class="simple">
+				<tr><!--<td width="1%"><input class="checkbox delete_files hide_files show_files" type="checkbox" name="files[]" value="{id}" id="check_{id}" /></td>-->
+					<td width="1%">
+						<a href="#" class="delete_button" onClick="return video_delete({id});">&nbsp;</a>
+					</td>
+					<td width="1%"><span class="{eye}">&nbsp;</span></td>
+					<td width="1%"><label for="check_{id}"><small class="date">{date}</small></label></td>
+					<td class="filename">
+						<label for="check_{id}">{title}</label>
+					</td></tr>
+			</table></li>
+	{/listing}
+</ul>
+</form>

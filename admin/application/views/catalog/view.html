@@ -1,0 +1,138 @@
+{wysiwyg}
+<h2>{main_title}</h2>
+<form action="/{admin_dir}/catalog/save_main/{main_id}/" method="post" class="page_form">
+	<fieldset>
+		<label for="title_category">Заголовок для страницы</label>
+		<input type="text" name="title_page" class="text_field" value="{title_page}" />
+	</fieldset>
+	<fieldset>
+		<label for="title">Заголовок для меню</label>
+		<input type="text" name="title" class="text_field" value="{main_title}" />
+	</fieldset>
+	{settings_block}
+	
+	<fieldset>
+		<a href="#" class="toggler">
+			<span class="arrow"></span>
+			<span>Описание для поисковых систем</span>
+		</a>
+		<div>
+			<label for="description">Описание страницы</label>
+			<input type="text" class="text_field" name="description" value="{description}"/>
+			<label for="keywords">Ключевые слова</label>
+			<input type="text" class="text_field" name="keywords" value="{keywords}" />
+		</div>
+	</fieldset>
+	
+	<fieldset>
+		<label for="text" class="block">Текст страницы<span class="help" rel="1:1"></span></label>
+		<textarea name="text" class="text_field mceEditor" >{text}</textarea>
+	</fieldset>
+	<!-- {yandex_maps_block} -->
+	<fieldset class="yellow">
+		<input type="submit" value="Сохранить" />
+		{delete_button}
+	</fieldset>
+</form>
+<!-- <form class="page_form">
+	<div>
+		<fieldset>
+		<h2>Существенные характеристики</h2>
+			<br />
+
+		<select id="addTechchars">
+			{techchars}
+				<option value="{id}">{name}</option>
+			{/techchars}
+		</select>
+		<a href="#" class="add_catalog_techchar" rel="{id}">добавить</a>
+		<br />
+		</fieldset>
+		<div id="techcharList">
+				
+			
+				<fieldset>
+						<div id="sortable_area">
+							{dirs}
+						</div>
+				
+					</fieldset>
+				
+					<fieldset class="yellow">
+						<input type="button" id="buttonchik" value="Сохранить" onClick="sendSort();" />
+					</fieldset>
+			
+		</div>
+	</div>
+</form> -->
+<!-- <h2>Товары</h2>
+<ul class="listing">
+	{product_list}
+	<li>
+		<a href="/{admin_dir}/catalog/delete_product/{id}/" class="delete_button" onclick="if(!confirm('Вы действительно хотите удалить?')) return false;">&nbsp;</a>
+		<a href="/{admin_dir}/catalog/product/{main_id}/{pid}/{id}/">{title}</a>
+	</li>
+	{/product_list}
+</ul>
+<div class="yellow">
+	<button type="button" onclick="window.location='/{admin_dir}/catalog/product/{main_id}/0/0/'">Добавить товар</button>
+</div> -->
+<h2>Подкатегории</h2>
+<ul class="listing">
+	{category_list}
+	<li>
+		<a href="/{admin_dir}/catalog/delete_category/{id}/" class="delete_button" onclick="if(!confirm('Вы действительно хотите удалить?')) return false;">&nbsp;</a>
+		<a href="/{admin_dir}/catalog/category/{main_id}/{pid}/{id}/">{title}</a>
+	</li>
+	{/category_list}
+</ul>
+
+<div class="yellow">
+	<button type="button" onclick="window.location='/{admin_dir}/catalog/category/{main_id}/0/0/'">Добавить категорию</button>
+</div>
+
+<style type="text/css">
+	#sortable {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+	#sortable li .usd {
+		width: 430px;
+		height: 1.5em;
+		background: #E9F1F5;
+		border: 1px solid #8E9192;
+		padding: 5px;
+		margin: 0 5px 5px 0;
+	}
+	html > body #sortable li .usd {
+		height: 1.5em;
+		line-height: 1.2em;
+		padding: 5px;
+		margin: 0 5px 5px 0;
+	}
+	.ui-state-highlight {
+		height: 1.5em;
+		line-height: 1.2em;
+		padding: 5px;
+		margin: 0 5px 5px 0;
+	}
+</style>
+<script type="text/javascript">
+	function sendSort() {
+		var arr = new Array();
+		$('#sortable .usd').each(function() {
+			arr.push($(this).attr('title'));
+			//alert($(this).attr('title'));
+		});
+		$.ajax({
+			url: "/admin/catalog/update/",
+			type: "POST",
+			cache: false,
+			data: 'tree='+arr,
+			success: function(response) {
+				alert('изменения сохранены');
+			}
+		});
+	}
+</script>

@@ -1,0 +1,81 @@
+<script type="text/javascript">
+	(function($) {
+			CheckReg = function(form) {
+				var errors = [];
+				var p1 = false;
+				var p2 = false;
+				
+				var obj = form.find('#login');
+				if (obj.val() == '' || obj.val() == 'Логин') errors.push('Введите логин');
+				
+				obj = form.find('#email');
+				if (obj.val() == '' || obj.val() == 'E-mail') {
+					errors.push('Введите свой e-mail');
+				} else {
+					var template = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
+					if (! template.test(obj.val())) {
+						errors.push('Введен не корректный e-mail');
+					}
+				}
+				
+				var obj = form.find('#pass');
+				if (obj.val() == '' || obj.val() == 'Пароль') errors.push('Введите пароль');
+				else p1 = true;
+				
+				var obj = form.find('#pass2');
+				if (obj.val() == '' || obj.val() == 'Пароль еще раз') errors.push('Введите подтверждение пароля');
+				else p2 = true;
+				
+				if ( (p1) && (p2) && (form.find('#pass').val() != form.find('#pass2').val()) ) errors.push('Пароли не совпадают');
+				
+				var obj = form.find('#captcha');
+				if (obj.val() == '' || obj.val() == 'Код с картинки') errors.push('Введите код с картинки');
+				
+				if (errors.length > 0) {
+					alert(errors.join('\n\r'));
+					return false;
+				}
+				return true;
+			}
+		})(jQuery);
+</script>
+
+<div class="forma text" id="regblock">
+	<div class="round_ul"></div>
+	<div class="round_ur"></div>
+	<div class="round_bl"></div>
+	<div class="round_br"></div>
+	
+	<h1>Регистрация</h1>
+	<form class="form" action="/profile/reg/" method="post" onSubmit="return CheckReg($(this));">
+		<fieldset>
+			<input type="text" class="text_f" name="login" id="login" value="Логин" 
+					onfocus="if (this.value == 'Логин') { this.value=''; this.style.color='black'; }" 
+					onblur="if (this.value == '') { this.value='Логин'; this.style.color='#727272'; };" />
+		</fieldset>
+		<fieldset>
+			<input type="text" class="text_f" name="email" id="email" value="E-mail" 
+					onfocus="if (this.value == 'E-mail') { this.value=''; this.style.color='black'; }" 
+					onblur="if (this.value == '') { this.value='E-mail'; this.style.color='#727272'; };" />
+		</fieldset>
+		<fieldset>
+			<input type="password" class="text_f" name="pass" id="pass" value="Пароль" title="Пароль"
+					onfocus="if (this.value == 'Пароль') { this.value=''; this.style.color='black'; }" 
+					onblur="if (this.value == '') { this.value='Пароль'; this.style.color='#727272'; };" />
+		</fieldset>
+		<fieldset>
+			<input type="password" class="text_f" name="pass2" id="pass2" value="Пароль еще раз" title="Пароль еще раз"
+					onfocus="if (this.value == 'Пароль еще раз') { this.value=''; this.style.color='black'; }" 
+					onblur="if (this.value == '') { this.value='Пароль еще раз'; this.style.color='#727272'; };" />
+		</fieldset>
+		<fieldset>
+			<img style="vertical-align: top; float: left;" class="nowrap" src="/application/captcha/reg/" alt="Код с картинки" title="Код с картинки" />
+			<input type="text" class="text_f captcha" name="captcha" id="captcha" value="Код с картинки" 
+				onfocus="if (this.value == 'Код с картинки') { this.value=''; this.style.color='black'; }" 
+				onblur="if (this.value == '') { this.value='Код с картинки'; this.style.color='#727272'; };" />
+		</fieldset>
+		<fieldset>
+			<input type="submit" class="submit" value="" />
+		</fieldset>
+	</form>
+</div>

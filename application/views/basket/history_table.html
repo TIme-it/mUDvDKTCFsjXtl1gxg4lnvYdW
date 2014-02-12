@@ -1,0 +1,15 @@
+<div class="text_style">
+	<table id="history_table">
+		<tr><th>Номер заказа</th>
+			<th>Время заказа</th>
+			<th>Сумма заказа</th>
+			<th>&nbsp;</th></tr>
+		{list}
+		<tr><td width="1%"><a href="/basket/history/{id}/">#{num}</a></td>
+			<td>{date}</td>
+			<td>{total_sum}</td>
+			<td width="1%"><a href="/basket/history/{id}/">подробнее</a></td></tr>
+		{/list}
+	</table>
+</div>
+	{pagination}

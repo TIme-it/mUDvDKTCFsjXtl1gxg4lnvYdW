@@ -1,0 +1,95 @@
+<div class="feedbox">
+	<div class="feedback">
+		<h2>{header_feedback}</h2>
+		<div class="clear"></div>
+				
+		<div id="ask_question_form" class="content_block_inner">
+			<form id="faqForm" class="form" action="/popup/all/feedback/6" method="post" onsubmit="return CheckFeedbackForm($(this));">
+				<fieldset class="fset_feedbox">
+					<label class="feedback_label" for="">Ф.И.О.</label>
+					<input type="text" class="text_f def_text" name="fio" id="fio" placeholder="Иванов Петр Васильевич"/>
+				</fieldset>
+
+				<fieldset class="fset_feedbox">
+					<label class="feedback_label" for="">Организация</label>
+					<input type="text" class="text_f def_text" name="org" id="org" placeholder="Coca-cola"/>
+				</fieldset>
+				<div class="clear"></div>
+				
+				<fieldset class="fset_feedbox">
+					<label class="feedback_label" for="">E-mail</label>
+					<input type="text" class="text_f def_text" name="email" id="email" placeholder="zakaz@mail.ru"/>
+				</fieldset> 
+				
+				<fieldset class="fset_feedbox">
+					<label class="feedback_label" for="">Телефон</label>
+					<input type="text" class="text_f def_text" name="phone" id="phone" placeholder="8 (960) 123-45-67"/>
+				</fieldset>
+				
+				<fieldset class="fset_feedbox_ta">
+					<label class="feedback_label" for="">{?changes}{changes}{/?changes}{!changes}Вопрос{/!changes}</label>
+					<textarea name="text" id="question" class="text_f def_text" placeholder="{!zakaz}{?changes}{changes}{/?changes}{!changes}Ваш вопрос{/!changes}{/!zakaz}{?zakaz}{zakaz}{/?zakaz}"></textarea>
+				</fieldset>
+				
+				<fieldset class="response fset_feedbox">
+					<label for="feedback">Сообщать об ответах:</label>
+					<span>
+						<input type="hidden" name="feedback" value="0" />
+						<input type="checkbox" name="feedback" value="1" />
+					</span>
+				</fieldset>
+				
+				<fieldset class="captcha fset_feedbox">
+					<img src="/application/captcha/feedback/" alt="Код с картинки" title="Код с картинки" />
+					<input type="text" class="text_f def_text" name="captcha" id="captcha" value="Код с картинки" placeholder="Код с картинки"/>
+				</fieldset>
+				
+				{?notice}
+					<fieldset class="feedback_notice">
+						<label for="">{notice}</label>
+					</fieldset>
+				{/?notice}
+				<fieldset class="{?notice}notice_ajax{/?notice} submit">
+					<a href="#" class="orange_button submit_button">{button}</a>
+				</fieldset>
+			</form>
+			<script type="text/javascript">
+				ui_init('.fancybox-outer');
+			</script>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	(function($) {
+			CheckFeedbackForm = function(form) {
+				var errors = [];
+				
+				var obj = form.find('#fio');
+				if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите свое имя');
+				
+				obj = form.find('#email');
+				if (obj.val() == '' || obj.val() == obj.attr('placeholder')) {
+					errors.push('Введите свой e-mail');
+				} else {
+					var template = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
+					if (! template.test(obj.val())) {
+						errors.push('Введен не корректный e-mail');
+					}
+				}
+				
+				obj = form.find('textarea');
+				if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите вопрос');
+				
+				// obj = form.find('#captcha');
+				// if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите защитный код');
+				
+				if (errors.length > 0) {
+					alert(errors.join('\n\r'));
+					return false;
+				}
+				return true;
+			}
+		})(jQuery);
+</script>

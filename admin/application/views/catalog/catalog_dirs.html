@@ -1,0 +1,21 @@
+	<ul id="sortable">
+	{techcharList}
+		<li>
+			<table class="simple">
+				<tr><td class="usd ui-state-default" title="{id}">
+
+					<a href="#" class="delete_button del_catalog_techchars"  rel="{id}">&nbsp;</a>
+					<a >{title}</a>
+					<td class="move_marker">&nbsp;</td></tr>
+			</table>
+		</li>
+	{/techcharList}
+	</ul>
+	<script type="text/javascript">
+		$(function() {
+			$("#sortable").sortable({
+				placeholder: 'ui-state-highlight'
+			});
+			$("#sortable").disableSelection();
+		});
+	</script>

@@ -1,0 +1,39 @@
+<fieldset class="modules">
+	<ul>
+		<!--<li style="border-top: none;">
+			<input type="checkbox" id="checkbox" name="print" onchange="show_field(this)" {print_checked} />
+			<label for="print" class="inline">На печать</label>
+			<span title="print" {print_display}>
+				<label for="print_word">Формат появляющегося слова:</label>
+				<input type="text" class="text" name="print_word" value="{print_word}" />
+			</span>
+		</li>-->
+<!-- 		<li style="border-top: none;">
+			<input type="checkbox" id="checkbox" name="print" {print_checked} />
+			<label for="print" class="inline">На печать</label>
+		</li> -->
+		<li>
+			<!-- <input type="checkbox" name="feedback" id="feedback" onchange="show_field(this)" {feedback_checked} /> -->
+			<fieldset>
+				<label for="feedback" class="inline">Обратная связь:</label>
+				<input type="checkbox" id="feedback" name="feedback" value="1" {feedback_checked}/>
+			</fieldset>
+			<!-- <label for="feedback" class="inline">Обратная связь</label>
+			<select name = "feedback" id = "feedback">
+				<option value = "0">Выберите тип обратной связи</option>
+				{feedback_list}
+					<option value = "{id}" {?selected} selected{/?selected}>{title}</option>
+				{/feedback_list}
+			</select> -->
+			
+<!-- 			<span title="feedback" {feedback_display}>
+				<label for="feedback_email">E-mail:</label>
+				<input type="text" class="text" name="feedback_email" value="{feedback_email}" />
+				<label for="isSendFile">Возможность отправить файл:</label>
+				<input type="checkbox" id="sendfile" name="sendfile" {sendfile_checked} />
+			</span> -->
+		</li>
+<!-- 		<li><input type="checkbox" name="subsection" id="subsection" {subsection_checked} />
+			<label for="subsection" class="inline">Показывать подразделы</label></li> -->
+	</ul>
+</fieldset>

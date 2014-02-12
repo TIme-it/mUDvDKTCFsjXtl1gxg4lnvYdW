@@ -1,0 +1,55 @@
+<script type="text/javascript">
+	(function($) {
+			CheckForgot = function(form) {
+				var errors = [];
+				var p1 = false;
+				var p2 = false;
+				
+				var obj = form.find('#pass');
+				if (obj.val() == '' || obj.val() == 'Новый пароль') errors.push('Введите пароль');
+				else p1 = true;
+				
+				var obj = form.find('#pass2');
+				if (obj.val() == '' || obj.val() == 'Новый пароль еще раз') errors.push('Введите подтверждение пароля');
+				else p2 = true;
+				
+				if ( (p1) && (p2) && (form.find('#pass').val() != form.find('#pass2').val()) ) errors.push('Пароли не совпадают');
+				
+				if (errors.length > 0) {
+					alert(errors.join('\n\r'));
+					return false;
+				}
+				return true;
+			}
+		})(jQuery);
+</script>
+
+
+<div class="forma text" id="forgotblock">
+	<div class="round_ul"></div>
+	<div class="round_ur"></div>
+	<div class="round_bl"></div>
+	<div class="round_br"></div>
+	
+	<h1>Сменить пароль</h1>
+	<p>Введите новый пароль для аккаунта <b>{login}</b>.</p>
+
+	<form class="form" method="post" style="margin-top: 10px;" onSubmit="return CheckForgot($(this));">
+		<fieldset>
+			<input type="password" class="text_f" name="pass" id="pass" value="Новый пароль" title="Новый пароль"
+					onfocus="if (this.value == 'Новый пароль') { this.value=''; this.style.color='black'; }" 
+					onblur="if (this.value == '') { this.value='Новый пароль'; this.style.color='#727272'; };" />
+		</fieldset>
+		<fieldset>
+			<input type="password" class="text_f" name="pass2" id="pass2" value="Новый пароль еще раз" title="Новый пароль еще раз"
+					onfocus="if (this.value == 'Новый пароль еще раз') { this.value=''; this.style.color='black'; }" 
+					onblur="if (this.value == '') { this.value='Новый пароль еще раз'; this.style.color='#727272'; };" />
+		</fieldset>
+		<fieldset>
+			<input type="submit" class="submit" value="" />
+
+			<a href="/profile/" style="margin-left: 10px;">вернуться в профиль</a>
+		</fieldset>
+	</form>
+</div>
+<div class="clear"></div>

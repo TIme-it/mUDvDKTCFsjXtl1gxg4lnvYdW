@@ -1,0 +1,37 @@
+<script type="text/javascript">
+	(function($) {
+			CheckForgot = function(form) {
+				var errors = [];
+
+				obj = form.find('#email');
+				if (obj.val() == '' || obj.val() == 'E-mail') {
+					errors.push('Введите свой e-mail');
+				} else {
+					var template = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
+					if (! template.test(obj.val())) {
+						errors.push('Введен не корректный e-mail');
+					}
+				}
+				
+				if (errors.length > 0) {
+					alert(errors.join('\n\r'));
+					return false;
+				}
+				return true;
+			}
+		})(jQuery);
+</script>
+
+
+<h1 class="title">Забыли пароль?</h1>
+<div class="clear"></div>
+
+<p>Введите адрес электронной почты, который был использован при регистрации вашего личного кабинета.</p>
+<form method="post" style="margin-top: 20px;" onSubmit="return CheckForgot($(this));">
+	<fieldset>
+		<input type="text" class="text_f def_text" name="email" id="email" value="E-mail" rel="E-mail"/>
+	</fieldset>
+	<fieldset>
+		<input type="submit" class="submit" value="" />
+	</fieldset>
+</form>

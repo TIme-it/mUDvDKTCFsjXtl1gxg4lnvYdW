@@ -1,0 +1,37 @@
+<h2>Новая страница</h2>
+<form action="/admin/module/{action}/{id_page}/" method="post" class="new_page" name="module_form" id="module_form">
+	<fieldset>
+		<label for="title">Название страницы</label><input type="text" name="title" id="title" class="text_field" onKeyUp="translit($(this).val());" onChange="translit($(this).val());" value="{name}"/>
+	</fieldset>
+	<fieldset>
+		<label for="alias">Название для браузера (URL)</label><input type="text" id="url" name="alias" class="text_field" value="{alias}"/><br clear="all" />
+	</fieldset>
+	<fieldset>
+		<label for="module">Модуль</label>
+		<select name="module" onchange="if($(this).find('option:selected').attr('title')=='link') $('.link_field').css('display','inline-block');">
+			{modules}
+				<option value="{id}" title="{name}" {module_selected}>{title}</option>
+			{/modules}
+		</select><br clear="all"/>
+		<label for="link" class="link_field">Ссылка на страницу</label>
+		<input id="link" type="text" name="link" class="text_field link_field" value="{link}"/>
+	</fieldset>
+	<fieldset>
+	<label for="pid">Директория</label>
+		<select name="pid">
+			<option value="0">Корень</option>
+			{directories}
+				<option value="{id}" {directory_selected}>{title}</option>
+			{/directories}
+		</select>
+	</fieldset>
+	<fieldset class="modules">
+		<ul>
+			<li><input type="checkbox" name="active" {active_checked} /><label for="active" class="inline">Показывать страницу</label></li>
+			<li><input type="checkbox" name="inmenu" {inmenu_checked} /><label for="inmenu" class="inline">Показывать в меню</label></li>
+		</ul>
+	</fieldset>
+	<fieldset class="yellow">
+		<input type="button" value="Добавить" onClick="add_module('{action}');" />
+	</fieldset>
+</form>

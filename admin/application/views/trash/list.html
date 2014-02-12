@@ -1,0 +1,14 @@
+<table class="trash list">
+	<tr class="title_list">
+		<td width="80%">{module_title}</td>
+		<td width="10%">&nbsp;</td>
+		<td width="10%">&nbsp;</td>
+	</tr>
+	{list}
+		<tr>
+			<td><a href="/admin/{name}/view/{pid}/{id}">{title}</a></td>
+			<td><a href="/admin/trash/delete/{name}/{id}/"  onclick='if (!confirm("Удалить безвозвратно?")) return false;'>Удалить</a></td>
+			<td><a href="/admin/trash/rebuild/{name}/{id}/" onclick='if (!confirm("Восстановить?")) return false;'>Восстановить</a></td>
+		</tr>
+	{/list}
+</table>

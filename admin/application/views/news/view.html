@@ -1,0 +1,51 @@
+{wysiwyg}
+<h2><a href="/{admin_dir}/news/view/{pid}">{title}</a></h2>
+<form action="/{admin_dir}/news/edit_category/{pid}/" method="post" class="page_form">
+	<fieldset>
+		<label for="title">Заголовок для страницы</label>
+		<input type="text" name="title_page" class="text_field" value="{title_page}" onChange="translit($(this).val())" />
+	</fieldset>
+	<fieldset>
+		<label for="title">Заголовок для меню</label>
+		<input type="text" name="title" class="text_field" value="{title}" />
+	</fieldset>
+	{settings_block}
+	
+	<fieldset>
+		<a href="#" class="toggler">
+			<span class="arrow"></span>
+			<span>Описание для поисковых систем</span>
+		</a>
+		<div>
+			<label for="description">Описание страницы</label>
+			<input type="text" class="text_field" name="description" value="{description}"/>
+			<label for="keywords">Ключевые слова</label>
+			<input type="text" class="text_field" name="keywords" value="{keywords}" />
+		</div>
+	</fieldset>
+	<fieldset>
+		<label for="text" class="block">Текст страницы<span class="help" rel="1:1"></span></label>
+		<textarea name="text" class="text_field big_text mceEditor">{text}</textarea>
+		<br clear="all" />
+	</fieldset>
+	<input type="hidden" name="template" value="layoutNews">
+	
+	<fieldset>
+		<b><a href="/admin/news/view_items/{pid}">Список публикаций</a></b>
+	</fieldset>
+	<fieldset>
+		<label for="news_count">Количество публикаций на странице</label>
+		<input type="text" name="news_count" class="min text_field" value="{news_count}"/>
+	</fieldset>
+	
+	<!-- {yandex_maps_block} -->
+	
+	<fieldset class="yellow">
+		<input type="submit" value="Сохранить" />
+		<a href="/{admin_dir}/module/delete/{pid}/" onclick="if(!confirm('Вы действительно хотите удалить этот раздел?')) return false" class="trash_button">Удалить раздел</a>
+	</fieldset>
+</form>
+<h2>Дополнительные модули</h2>
+{photos_block}
+{images_block}
+{files_block}

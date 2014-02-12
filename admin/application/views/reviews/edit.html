@@ -1,0 +1,60 @@
+{wysiwyg}
+<h2><a href="/admin/reviews/view/{pid}">{main_title}</a> / <a href="/admin/reviews/view_items/{pid}">Список вопросов</a> / {question}</h2>
+<form action="/{admin_dir}/reviews/answer/" method="post" class="page_form">
+	<fieldset>
+		<label for="fioUser">ФИО пользователя</label>
+		<input type="text" name="fioUser" value="{fioUser}" class="text_field"/>
+	</fieldset>
+<!-- 	<fieldset>
+		<label for="email">E-mail</label>
+		<input type="text" name="email" value="{email}" class="text_field"/>
+	</fieldset> -->
+	<fieldset>
+		<label for="email">IP-адрес</label>
+		<span>{IP}</span>
+	</fieldset>
+	<fieldset>
+		<label for="question">Отзыв</label>
+		<textarea name="question" class="text_field small_wisy">{question}</textarea>
+	</fieldset>
+	<fieldset>
+		<label for="question">Время создания отзыва</label>
+		<nobr>
+			<input type="text" name="date" value="{date}" readonly="readonly" class="min text_field" id="date_input" /><button id="datepicker_button"></button>
+			<span>&nbsp;&nbsp;&nbsp;</span>
+			<input type="text" name="date_h" value="{date_h}" class="text_field" style="width:22px" maxlength="2" />
+			<span> : </span>
+			<input type="text" name="date_m" value="{date_m}" class="text_field" style="width:22px" maxlength="2" /></nobr>
+	</fieldset>
+<!-- 	<fieldset>
+		<label for="fioSpecialist">ФИО отвечающего</label>
+		<input type="text" name="fioSpecialist" value="{fioSpecialist}" class="text_field"/>
+	</fieldset>
+	<fieldset>
+		<label for="postSpecialist">Должность отвечающего</label>
+		<input type="text" name="postSpecialist" value="{postSpecialist}" class="text_field"/>
+	</fieldset> -->
+<!-- 	<fieldset>
+		<label for="question">Ответ</label>
+		<textarea class="text_field small_wisy mceEditor" name="answer" onKeyUp="if(this.value!='') $('#active').attr('checked','checked');">{answer}</textarea>
+	</fieldset> -->
+	<!-- <fieldset>
+		<label for="question">Время создания ответа</label>
+		<nobr>
+			<input type="text" name="date_a" value="{date_a}" readonly="readonly" class="min text_field" id="date_input_2" /><button id="datepicker_button_2"></button>
+			<span>&nbsp;&nbsp;&nbsp;</span>
+			<input type="text" name="date_a_h" value="{date_a_h}" class="text_field" style="width:22px" maxlength="2" />
+			<span> : </span>
+			<input type="text" name="date_a_m" value="{date_a_m}" class="text_field" style="width:22px" maxlength="2" /></nobr>
+	</fieldset> -->
+	<fieldset>
+		<label for="active" class="left">Видимость</label>
+		<input type="checkbox" name="active" {active_checked} class="left" id="active" /><br clear="all"/>
+	</fieldset>
+	<fieldset class="yellow">
+		<input type="hidden" name="id" value="{id}" />
+		<input type="hidden" name="pid" value="{pid}" />
+		<input type="submit" value="Сохранить" class="submit" />
+		{delete_page}
+	</fieldset>
+</form>

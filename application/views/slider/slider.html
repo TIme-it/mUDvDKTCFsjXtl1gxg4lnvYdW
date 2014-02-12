@@ -1,0 +1,24 @@
+<div id="slide_wrapper">
+<a href=  "#" class="left_arrow"></a>
+  <div id = "slider_background" style=" background: transparent url('/application/includes/slides/{f_id}.jpg') 0 0 no-repeat; ">   
+    <div class="note_block">
+      <a href="#"><h2 class="slider_header"></h2></a>
+      <p class="slider_note"></p>
+    </div> 
+  </div>
+<a href="#" class="right_arrow"></a>
+</div>
+<div class="blocks_on_slide"> 
+  <div class="slider_links" {slides}data-id="{id}"{/slides}>
+    
+    {slides}
+      <span class="slider_note_nv hide_class" data-note-id="{id}">{note}</span>
+      <h2 class="slider_header_nv hide_class" data-header-id="{id}">{title}</h2>
+      <span class="hide_class" data-link-id="{id}">{link}</span>
+      <a href="{num}" class ="slider_link{?sel} active{/?sel}" data-id="{id}"></a>
+    {/slides}
+    
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="slider_bg"></div>

@@ -1,0 +1,53 @@
+   <div class="five_best_selling">
+  <p class="title">5 самых продаваемых товаров</p>
+  <div class="box">
+    {five_best}
+    <div class="fbs_item">
+      <div class="left_fbs">
+        <img width="140" height="80" src="/application/includes/catalog/natf/{id}.jpg" alt="" />
+      </div>
+      <div class="right_fbs">
+        <p class="fbs_title">{title}</p>
+        <table>
+          <tr>
+            <td>
+              <p class="dimensions">Габариты:</p>
+            </td>
+            <td class="fbs_border">
+              
+            </td>
+            <td>
+              <p class="efficiency">Эффективность:</p>
+            </td>
+            <td>
+              <p class="network">Световой поток:</p>
+            </td>
+            <td>
+              <p class="power">Мощность:</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="characteristics ch_first">{length} x {width} x {height} мм</p>
+            </td>
+            <td class="fbs_border">
+              
+            </td>
+            <td>
+              <p class="characteristics">{efficiency} лм/вт</p>
+            </td>
+            <td>
+              <p class="characteristics">{stream} лм</p>
+            </td>
+            <td>
+              <p class="characteristics">{power} Вт</p>
+            </td>
+          </tr>
+        </table>
+        <a href="/popup/all/feedback_ajax/7" class="orange_button fancy" data-fancybox-type="ajax" data-title="{title}">Заказать</a>
+      </div>
+    </div>
+    {/five_best}
+    {!is_catalog}<a href="/catalog/"><p class="partner_title">Полный каталог продукции</p></a>{/!is_catalog}
+  </div>
+</div>

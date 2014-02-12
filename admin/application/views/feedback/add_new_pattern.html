@@ -1,0 +1,63 @@
+<h2> <a href = "\admin\feedback\">Список шаблонов</a> / Редактирование шаблона</h2>
+<form action="/admin/feedback/add_new_pattern/" method="post" class="page_form" enctype="multipart/form-data">
+	<input type = "hidden" name = "id" value = "{id}">
+	<fieldset>
+		<label for="title">Название шаблона</label>
+		<input type="text" name="title" value="{title}">
+	</fieldset>
+	<fieldset>
+		<label for="title">Заголовок</label>
+		<input type="text" name="head" value="{head}">
+	</fieldset>
+<!-- 	<fieldset>
+		<label for="size">Размер поля для ввода</label>
+		<select name="size">
+		</select>
+	</fieldset> -->
+	<fieldset class="yellow">
+		<input type="submit" value="Сохранить" />
+	</fieldset>
+</form>
+{?id}<form action="/admin/feedback/add_new_field/{id}" method="post" class="page_form" enctype="multipart/form-data">
+
+	<fieldset>
+		<label for="title">Название поля</label>
+		<input type="text" name="field_name" value="">
+		<select name = "type">
+			<option value = "1">Поле для ввода</option> 
+			<option value = "2">Большое поле для ввода</option>
+			<option value = "3">Выпадающее меню</option>
+		</select> 
+		<input type="checkbox" name="required" id="required" value="1" style="vertical-align: middle;" {checked}>
+		<label for="required">Обязательное поле</label>
+	</fieldset>
+	<fieldset>
+		<label for="rel">Placeholder для поля ввода/Через пробел - опции для выпадающего меню</label>
+		<input type="text" name="rel" value="">
+	</fieldset>
+	<fieldset class="yellow">
+		<input type="submit" value="Добавить поле" />
+	</fieldset>
+</form>{/?id}
+<table cellpadding="0" cellspacing="0" class="listing listing_tbl" id="listing_{gid}" {style}>
+	<tr>
+		<th>Название</th>
+		<th>Тип</th>
+		<th>Обязательное поле</th>
+		<th>Позиционирование</th>
+		<th>Управление</th>
+		<!-- <th>Размер поля</th> -->
+	</tr>
+	<tr>
+	{fields}
+			<td>{field_name}</td>
+			<td>{type}</td>
+			<td>{?required}Да{/?required}{!required}Нет{/!required}</td>
+			<td><a href = "/admin/feedback/go_top/{id}/{pid}">Вверх</a>/<a href = "/admin/feedback/go_bot/{id}/{pid}">Вниз</a></td>
+			
+			<td><a href = "/admin/feedback/del_field/{id}/">удалить поле</a></td>
+			<!-- <td>{size}</td> -->
+	</tr><tr {!%2}class="even"{/!%2}>		
+	{/fields}
+	</tr>
+</table>

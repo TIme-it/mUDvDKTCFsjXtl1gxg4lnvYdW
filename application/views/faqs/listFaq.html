@@ -1,0 +1,14 @@
+<ul>
+	{list}
+	<li class="quest_item {?first} first{/?first} {?last}last{/?last}">
+		<p class="date">{dateQuestion}</p>
+		<p class="user">{fioUser} спрашивает:</p>
+		<p class="question">{question}</p>
+		<div class="answer">
+			<p class="ans">Ответ:</p>
+			{answer}
+		</div>
+	</li>
+	{/list}
+	{pagination}
+</ul>

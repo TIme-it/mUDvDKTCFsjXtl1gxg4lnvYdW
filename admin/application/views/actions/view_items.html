@@ -1,0 +1,15 @@
+{wysiwyg}
+<h2><a href="/{admin_dir}/actions/view/{pid}">{title}</a> / Список акций</h2>
+<form action="/{admin_dir}/actions/group_delete/" method="post" class="page_form">
+	{nav}
+	{list_screen}
+		{html}
+	{/list_screen}
+	<div class="blue">
+		<span>отмеченные:</span>
+		<input type="submit" value="Удалить" class="group_delete" id="check_actions" disabled="disabled" />
+	</div>
+</form>
+<div class="yellow">
+	<button onClick="window.location='/admin/actions/add_item/{pid}/';">Добавить публикацию</button>
+</div>

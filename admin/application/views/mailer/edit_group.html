@@ -1,0 +1,46 @@
+<h2> <a href = "\admin\mailer\">Рассылка</a> / <a href = "\admin\mailer\view_group\">Список групп</a> / Редактирование группы</h2>
+<form action="/admin/mailer/edit_group/" method="post" class="page_form" enctype="multipart/form-data">
+	<fieldset>
+		<label for="title">Название:</label>
+		<input type="text" name="title" value="{title}">
+	</fieldset>
+	<fieldset>
+		
+		<input type="hidden" name="id" value="{id}">
+	</fieldset>
+	<fieldset style = "display:none;">
+		<label for="users_group">Укажите пользователей</label>
+		<select name="users_group" class="autocomplete_users" id="to">	
+		{prelist}
+		 			<option value="{id}" class="selected">{sname} {fname} {lname}</option> 
+		{/prelist}
+		</select>	
+	</fieldset>
+
+	<fieldset>
+		<label for="emails">Emails:</label>
+			
+		<textarea name="emails" class="text_field big_text" id="text_id">{emails}</textarea>
+	</fieldset>
+
+	<fieldset class="yellow">
+		<input type="submit" value="Сохранить" />
+	</fieldset>
+	<table style = "display:none;" cellpadding="0" cellspacing="0" class="listing listing_tbl" id="plug_table" {style}>
+		<thead>
+		<tr>
+			<th> Фио</th>
+			<th> email </th>
+		</tr>
+		</thead>
+	<tbody>
+	{user_list}
+	<tr {!%2}class="even"{/!%2}>
+
+		<td>{sname} {fname} {lname}</td>
+		<td>{email}</td>
+		
+	</tr>
+	{/user_list}
+	</tbody>
+</form>

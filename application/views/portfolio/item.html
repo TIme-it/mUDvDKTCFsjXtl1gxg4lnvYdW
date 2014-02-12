@@ -1,0 +1,48 @@
+<h1 class="title">{title}</h1>
+<div class="clear"></div>
+
+<div class="content">
+	{text}
+	{text_info}
+	</br>
+	{?review}<h3>Отзыв</h3>
+	<div class ="portfolio_bordered_block">
+		<h3>{review_head}</h3>
+		<p>{review}</p>
+		<div class = "clear"></div>
+	</div>
+	{/?review}
+	</br>
+	{?another_projects_list}
+
+	{?galleryBlock}
+		<div class="gallery">
+			<p class="title">Фотогалерея</p>
+			<div class="boxery">
+				{galleryBlock}
+			</div>
+		</div>
+	{/?galleryBlock}
+
+	<p class="title othr_prj">Другие проекты</p>
+	<div class ="portfolio_another_projects_block">
+		{another_projects_list}
+		<div class = "another_project">
+			<a href = "{url}"><img src = "/application/includes/portfolio/{id}.jpg"></a>
+			<a href = "{url}">{title}</a>
+		    <!-- <div class = "clear"></div> -->
+		</div>
+		
+		{/another_projects_list}
+	<div class = "clear"></div>
+	</div>
+	{/?another_projects_list}
+</div>
+<!-- <div class="other">
+	<span class="date">{date}</span>
+</div> -->
+{modules_block}
+
+
+
+{feedbackBlock}

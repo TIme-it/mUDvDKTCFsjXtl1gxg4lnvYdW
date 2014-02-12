@@ -1,0 +1,77 @@
+{wysiwyg}
+<h2>{title}</h2>
+<form action="/{admin_dir}/pages/add_page/" method="post" class="page_form" enctype="multipart/form-data">
+	<fieldset>
+			<label for="title">Заголовок для страницы</label>
+			<input type="text" name="title_page" class="text_field" value="{title_page}" onChange="translit($(this).val())" onKeyup="translit($(this).val())"/>
+	</fieldset>
+	<fieldset>
+		<label for="title">Заголовок для меню</label>
+		<input type="text" name="title" class="text_field" value="{title}" />
+	</fieldset>
+	<!-- <fieldset>
+		<label for="alias">Название для строки браузера (URL)</label>
+		<span class="url">{url}</span>
+	</fieldset> -->
+	<fieldset>
+		<label for="alias">Название для браузера(например: novosti_kompanii)</label>
+		<input type="text" {!id}id ="url"{/!id} name="alias" class="text_field" value="{alias}" />
+	</fieldset>
+	{settings_block}
+	
+	<fieldset>
+		<a href="#" class="toggler">
+			<span class="arrow"></span>
+			<span>Описание для поисковых систем</span>
+		</a>
+		<div>
+			<label for="description">Описание страницы</label>
+			<input type="text" class="text_field" name="description" value="{description}"/>
+			<label for="keywords">Ключевые слова</label>
+			<input type="text" class="text_field" name="keywords" value="{keywords}" />
+		</div>
+	</fieldset>
+	
+	<fieldset>
+		<label for="text" class="block">Текст страницы<span class="help" rel="1:1"></span></label>
+		<textarea name="text" class="text_field big_text mceEditor">{text}</textarea><br clear="all"/>
+	</fieldset>
+	{?timage}
+	<fieldset>
+		<label for="" class="block"><span style="color:red">Подчистить ссылки на триос. (Менять только в поле расположенном выше)</span><span class="help" rel="1:1"></span></label>
+		<textarea name="" class="text_field big_text mceEditor">{timage}</textarea><br clear="all"/>
+	</fieldset>
+	{/?timage}
+	<fieldset>
+		<label for="source">Источник</label>
+		<input type="text" name="source" class="text_field" value="{source}" />
+	</fieldset>
+	
+	<fieldset>
+		<label for="date">Дата добавления</label>
+		<table class="row">
+			<tr><td><input type="hidden" name="date" value="{date}" />
+					<input type="text" name="date" value="{date}" {date_disabled} class="min text_field" id="date_input" />
+					<button id="datepicker_button"></button></td>
+				<td>&nbsp;&nbsp;<nobr><label for="is_forever" class="inline">Показывать дату:</label></nobr>&nbsp;</td>
+				<td><input type="hidden" name="is_show_date" value="0" />
+					<input type="checkbox" name="is_show_date" value="1" {is_show_date} onChange="if(this.checked) $('#date_input').removeAttr('disabled'); else $('#date_input').attr('disabled','disabled');" /></td></tr>
+		</table>
+	</fieldset>
+	<!-- {yandex_maps_block} -->
+	<fieldset>
+		<label for="feedback" class="inline">Обратная связь:</label>
+		<input type="checkbox" id="feedback" name="feedback" value="1" {feedback_checked}/>
+	</fieldset>
+	<fieldset class="yellow">
+		<input type="hidden" name="id" value="{id}" id="page_id"/>
+		<input type="hidden" value="{module_id}" id="module_id"  />
+		<input type="submit" name="submit" value="Сохранить" />
+		{delete_page}
+	</fieldset>
+</form><br clear="all"/>
+<h2>Дополнительные модули</h2>
+{photos_block}
+{images_block}
+{files_block}
+{videos_block}

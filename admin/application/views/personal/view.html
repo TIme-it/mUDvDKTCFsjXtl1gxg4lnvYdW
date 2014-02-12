@@ -1,0 +1,59 @@
+{wysiwyg}
+<h2>{title}</h2>
+<form action="/{admin_dir}/personal/edit_main/" method="post" class="page_form" enctype="multipart/form-data">
+	<fieldset>
+		<label for="title">Заголовок для страницы</label>
+		<input type="text" name="data[main][title_page]" class="text_field" value="{title_page}"/>
+	</fieldset>
+	<fieldset>
+		<label for="title">Заголовок для меню</label>
+		<input type="text" name="data[main][title]" class="text_field" value="{title}"/>
+	</fieldset>
+	{settings_block}
+	<a href="javascript:void(0)" class="ajax_link2" id="seo_link" onclick="$('#seo_block').slideToggle('slow',function(){ $('#seo_link').toggleClass('minus2')});">Описание для поисковых систем</a>
+	<fieldset id="seo_block">
+		<label for="description">Описание страницы</label>
+		<input type="text" class="text_field" name="data[main][description]" value="{description}"/>
+		<label for="keywords">Ключевые слова</label>
+		<input type="text" class="text_field" name="data[main][keywords]" value="{keywords}" />
+	</fieldset>
+	<fieldset>
+		<label for="note" class="block">Текст страницы<span class="help" rel="1:1"></span></label>
+		<textarea name="text" class="text_field big_text mceEditor">{text}</textarea>
+	</fieldset>
+	<fieldset>
+		<label for="mainImg">Фото компании</label>
+		<input type="file" name="mainImg" /> {viewMainImg} {deleteMainImg}
+	</fieldset>
+	<fieldset>
+		<label for="template">Выберите шаблон</label>
+		<select name="data[main][template]" id="template">
+			<option value="personalList"  {personalListSelected}>Первый шаблон</option>
+			<option value="personalList2" {personalList2Selected}>Второй шаблон</option>
+			<option value="personalList3" {personalList3Selected}>Третий шаблон</option>
+		</select>
+		<a href="/{admin_dir}/application/includes/images/templates/{template}.png" class="ajax_link" id="templateLink" target="_blank">Посмотреть шаблон</a>
+	</fieldset>
+	<!-- {yandex_maps_block} -->
+	{modules_block}
+	<fieldset class="yellow">
+		<input type="hidden" name="data[main][id]" value="{id_main}" />
+		<input type="submit" value="Сохранить" />
+		{delete}
+	</fieldset>
+</form>
+<h2>Список персонала</h2>
+<ul class="listing">
+	{list}
+	<li>
+		<a href="/{admin_dir}/personal/delete/{id_person}/" class="delete_button" onclick="if(!confirm('Вы действительно хотите удалить сотрудника?')) return false;">&nbsp;</a>
+		<a href="/{admin_dir}/personal/view_one/{id_main}/{id_person}/">{fio}</a>
+	{/list}
+</ul>
+<div class="yellow">
+	<input type="button" onclick="window.location='/{admin_dir}/personal/view_one/{id_main}/'" value="Добавить сотрудника"/>
+</div>
+<h2>Дополнительные модули</h2>
+{photos_block}
+{images_block}
+{files_block}

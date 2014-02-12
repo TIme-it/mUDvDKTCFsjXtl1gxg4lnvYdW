@@ -1,0 +1,14 @@
+<h2>Резервное копирование</h2>
+<p>Если вы хотите восстановить сайт, используя резервную копию,<br />то вам необходимо связаться со <a href="/admin/config/question/">службой поддержки</a> студии дизайна &laquo;Директ Лайн&raquo;.</p>
+<ul class="listing">
+	{list}
+		<li>
+			<a onclick="if(!confirm('Вы действительно хотите удалить эту копию?')) return false;" class="delete_button" href="/admin/backup/delete/{file_name_url}/">&nbsp;</a>
+			<small style="color: gray;">{time}</small>
+			<strong>{file_name}</strong> ({file_size})
+		</li>
+	{/list}
+</ul>
+<div class="yellow">
+	<button onClick="window.location='/admin/backup/build/';">Сделать резервную копию</button>
+</div>

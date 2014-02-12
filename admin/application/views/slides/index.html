@@ -1,0 +1,41 @@
+{wysiwyg}
+<h2>Слайды для главной</h2>
+<table class="listing_tbl">
+	<tr>
+		<th>#</th>
+
+		<th>#</th>
+	</tr>
+	{list}
+		<tr class="{tr_class}">
+			<td><a href="/admin/slides/edit_slide/{id}" target="_blank">{title}</a></td>
+			<td width="1%"><a class="delete_button" href="/{admin_dir}/slides/delete_slide/{id}/" onclick="return confirm('Вы уверены?');"></a></td>
+		
+		</tr>
+	{/list}
+</table>
+<h2>Новый слайд</h2>
+<form action="/admin/slides/add_slide/" method="post" class="page_form" enctype="multipart/form-data">
+	
+	<fieldset>
+		<label for="new_slide">Картинка</label>
+		<input type="file" name="new_slide" /> {new_slide}
+	</fieldset>
+	<fieldset>
+		<label for="title">Заголовок слайда</label>
+		<input type="text" class="text_field" name="title" > 
+	</fieldset>
+	<fieldset>
+		<label for="link">Ссылка для слайда</label>
+		<input type="text" name="link" class="text_field" value = "{link}"> 
+	</fieldset>
+	<fieldset>
+		<label for="note" class="block">Описание</label>
+		<textarea name="note" class="text_field" id="note_id">{note}</textarea>
+	</fieldset>
+	
+	<fieldset class="yellow">
+		<input type="submit" value="Добавить" />
+		
+	</fieldset>
+</form>

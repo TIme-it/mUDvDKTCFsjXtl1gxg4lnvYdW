@@ -1,0 +1,38 @@
+<fieldset class="blue_block">
+	<a href="#" class="toggler" onclick="listing({id}, 'images', {module_id})">
+		<span class="arrow"></span>
+		<span>Фотогалерея <span id="images_list_count">{images_count}</span></span>
+	</a>
+	<span class="help" rel="2:3"></span>
+	<div>
+		<div id="images_list"></div>
+		<form class="page_form upload_form" id="images_form" action="/admin/application/images/{module_id}/" method="post" enctype="multipart/form-data">
+			<fieldset id="GalleryFormat">
+				<input type="hidden" name="fotogallery" value="1">
+				<!--<label for="fotoGallery">Тип фотогалереи</label>
+				<select name="fotogallery" onChange="changeField('{table_name}','fotogallery',this.value,{id})" >
+					<option value="1" {selected_gal_1}>С затемнением экрана</option>
+					<option value="2" {selected_gal_2}>Стандартная</option>
+					<option value="3" {selected_gal_3}>Стандартная с прокруткой</option>
+				</select>-->
+				<div style="display: inline-block; vertical-align: middle;">
+					<input type="hidden" name="gallery_header" value="0">
+					<input type="checkbox" name="gallery_header" id="gallery_header" onchange="gallery_header_change($(this),{id}, {module_id});" {gallery_header}>
+					<span style="display: inline-block; margin-top: 2px;  vertical-align: top;">Заголовок галереи</span>
+				</div>
+				<br clear="all"/>
+			</fieldset>
+			<fieldset class="upload_place">
+				<div class="upload_button">
+					<input value="Добавить файлы"  type="button" id="uploadify_images" />
+				</div>
+				<div class="upload_button">
+					<input value="Загрузить" type="button" id="uploadify_images_button" onClick="multi_upload_press('images');" disabled="disabled" />
+				</div>
+				<div class="group_delete_place">отмеченные: <input type="button" value="Удалить" class="group_button" id="delete_images" disabled="disabled" rel="images:удалить:delete:фото" /> </div>
+				<div id="fileQueue_images"></div>
+			</fieldset>
+		</form>
+		<script type="text/javascript">multi_upload_init('images', {id}, {module_id});</script>
+	</div>
+</fieldset>

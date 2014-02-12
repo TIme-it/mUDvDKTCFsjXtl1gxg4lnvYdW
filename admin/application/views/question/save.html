@@ -1,0 +1,86 @@
+{wysiwyg}
+<h2>Голосование</h2>
+<script type="text/javascript">
+	var num = {next_id};
+	function add(pid) {
+		if(!pid) {
+			add_html(num++);
+			return false;
+		}
+		$.ajax({
+			url:  '/admin/question/add_answer/'+pid+'/',
+			type: 'GET',
+			cache: false,
+			success: function(response) {
+				add_html(response);
+			}
+		});
+		return false;
+	}
+	function add_html(id) {
+		$('#sortable_question_answer').append(
+			'<li class="ui-state-default" id="'+id+'">' +
+				'<table class="simple">' +
+					'<tr><td><a href="#" onClick="return del('+id+');" class="delete_button">&nbsp;</a></td>' +
+						'<td><input type="text" class="text_field" name="data[answer]['+id+'][answer]" value="" /></td>' +
+						'<td><input type="text" class="text_field min" name="data[answer]['+id+'][count]" value="0" /></td>' +
+						'<td class="move_marker">&nbsp;</td></tr>' +
+				'</table>' +
+			'</li>');
+	}
+	function del(id) {
+		if(confirm('Вы уверены что хотите удалить ответ?')) {
+			$('#'+id).remove();
+			$.ajax({
+				url:  '/admin/question/del_answer/'+id+'/',
+				type: 'GET',
+				cache: false,
+				success: function(response) { }
+			});
+		}
+		return false;
+	}
+</script>
+<form action="/{admin_dir}/question/save/" method="post" class="page_form" enctype="multipart/form-data">
+	<fieldset>
+		<label for="title">Вопрос</label>
+		<textarea name="data[question][question]" class="text_field" id="note_id">{question}</textarea>
+	</fieldset>
+	<fieldset id="settings_block" style="display: block; margin:2px 0 0;">
+		<table class="simple" style="margin-top: 10px;">
+			<tr><th style="width: 20px;">&nbsp;</th>
+				<th style="width: 436px;">Текст ответа</th>
+				<th>Голосов</th></tr>
+		</table>
+		<ul id="sortable_question_answer">
+			{answer_list}
+			<li class="ui-state-default" id="{answer_id}">
+				<table class="simple">
+					<tr><td><a href="#" onClick="return del({answer_id});" class="delete_button">&nbsp;</a></td>
+						<td><input type="text" class="text_field" name="data[answer][{answer_id}][answer]" value="{answer}" /></td>
+						<td><input type="text" class="text_field min" name="data[answer][{answer_id}][count]" value="{count}" /></td>
+						<td class="move_marker">&nbsp;</td></tr>
+				</table>
+			</li>
+			{/answer_list}
+		</ul>
+		<br /><a href="#" class="this_link" onClick="return add({id});">добавить вариант ответа</a>
+	</fieldset>
+	<fieldset>
+		<label for="date">Время проведения опроса</label>
+		с <input type="text" name="data[question][date_begin]" value="{date_begin}" class="min text_field" id="date_input" />
+		<button id="datepicker_button"></button>
+		по <input type="text" name="data[question][date_end]" value="{date_end}" class="min text_field" id="date_input_2" />
+		<button id="datepicker_button_2"></button><br />
+		<input type="hidden" name="data[question][active]" value="0" />
+		<input type="checkbox" id="active" name="data[question][active]" value="1" {active} />
+		<label for="active" style="display: inline;">Показывать на сайте</label>
+	</fieldset>
+	<fieldset class="yellow">
+		<input type="hidden" name="data[question][id]" value="{id}" />
+		<input type="submit" name="submit" value="Сохранить" />
+	</fieldset>
+</form>
+<script type="text/javascript">
+	addSortable('question_answer', {id}, false);
+</script>

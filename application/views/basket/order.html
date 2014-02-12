@@ -1,0 +1,45 @@
+<div style="margin-left: 30px">
+	<h1>Оформить заказ</h1>
+	<div class="text_style">
+
+		<p>Общая сумма заказа составляет: <b>{price_sum}</b></p>
+		</div>
+		<p><b>1. Если вы уже <a href="/profile/reg/">зарегистрированы</a>, тогда вы можете просто войти в свой личный кабинет</b></p>
+		<form method="post" class="form login_form" action="/profile/login/">
+			<fieldset>
+				<label for="login_p">Логин:</label>
+				<input type="text" name="login" id="login_p" value="" />
+			</fieldset>
+			<fieldset>
+				<label for="pass_p">Пароль:</label>
+				<input type="password" name="pass" id="pass_p" />
+			</fieldset>
+			<fieldset>
+				<label for="remember_p">Запомнить:</label>
+				<input type="checkbox" name="remember" id="remember_p" value="1" />
+			</fieldset>
+			<fieldset>
+				<label>&nbsp;</label>
+				<input type="submit" class="submit" value="Войти" />
+			</fieldset>
+		</form>
+		<p style="margin-top: 10px;"><b>2. Если нет, тогда укажите свои контактные данные</b></p>
+		<form method="post" class="form" action="/basket/send_order/">
+			<fieldset>
+				<label>Имя:</label>
+				<input type="text" name="fio" />
+			</fieldset>
+			<fieldset>
+				<label>E-mail:</label>
+				<input type="text" name="email" />
+			</fieldset>
+			<fieldset>
+				<label>Телефон:</label>
+				<input type="text" name="phone" />
+			</fieldset>
+			<fieldset>
+				<label>&nbsp;</label>
+				<input type="submit" value="Подтвердить" /> или <a href="/basket/">вернуться в корзину</a>
+			</fieldset>
+		</form>
+</div>

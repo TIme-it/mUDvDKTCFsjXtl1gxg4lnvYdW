@@ -1,0 +1,7 @@
+<p><span>Местонахождение:&nbsp;</span><span style="font-size: 11px;">Россия, Челябинск</span></p>
+<p><span>Адрес:&nbsp;</span>Свердловский проспект 28а</p>
+<p><span>Телефон:&nbsp;</span>+7(351)215-15-04</p>
+<p><span>Факс:&nbsp;</span>+7(912)305-04-63</p>
+<p>E-mail:&nbsp;<a href="mailto:usm.smirnykh@mail.ru">usm.smirnykh@mail.ru</a></p>
+<p>Производство и поставка энергосберегающего люминесцентного и светодиодного освещения для всех типов помещения</p>
+<p>&nbsp;</p>

@@ -1,0 +1,25 @@
+<fieldset>
+	<a href="#" class="toggler">
+		<span class="arrow"></span>
+		<span>Настройки</span>
+	</a>
+	<div>
+		<ul class="inside_fields">
+			<li><label for="pid">Директория</label>{directories}</li>
+			<li><label for="module">Модуль</label>
+				<select name="module_id" onChange="if(this.value == 6) $('#link').show(); else $('#link').hide();">
+					{module_list}
+						<option value="{mod_id}" {mod_selected}>{mod_title}</option>
+					{/module_list}
+				</select>
+			</li>
+			<li id="link" {url_display}>
+				<label>URL-адрес ссылки</label>
+				<input type="text" name="link" id="link" class="text_field" value="{link}" />
+			</li>
+			<li><input type="hidden"   name="inmenu" value="0" />
+				<input type="checkbox" name="inmenu" value="1" id="inmenu" {inmenu_checked} />
+				<label for="inmenu" class="inline">Показывать в меню</label></li>
+		</ul>
+	</div>
+</fieldset>

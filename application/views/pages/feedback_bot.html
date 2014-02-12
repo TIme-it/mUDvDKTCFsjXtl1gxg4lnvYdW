@@ -1,0 +1,59 @@
+{?fields}
+<div class="faq">
+	<!-- <h2>{head}</h2> -->
+	
+	<div id="ask_question_form" class="content_block_inner">
+		<form id="faqForm" class="form" action="/popup/all/feedback_bot/" method="post" onsubmit="return CheckFeedbackForm($(this));">
+			<input type="hidden" name="template" value="{template}">
+			<input type="hidden" name="head" value="{head}">
+		{fields}
+			{?input}<fieldset {?is_right}class ="right"{/?is_right}  >
+				<label class ="faq_label" for ="fioUser">{field_name}{?required}<span style="color: red; line-height: 10px;">*</span>{/?required}</label>
+				<input type="text" class="text_f def_text {?required}required_field{/?required}" name="{field_name}" id="fioUser" placeholder="{rel}"/>
+			</fieldset>
+			{/?input}
+			{?area}<fieldset >
+				<label class="faq_label" for="{field_name}">{field_name}{?required}<span style="color: red; line-height: 10px;">*</span>{/?required}</label>
+				<textarea name="{field_name}" id="question" class="text_f def_text {?required}required_field{/?required}" placeholder="{rel}"></textarea>
+			</fieldset>
+			{/?area}
+			{?select}<fieldset {?is_right}class ="right"{/?is_right} >
+				<label class ="faq_label" for ="fioUser">{field_name}{?required}<span style="color: red; line-height: 10px;">*</span>{/?required}</label>
+				<select name = "{field_name}">
+					{options}
+					<option value = "{val}" >{val}</option>
+					{/options}
+				</select>
+			</fieldset>
+			{/?select}
+		{/fields}		
+			<div class ="clear"></div>
+			<fieldset class="submit">
+				<a href = "#" class = "submit_button orange_button">Отправить</a>
+			</fieldset>
+			<div class ="clear"></div>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+	(function($) {
+		CheckFeedbackForm = function(form) {
+			var errors = [];
+
+
+			var obj = form.find('.required_field');
+
+			obj.each(function(){
+				if ($(this).val().length == 0) errors.push('Введите "' + $(this).attr("name") + '"');			
+			})
+			if (errors.length > 0) {
+				alert(errors.join('\n\r'));
+				return false;
+			}
+			// return true;
+		}
+
+	})(jQuery);
+</script>
+{/?fields}

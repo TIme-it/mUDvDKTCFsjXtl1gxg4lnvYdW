@@ -1,0 +1,6 @@
+<form method="post" action="" name="frFAQ" id="frFAQ" onsubmit="return EmptyFields(this);">
+  <input type="text" name="FIO" value="имя" required="true" maxlength="50" onFocus="if(this.value=='имя') this.value='';" onBlur="if(this.value=='') this.value='имя';"/><br/>
+  <input type="text" name="EMail" value="e-mail" required="true" maxlength="50" onFocus="if(this.value=='e-mail') this.value='';" onBlur="if(this.value=='') this.value='e-mail';"/><br/>
+  <textarea onFocus="if(this.value=='сообщение') this.value='';" onBlur="if(this.value=='') this.value='сообщение';">сообщение</textarea><br/>
+  <a href="javascript:if(frFAQ.onsubmit())frFAQ.submit();void(0);">%%SEND%%</a>
+</form>

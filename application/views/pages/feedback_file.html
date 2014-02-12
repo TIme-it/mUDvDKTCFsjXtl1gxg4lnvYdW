@@ -1,0 +1,80 @@
+<div class="feedback">
+	<h2>{header_feedback}</h2>
+	<div class="clear"></div>
+		
+	<div id="ask_question_form" class="content_block_inner">
+		<form id="faqForm" class="form" action="/popup/all/feedback/" method="post" onsubmit="return CheckFeedbackForm($(this));">
+			<fieldset>
+				<input type="text" class="text_f def_text" name="fio" id="fio" value="Ваше имя" rel="Ваше имя"/>
+			</fieldset>
+			
+			<fieldset> 
+				<input type="text" class="text_f def_text" name="email" id="email" value="E-mail" rel="E-mail"/>
+			</fieldset> 
+			
+			<fieldset>
+				<input type="text" class="text_f def_text" name="phone" id="phone" value="Контактный телефон" rel="Контактный телефон"/>
+			</fieldset>
+			
+			<fieldset>
+				<textarea name="text" id="question" class="text_f def_text" rel="Ваш вопрос">Ваш вопрос</textarea>
+			</fieldset>
+			
+			<fieldset class="file">
+				<div>
+					<input type="file" name="file" class="file" />
+				</div>
+			</fieldset>
+			
+			<fieldset class="response">
+				<label for="feedback">Сообщать об ответах:</label>
+				<span>
+					<input type="hidden" name="feedback" value="0" />
+					<input type="checkbox" name="feedback" value="1" />
+				</span>
+			</fieldset>
+			
+			<fieldset class="captcha">
+				<img src="/application/captcha/feedback/" alt="Код с картинки" title="Код с картинки" />
+				<input type="text" class="text_f def_text" name="captcha" id="captcha" value="Код с картинки" rel="Код с картинки"/>
+			</fieldset>
+			
+			<fieldset class="submit">
+				<input type="submit" value="Отправить" class="submit" />
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript">
+	(function($) {
+			CheckFeedbackForm = function(form) {
+				var errors = [];
+				
+				var obj = form.find('#fio');
+				if (obj.val() == '' || obj.val() == obj.attr('rel')) errors.push('Введите свое имя');
+				
+				obj = form.find('#email');
+				if (obj.val() == '' || obj.val() == obj.attr('rel')) {
+					errors.push('Введите свой e-mail');
+				} else {
+					var template = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
+					if (! template.test(obj.val())) {
+						errors.push('Введен не корректный e-mail');
+					}
+				}
+				
+				obj = form.find('textarea');
+				if (obj.val() == '' || obj.val() == obj.attr('rel')) errors.push('Введите вопрос');
+				
+				obj = form.find('#captcha');
+				if (obj.val() == '' || obj.val() == obj.attr('rel')) errors.push('Введите защитный код');
+				
+				if (errors.length > 0) {
+					alert(errors.join('\n\r'));
+					return false;
+				}
+				return true;
+			}
+		})(jQuery);
+</script>

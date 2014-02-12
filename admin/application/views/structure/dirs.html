@@ -1,0 +1,19 @@
+	<ul id="sortable">
+	{list}
+		<li>
+			<table class="simple">
+				<tr><td class="usd ui-state-default" title="{id}">
+						<a href="/{admin_dir}/{module}/view/{pid}/{id}/" {active}>{title}</a></td>
+					<td class="move_marker">&nbsp;</td></tr>
+			</table>
+		</li>
+	{/list}
+	</ul>
+	<script type="text/javascript">
+		$(function() {
+			$("#sortable").sortable({
+				placeholder: 'ui-state-highlight'
+			});
+			$("#sortable").disableSelection();
+		});
+	</script>

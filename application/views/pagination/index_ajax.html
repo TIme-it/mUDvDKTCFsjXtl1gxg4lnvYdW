@@ -1,0 +1,18 @@
+<div class="paginator">
+	<div class="pagi_middle">
+		{?start_mnog}
+			<div class="pagi_num"><a href="#"  onclick="return {func}(1 {params});">1</a></div>
+			<div class="pagi_num"><a>...</a></div>
+		{/?start_mnog}
+
+		{pages}
+			{num}
+		{/pages}
+
+		{?end_mnog}
+			<div class="pagi_num"><a>...</a></div>
+			<div class="pagi_num"><a href="#"  onclick="return {func}({page_end} {params});">{page_end}</a></div>
+		{/?end_mnog}	
+	</div>
+	<div class="clear"></div>
+</div>

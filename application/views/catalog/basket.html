@@ -1,0 +1,26 @@
+<!--   <div class="basket_wrapper">
+  {?result}{result}{/?result}
+  {list}
+  	<div class="basket">
+	  	<div class="img_left">
+	  		<img src="/application/includes/catalog/subfamily/small/{id}.jpg" alt="" style="width: 64px; height: 42px;" />
+	  	</div>
+	  	<div class="text_right">
+	    	<a href="/catalog/{type_id}/{mod_id}/{id}/" class="sub_title">{mod_title} {title}</a>
+	    	<a href="#" class="button_del" rel="{id}"></a>
+	    	<span style="display: block;">Кол-во: <input type="text" name="position_count" rel="{id}" value="{count}"/></span>
+	    </div>
+    </div>
+  {/list}
+  </div> -->
+  	<div class="dmodules">
+  		{?check_list}
+	  		<p class="title">Дополнительные услуги: </p>
+	  		{check_list}
+	  		<fieldset>
+		  		<input type="checkbox" value="1" name="checkbox_active" rel="{id}" id="id{id}" {check_ajax}>
+		  		<label for="id{id}">{title}</label>
+		  	</fieldset>
+		  	{/check_list}
+	  	{/?check_list}
+  	</div>

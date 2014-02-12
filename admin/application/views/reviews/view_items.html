@@ -1,0 +1,12 @@
+{wysiwyg}
+<h2><a href="/admin/reviews/view/{pid}">{main_title}</a> / Список отзывов</h2>
+<form action="/admin/reviews/group_delete/" method="post" class="page_form">
+	{nav}
+	{list_screen}
+		{html}
+	{/list_screen}
+	<div class="blue">
+		<span>отмеченные:</span>
+		<input type="submit" value="Удалить" class="group_delete" id="check_faq" disabled="disabled" />
+	</div>
+</form>

@@ -1,0 +1,25 @@
+{wysiwyg}
+<form action="/admin/slides/edit_slide/{id}" method="post" class="page_form" enctype="multipart/form-data">
+	
+	<fieldset>
+		<label for="new_slide">Картинка</label>
+		<input type="file" name="new_slide" /> {new_slide}
+	</fieldset>
+	<fieldset>
+		<label for="title">Заголовок слайда</label>
+		<input type="text" class="text_field" name="title" value = "{title}"> 
+	</fieldset>
+	<fieldset>
+		<label for="link">Ссылка для слайда</label>
+		<input type="text" class="text_field" name="link" value = "{link}"> 
+	</fieldset>
+	<fieldset>
+		<label for="note" class="block">Описание</label>
+		<textarea name="note" class="text_field" id="note_id">{note}</textarea>
+	</fieldset>
+	
+	<fieldset class="yellow">
+		<input type="submit" value="Сохранить" />
+		
+	</fieldset>
+</form>

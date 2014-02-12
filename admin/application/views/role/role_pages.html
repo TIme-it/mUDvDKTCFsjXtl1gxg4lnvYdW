@@ -1,0 +1,26 @@
+<h2><a href="/admin/role/">Администрирование</a> / Роли / <a href="/admin/role/role/{id}/">{title}</a> / Права на страницы</h2>
+<form action="/{admin_dir}/role/role_pages/" method="post" class="page_form" enctype="multipart/form-data">
+	<input type="hidden" name="id" value="{id}">
+	
+	<h2>Права на страницы</h2>
+	<table cellpadding="0" cellspacing="0" class="listing_tbl">
+	<tr>
+		<th>Название страницы</th>
+		<th style="width: 1%">Доступ</th>
+	</tr>
+	{pages}
+	<tr {!%2}class="even"{/!%2}>
+		<td>{title}</td>
+		<td style="text-align: center;">
+			<input type="checkbox" name="page_edit[2][]" value="{id}" {page_edit}>
+		</td>
+	</tr>
+	{/pages}
+	</table>
+	
+	
+	
+	<fieldset class="yellow">
+		<input type="submit" name="submit" value="Сохранить" />
+	</fieldset>
+</form>

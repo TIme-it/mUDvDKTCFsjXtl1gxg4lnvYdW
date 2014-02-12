@@ -1,0 +1,12 @@
+<h2>{main_title}</h2>
+<form action="/{admin_dir}/link/edit/{main_id}/" method="post" class="page_form">
+	<fieldset>
+		<label for="title">Заголовок для меню</label>
+		<input type="text" name="title" class="text_field" value="{main_title}" />
+	</fieldset>
+	{settings_block}
+	<fieldset class="yellow">
+		<input type="submit" name="submit" value="Сохранить" />
+		<a class="trash_button" href="/admin/module/delete/{main_id}/" onclick='if (!confirm("Вы действительно хотите удалить?")) return false;'>Удалить раздел</a>
+	</fieldset>
+</form>

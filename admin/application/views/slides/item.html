@@ -1,0 +1,21 @@
+{wysiwyg}
+<h2><a href="/{admin_dir}/slides/">Слайды</a> / {header}</h2>
+<form class="page_form" method="post" action="/{admin_dir}/slides/save/" enctype="multipart/form-data">
+	<fieldset>
+		<label for="title">Название слайда</label>
+		<input type="text" class="text_field" name="title" value="{title}" id="title" />
+	</fieldset>
+	<fieldset>
+		<label for="title">Изображение слайда</label>
+		<input type="file" name="image" /> {image}
+	</fieldset>
+	<fieldset>
+		<input type="hidden"   name="visible" value="0" />
+		<input type="checkbox" name="visible" value="1" {visible_checked} id="visible" />
+		<label class="inline" for="visible">Показывать на сайте</label>
+	</fieldset>
+	<fieldset class="yellow">
+		<input type="hidden" name="id" value="{id}" />
+		<input type="submit" value="Сохранить" />
+	</fieldset>
+</form>

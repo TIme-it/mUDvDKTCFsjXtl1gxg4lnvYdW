@@ -1,0 +1,22 @@
+<div class="page_container">
+	<a name="top"></a>
+	{list}
+		<div class="one_new {li_class}" style="{style} padding-bottom: 20px;">
+			{img}
+			<div class="note_wrap">
+				<h2><a href="{url}">{title}</a></h2>
+				<!-- <h2><a href="/partners/{pid}/{year}/{month}/{id}">{title}</a></h2> -->
+				{?note}
+					<div class="note">
+						<span class="date">{date}</span>
+						{note}
+					</div>
+					<a href="{url}" class="continue">Подробнее</a>
+				{/?note}
+			</div>
+			<div class="clear"></div>
+		</div>
+	{/list}
+
+	{pagination}
+</div>

@@ -1,0 +1,42 @@
+<fieldset class="blue_block">
+	<a href="#" class="toggler" onclick="listing({id}, 'videos', {module_id})">
+		<span class="arrow"></span>
+		<span>Видео на страницу <span id="videos_list_count">{videos_count}</span></span>
+	</a>
+	<div>
+		<div id="videos_list"></div>
+		<form class="page_form upload_form" id="videos_form" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="token" value="" id="video_token" />
+			<fieldset id="video_info">
+				<ul class="inside_fields">
+					<li><label>Название</label>
+						<input type="text" class="text_field video_dis" id="ytube_title" /></li>
+					<li><label>Описание</label>
+						<textarea class="text_field video_dis" id="ytube_desc"></textarea></li>
+					<li><label>Категория видео</label>
+						<select class="text_field video_dis" id="ytube_cat">
+							<option value="Autos">Авто, мото</option>
+							<option value="Music">Музыка</option>
+							<option value="Animals">Животные</option>
+							<option value="Sports">Спорт</option>
+							<option value="Travel">События и Путешествия</option>
+							<option value="People">Люди</option>
+							<option value="News">Новости</option>
+							<option value="Entertainment">Окружающая среда</option>
+							<option value="Education">Образование</option>
+							<option value="Howto">Стиль</option>
+							<option value="Tech">Наука и технологии</option>
+							<option value="Movies">Кино</option>
+						</select></li>
+					<li><input value="Добавить видео" type="button" class="video_dis" onClick="check_video('{back_url}');" />
+						<span id="video_msg"></span></li>
+				</ul>
+			</fieldset>
+			<fieldset id="video_upload" style="display: none;">
+				<label><strong>Выберите файл</strong></label>
+				<input type="file" name="file" id="yt_file" />
+				<input type="submit" value="Загрузить" id="yt_button" />
+			</fieldset>
+		</form>
+	</div>
+</fieldset>

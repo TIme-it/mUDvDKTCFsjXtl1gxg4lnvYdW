@@ -1,0 +1,28 @@
+<h1 class="title">АВТОРИЗАЦИЯ</h1>
+<div class="clear"></div>
+
+<div id="login_form">
+	<form action="/profile/login/" class="login_form" method="post">
+		<fieldset>
+			<span>ЛОГИН</span>
+			<input type="text" class="text_f" name="login" id="login" value=""/>
+		</fieldset>
+		<fieldset>
+			<span>ПАРОЛЬ</span>
+			<input type="password" class="text_f" name="pass" id="pass" value=""/>
+		</fieldset>
+		
+		<fieldset class="remember">
+			<input type="hidden" name="remember" id="checkbox" value="1" />
+			<span class="checkbox" onClick="checkbox($('.checkbox'), $('#checkbox'))"/></span>
+			<span onClick="checkbox($('.checkbox'), $('#checkbox'))">ЗАПОМНИТЬ</span>
+			<input type="submit" class="submit" value="ВОЙТИ" />
+		</fieldset>
+	</form>
+	<div class="clear"></div>
+	
+	<h1>ЗАБЫЛИ СВОЙ ПАРОЛЬ?</h1>
+	<p class="white_big">СЛЕДУТЕ НА ФОРМУ ДЛЯ <a href="/profile/forgot/"><b>ЗАПРОСА ПАРОЛЯ</b></a></p>
+	
+	<div class="clear"></div>
+</div>

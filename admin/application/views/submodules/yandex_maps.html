@@ -1,0 +1,23 @@
+<fieldset>
+	<a href="#" class="toggler" rel="open_map();">
+		<span class="arrow"></span>
+		<span>Яндекс.Карты</span>
+	</a>
+	<div>
+		<ul class="maps_list">
+			{map_list}
+			<li rel="{id}">
+				<a href="javascript:void(0)" class="delete_button"></a>
+				<a href="javascript:void(0)" class="edit_map">{title}</a>
+			</li>
+			{/map_list}
+		</ul>
+		<input type="button" onClick="create_Ymap({pid}, {mid});" id="create_map" value="Создать новую карту">
+		
+		<input type="hidden" id="ya_pid" value="{pid}">
+		<input type="hidden" id="ya_mid" value="{mid}">
+		<div id="yandex_content">
+			
+		</div>
+	</div>
+</fieldset>

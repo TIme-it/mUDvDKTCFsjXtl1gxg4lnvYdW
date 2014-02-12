@@ -1,0 +1,12 @@
+<form method="post" action="/question/send/{pid}/" name="question" id="question">
+	<h2 id="question_header">{title}</h2>
+	<div id="question_text">
+		{question}
+	</div>
+	{answer_list}
+		<div class="answer">
+			<label><span class="prc">{prc}</span>{answer}</label>
+		</div>
+	{/answer_list}
+</form>
+<p id="question_other"><span>&mdash;</span><a href="/question/">архив опросов</a></p>

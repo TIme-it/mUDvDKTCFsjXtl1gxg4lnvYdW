@@ -1,0 +1,68 @@
+ <div class="catalog_box is_cat">
+  <p class="title">Каталог</p>
+  <div class="box">
+    <!-- Start Freebie -->
+    {types}
+    <a href="{url}" class="toggler">
+      <span class="arrow"></span>
+      <span class="types">{title} светильники</span>
+    </a>
+      <div class="m {current}">
+        {mods}
+         <a href="{url}" class="toggler ">
+          <span class="arrow"></span>
+          <span class="mods">{title}</span>
+         </a>
+          <div class="s {current}">
+         {subs}
+         <div class="subs_links {active}">
+            <a href="{url}" class="subs">{title}</a>
+          </div>
+          {/subs}
+          </div>
+
+      {/mods}
+      </div>
+      {/types}
+      <div class="border"></div>
+      {app}
+        <a href="{url}" class="app {active}">{title}</a>
+      {/app}
+      {?pdf_url}
+        <div class="border"></div>
+        <a href="{pdf_url}" class="catalog_pdf" target="_blank">Скачать каталог в .pdf</a>
+      {/?pdf_url}
+
+
+
+      <!--   <ul class="expmenu">
+          {types}
+          <li>
+            <div class="header">
+              <a href="#" class="types">{title} светильники</a>
+              <span class="arrow down"></span>
+            </div>
+            {mods}
+            <ul class="header2">
+              <div class="slide">
+              <a href="#" class="mods">Lumier {title}</a>
+              {subs}
+              <span class="arrow2 down"></span>
+              <div class="enu">
+              <ul class="menu">
+                <a href="/catalog/{type_id}/{mod_id}/{id}/" class="subs {active}">{title}</a>
+              </ul>
+              </div>
+              {/subs}
+            </div>  
+            </ul>
+            {/mods}
+          </li>
+          {/types}
+          <div class="border"></div>
+          {app}
+            <li><a href="/catalog/applicability/{id}" class="app {active}">{title}</a></li>
+          {/app}
+        </ul> -->
+  </div>
+</div>

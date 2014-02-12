@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+	{head}
+</head>
+	<body id="main_page">
+		<div class="bg_top">
+		</div>
+		<div class="middle_wrap">
+			{header}
+			{menu_block}	
+			<div id="main_slider">
+		 		{slider}
+		 	</div>
+		 	<div class="middle" style="min-height: 285px;">
+		 		<div class="center">
+					<div class="left-sidebar">
+			 			{bubble_text}
+			 			<a href="/popup/question/sign_up/" class="sign_button fancy" data-fancybox-type="ajax">
+						<span>Записаться</span>
+					</a>
+					</div>
+					<div class="right-sidebar">
+			 			<img src="/application/includes/images/ico/ico_certificate.png">
+			 			<a href="{certificate_link}">Сертификаты</a>
+					</div>
+					<div class="container">
+						<div class="content">
+			 				{main_text}
+						</div>
+					</div>	
+				</div>
+			</div>
+				<div class="clear"></div>
+				
+				{main_pop_product}
+		 	<div class="clear"></div>
+		</div>
+		{footer}
+		{?alert}
+	      <script type="text/javascript">
+	        $.fancybox('<div class="alertMessage"><p>{alert}</p></div>');
+	      </script>
+	    {/?alert}
+	</body>
+</html>

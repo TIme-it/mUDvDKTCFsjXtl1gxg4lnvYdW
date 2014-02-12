@@ -1,0 +1,15 @@
+<h2> Список готовых шаблонов</h2>
+<table cellpadding="0" cellspacing="0" class="listing listing_tbl" id="listing_{gid}" {style}>
+	<tr>
+		<th>Название</th>
+	</tr>
+	<tr>
+	{patterns}
+			<td><a href = "/admin/feedback/add_new_pattern/{id}">{title}</a></td>
+	</tr><tr {!%2}class="even"{/!%2}>		
+	{/patterns}
+	</tr>
+</table>
+<div class="yellow">
+	<button onClick="window.location='/admin/feedback/add_new_pattern/';">Добавить шаблон</button>
+</div>

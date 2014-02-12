@@ -1,0 +1,11 @@
+<label>Введите адрес объекта</label>
+<input type="text" class="text_field" id="map_address">
+<br>
+<label>Заголовок</label>
+<input type="text" class="text_field" id="map_title">
+<br>
+<label>Описание</label>
+<textarea type="text" class="text_field map_descr" id="yamap_desc"></textarea>
+<br>
+<input type="button" onClick="geo_point($('#map_address').val(), 'ShowTmp');" value="Посмотреть на карте">
+<input type="button" id="make_point" onClick="make_Ypoint()" disabled="disabled" value="Создать точку">

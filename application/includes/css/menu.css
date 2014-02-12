@@ -1,0 +1,484 @@
+/*top*/
+
+#rightin {
+	margin-top: 4px;
+}
+
+#rightin ul {
+	padding: 0;
+	margin: 0;
+	z-index: 1000;
+}
+
+#rightin a {
+	display: block;
+	line-height: 14px;
+	margin: 0;
+	padding: 0 2px;
+}
+
+#rightin li { /* all list items */
+	margin-bottom: 7px;
+	margin-left: 2px;
+	width: 176px;
+    position: relative;
+	box-shadow: 0 0 0 1px #fff, 0 0 0 2px #94b0bd;
+	border-radius:4px 0 0 4px; 
+}
+
+#rightin li.item-19 {
+display: none;
+}
+
+#rightin li a { /* all list items */
+	padding: 5px 0 5px 7px;
+}
+
+#rightin li ul { /* second-level lists */
+	position: absolute;
+	width: 150px;
+	padding: 0 0 0 5px;
+	left: -9990em;
+}
+
+#rightin ul li ul li { /* sub-links */
+	width: 145px;
+	line-height: 25px;/*visota podpunktov*/
+}
+
+#rightin ul li ul li a{ /* sub-links */
+	padding: 5px;
+}
+
+#rightin li ul ul { /* third-and-above-level lists */
+	margin: -35px 0 0 135px; /*otstupi cleva ? cverhu*/
+}
+
+#rightin li:hover ul ul,
+#rightin li:hover ul ul ul,
+#rightin li.sfhover ul ul,
+#rightin li.sfhover ul ul ul {
+	left: -9990em;
+}
+
+#rightin li:hover ul,
+#rightin li li:hover ul,
+#rightin li li li:hover ul,
+#rightin li.sfhover ul,
+#rightin li li.sfhover ul,
+#rightin li li li.sfhover ul { /* lists nested under hovered list items */
+	left: 200px;
+    top: 0px;
+}
+
+
+/*--------------------------- VISUAL -------------------------------------------------------------------------------------------------------------*/
+/* -------- All levels -------- */
+#rightin ul, #rightin li {
+	list-style: none;
+}
+
+#rightin span.separator {
+	display:none;
+}
+
+/* -------- Top level -------- */
+
+
+#rightin ul li {
+	background: url(/application/includes/images/rightmenu.png) center right repeat-y;
+}
+
+/*podsvetka aktivnogo punkta*/
+#rightin ul li.active {
+	background: url(/application/includes/images/rightmenu.png) center left repeat-y;
+}
+
+#rightin ul li:hover {
+	background: url(/application/includes/images/rightmenu.png) center left repeat-y;
+}
+
+
+#rightin li a:link {
+    font-size: 13px;
+	color: #00adef;
+	font-weight: bold;
+	text-decoration: none;
+	text-shadow: 2px 1px 0px #fff;
+}
+
+#rightin li a:visited {
+    font-size: 13px;
+	color: #00adef;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+
+/* -------- sub-levels -------- */
+#rightin ul li ul li a {
+    font-size: 13px;
+	color: #00adef;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#rightin ul li ul li {
+	border-top: 1px solid #66ccff;
+	border-bottom: 1px solid #0099ff;
+	margin-bottom: 1px;
+	background: none;
+}
+
+#rightin li ul { /* second-level lists */
+	background: url(/application/includes/images/liul.png) bottom center no-repeat;
+	padding-bottom: 32px;
+}
+
+#rightin ul li ul li a:link {
+    text-shadow: none;
+	background: none;
+}
+
+#rightin ul li ul li a:visited {
+    text-shadow: none;
+	background: none;
+}
+
+#rightin ul li ul  li.hover,
+#rightin ul li ul  li.active,
+#rightin ul li ul  li.focus {
+	background: #017EFF;
+	background-image: none;
+	color: #000000;
+}
+
+#rightin ul li ul  li:hover,
+#rightin ul li ul  li:active,
+#rightin ul li ul  li:focus {
+	background: #017EFF;
+}
+
+
+/* END TOP*/
+
+
+/*LEFT*/
+
+/*--------------------------- LAYOUT ----------------------------*/
+
+#leftin, #leftin ul {
+	padding: 0;
+	margin: 0;
+	z-index: 1000;
+}
+
+#leftin li a {
+	display: block;
+	line-height: 14px;
+	min-height: 30px;
+	top: 50%;
+	padding: 5px 5px 5px 10px;
+color: #000;
+}
+
+#leftin li { /* all list items */
+	margin-bottom: 7px;
+	margin-left: 2px;
+	width: 165px;
+	min-height: 40px;
+    position: relative;
+	box-shadow: 0 0 0 1px #fff, 0 0 0 2px #94b0bd;
+	border-radius: 0 4px 4px 0; 
+}
+
+#leftin li img { /* all list items */
+margin-right: -50px;
+margin-top: -3px;
+}
+
+#leftin li ul { /* second-level lists */
+	width: 150px;
+}
+
+
+/*--------------------------- VISUAL -------------------------------------------------------------------------------------------------------------*/
+/* -------- All levels -------- */
+#leftin ul, #leftin li {
+	list-style: none;
+}
+
+#leftin span.separator {
+	display:none;
+}
+
+/* -------- Top level -------- */
+
+#leftin ul li.active a {
+	color: #fff;
+}
+
+#leftin ul li:hover a {
+	color: #fff;
+}
+
+
+#leftin li a {
+    font-size: 13px;
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#leftin ul li {
+	background: url(/application/includes/images/leftmenu.png) center left repeat-y;
+}
+
+/*podsvetka aktivnogo punkta*/
+#leftin ul li.active {
+	background: url(/application/includes/images/leftmenu.png) center right repeat-y;
+}
+
+#leftin ul li:hover {
+	background: url(/application/includes/images/leftmenu.png) center right repeat-y;
+}
+
+
+/*left sotov*/
+.moduletable_vn ul li ul li {
+	list-style: none;
+	display: block;
+}
+
+.moduletable_vn ul:hover li.active {
+	display: none;
+}
+
+.moduletable_vn ul#menu li.item1189 {
+background: url(/application/includes/images/otherpr.png) top left no-repeat;
+padding-bottom: 7px;
+	margin-left: 0;
+margin-top: 20px;
+	box-shadow: none;
+	border-radius: none; 
+width: 169px;
+}
+
+.moduletable_vn ul li.item1189 ul.menu li {
+	margin-top: 10px;
+background: url(/application/includes/images/leftmenu.png) center left repeat-y;
+}
+
+/*end left sotov*/
+
+/*left iphone*/
+.moduletable_iph ul li.active {
+	display: none;
+}
+
+.moduletable_iph {
+	margin-top: 20px;
+}
+
+
+.moduletable_ipht ul li {
+	display: none;
+}
+
+.moduletable_ipht ul li.active {
+	display: block;
+}
+
+
+/*end left iphone*/
+
+/*right*/
+
+/*bottommenu*/
+#footermin ul {
+	margin: 0;
+	padding: 0;
+	z-index: 1000000;
+}
+
+#footermin a {
+	display: block;
+	margin: 0;
+	padding: 3px 0;
+}
+
+#footermin li { /* all list items */
+	float: left;
+	height: 25px;
+	margin: 0 10px;
+	padding: 0;
+	position: relative;
+	text-align: center;
+}
+
+
+
+
+
+/*--------------------------- VISUAL -------------------------------------------------------------------------------------------------------------*/
+/* -------- All levels -------- */
+#footermin ul, #footermin li {
+	list-style: none;
+}
+
+#footermin span.separator {
+	display:none;
+}
+
+/* -------- Top level -------- */
+
+/*podsvetka aktivnogo punkta*/
+#footermin ul li a {
+	color: #999999;
+    font-size: 12px;
+	text-decoration: none;
+}
+
+#footermin ul li.active a{
+	text-decoration: underline;
+	color: #666666;
+}
+
+#footermin ul li:hover a{
+	text-decoration: underline;
+	color: #666666;
+}
+
+/*icons sotov*/
+
+#iconblack {
+width: 212px;
+height: 44px;
+background: url(/application/includes/images/blackberry.png) center top;
+}
+
+#iconblack:hover {
+background: url(/application/includes/images/blackberry.png) center bottom;
+}
+
+#iconse {
+width: 212px;
+height: 44px;
+background: url(/application/includes/images/se.png) center top;
+}
+
+#iconse:hover {
+background: url(/application/includes/images/se.png) center bottom;
+}
+
+#iconlg {
+width: 212px;
+height: 44px;
+background: url(/application/includes/images/lg.png) center top;
+}
+
+#iconlg:hover {
+background: url(/application/includes/images/lg.png) center bottom;
+}
+
+#iconnokia {
+width: 212px;
+height: 44px;
+background: url(/application/includes/images/nokia.png) center top;
+}
+
+#iconnokia:hover {
+background: url(/application/includes/images/nokia.png) center bottom;
+}
+
+#iconsamsung {
+width: 212px;
+height: 44px;
+background: url(/application/includes/images/samsung.png) center top;
+}
+
+#iconsamsung:hover {
+background: url(/application/includes/images/samsung.png) center bottom;
+}
+
+#iconhtc {
+width: 212px;
+height: 44px;
+background: url(/application/includes/images/htc.png) center top;
+}
+
+#iconhtc:hover {
+background: url(/application/includes/images/htc.png) center bottom;
+}
+/*end icons sotov*/
+
+/*menu images*/
+
+#left .menu img {
+float: right;
+}
+
+/*topmenu*/
+#topmenu ul {
+width: 100%;
+margin: 0;
+padding: 0;
+}
+
+#topmenu ul li {
+list-style-type: none;
+float: left;
+margin: 0 38px;
+z-index: 1111;
+margin-top: 5px;
+}
+
+#topmenu ul li:hover, #topmenu ul li.active{
+background: url(/application/includes/images/topmenu.png) bottom repeat-x;
+border-radius: 4px;
+box-shadow: 0 0 0 1px #0099cc;
+}
+
+#topmenu ul li a{
+display: block;
+font-size: 14px;
+line-height: 14px;
+color: #fff;
+padding: 3px 5px;
+}
+
+#topmenu ul li:hover a, #topmenu ul li.active a {
+text-decoration: none;
+color: #666666;
+}
+
+#topmenu ul li ul {
+display: none;
+z-index: 1000;
+position: absolute;
+top: 24px;
+padding-top: 3px;
+width: 150px;
+}
+
+#topmenu ul li:hover ul {
+display: block;
+}
+
+#topmenu ul li:hover ul li {
+background: url(/application/includes/images/topmenu.png) bottom repeat-x;
+border: 1px solid #999999;
+border-radius: 4px;
+margin-top: 3px;
+margin-left: 0;
+width: 150px;
+}
+
+#topmenu ul li:hover ul li:hover, #topmenu ul li:hover ul li.active {
+background: url(/application/includes/images/topmenua.png) bottom repeat-x;
+}
+
+#topmenu ul li:hover ul li:hover a, #topmenu ul li:hover ul li.active a{
+color: #00adef;
+}
+/*end topmenu*/

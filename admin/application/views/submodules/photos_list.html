@@ -1,0 +1,21 @@
+<ul class="listing images_listing">
+	{listing}
+		<li class="ui-state-default" id="mu_point_photos_{id}">
+			<div class="browse">
+				<div class="image" style="background-image: url('{src}');">
+					<div class="images_listing_panel">
+						<table><tr>
+							<td width="20%"><input type="checkbox" class="delete_photos" name="ids" value="{id}" /></td>
+							<td width="20%"><a class="anchor"     href="#" title="Получить ссылку на фото" onClick="alert('Ссылка на фото:\n\n/application/includes/uploadIMG/{id}.{extension}'); return false;">&nbsp;</a></td>
+							<td width="20%"><a class="note"       href="#" title="Редактировать подпись изображения" onClick="return multi_upload_panel('photos','note',{id});">&nbsp;</a></td>
+							<td width="20%"><a class="rotate_wc"  href="#" title="Повернуть изображение на 90&deg; против часовой стрелки" onClick="return multi_upload_panel('photos','wc', {id});">&nbsp;</a></td>
+							<td width="20%"><a class="rotate_wcc" href="#" title="Повернуть изображение на 90&deg; по часовой стрелке" onClick="return multi_upload_panel('photos','wcc',{id});">&nbsp;</a></td>
+							<td width="20%"><a class="delete"     href="#" title="Удалить изображение" onClick="return multi_upload_panel('photos','del',{id});">&nbsp;</a></td>
+						</tr></table>
+					</div>
+				</div>
+			</div>
+			<div class="note">{note}</div>
+		</li>
+	{/listing}
+</ul>

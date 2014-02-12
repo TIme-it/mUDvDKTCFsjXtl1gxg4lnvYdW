@@ -1,0 +1,14 @@
+{wysiwyg}
+<h2><a href="/{admin_dir}/firms/view/{pid}">{title}</a> / Список организаций</h2>
+<form action="/{admin_dir}/firms/group_delete/" method="post" class="page_form">
+	{nav}
+	{html}
+	<div class="blue">
+		<span>отмеченные:</span>
+		<input type="submit" value="Удалить" class="group_delete" id="check_firms" disabled="disabled" />
+	</div>
+	<input type="hidden" id="center_id" value="{pid}">
+</form>
+<div class="yellow">
+	<button onClick="window.location='/admin/firms/add_item/{pid}/';">Добавить органицазию</button>
+</div>

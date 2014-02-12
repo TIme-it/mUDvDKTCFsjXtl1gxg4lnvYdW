@@ -1,0 +1,24 @@
+<p>Здравствуйте.</p>
+<p>На сайте<a href="http://{domain}">{domain}</a>&nbsp;<b>{date}</b> в {time} был совершен заказ:</p>
+<table border="1" cellpadding="5">
+	<tr><td><b>Товар</b></td>
+		<td><b>Артикул</b></td>
+		<td><b>Стоимость</b></td>
+		<td><b>Кол-во</b></td>
+		<td><b>Общая стоимость</b></td></tr>
+	{list}
+	<tr><td>{title}</td>
+		<td>{article}</td>
+		<td>{price}</td>
+		<td>{count} шт.</td>
+		<td>{price_all}</td></tr>
+	{/list}
+</table>
+<p><b>Итого:</b> {price_sum}</p>
+<p>&nbsp;</p>
+<p><b>Данные о покупателе:</b></p>
+<table border="0" cellpadding="0">
+	<tr><td><b>{name_type}:</b></td><td>{name}</td></tr>
+	<tr><td><b>E-mail:</b></td><td>{email}</td></tr>
+	{phone_row}
+</table>

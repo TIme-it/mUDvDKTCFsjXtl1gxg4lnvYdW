@@ -1,0 +1,91 @@
+<!-- {breadcrumbs} -->
+<div class="breadcrumbs">
+	<p><a href="/">Главная</a> <a>/</a> <a href="/catalog/">Каталог продукции</a> <a>/</a> <a href="{type}{url}{/type}">{type}{title} светильники{/type}</a> <a>/</a> <a>Lumier {main}{title}{/main}</a> </p>
+</div>
+{main}
+<h1 class="title">{title}</h1>
+<div class="print_div print_nopic"><a class="print"></a></div>
+<div class="pages_container">
+	<div class="foto_image">
+		<img src="/application/includes/catalog/modifications/big/{id}.jpg" alt="">
+	</div>
+	<div class="mod_descript">
+		{descript}
+	</div>
+<div class="tabs">
+	<table class="table_tabs">
+		<tr>
+			<td><a href="#tabs-1">Маркировка</a></td>
+			<td><a href="#tabs-2">Характеристики</a></td>
+			<td><a href="#tabs-3">Конструкция</a></td>
+			<td><a href="#tabs-4">Преимущества</a></td>
+			<td><a href="#tabs-5">Опции</a></td>
+			<td><a href="#tabs-6">Применение</a></td>
+		</tr>
+	</table>
+	<div id="tabs-1" class ="dim"><span>{mark}</span></div>
+	<div id="tabs-2" class="dim"><span>{charact}</span></div>
+	<div id="tabs-3"><span>{constr}</span></div>
+	<div id="tabs-4"><span>{advantage}</span></div>
+	<div id="tabs-5"><span>{options}</span></div>
+	<div id="tabs-6"><span>{apply}</span></div>
+</div>
+{/main}
+<div class="clear"></div>
+{?galleryBlock}
+		<div class="gallery">
+			<div class="boxery">
+				{galleryBlock}
+			</div>
+		</div>
+	{/?galleryBlock}
+{main}
+<div class="five_best_selling">
+	<p class="title">{type_title} светильники модификации {title}</p>
+{/main}
+	<div class="box">
+		{subfamilys}
+		<div class="clear"></div>
+		<a href="{url}">
+			<div class="hover_layout">
+				<div class="fbs_item">
+			      <div class="left_fbs">
+			        <img src="/application/includes/catalog/subfamily/small/{id}.jpg" alt="" />
+			      </div>
+			      <div class="right_fbs">
+			        <p class="fbs_title">{mods_title} {title}</p>
+			        <table>
+			          <tr>
+			            <td>
+			              <p class="efficiency">Эффективность:</p>
+			            </td>
+			            <td>
+			              <p class="network">Световой поток:</p>
+			            </td>
+			            <td>
+			              <p class="power">Мощность:</p>
+			            </td>
+			          </tr>
+			          <tr>
+			            <td>
+			              <p class="characteristics">до {efficiency} лм/вт</p>
+			            </td>
+			            <td>
+			              <p class="characteristics">до {stream} лм</p>
+			            </td>
+			            <td>
+			              <p class="characteristics">до {power} Вт</p>
+			            </td>
+			          </tr>
+			        </table>
+			      </div>
+			    </div>
+	  		</div>
+      	</a>
+      	{/subfamilys}
+		<div class="clear"></div>
+	</div>
+</div>
+</div>
+
+{five_best_sell}

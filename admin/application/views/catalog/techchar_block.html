@@ -1,0 +1,32 @@
+<fieldset>
+	<a href="#" class="toggler">
+		<span class="arrow"></span>
+		<span>Технические характеристики</span>
+	</a>
+	<div>
+		<label for="description" style="float:left;margin-left:20px;width:220px;">Характеристика</label>
+		<label for="description" style="float:left;width:215px;">Значение</label>
+		<div class="clear">&nbsp;</div>
+		<!-- зона для копирования js -->
+		<div style="display:none;" id="tc_b">
+			<span class="tc_group">
+				<a class="tc_del" href="#">&nbsp;</a>
+				<span>{tchars_n}</span>
+				<span><input type="text" class="text_field" name="tchars[v][]" value="" style="width:205px;" /></span>
+				<br clear="all" />
+			</span>
+		</div>
+		<!-- точка вставки новых данных -->
+		<div id="tc_p">
+			{tchars_list}
+			<span class="tc_group">
+				<a class="tc_del" href="#">&nbsp;</a>
+				<span>{tchars_n_sel}</span>
+				<span><input type="text" class="text_field" name="tchars[v][]" value="{tc_value}" style="width:205px;" /></span>
+				<br clear="all" />
+			</span>
+			{/tchars_list}
+		</div>
+		<input type="button" value="Добавить ещё одну" id="button_tech_add" style="margin-left: 20px;" />
+	</div>
+</fieldset>

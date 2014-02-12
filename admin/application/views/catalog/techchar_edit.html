@@ -1,0 +1,25 @@
+<h2>
+{!id}Добавление технической характеристики{/!id}
+{?id}Редактирование технической характеристики{/?id}
+</h2>
+<form action="/admin/catalog/save_techchar/{id}" method="post" class="page_form" enctype="multipart/form-data">
+	<fieldset>
+		<label for="title_category">Название технической характеристики</label>
+		<input type="text" name="techchar_name" class="text_field" value="{techchar_name}" />
+	</fieldset>
+	<fieldset>
+		<label for="title_category">Заголовок технической характеристики</label>
+		<input type="text" name="techchar_title" class="text_field" value="{techchar_title}" />
+	</fieldset>
+	<fieldset>
+		<label for="title_category">Подпись слева</label>
+		<input type="text" name="left_part" class="text_field" value="{left_part}" />
+	</fieldset>
+	<fieldset>
+		<label for="title_category">Подпись справа</label>
+		<input type="text" name="right_part" class="text_field" value="{right_part}" />
+	</fieldset>	
+	<fieldset class="yellow">
+		<input type="submit" value="Сохранить" />		
+	</fieldset>
+</form>

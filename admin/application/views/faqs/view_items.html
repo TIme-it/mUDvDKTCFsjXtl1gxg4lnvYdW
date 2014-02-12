@@ -1,0 +1,12 @@
+{wysiwyg}
+<h2><a href="/admin/faq/view/{pid}">{main_title}</a> / Список вопросов</h2>
+<form action="/admin/faq/group_delete/" method="post" class="page_form">
+	{nav}
+	{list_screen}
+		{html}
+	{/list_screen}
+	<div class="blue">
+		<span>отмеченные:</span>
+		<input type="submit" value="Удалить" class="group_delete" id="check_faq" disabled="disabled" />
+	</div>
+</form>

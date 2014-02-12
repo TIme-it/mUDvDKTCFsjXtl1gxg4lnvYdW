@@ -1,0 +1,27 @@
+{wysiwyg}
+<h2>Главная страница</h2>
+<form action="/admin/config/add/" method="post" class="page_form" enctype="multipart/form-data">
+	
+	<fieldset>
+		<a href="#" class="toggler">
+			<span class="arrow"></span>
+			<span>Описание для поисковых систем</span>
+		</a>
+		<div>
+			<label for="title_index">Описание на главной странице (тег &lt;META name="description"&gt;)</label>
+			<input type="text" name="meta_description" class="text_field" value="{meta_description}" />
+			
+			<label for="title_index">Ключевые слова на главной странице (тег &lt;META name="keywords"&gt;)</label>
+			<textarea class="text_field" name="meta_keywords">{meta_keywords}</textarea>
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<label for="main_text">Текст главной страницы</label>
+		<textarea name="main_text" class="mceEditor">{main_text}</textarea>
+	</fieldset>
+	
+	<fieldset class="yellow">
+		<input type="submit" value="Сохранить" class="submit" />
+	</fieldset>
+</form>

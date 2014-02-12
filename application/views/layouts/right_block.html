@@ -1,0 +1,31 @@
+{catalog_block}
+{order_block}
+
+{?slider_calc}
+<div class="our_project calc_block" style="margin-left: 8px;">
+ <p class="title">Закажите БЕСПЛАТНЫЕ услуги</p>
+  <div class="box">
+    {slider_calc}
+    <div class = "slide_{num} {!first}not_active{/!first}">
+      <a href="{link}"><p class="title">{title}</p>
+      <img width="260" height="147" src="/application/includes/catalog/calc/{id}.jpg" alt="" /></a>
+      <div class="description"><p>{note}</p></div>
+    </div>
+    {/slider_calc}
+    <ul>
+    {slider_calc}
+      <li class="radio proj_slider {?first}active{/?first}" data-num="{num}"></li>
+     
+    {/slider_calc}
+    </ul>
+  </div>
+</div>{/?slider_calc}
+
+<div class="action {is_page}">
+	{actions_block}
+</div>
+
+
+<div class="novelty">
+	{novetly_block}
+</div>

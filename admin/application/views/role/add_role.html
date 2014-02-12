@@ -1,0 +1,48 @@
+{wysiwyg}
+<h2><a href="/admin/role/">Администрирование</a> / Новая роль</h2>
+<form action="/{admin_dir}/role/add_role/" method="post" class="page_form" enctype="multipart/form-data">
+	
+	<fieldset>
+		<label>Название</label>
+		<input type="text" id="title" class="text_field" name="title" value="" onKeyUp="return CheckTitle();">
+		<span class="state"></span>
+	</fieldset>
+	
+	
+	<fieldset class="yellow">
+		<input type="submit" name="submit" value="Сохранить" />
+	</fieldset>
+</form>
+<script type="text/javascript">
+	(function($) {
+		
+		$(document).ready(function() {
+			$('#title').val('');
+		});
+		
+		CheckTitle = function() {
+			$('.state').hide();
+			var title = $('#title').val();
+			
+			if (title.length > 0) {
+				$.ajax({
+					url: '/admin/role/CheckRoleTitle',
+					type: 'POST',
+					data: { 'title':title},
+					cache: false,
+					success: function(res) {
+						if (res) {
+							$('.state').css('background-image','url("/admin/application/includes/images/delete.png")');
+							$('.state').html('Название занято');
+						} else {
+							$('.state').css('background-image','url("/admin/application/includes/images/ok.png")');
+							$('.state').html('');
+						}
+						$('.state').css('display','inline-block');
+					}
+				});
+			}
+			return false;
+		}
+	})(jQuery);
+</script>

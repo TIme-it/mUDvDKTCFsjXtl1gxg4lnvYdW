@@ -1,0 +1,28 @@
+<div class="most_popular">
+  <div class="mp_head">
+    <h2>Самые популярные</h2>
+    <p>в нашем <a href="{catalog_url}">каталоге</a> Вы найдете еще 1380 товаров</p>
+  </div>
+  <ul>
+    {product_list}
+      <li class="mp_item">
+        <div class="item_logo">
+          <img class="logo" src="/application/includes/catalog/catalog_product/m/{id}.png" alt="" />
+          {?is_new}<img class="tape" src="/application/includes/images/product/product_new.png" alt="" />  {/?is_new}
+          {?is_leader}<img class="tape" src="/application/includes/images/product/product_leader.png" alt="" />  {/?is_leader}
+        </div>
+        <div class="item_descript">
+          <a href="{url}" class="title"><span>{title}</span></a>
+          {note}
+          <div class="info">
+            <span class="price">{product_price} <img src="/application/includes/images/rub_ico.png" alt="" /></span>
+            <a href="/popup/catalog/order/" class="order_button fancy" data-fancybox-type="ajax" data-id="{id}" data-title="{title}">
+              <span>ЗАКАЗАТЬ</span>
+            </a>
+          </div>
+        </div>
+      </li>
+    {/product_list}
+  </ul>
+  <div class="clear"></div>
+</div>

@@ -1,0 +1,15 @@
+{wysiwyg}
+<h2><a href="/{admin_dir}/partners/view/{pid}">{title}</a> / Список партнеров</h2>
+<form action="/{admin_dir}/partners/group_delete/" method="post" class="page_form">
+	{nav}
+	{list_screen}
+		{html}
+	{/list_screen}
+	<div class="blue">
+		<span>отмеченные:</span>
+		<input type="submit" value="Удалить" class="group_delete" id="check_partners" disabled="disabled" />
+	</div>
+</form>
+<div class="yellow">
+	<button onClick="window.location='/admin/partners/add_item/{pid}/';">Добавить партнера</button>
+</div>

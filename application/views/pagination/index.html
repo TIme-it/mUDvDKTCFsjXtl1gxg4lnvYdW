@@ -1,0 +1,41 @@
+<div class="pagination">
+	<div style="margin: 0 auto; display: inline-block; font-size: 0; line-height: 0;">
+	<ul>
+		<li class="paging_left"> 
+			<a onclick="return table_ajax(1,{url});" href="{url}?{param}={prev}{label}">
+				<span>prev</span>
+			</a>
+		</li>
+		
+		{?start_mnog}
+		<li>
+			<a href="{url}?{param}=1{label}">1</a>
+		</li>
+		<li> 
+			<a>...</a>
+		</li>
+		{/?start_mnog}
+		
+		{pages}
+		<li class="{paging_class}">
+			<a onClick="return table_ajax({num} ,{url});" style="cursor:pointer">{num}</a>
+		</li>
+		{/pages}
+		
+		{?end_mnog}
+		<li> 
+			<a>...</a>
+		</li>
+		<li>
+			<a href="{url}?{param}={page_end}{label}">{page_end}</a>
+		</li>
+		{/?end_mnog}
+		
+		<li class="paging_right"> 
+			<a onclick="return table_ajax({page_end},{url});" href="{url}?{param}={next}{label}">
+				<span>next</span>
+			</a>
+		</li>
+	</ul>
+	</div>
+</div>
