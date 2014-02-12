@@ -184,37 +184,16 @@ var img_big_h = 480;
 		})
 		$('.main_menu').on('mouseover',function(){
 			$(this).find('.submenu').css('display', 'block');
-			// Убирает углы при открытом втором уровне
-			if($('.main_menu.parent.active').exists() || $('.main_menu.parent.preactive').exists()) {
-				$('#menu').css('border-radius', '16px 16px 16px 16px');
-			}
 		})
+		
 		$('.menu_block').on('mouseleave',function(){
 			$(this).find('.preactive .submenu').css('display', 'block');
 			$(this).find('.parent.active .submenu').css('display', 'block');
-			// Убирает углы при открытом втором уровне
-			if($('.main_menu.parent.active').exists() || $('.main_menu.parent.preactive').exists()) {
-				$('#menu').css('border-radius', '16px 16px 0px 0px');
-			}
 		})
 		$('.menu_block a.m_it').on('mouseenter',function(){
 			$(this).parents('.menu_block').find('.preactive .submenu').css('display', 'none');
 			$(this).parents('.menu_block').find('.parent.active .submenu').css('display', 'none');
 
-		})
-		$('.main_menu.parent').on('mouseover',function(){
-			$(this).parents('#menu').css('border-radius', '16px 16px 0px 0px');
-			// Убирает углы при открытом втором уровне
-			if($('.main_menu.parent.active').exists() || $('.main_menu.parent.preactive').exists()) {
-				$('#menu').css('border-radius', '16px 16px 0px 0px');
-			}
-			if($('.main_menu.parent.active').exists()){
-				$('#menu').css('padding-bottom', '2px');
-			}
-		})
-
-		$('.main_menu.parent').on('mouseout',function(){
-			$(this).parents('#menu').css('border-radius', '16px');
 		})
 
 		/* MENU BLOCK END */

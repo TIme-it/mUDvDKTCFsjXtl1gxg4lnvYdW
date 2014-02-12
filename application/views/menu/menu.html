@@ -1,20 +1,20 @@
 <div class="menu_block">
-	<form action="/popup/search/view/" method="POST" class="formSearch">
-		<input type="text" id="search" name="search_text" placeholder="Поиск по сайту">
-		<a href="#" id="search_btn" class="submit_button">&nbsp</a>
-	</form>
-	<!-- <div class="fon"> -->
+	<a href="/" class="logo"><img src="/application/includes/images/head_logo.png" alt="" /></a>
+	<a href="/" class="logo_text">Межрегиональный институт дополнительного профессионального образования</a>
+	<div class="head_info">
+		<p>Добро пожаловать на сайт,</p>
+		<a href="#"><span>Константин</span></a>
+	</div>	
+	<div class="menu_content">
 		<ul id="menu">	
 			{list}			
 				<li class="main_menu {?last_item}last{/?last_item}{?first_item}first{/?first_item} {?is_parent}parent{/?is_parent} {?is_active}{is_active}{/?is_active}">
-					<div class="td_left"></div>
 					<a class ="m_it" href="{url}">
 						<span>{title}</span>
 					</a>
-					<div class="td_right"></div>
 					{childs}
 				</li>
 			{/list}
 		</ul>
-	<!-- </div> -->
+	</div>
 </div>

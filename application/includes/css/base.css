@@ -6,33 +6,20 @@
     BASIC STYLE
 */
 @font-face {
-    font-family: AgoraBold; /* Имя шрифта */
-    src: url('/application/includes/fonts/AgoraSerifPro/PFAgoraSerifPro-Bold.ttf') format('truetype'); /* Путь к файлу со шрифтом */
+    font-family: Days; /* Имя шрифта */
+    src: url('/application/includes/fonts/Days.otf') format('opentype'); /* Путь к файлу со шрифтом */
 }
-
 @font-face {
-    font-family: PTSansRegular; /* Имя шрифта */
-    src: url('/application/includes/fonts/PTSans/PT Sans Regular.ttf') format('truetype'); /* Путь к файлу со шрифтом */
+    font-family: DINPro-Bold; /* Имя шрифта */
+    src: url('/application/includes/fonts/DINPro-Bold.otf') format('opentype'); /* Путь к файлу со шрифтом */
 }
-
 @font-face {
-    font-family: PTSansItalic; /* Имя шрифта */
-    src: url('/application/includes/fonts/PTSans/PT Sans Italic.ttf') format('truetype'); /* Путь к файлу со шрифтом */
+    font-family: DINPro-Light; /* Имя шрифта */
+    src: url('/application/includes/fonts/DINPro-Light.otf') format('opentype'); /* Путь к файлу со шрифтом */
 }
-
 @font-face {
-    font-family: PTSansBold; /* Имя шрифта */
-    src: url('/application/includes/fonts/PTSans/PT Sans Bold.ttf') format('truetype'); /* Путь к файлу со шрифтом */
-}
-
-@font-face {
-    font-family: PTSansNarrow; /* Имя шрифта */
-    src: url('/application/includes/fonts/PTSans/PT Sans Narrow.ttf') format('truetype'); /* Путь к файлу со шрифтом */
-}
-
-@font-face {
-    font-family: PTSansNarrowBold; /* Имя шрифта */
-    src: url('/application/includes/fonts/PTSans/PT Sans Narrow Bold.ttf') format('truetype'); /* Путь к файлу со шрифтом */
+    font-family: DINPro-Medium; /* Имя шрифта */
+    src: url('/application/includes/fonts/DINPro-Medium.otf') format('opentype'); /* Путь к файлу со шрифтом */
 }
 
 body {
@@ -42,36 +29,8 @@ body {
     padding: 0;
 }
 
-.bg_top:before{
-    width: 274px;
-    height: 468px;
-    background: url(/application/includes/images/bg/bg_left.png) transparent no-repeat left top;
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: '';
-}
-
-.bg_top {
-    min-width: 1000px;
-    position: absolute;
-    width: 100%;
-    height: 468px;
-    background: url(/application/includes/images/bg/bg_center.png) transparent repeat-x top;
-}
-
-.bg_top:after {
-    width: 274px;
-    height: 468px;
-    background: url(/application/includes/images/bg/bg_right.png) transparent no-repeat right top;
-    position: absolute;
-    top: 0;
-    right: 0;
-    content: '';
-}
-
 .note_block h2, #actions_line h2, #main_news h2, #actions_box h2, #newsactions_box h2, .most_popular h2, .popular h2 {
-    font: 32px/28px AgoraBold, Verdana, Tahoma, Arial;
+    font: 32px/28px Days, Verdana, Tahoma, Arial;
     color: #000;
     margin-bottom: 28px;
 }
@@ -98,10 +57,8 @@ a:hover {
     color: #ff0000;
 }
 
-span {
-    font-size: 14px;
-    line-height: 20px;
-    font-family: PTSansRegular;
+span, p {
+    font-family: DINPro-Light, Verdana, Arial;
 }
 
 #wrapper {
@@ -114,11 +71,10 @@ span {
 
 .middle_wrap {
     min-width: 1000px;
-    max-width: 1600px;
+    max-width: 1800px;
     position: relative;
     margin: 0 auto;
     overflow: hidden;
-    padding-top: 22px;
 }
 
 .middle {
@@ -353,17 +309,59 @@ span {
 
 .logo {
     float: left;
+    margin-top: 13px;
+}
+
+.logo_text {
+    font: 14px/22px Days, Verdana, Arial;
+    color: #e67817;
+    float: left;
+    width: 220px;
+    margin-left: 12px;
+    margin-top: 13px;
+    text-decoration: none;
+}
+
+.logo_text:hover {
+    color: #e67817;
+    text-decoration: inherit;
 }
 
 .header .logo {
-    margin-left: 35px;
+    margin-left: 50px;
 }
 
 .head_info {
-    width: 161px;
+    width: 93px;
+    height: 52px;
     float: right;
-    text-align: right;
-    margin-right: 35px;
+    text-align: center;
+    margin-right: 100px;
+    background-color: #639095;
+    padding: 31px 25px;
+}
+
+.head_info p {
+    color: #fff;
+    font-size: 11px;
+    line-height: 13px;
+    margin-bottom: 5px;
+}
+
+.head_info a {
+    text-decoration: none;
+}
+
+.head_info a span {
+    font: 14px/20px DINPro-Bold, Verdana, Arial;
+    color: #fff;
+    line-height: 13px;
+    border-bottom: 1px solid #fff;
+}
+
+.head_info a:hover > span {
+    color: #ff0000;
+    border-bottom: 1px solid #ff0000;
 }
 
 .head_phone {
@@ -460,6 +458,14 @@ span {
 
 
 /* MENU BLOCK BEGIN */
+
+
+.menu_content {
+    padding-left: 360px;
+    padding-right: 280px;
+}
+
+
 .menu_block form {
     text-align: center;
     margin-bottom: 20px;
@@ -494,9 +500,9 @@ span {
 
 .menu_block {
     width: 100%;
-    position: absolute;
-    top: 35px;
-    height: 0;
+    min-height: 115px;
+    height: auto;
+    padding-left: 50px;
 }
 
 .menu_block .fon {
@@ -520,14 +526,11 @@ span {
 
 #menu {
     position: relative;
-    top: 6px;
+    top: 26px;
     margin: 0 auto;
     display: table;
     width: auto;
     height: 48px;
-    /*background: url(/application/includes/images/menu/normal/center.png) transparent repeat-x top;*/
-    background-color: #fff;
-    border-radius: 16px;
     padding: 5px 15px;
 }
 
@@ -545,7 +548,8 @@ span {
 #menu li {
     display: block;
     /*height: 44px;*/
-    height: 48px;
+    height: 37px;
+    margin: 0 10px;
     float: left;
 }
 
@@ -553,31 +557,9 @@ span {
     background: url(/application/includes/images/menu/normal/center.png) transparent repeat-x top;
 }
 
-
-
-#menu li.main_menu .td_left {
-    width: 2px;
-    height: 48px;
-    background: url(/application/includes/images/menu/normal/left_edge.png) transparent no-repeat left top;
-    float: left;
-}
-
-#menu li.main_menu .td_right {
-    width: 2px;
-    height: 48px;
-    background: url(/application/includes/images/menu/normal/right_edge.png) transparent no-repeat right top;
-    float: right;  
-    margin-top: -55px; 
-}
-
-#menu li.main_menu.parent.active .td_right, #menu li.main_menu.parent.active .td_left, #menu li.main_menu.parent.preactive .td_right, #menu li.main_menu.parent.preactive .td_left {
-    background: none;
-    background-color: #fff;
-}
-
 #menu li.main_menu.parent:hover, #menu li.main_menu.parent.preactive {
     background: none;
-    background-color: #fff;
+    background-color: #639095;
 }
 
 #menu li.main_menu.parent.active, #menu .submenu li.active {
@@ -600,9 +582,14 @@ span {
     color: #d02650;
 }
 
+
+#menu li.main_menu a.m_it:hover {
+    border-radius: 5px;
+}
+
 #menu li.main_menu.parent a.m_it:hover > span {
-    color: #ff0000;
-    border-bottom: 1px solid #ff0000 !important;
+    color: #fff;
+    border-bottom: 1px solid #fff !important;
 }
 
 #menu li.main_menu.parent.active a.m_it span {
@@ -619,26 +606,18 @@ span {
 }
 
 #menu li.main_menu a.m_it:hover > span, #menu li.main_menu.active a.m_it span {
-    border-bottom: none !important;
     color: #fff;
 }
 
-#menu li.main_menu.parent:hover > .td_left, #menu li.main_menu.parent:hover > .td_right {
-    background: none;
-}
-
 #menu li.main_menu:hover, #menu li.main_menu.active {
-    background: url(/application/includes/images/menu/onmouse/active_center.png) transparent repeat-x top;
+    background-color: #639095;
+    border-radius: 5px;
+} 
+
+#menu li.main_menu:hover > a.m_it span, #menu li.main_menu.active > a.m_it span {
+    color: #fff;
+    border-bottom: 1px solid #fff;
 }   
-
-
-#menu li.main_menu:hover > .td_left, #menu li.main_menu.active > .td_left {
-    background: url(/application/includes/images/menu/onmouse/active_left_edge.png) transparent no-repeat left top;
-}
-
-#menu li.main_menu:hover > .td_right, #menu li.main_menu.active > .td_right {
-    background: url(/application/includes/images/menu/onmouse/active_right_edge.png) transparent no-repeat right top;
-}
 
 #menu li.main_menu.last:hover:after, #menu li.main_menu.last.active:after {
     position: absolute;
@@ -663,41 +642,20 @@ span {
     z-index: 1001;
 }
 
-#menu li.main_menu.first:hover:after, #menu li.main_menu.first.active:after {
-    position: absolute;
-    content: '';
-    top: 5px;
-    left: 7px;
-    width: 10px;
-    height: 48px;
-    background: url(/application/includes/images/menu/onmouse/active_left_round_edge.png) transparent no-repeat right top;
-    z-index: 1001;
-}
-
-#menu li.main_menu.first.parent:hover:after, #menu li.main_menu.first.parent.active:after, #menu li.main_menu.first.parent.preactive:after {
-    position: absolute;
-    content: '';
-    top: 5px;
-    left: 7px;
-    width: 10px;
-    height: 48px;
-    background: none;
-    background-color: #fff;
-    z-index: 1001;
-}
 
 #menu li.main_menu a.m_it {
     display: block;
-    height: 55px;
+    height: 37px;
     text-decoration: none;
-    padding: 0px 31px;
-    line-height: 45px;
+    line-height: 35px;
+    padding: 0px 19px;
 }
 
 #menu li.main_menu a.m_it span {
     display: inline-block;
     color: #000;
-    font-size: 16px;
+    font-size: 14px;
+    line-height: 20px;
     border-bottom: 1px solid;
     height: 19px;
 }
@@ -710,16 +668,13 @@ span {
 #menu li .submenu {
     display: none;
     position: absolute;
-    /*top: 48px;*/
-    top: 57px;
+    top: 42px;
     left: 0px;
     width: 100%;
-    /*width: 795px;*/
-    /*margin-left: -14px;*/
     text-align: left;
     z-index: 654;
-    background-color: #fff;
-    border-radius: 0px 0px 6px 6px;
+    background-color: #639095;
+    border-radius: 5px;
     overflow: hidden;
 }
 

@@ -319,7 +319,7 @@
 		
 
 
-		resizable_menu($('.middle_wrap').width());
+		// resizable_menu($('.middle_wrap').width());
 		resizable_middle($('body').width());
 		resizable_most_popular($('.middle_wrap').width());
 		resizable_container($('.middle_wrap').width());
@@ -332,7 +332,7 @@
 		resizable_popular($('.middle_wrap').width());
 	
 		$(window).resize(function(){
-			resizable_menu($('.middle_wrap').width());
+			// resizable_menu($('.middle_wrap').width());
 			resizable_middle($('body').width());
 			resizable_most_popular($('.middle_wrap').width());
 			resizable_container($('.middle_wrap').width());
