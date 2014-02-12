@@ -50,7 +50,9 @@
 
 			// По порядку: новинки, лидер и 2 популярных товара
 			$data['product_list'] = $this->catalog->getNewestList($cat_pid);
-			array_push($data['product_list'], $this->catalog->getLeadList($cat_pid));
+			if(!empty($data['product_list'])){
+				array_push($data['product_list'], $this->catalog->getLeadList($cat_pid));
+			}
 			$tmp = $this->catalog->getMostPopularList($cat_pid, 4);
 			if(!empty($tmp)){
 				foreach ($tmp as $i => &$item) {

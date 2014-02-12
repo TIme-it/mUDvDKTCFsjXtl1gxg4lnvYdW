@@ -1,5 +1,0 @@
-<p class="phone_info">Отдел продаж:</p>
-<p class="phone_info">Телефон: 8 (8482) 55-99-50<br />E-mail: <a href="mailto:Info@lumiertm.ru">Info@lumiertm.ru<br /></a>Адрес: г.Тольятти, ул. Ботаническая 7а</p>
-<p class="phone_info">&nbsp;</p>
-<p class="phone_info">Торговый дом "Люмьер":</p>
-<p>Телефон: 8 (8482) 98-00-65, 394-098<br />Сайт: www.lumiertd.ru<a href="mailto:Info@lumiertm.ru"><br /></a></p>

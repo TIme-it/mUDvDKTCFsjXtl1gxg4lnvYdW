@@ -1,6 +1,0 @@
-<form action="" method="post" name="frContact">
-<input type="text" name="FIO" value=" Имя" title="Имя" maxlength="40" class="OpinionFormFIO" onFocus='if(this.value==" Имя") this.value="";' onBlur='if(this.value=="") this.value=" Имя";'/><br/>
-<input type="text" name="EMail" value=" E-mail" title="e-mail" maxlength="40" class="OpinionFormEMail" onFocus='if(this.value==" E-mail") this.value="";' onBlur='if(this.value=="") this.value=" E-mail";'/><br/>
-<textarea name="Note" title="Сообщение" class="OpinionFormNote" rows="8" onFocus='if(this.value==" Сообщение") this.value="";' onBlur='if(this.value=="") this.value=" Сообщение";'> Сообщение</textarea><br/>
-<a onClick="window.document.frContact.submit();">%%SEND%%</span>
-</form>

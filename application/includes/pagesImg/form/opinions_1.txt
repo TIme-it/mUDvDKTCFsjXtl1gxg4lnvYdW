@@ -1,7 +1,0 @@
-  <form method="POST" action="" name="MFOpinions" id="MFOpinions" onsubmit="return EmptyFields(this);">
-  <input type="text" name="FIO" maxlength="30" title="Ваше имя" required="true" class="OpinionFormFIO"><br/>
-  <input type="text" name="EMail" maxlength="30" title="Электронный адрес" required="true" class="OpinionFormEMail"><br/>
-  <textarea name="Note" rows="8" title="Текст отзыва" required="true" class="OpinionFormNote"></textarea><br/>
-  <img src="/images/submit.jpg" width="61" height="15" onClick="window.document.MFOpinions.submit();"/>
-  </form>
- 

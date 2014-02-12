@@ -1,2 +1,0 @@
-<p>Контакты</p>
-<script src="http://api-maps.yandex.ru/services/constructor/1.0/js/?sid=7XgFdkh6WxauT2FcY_mD5i-1C_7CzJJ_&amp;width=600&amp;height=450"></script>

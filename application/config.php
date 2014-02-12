@@ -136,7 +136,7 @@
 	$config['dl']['mail']      = 'alextret91@yandex.ru'; 
 	$config['support']['mail'] = 'alextret91@yandex.ru'; 
 
-	$config['site']['org']    = 'Haogang';
+	$config['site']['org']    = 'Midpo';
 	$config['site']['domain'] = $_SERVER['SERVER_NAME']; // URL-сайта, подставляется много где
 
 	$config['catalog']['tree'] = 2;

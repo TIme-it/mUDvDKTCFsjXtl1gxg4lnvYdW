@@ -4,7 +4,7 @@
 }
 
 body{
-	background-color: #0077C0;
+	background-color: #639095;
 }
 
 
@@ -113,7 +113,7 @@ input{
 	width: 138px;
 	margin: 5px 0px 0px 83px;
 	text-align: center;
-	background-color: #FF3D00;
+	background-color: #E67817;
 	line-height: 17px;
 	color: #fff;
 	padding: 5px 10px;
@@ -125,7 +125,7 @@ input{
 }
 
 .btn:hover {
-	background-color: #FF3D25;
+	background-color: #FEA803;
 	box-shadow: 0px 0px 2px 2px #ccc;
 }
 
