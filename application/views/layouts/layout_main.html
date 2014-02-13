@@ -5,8 +5,18 @@
 	{head}
 </head>
 	<body id="main_page">
+		<div class="bg_top"></div>
 		<div class="middle_wrap">
 			{menu_block}	
+			<div class="info_panel">
+				<div class="search">
+					<form action="/popup/search/view/" method="POST" class="formSearch">
+						<a href="#" id="search_btn" class="submit_button">&nbsp;</a>
+						<input type="text" id="search" name="search_text" placeholder="Поиск по сайту">
+					</form>
+				</div>
+				<a href="#" class="enter"></a>
+			</div>
 			<div id="main_slider">
 		 		{slider}
 		 	</div>
