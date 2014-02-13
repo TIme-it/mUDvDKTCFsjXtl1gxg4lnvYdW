@@ -181,9 +181,13 @@ var img_big_h = 480;
 		/* MENU BLOCK BEGIN */
 		$('.main_menu').on('mouseout',function(){
 			$(this).find('.submenu').css('display', 'none');
+			$(this).find('.m_it span').css('color', '#000');
+			$(this).find('.m_it span').css('border-bottom', '1px dotted #000');
 		})
 		$('.main_menu').on('mouseover',function(){
 			$(this).find('.submenu').css('display', 'block');
+			$(this).find('.m_it span').css('color', '#fff');
+			$(this).find('.m_it span').css('border-bottom', '1px solid #fff');
 		})
 		
 		$('.menu_block').on('mouseleave',function(){
