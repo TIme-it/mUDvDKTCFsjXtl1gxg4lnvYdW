@@ -21,6 +21,10 @@
     font-family: DINPro-Medium; /* Имя шрифта */
     src: url('/application/includes/fonts/DINPro-Medium.otf') format('opentype'); /* Путь к файлу со шрифтом */
 }
+@font-face {
+    font-family: DINPro-Regular; /* Имя шрифта */
+    src: url('/application/includes/fonts/DINPro-Regular.otf') format('opentype'); /* Путь к файлу со шрифтом */
+}
 
 body {
     width: 100%;
@@ -1638,6 +1642,24 @@ span, p {
     margin: 0 auto;
 }
 
+.allnews_button {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 88px;
+    height: 32px;
+    font: 13px/20px DINPro-light, Verdana, Arial;
+    color: #fff;
+    background: url(/application/includes/images/news_bg.png) transparent no-repeat top left;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.allnews_button:hover {
+    color: #ff0000;
+}
+
 #public_block {
     width: 185px;
 }
@@ -1826,6 +1848,119 @@ span, p {
 }*/
 
 /* ACTIONS BLOCK END */ 
+
+/* REVIEWS BLOCK BEGIN */
+
+#reviews_block {
+    height: 274px;
+    background: url(/application/includes/images/comments/comments_bg.png) transparent no-repeat 0px 20px;
+}
+
+#reviews_block ul {
+    display: table;
+    margin: 0 auto;
+}
+
+#reviews_block ul li {
+    float: left;
+    width: 420px;
+    margin-right: 60px;
+    margin-left: 90px;
+}
+
+#reviews_block ul li .avatar {
+    position: relative;
+    margin: 0 auto;
+    display: table;
+}
+
+#reviews_block ul li .avatar img {
+    border-radius: 70px;
+}
+
+#reviews_block ul li .avatar .photo_frame {
+    position: absolute;
+    top: 0;
+    left: -4px;
+    width: 142px;
+    height: 128px;
+    background: url(/application/includes/images/comments/foto_frame.png) transparent no-repeat -1px -1px;
+}
+
+#reviews_block ul li .fio {
+    display: table;
+    margin: 0 auto;
+    font: 17px/20px DINPro-Regular, Verdana, Arial;
+    color: #fff;
+    position: relative;
+    top: -20px;
+    background-color: #648F92;
+}
+
+#reviews_block ul li .fio strong {
+    font: 17px/20px DINPro-Bold, Verdana, Arial;
+}
+
+#reviews_block ul li .post {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#reviews_block ul li .post p {
+    display: table;
+    margin: 0 auto;
+    margin-top: -25px;
+    font: 12px/20px DINPro-Regular, Verdana, Arial;
+    color: #fde800;
+    background-color: #648F92;
+    z-index: 10;
+    padding: 0px 12px 0px 12px;
+}
+
+#reviews_block ul li .review {
+    font: 13px/20px DINPro-Regular, Verdana, Arial;
+    color: #fff;
+    text-align: center;
+}
+
+#reviews_block ul li .yellow_line {
+    margin-top: -13px;
+    width: 100%;
+    height: 1px;
+    background-color: #fde800;
+    /*border-top: 1px solid #fde800;*/
+    z-index: -1;
+    overflow: hidden;
+}
+
+#reviews_block ul li .line_bg {
+    height: 13px;
+    background: url(/application/includes/images/comments/booble_edge_fon.png) transparent no-repeat 0px 0px;
+    margin-top: -1px;
+    overflow: hidden;
+}
+
+/* REVIEWS BLOCK END */
+
+/* INTERVIEW BLOCK BEGIN */
+
+#interview_block {
+
+}
+
+.answer_button {
+    
+}
+
+.answer_button:hover {
+    background-position: 0px -48px;
+}
+
+.answer_button:active {
+    background-position: 0px -96px;
+}
+
+/* INTERVIEW BLOCK END */
 
 /* PAGINATION BLOCK BEGIN */ 
 
