@@ -1635,7 +1635,7 @@ span, p {
 
 #news_block .date p {
     font: 11px/20px DINPro-light, Verdana, Arial;
-    color: #8c8c8c;
+    color: #FBFEFB;
     display: table;
     background: #fff;
     padding: 0px 5px 0px 5px;
@@ -1852,7 +1852,8 @@ span, p {
 /* REVIEWS BLOCK BEGIN */
 
 #reviews_block {
-    height: 274px;
+    height: 294px;
+    margin-top: 75px;
     background: url(/application/includes/images/comments/comments_bg.png) transparent no-repeat 0px 20px;
 }
 
@@ -1864,8 +1865,8 @@ span, p {
 #reviews_block ul li {
     float: left;
     width: 420px;
-    margin-right: 60px;
-    margin-left: 90px;
+    margin-right: 75px;
+    margin-left: 75px;
 }
 
 #reviews_block ul li .avatar {
@@ -1893,7 +1894,7 @@ span, p {
     font: 17px/20px DINPro-Regular, Verdana, Arial;
     color: #fff;
     position: relative;
-    top: -20px;
+    top: -19px;
     background-color: #648F92;
 }
 
@@ -1945,19 +1946,105 @@ span, p {
 /* INTERVIEW BLOCK BEGIN */
 
 #interview_block {
-
+    display: table;
+    margin: 0 auto;
+    height: 180px;
+    padding-top: 70px;
 }
 
-.answer_button {
-    
+#interview_block .question {
+    float: left;
+    margin-right: 60px;
 }
 
-.answer_button:hover {
-    background-position: 0px -48px;
+#interview_block .question p.bold {
+    font: 25px/22px Days, Verdana, Arial;
+    color: #444;
 }
 
-.answer_button:active {
-    background-position: 0px -96px;
+#interview_block .question p.normal {
+    font: 17px/20px DINPro-light, Verdana, Arial;
+    color: #444;
+}
+
+#interview_block .radiobuttons {
+    float: left;
+    margin-right: 60px;
+}
+
+#interview_block .radiobuttons fieldset {
+    margin-bottom: 5px;
+}
+
+#interview_block .radiobuttons input[type=radio] {
+    display: none;
+}
+
+label {
+    font: 15px/20px DINPro-light, Verdana, Arial;
+    color: #444;
+}
+
+label:hover {
+    color: #ff0000;
+}
+
+label:before {
+    content: '';
+    background: url(/application/includes/images/radiobutton.png) transparent no-repeat 0px 0px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 15px;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+}
+
+#interview_block .radiobuttons label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 25px;
+    margin-right: 15px;
+}
+
+#interview_block .radiobuttons input[type=radio]:checked + label {
+    color: #e67817;
+}
+
+#interview_block .radiobuttons input[type=radio]:checked + label:before {
+    content: '';
+    background: url(/application/includes/images/radiobutton.png) transparent no-repeat 0px -15px;
+}
+
+#interview_block .answer_button {
+    float: right;
+}
+
+.answer_button.inactive {
+    margin-top: -17px;
+    cursor: default;
+    display: block;
+    width: 169px;
+    height: 79px;
+    background: url(/application/includes/images/answer_btn.png) transparent no-repeat top right;
+}
+
+.answer_button.active {
+    margin-top: -13px;
+    display: block;
+    width: 169px;
+    height: 79px;
+    background: url(/application/includes/images/answer_btn.png) transparent no-repeat 0px -79px;
+}
+
+.answer_button.active:hover {
+    background-position: 0px -158px;
+}
+
+.answer_button.active:active {
+    background-position: 0px -237px;
 }
 
 /* INTERVIEW BLOCK END */

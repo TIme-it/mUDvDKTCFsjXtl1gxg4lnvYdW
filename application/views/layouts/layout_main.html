@@ -17,7 +17,7 @@
 					<span class="phone">+7 800 300 11 11</span>
 					<a href="#" class="mail">info@midpo.ru</a>
 				</div>
-				<a href="#" class="enter"></a>
+				<a href="http://test.midpo.ru/" class="enter" target="_blank"></a>
 			</div>
 			<div id="main_slider">
 		 		<ul>
@@ -148,24 +148,25 @@
 		 			<p class="normal">Нравится ли Вам наш сайт?</p>
 		 		</div>
 		 		<div class="radiobuttons">
-		 			<input id="first" type="radio" name="first" value="first">
-				    <label for="first">Нравится</label>
-		 			<input id="second" type="radio" name="second" value="second">
-				    <label for="second">Не нравится</label>
-		 			<input id="third" type="radio" name="third" value="third">
-				    <label for="third">Он прекрасен</label>
-		 			<input id="fourth" type="radio" name="fourth" value="fourth">
-				    <label for="fourth">Кто его делал?</label>
+		 			<fieldset>
+			 			<input id="first" type="radio" name="answer" value="first">
+					    <label for="first">Нравится</label>
+				    </fieldset>
+				    <fieldset>
+			 			<input id="second" type="radio" name="answer" value="second">
+					    <label for="second">Не нравится</label>
+				    </fieldset>
+				    <fieldset>
+			 			<input id="third" type="radio" name="answer" value="third">
+					    <label for="third">Он прекрасен</label>
+				    </fieldset>
+				    <fieldset>
+			 			<input id="fourth" type="radio" name="answer" value="fourth">
+					    <label for="fourth">Кто его делал?</label>
+				    </fieldset>
 		 		</div>
-		 		<a href="#" class="answer_button"></a>
+		 		<a href="#" class="answer_button inactive"></a>
 		 	</div>
-		 	<div class="middle" style="min-height: 285px;">
-		 		<div class="container">
-					<div class="content">
-		 				{main_text}
-					</div>
-				</div>	
-			</div>
 			<div class="clear"></div>
 		</div>
 		{footer}
