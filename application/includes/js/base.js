@@ -68,6 +68,12 @@ var img_big_h = 480;
 
 	$(document).ready(function() {
 
+
+		$('a').on('click', function(){
+			if(!$(this).hasClass('enter'))
+				return false;
+		})
+
 		// Заказ товара
 		$('a.order_button').on('click', function(){
 			var link = $(this);

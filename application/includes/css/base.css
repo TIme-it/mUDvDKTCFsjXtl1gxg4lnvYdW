@@ -1635,9 +1635,9 @@ span, p {
 
 #news_block .date p {
     font: 11px/20px DINPro-light, Verdana, Arial;
-    color: #FBFEFB;
+    color: #8c8c8c;
     display: table;
-    background: #fff;
+    background: #FBFEFB;
     padding: 0px 5px 0px 5px;
     margin: 0 auto;
 }
@@ -1939,6 +1939,20 @@ span, p {
     background: url(/application/includes/images/comments/booble_edge_fon.png) transparent no-repeat 0px 0px;
     margin-top: -1px;
     overflow: hidden;
+}
+
+.allreviews_button {
+    display: block;
+    position: absolute;
+    top: 35px;
+    right: 50px;
+    width: 88px;
+    height: 32px;
+    font: 13px/20px DINPro-light, Verdana, Arial;
+    color: #fff;
+    background: url(/application/includes/images/comments/allcomments_bg.png) transparent no-repeat top left;
+    text-align: center;
+    padding-top: 2px;
 }
 
 /* REVIEWS BLOCK END */
