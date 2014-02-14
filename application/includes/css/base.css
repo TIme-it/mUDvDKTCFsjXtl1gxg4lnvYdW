@@ -967,7 +967,7 @@ span, p {
     width: 121px;
     height: 48px;
     background: url(/application/includes/images/slider/more_btn.png) transparent no-repeat top left;
-    margin-top: 20px;
+    /*margin-top: 20px;*/ /*потом вернуть */
 }
 
 .more_button:hover {
@@ -1763,14 +1763,13 @@ span, p {
 
 #actions_block {
     width: 365px;
-    height: 295px;
     float: left;
     margin-left: 50px;
     margin-top: 40px;
 }
 
 #actions_block .action_descript a, #news_block .news_descript a {
-    display: inline-block;
+    display: inline;
     font: 15px/20px DINPro-Bold, Verdana, Arial;
     color: #ff8a00;
     height: 17px;
@@ -2149,13 +2148,13 @@ label:before {
 }
 
 .footer_block p.foot_text {
-    width: 265px;
+    width: 270px;
     float: left;
     margin-left: 50px;
 }
 
 .footer_block .made {
-    width: 60px;
+    width: 61px;
     float: right;
     margin-right: 50px;
 }
