@@ -33,6 +33,15 @@ body {
     padding: 0;
 }
 
+p#develop {
+    width: 100%;
+    height: 30px;
+    color: #fff;
+    text-align: center;
+    line-height: 24px;
+    background: url(/application/includes/images/developed_bg.png) transparent repeat-x top left;
+}
+
 .bg_top {
     position: absolute;
     top: 114px;
