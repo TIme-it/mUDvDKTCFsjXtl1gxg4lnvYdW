@@ -19,7 +19,8 @@ class uri_controller extends libs_controller {
 			$this->method     = 'page_404';
 		}
 
-		if(($this->not_found !== '0') && ($_SERVER['REQUEST_URI'] != '/') && ($this->config->get('active','chpu') == 1) && (!defined('APPLICATION_ADMIN')) && ($this->popup != "popup_controller") && ($this->popup != "catalog_controller")){
+		$ur = explode('?', $_SERVER['REQUEST_URI']);
+		if(($this->not_found !== '0') && ($ur[0] != '/') && ($this->config->get('active','chpu') == 1) && (!defined('APPLICATION_ADMIN')) && ($this->popup != "popup_controller") && ($this->popup != "catalog_controller")){
 			$this->controller = $this->lib_add('main_controller');
 			$this->method     = 'page_404';
 		}

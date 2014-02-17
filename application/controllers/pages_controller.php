@@ -102,6 +102,9 @@
 		public function get_url($id = false){
 			if($this->config->get('active','chpu') == 1){
 				$tmp = explode('/', $_SERVER['REQUEST_URI']);
+				if(preg_match('/^\?/U', $tmp[count($tmp)-1]) > 0){
+					unset($tmp[count($tmp)-1]);
+				}
 				$tmp = array_reverse($tmp, true);
 				foreach ($tmp as $i => &$item) {
 					if(!empty($item)){
