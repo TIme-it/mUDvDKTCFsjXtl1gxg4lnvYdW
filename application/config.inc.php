@@ -74,13 +74,13 @@ $config["site"]["bubble_text"] = "";
 $config["site"]["bubble_undertext"] = "";
 $config["site"]["certificate_link"] = "";
 $config["site"]["footer_item1"] = "Об институте";
-$config["site"]["footer_link_item1"] = "#";
+$config["site"]["footer_link_item1"] = "/ob_institute/";
 $config["site"]["footer_item2"] = "Курсы";
 $config["site"]["footer_link_item2"] = "#";
 $config["site"]["footer_item3"] = "Портфолио";
 $config["site"]["footer_link_item3"] = "#";
 $config["site"]["footer_item4"] = "Контакты";
-$config["site"]["footer_link_item4"] = "#";
+$config["site"]["footer_link_item4"] = "/kontakty/";
 $config["site"]["footer_item5"] = "";
 $config["site"]["footer_link_item5"] = "";
 ?>

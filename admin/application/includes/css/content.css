@@ -1,32 +1,33 @@
 @font-face {
-    font-family: AgoraBold; /* Имя шрифта */
-    src: url('/application/includes/fonts/AgoraSerifPro/PFAgoraSerifPro-Bold.ttf') format('truetype'); /* Путь к файлу со шрифтом */
+    font-family: Days; /* Имя шрифта */
+    src: url('/application/includes/fonts/Days.otf') format('opentype'); /* Путь к файлу со шрифтом */
 }
-
 @font-face {
-    font-family: PTSansRegular; /* Имя шрифта */
-    src: url('/application/includes/fonts/PTSans/PT Sans Regular.ttf') format('truetype'); /* Путь к файлу со шрифтом */
+    font-family: DINPro-Bold; /* Имя шрифта */
+    src: url('/application/includes/fonts/DINPro-Bold.otf') format('opentype'); /* Путь к файлу со шрифтом */
 }
-
 @font-face {
-    font-family: PTSansItalic; /* Имя шрифта */
-    src: url('/application/includes/fonts/PTSans/PT Sans Italic.ttf') format('truetype'); /* Путь к файлу со шрифтом */
+    font-family: DINPro-Light; /* Имя шрифта */
+    src: url('/application/includes/fonts/DINPro-Light.otf') format('opentype'); /* Путь к файлу со шрифтом */
 }
-
 @font-face {
-    font-family: PTSansBold; /* Имя шрифта */
-    src: url('/application/includes/fonts/PTSans/PT Sans Bold.ttf') format('truetype'); /* Путь к файлу со шрифтом */
+    font-family: DINPro-Medium; /* Имя шрифта */
+    src: url('/application/includes/fonts/DINPro-Medium.otf') format('opentype'); /* Путь к файлу со шрифтом */
+}
+@font-face {
+    font-family: DINPro-Regular; /* Имя шрифта */
+    src: url('/application/includes/fonts/DINPro-Regular.otf') format('opentype'); /* Путь к файлу со шрифтом */
 }
 
 .content h1, #tinymce h1 {
-	font: 43px/40px AgoraBold, Verdana, Tahoma, Arial;
+	font: 43px/40px Days, Verdana, Tahoma, Arial;
 	margin-bottom: 12px;
 	text-decoration: none;
 	display: block;
 }
 
 .content h2, #tinymce h2 {
-    font: 32px/30px AgoraBold, Verdana, Tahoma, Arial;
+    font: 32px/30px Days, Verdana, Tahoma, Arial;
     color: #000;
     margin-bottom: 28px;
 }
@@ -40,7 +41,7 @@ em{
 }
 
 .content p, #tinymce p, .content a, #tinymce a, .content li, #tinymce li, .content ul, #tinymce ul, .content td, #tinymce td, .content span, #tinymce span, .content b, #tinymce b {
-	font: 16px/22px PTSansRegular, Verdana, Arial;
+	font: 16px/22px DINPro-Regular, Verdana, Arial;
 	color:#111;
 }
 .content span, #tinymce span {
@@ -59,6 +60,7 @@ em{
 }
 
 .content strong, #tinymce strong {
+	font-family: DINPro-Regular, Verdana, Arial;
 	font-size: inherit;
 }
 .content a, #tinymce a{
