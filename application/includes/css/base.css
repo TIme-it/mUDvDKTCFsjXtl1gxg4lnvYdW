@@ -34,6 +34,7 @@ body {
 }
 
 p#develop {
+    min-width: 1000px;
     width: 100%;
     height: 30px;
     color: #fff;
@@ -1866,9 +1867,11 @@ span, p {
 /* REVIEWS BLOCK BEGIN */
 
 #reviews_block {
-    height: 294px;
+    min-height: 294px;
     margin-top: 75px;
-    background: url(/application/includes/images/comments/comments_bg.png) transparent no-repeat 0px 20px;
+    background: url(/application/includes/images/comments/comments_bg_w.png) transparent no-repeat top;
+    background-color: #648F92;
+    padding-bottom: 10px;
 }
 
 #reviews_block ul {
@@ -1878,9 +1881,8 @@ span, p {
 
 #reviews_block ul li {
     float: left;
-    width: 420px;
-    margin-right: 75px;
-    margin-left: 75px;
+    width: 425px;
+    margin: 0 75px;
 }
 
 #reviews_block ul li .avatar {
@@ -1910,6 +1912,7 @@ span, p {
     position: relative;
     top: -19px;
     background-color: #648F92;
+    text-align: center;
 }
 
 #reviews_block ul li .fio strong {
@@ -1930,6 +1933,9 @@ span, p {
     background-color: #648F92;
     z-index: 10;
     padding: 0px 12px 0px 12px;
+    min-width: 5%;
+    max-width: 43%;
+    text-align: center;
 }
 
 #reviews_block ul li .review {
@@ -1977,7 +1983,7 @@ span, p {
     display: table;
     margin: 0 auto;
     height: 180px;
-    padding-top: 70px;
+    padding-top: 80px;
 }
 
 #interview_block .question {
