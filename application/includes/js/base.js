@@ -210,9 +210,9 @@ var img_big_h = 480;
 		/* MENU BLOCK END */
 
 
-		intervalID = setInterval(function(){
-			$('.right_arrow').trigger('click');
-		}, 5000)
+		// intervalID = setInterval(function(){
+		// 	$('.right_arrow').trigger('click');
+		// }, 5000)
 
 
 		// -- слайдер на главной
@@ -236,10 +236,10 @@ var img_big_h = 480;
 				next = $(" .slider_links [href^='0']");
 				next.trigger('click');
 			}
-			clearInterval(intervalID);
-			intervalID = setInterval(function(){
-				$('.right_arrow').trigger('click');
-			}, 5000)
+			// clearInterval(intervalID);
+			// intervalID = setInterval(function(){
+			// 	$('.right_arrow').trigger('click');
+			// }, 5000)
 			return false;
 
 		})
@@ -258,10 +258,10 @@ var img_big_h = 480;
 				prev = $(' .slider_links [href^="'+count+'"]');
 				prev.trigger('click');
 			}
-			clearInterval(intervalID);
-			intervalID = setInterval(function(){
-				$('.right_arrow').trigger('click');
-			}, 5000)
+			// clearInterval(intervalID);
+			// intervalID = setInterval(function(){
+			// 	$('.right_arrow').trigger('click');
+			// }, 5000)
 			return false;
 
 		})

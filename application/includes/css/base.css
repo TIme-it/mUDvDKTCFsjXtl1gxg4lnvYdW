@@ -49,7 +49,7 @@ p#develop {
     min-width: 1000px;
     width: 100%;
     height: 603px;
-    background: url(/application/includes/images/head_bg.png) transparent no-repeat top;
+    background: url(/application/includes/images/head_bg.png) transparent no-repeat 0 -85px;
 }
 
 .note_block h2, #actions_line h2, #main_news h2, #actions_box h2, #newsactions_box h2, .most_popular h2, .popular h2 {
@@ -919,7 +919,15 @@ span, p {
     display: inline-block;
     width: 52px;
     height: 50px;
+}
+
+.slider_bg .left_arrow.active {
     background: url(/application/includes/images/slider/slider_arrows_left.png);
+}
+
+.slider_bg .left_arrow.inactive {
+    cursor: default;
+    background: url(/application/includes/images/slider/slider_arrows_left.png) 0 -147px;
 }
 
 .slider_bg .right_arrow {
@@ -930,14 +938,22 @@ span, p {
     display: inline-block;
     width: 52px;
     height: 50px;
+}
+
+.slider_bg .right_arrow.active {
     background: url(/application/includes/images/slider/slider_arrows_right.png);
 }
 
-.slider_bg .right_arrow:hover, .slider_bg .left_arrow:hover {
+.slider_bg .right_arrow.inactive {
+    cursor: default;
+    background: url(/application/includes/images/slider/slider_arrows_right.png) 0 -147px;
+}
+
+.slider_bg .right_arrow.active:hover, .slider_bg .left_arrow.active:hover {
     background-position: 0 -49px;
 }
 
-.slider_bg .right_arrow:active, .slider_bg .left_arrow:active {
+.slider_bg .right_arrow.active:active, .slider_bg .left_arrow.active:active {
     background-position: 0 -98px;
 }
 
@@ -993,6 +1009,23 @@ span, p {
 .more_button:active {
     background-position: 0px -108px;
 }
+
+/* -- TEST STYLE */
+
+#main_slider .images img, #main_slider .images.hide img {
+    position: absolute;
+}
+
+#main_slider .images.hide img {
+   /* display: none;
+    opacity: 0;*/
+}
+
+
+
+
+/* TEST STYLE -- */
+
 /* SLIDER BLOCK END */
 
 /* MODELS BLOCK BEGIN */
@@ -1786,7 +1819,7 @@ span, p {
 
 #actions_block .action_descript a, #news_block .news_descript a {
     display: inline;
-    font: 15px/20px DINPro-Bold, Verdana, Arial;
+    font: 16px/20px DINPro-Bold, Verdana, Arial;
     color: #ff8a00;
     height: 17px;
     text-decoration: none;
