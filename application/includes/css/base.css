@@ -120,8 +120,10 @@ span, p {
 }
 
 .page.container {
-    width: 860px;
+    width: 56%;
+    float: left;
     margin: 0 auto;
+    margin-left: 30px;
 }
 
 .pages {
@@ -1869,6 +1871,7 @@ span, p {
 
 #reviews_block {
     min-height: 294px;
+    min-width: 1000px;
     margin-top: 75px;
     background: url(/application/includes/images/comments/comments_bg_w.png) transparent no-repeat top;
     background-color: #648F92;
@@ -2015,16 +2018,16 @@ span, p {
     display: none;
 }
 
-label {
+#interview_block label {
     font: 15px/20px DINPro-light, Verdana, Arial;
     color: #444;
 }
 
-label:hover {
+#interview_block label:hover {
     color: #ff0000;
 }
 
-label:before {
+#interview_block label:before {
     content: '';
     background: url(/application/includes/images/radiobutton.png) transparent no-repeat 0px 0px;
     display: inline-block;
@@ -2566,10 +2569,16 @@ label:before {
 
 /* FEEDBACK BLOCK BEGIN */ 
 
+.feedbox {
+    float: left;
+    width: 315px;
+    margin-left: 7%;
+}
+
 #ask_question_form {
-    width: 780px;
-    padding: 25px 40px 10px 40px;
-    background-color: #D0E8D8;
+    width: 275px;
+    padding: 30px 20px 0 20px;
+    background-color: #639095;
     border-radius: 15px;
     margin-bottom: 50px;
 }
@@ -2582,72 +2591,63 @@ label:before {
     margin-bottom: 5px;
 }
 
-#ask_question_form fieldset.field_capcha {
-    margin-top: 30px;
-    margin-left: 138px;
-    width: 100%;
-}
-
 #ask_question_form label {
     display: block;
-    font: 14px/22px PTSansRegular, Verdana, Arial;
+    font: 16px/22px DINPro-light, Verdana, Arial;
+    color: #fff;
+}
+
+#ask_question_form label span {
+    color: #fde800;
 }
 
 #ask_question_form input {
-    width: 768px;
-    font: 14px/31px PTSansRegular, Verdana, Arial;
-    border: 1px solid #fff;
-    box-shadow: black 0px 1px 5px -1px inset;
-    border-radius: 5px;
-    padding: 0px 5px 0px 5px;
-}
-
-#ask_question_form textarea {
-    width: 768px;
-    font: 14px/22px PTSansRegular, Verdana, Arial;
-    height: 118px;
-    resize: none;
-    border: 1px solid #fff;
-    box-shadow: black 0px 1px 5px -1px inset;
-    border-radius: 5px;
-    padding: 0px 5px 0px 5px;
+    width: 255px;
+    font: 16px/30px DINPro-light, Verdana, Arial;
+    height: 44px;
+    border: none;
+    box-shadow: black 2px 3px 5px -3px inset;
+    border-radius: 3px;
+    background-color: #DFE9EA;
+    padding: 0 10px;
 }
 
 #ask_question_form input[type="text"]::-webkit-input-placeholder {
     color: #7c7e7d;
-    font: 14px/31px PTSansRegular, Verdana, Arial;
+    font: 14px/31px DINPro-light, Verdana, Arial;
 } 
 
 #ask_question_form input[type="text"]:-moz-placeholder {
     color: #7c7e7d;
-    font: 14px/31px PTSansRegular, Verdana, Arial;
+    font: 14px/31px DINPro-light, Verdana, Arial;
 }
 
 #ask_question_form #capcha {
-    width: 170px;
+    width: 130px;
     float: left;
+    height: 32px;
 }
 
 #ask_question_form .field_capcha img {
     width: 120px;
-    height: 32px;
+    height: 31px;
     float: left;
-    margin-top: 3px;
+    margin-top: 1px;
     margin-left: 5px;
 }
 
 #ask_question_form .left input, #ask_question_form .right input{
-    width: 370px;
+    /*width: 370px;*/
 }
 
 .confirm_button:before {
-    width: 25px;
-    height: 68px;
-    background: url(/application/includes/images/confirm_btn/default/confirm_left.png) transparent no-repeat right top;
+    width: 6px;
+    height: 50px;
+    background: url(/application/includes/images/form/confirm_btn_left.png) transparent no-repeat right top;
     content: '';
     position: absolute;
     top: 0;
-    left: -25px;
+    left: -6px;
 
 }
 
@@ -2656,62 +2656,37 @@ label:before {
     position: relative;
     text-decoration: none;
     text-align: center;
-    margin-top: -14px;
+    margin-top: 15px;
     margin-left: 35px;
     display: block;
-    width: 138px;
-    height: 68px;
-    background: url(/application/includes/images/confirm_btn/default/confirm_center.png) transparent repeat-x top;
+    width: 210px;
+    height: 50px;
+    background: url(/application/includes/images/form/confirm_btn_center.png) transparent repeat-x top;
 }
 
 .middle_wrap .confirm_button span {
-    font: 24px/60px AgoraBold, Verdana, Arial;
+    font: 25px/46px DINPro-Bold, Verdana, Arial;
     color: #fff;
-    text-shadow: 1px 1px 0px #000;
 }
 
 .confirm_button:after {
-    width: 25px;
-    height: 68px;
-    background: url(/application/includes/images/confirm_btn/default/confirm_right.png) transparent no-repeat right top;
+    width: 6px;
+    height: 50px;
+    background: url(/application/includes/images/form/confirm_btn_right.png) transparent no-repeat right top;
     content: '';
     position: absolute;
     top: 0;
-    right: -25px;
+    right: -6px;
 }
 
-.confirm_button:hover:before {
-    background: url(/application/includes/images/confirm_btn/onmouse/confirm_left_onmouse.png) transparent no-repeat right top;
+.confirm_button:hover:before, .confirm_button:hover, .confirm_button:hover:after {
+    background-position: 0px -50px;
 }
 
-.confirm_button:hover {
-    background: url(/application/includes/images/confirm_btn/onmouse/confirm_center_onmouse.png) transparent repeat-x top;
+.confirm_button:active:before, .confirm_button:active, .confirm_button:active:after {
+    background-position: 0px -100px;
 }
 
-.confirm_button:hover span {
-    color: #fff;
-}
-
-.confirm_button:hover:after {
-    background: url(/application/includes/images/confirm_btn/onmouse/confirm_right_onmouse.png) transparent no-repeat right top;
-}
-
-.confirm_button:active:before {
-    background: url(/application/includes/images/confirm_btn/onclick/confirm_left_onclick.png) transparent no-repeat right top;
-}
-
-.confirm_button:active {
-    background: url(/application/includes/images/confirm_btn/onclick/confirm_left_center.png) transparent repeat-x top;
-}
-
-.confirm_button:active span {
-    color: #fff;
-    border-bottom: none;
-}
-
-.confirm_button:active:after {
-    background: url(/application/includes/images/confirm_btn/onclick/confirm_right_onclick.png) transparent no-repeat right top;
-}
 /* FEEDBACK BLOCK END */ 
 
 ymaps {

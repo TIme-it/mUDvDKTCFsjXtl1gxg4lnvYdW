@@ -7,27 +7,24 @@
 			<form id="faqForm" class="form" action="/popup/all/feedback/" method="post" onsubmit="return CheckFeedbackForm($(this));">
 				<input type="hidden" name="pid" value="{id}" />
 				<fieldset>
-					<label for ="fio">Как к Вам обращаться?</label>
-					<input type="text" name="fio" id="fio" placeholder="Ф.И.О." rel=""/>
+					<label for ="fio">меня зовут: <span>*</span></label>
+					<input type="text" name="fio" id="fio" placeholder="ФИО" rel=""/>
 				</fieldset>	
-				<fieldset class="left">
-					<label for ="phone">Контактный телефон для связи</label>
-					<input type="text" name="phone" id="phone" placeholder="8 (960) 123 45 67" rel=""/>
+				<fieldset>
+					<label for ="phone">мой контактный телефон: <span>*</span></label>
+					<input type="text" name="phone" id="phone" placeholder="+7(___)___-__-__" rel=""/>
 				</fieldset>
-				<fieldset class="right">
-					<label for ="email">Ваш адрес электронной почты</label> 
+				<fieldset>
+					<label for ="email">и адрес электронной почты: <span>*</span></label> 
 					<input type="text" name="email" id="email" placeholder="info@primer.com" rel=""/>
 				</fieldset>
 				<div class="clear"></div>
-				<fieldset>
-					<label class ="faq_label" for ="question">Сообщение</label>
-					<textarea name="question" id="question" class="text_f def_text" placeholder="" rel=""></textarea>
-				</fieldset>
 				<fieldset class="field_capcha">
-					<input type="text" name="capcha" id="capcha" placeholder="Введите защитный код" />
+					<label for ="capcha">код подтверждения: <span>*</span></label> 
+					<input type="text" name="capcha" id="capcha"/>
 					<img src="/popup/captcha/cap" />
 					<a href = "#" class = "submit_button confirm_button">
-						<span>Записаться</span>
+						<span>ЗАПИСЫВАЮСЬ</span>
 					</a>
 				</fieldset> 
 				<div class ="clear"></div>
