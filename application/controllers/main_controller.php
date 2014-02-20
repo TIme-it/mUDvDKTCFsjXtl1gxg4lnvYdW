@@ -14,8 +14,11 @@
 			if(!empty($data['slides'])){
 				for($i= 0; $i<count($data['slides']); $i++){
 					// $rand = rand(0, count($data['slides'])-1);
+					$data['slides'][$i]['first'] = ($i == 0) ? true : false;
 					$data['slides'][$i]['num'] = $i;
 					$data['slides'][$i]['note'] = strip_tags($data['slides'][$i]['note']);
+					$data['slides'][$i]['last'] = ($i == count($data['slides'])-1) ? true : false;
+					$data['slides'][$i]['active'] = ($i == count($data['slides'])-2) ? true : false;
 					// var_dump($data['slides']);
 				}
 				// die();

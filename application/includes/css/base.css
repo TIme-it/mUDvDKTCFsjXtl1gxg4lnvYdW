@@ -366,7 +366,7 @@ span, p {
     height: 52px;
     float: right;
     text-align: center;
-    margin-right: 100px;
+    margin-right: 5.5%;
     background-color: #639095;
     padding: 31px 25px;
 }
@@ -507,7 +507,7 @@ span, p {
     width: 100%;
     min-height: 114px;
     height: auto;
-    padding-left: 50px;
+    padding-left: 2.5%;
 }
 
 .menu_block .fon {
@@ -518,17 +518,6 @@ span, p {
     border-radius: 16px;
 }
 
-#menu:before {
-    width: 10px;
-    height: 48px;
-    background: url(/application/includes/images/menu/normal/left_round_edge.png) transparent no-repeat left top;
-    content: '';
-    position: absolute;
-    top: 5px;
-    left: 7px;
-    z-index: 1000;
-}
-
 #menu {
     position: relative;
     top: 30px;
@@ -536,17 +525,6 @@ span, p {
     display: table;
     height: 48px;
     padding: 5px 15px;
-}
-
-#menu:after {
-    width: 10px;
-    height: 48px;
-    background: url(/application/includes/images/menu/normal/right_round_edge.png) transparent no-repeat right top;
-    content: '';
-    position: absolute;
-    top: 5px;
-    right: 7px;
-    z-index: 1000;
 }
 
 #menu li {
@@ -746,7 +724,7 @@ span, p {
 .info_panel .search {
     position: relative;
     float: left;
-    margin-left: 50px;
+    margin-left: 2.5%;
 }
 
 .info_panel .search form {
@@ -826,7 +804,7 @@ span, p {
     height: 48px;
     float: right;
     background: url(/application/includes/images/moodle_btn.png) transparent no-repeat top left;
-    margin-right: 50px;
+    margin-right: 3%;
 }
 
 .enter:hover {
@@ -845,6 +823,7 @@ span, p {
     position: relative;
     height: 190px;
     margin: 0 auto;
+    min-width: 1000px;
 }
 
 #main_slider ul {
@@ -856,11 +835,12 @@ span, p {
 #main_slider ul li {
     position: absolute;
     float: left;
-    margin: 0px 95px;
+    margin: 0px 5%;
     left: 325px;
+    width: 13%;
 }
 
-#main_slider ul li.hide {
+#main_slider ul li.active {
     display: none;
 }
 
@@ -872,7 +852,7 @@ span, p {
 #main_slider ul li.last {
     right: 0;
     left: initial;
-    margin-right: 50px;
+    margin-right: 3% !important;
 }
 
 #main_slider ul li a {
@@ -880,7 +860,7 @@ span, p {
 }
 
 #main_slider ul li a span {
-    display: inline-block;
+    /*display: inline-block;*/
     height: 23px;
     font: 18px/22px Days, Verdana, Arial;
     color: #444;
@@ -1010,21 +990,9 @@ span, p {
     background-position: 0px -108px;
 }
 
-/* -- TEST STYLE */
-
 #main_slider .images img, #main_slider .images.hide img {
     position: absolute;
 }
-
-#main_slider .images.hide img {
-   /* display: none;
-    opacity: 0;*/
-}
-
-
-
-
-/* TEST STYLE -- */
 
 /* SLIDER BLOCK END */
 
@@ -1624,7 +1592,7 @@ span, p {
 #news_block {
     position: relative;
     float: right;
-    margin-right: 50px;
+    margin-right: 3%;
     margin-top: 40px;
 }
 
@@ -1813,7 +1781,7 @@ span, p {
 #actions_block {
     width: 365px;
     float: left;
-    margin-left: 50px;
+    margin-left: 2.5%;
     margin-top: 40px;
 }
 
@@ -2204,13 +2172,13 @@ label:before {
 .footer_block p.foot_text {
     width: 270px;
     float: left;
-    margin-left: 50px;
+    margin-left: 2.5%;
 }
 
 .footer_block .made {
     width: 61px;
     float: right;
-    margin-right: 50px;
+    margin-right: 3%;
 }
 
 .footer_block .made a {

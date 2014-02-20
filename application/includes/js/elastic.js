@@ -127,6 +127,31 @@
 		}
 	}
 
+
+	// СЛАЙДЕР НА ГЛАВНОЙ
+	resizable_slider_block = function(width){
+		if (width >= 1800) {
+			$('#main_slider .slider_bg').css('left', '43%');
+			$('#main_slider ul li').css('margin', '0 5%');
+			return false;
+		}
+		if (width <= 1000) {
+			$('#main_slider .slider_bg').css('left', '20.5%');
+			$('#main_slider ul li').css('margin', '0 0');
+			return false;
+		}
+		if (width > 1000){
+			diff = width - 1800;
+			msb_l = diff/35.55556 + 43;
+			muli_m = diff/160 + 5;
+
+			$('#main_slider .slider_bg').css('left', msb_l+'%');
+			$('#main_slider ul li').css('margin', '0 '+muli_m+'%');
+			return false;
+		}
+	}
+
+
 	showimage_init = function(){
 		$('#main_slider .images img').each(function(){
 			if(!$(this).parent('.images').hasClass('hide')){
@@ -177,6 +202,80 @@
 		$('#main_slider .right_arrow').addClass('active');
 		$('#main_slider .right_arrow').removeClass('inactive');
 	}
+
+	slide_animation = function(){
+		$('#main_slider .images img').each(function(){
+			if(!$(this).parent('.images').hasClass('hide')){
+				switch ($(this).data('pos')) {
+				   case 1:
+				   	  $(this).animate({
+						  opacity: 0,
+						  top: '-155px', 
+						  right: '-156px',
+					  }, 1000);
+				      break;
+				   case 2:
+				      $(this).animate({
+						  opacity: 0,
+						  top: '-260px', 
+						  right: '343px',
+					  }, 1000);
+				      break;
+				   case 3:
+				      $(this).animate({
+						  opacity: 0,
+						  top: '340px', 
+						  right: '165px',
+					  }, 1000);
+				      break;
+				   default:
+				      break;
+				}
+			}
+			if($(this).parent('.images').hasClass('hide')){
+				hide_obj = $(this).parent('.images');
+			}
+			else{
+				show_obj = $(this).parent('.images');
+			}
+		})
+
+		$('#main_slider .images.hide img').each(function(){
+			$(this).css('display', 'block');
+
+			switch ($(this).data('pos')) {
+			   case 1:
+			   	  $(this).animate({
+					  opacity: 1,
+					  top: '55px', 
+					  right: '56px',
+				  }, 1000);
+			      break;
+			   case 2:
+			      $(this).animate({
+					  opacity: 1,
+					  top: '-60px', 
+					  right: '143px',
+				  }, 1000);
+			      break;
+			   case 3:
+			      $(this).animate({
+					  opacity: 1,
+					  top: '140px', 
+					  right: '165px',
+				  }, 1000);
+			      break;
+			   default:
+			      break;
+			}
+			if($(this).parent('.images').hasClass('hide')){
+				hide_obj = $(this).parent('.images');
+			}
+			else{
+				show_obj = $(this).parent('.images');
+			}
+		})
+	}
 	
 	$(document).ready(function() {
 
@@ -188,77 +287,7 @@
 
 		$('#main_slider .right_arrow').on('click', function(){
 			if($(this).hasClass('active')){
-				$('#main_slider .images img').each(function(){
-					if(!$(this).parent('.images').hasClass('hide')){
-						switch ($(this).data('pos')) {
-						   case 1:
-						   	  $(this).animate({
-								  opacity: 0,
-								  top: '-155px', 
-								  right: '-156px',
-							  }, 1000);
-						      break;
-						   case 2:
-						      $(this).animate({
-								  opacity: 0,
-								  top: '-260px', 
-								  right: '343px',
-							  }, 1000);
-						      break;
-						   case 3:
-						      $(this).animate({
-								  opacity: 0,
-								  top: '340px', 
-								  right: '165px',
-							  }, 1000);
-						      break;
-						   default:
-						      break;
-						}
-					}
-					if($(this).parent('.images').hasClass('hide')){
-						hide_obj = $(this).parent('.images');
-					}
-					else{
-						show_obj = $(this).parent('.images');
-					}
-				})
-
-				$('#main_slider .images.hide img').each(function(){
-					$(this).css('display', 'block');
-
-					switch ($(this).data('pos')) {
-					   case 1:
-					   	  $(this).animate({
-							  opacity: 1,
-							  top: '55px', 
-							  right: '56px',
-						  }, 1000);
-					      break;
-					   case 2:
-					      $(this).animate({
-							  opacity: 1,
-							  top: '-60px', 
-							  right: '143px',
-						  }, 1000);
-					      break;
-					   case 3:
-					      $(this).animate({
-							  opacity: 1,
-							  top: '140px', 
-							  right: '165px',
-						  }, 1000);
-					      break;
-					   default:
-					      break;
-					}
-					if($(this).parent('.images').hasClass('hide')){
-						hide_obj = $(this).parent('.images');
-					}
-					else{
-						show_obj = $(this).parent('.images');
-					}
-				})
+				slide_animation();
 
 				hide_obj.removeClass('hide');
 				show_obj.addClass('hide');
@@ -290,12 +319,14 @@
 		resizable_middle($('body').width());
 		resizable_news_block($('.middle_wrap').width());
 		resizable_reviews_block($('.middle_wrap').width());
+		resizable_slider_block($('.middle_wrap').width());
 	
 		$(window).resize(function(){
 			// resizable_menu($('.middle_wrap').width());
 			resizable_middle($('body').width());
 			resizable_news_block($('.middle_wrap').width());
 			resizable_reviews_block($('.middle_wrap').width());
+			resizable_slider_block($('.middle_wrap').width());
 		});
 })
 

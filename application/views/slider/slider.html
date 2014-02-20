@@ -1,24 +1,24 @@
-<div id="slide_wrapper">
-<a href=  "#" class="left_arrow"></a>
-  <div id = "slider_background" style=" background: transparent url('/application/includes/slides/{f_id}.jpg') 0 0 no-repeat; ">   
-    <div class="note_block">
-      <a href="#"><h2 class="slider_header"></h2></a>
-      <p class="slider_note"></p>
-    </div> 
+<ul>
+  {slides}
+    <li class="{?first}first{/?first} {?last}last{/?last} {?active}active{/?active}"><a href="#"><span>{title}</span></a></li>
+  {/slides}
+</ul>
+<div class="slider_bg">
+  <div class="images hide">
+    <img src="/application/includes/images/slider/education/sheet3.png" data-pos="1" alt="" />
+    <img src="/application/includes/images/slider/education/sheet2.png" data-pos="2" alt="" />
+    <img src="/application/includes/images/slider/education/sheet1.png" data-pos="3" alt="" />
   </div>
-<a href="#" class="right_arrow"></a>
-</div>
-<div class="blocks_on_slide"> 
-  <div class="slider_links" {slides}data-id="{id}"{/slides}>
-    
-    {slides}
-      <span class="slider_note_nv hide_class" data-note-id="{id}">{note}</span>
-      <h2 class="slider_header_nv hide_class" data-header-id="{id}">{title}</h2>
-      <span class="hide_class" data-link-id="{id}">{link}</span>
-      <a href="{num}" class ="slider_link{?sel} active{/?sel}" data-id="{id}"></a>
-    {/slides}
-    
+  <div class="images">
+    <img src="/application/includes/images/slider/education/sheet3.png" data-pos="1" alt="" />
+    <img src="/application/includes/images/slider/education/sheet2.png" data-pos="2" alt="" />
+    <img src="/application/includes/images/slider/education/sheet1.png" data-pos="3" alt="" />
   </div>
-  <div class="clear"></div>
+  <a href="#" class="left_arrow active"></a>
+  <a href="#" class="right_arrow active"></a>
+  <div class="note">
+    <h1>Образование</h1>
+    <p>Модернизация образования требует нового качества работы педагогов. Наш институт,  учитывая происходящие процессы обновления содержания образования, появление новых педагогических технологий, организует курсы повышения квалификации и профессиональной переподготовки.</p>
+    <a href="#" class="more_button"></a>
+  </div>
 </div>
-<div class="slider_bg"></div>
