@@ -126,14 +126,22 @@ var img_big_h = 480;
 
 		$('#previews #wrap').css("width", count_item * step + "px");
 		var api = $('.scroll-pane').jScrollPane({}).data('jsp');
+		
+		$(window).resize(function(){
+			api.reinitialise();
+		});
 
-		$('#previews #leftArrow').on('click', function() {			
-			api.scrollByX(-step, 1000);
+		$('#previews #leftArrow').on('click', function() {	
+			if(count_item > 3){		
+				api.scrollByX(-step, 1000);
+			}
 			return false;
 		});
 		
 		$('#previews #rightArrow').on('click', function() {
-			api.scrollByX(step, 1000);	
+			if(count_item > 3){		
+				api.scrollByX(step, 1000);	
+			}
 			return false;    
 		});
 		

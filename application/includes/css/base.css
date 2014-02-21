@@ -2013,6 +2013,21 @@ span, p {
     padding-top: 80px;
 }
 
+body#pages #interview_block {
+    width: 100%;
+}
+
+body#pages #interview_block .question, body#pages #interview_block .radiobuttons {
+    margin-right: 0px;
+}
+
+body#pages #interview_block .radiobuttons {
+    width: 25%;
+    padding-left: 45%;
+    padding-right: 30%;
+    float: none;
+}
+
 #interview_block .question {
     float: left;
     margin-right: 60px;
@@ -2308,7 +2323,7 @@ span, p {
     overflow-x: hidden;
     position: relative;
     top: 0;
-    width: 85%;
+    width: 85.5%;
     z-index: 8;
     height: 135px;
     overflow: hidden;
