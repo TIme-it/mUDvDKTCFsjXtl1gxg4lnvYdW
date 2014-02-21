@@ -75,15 +75,15 @@
 	// НОВОСТИ НА ГЛАВНОЙ
 	resizable_news_block = function(width){
 		if (width >= 1800) {
-			$('.scroll-pane').css('width', '1182px');
-			$('.scroll-pane .item').css('width', '310px');
-			$('.scroll-pane .item').css('margin-right', '84px');
+			$('#news_block .scroll-pane').css('width', '1182px');
+			$('#news_block .scroll-pane .item').css('width', '310px');
+			$('#news_block .scroll-pane .item').css('margin-right', '84px');
 			return false;
 		}
 		if (width <= 1000) {
-			$('.scroll-pane').css('width', '490px');
-			$('.scroll-pane .item').css('width', '140px');
-			$('.scroll-pane .item').css('margin-right', '20px');
+			$('#news_block .scroll-pane').css('width', '490px');
+			$('#news_block .scroll-pane .item').css('width', '140px');
+			$('#news_block .scroll-pane .item').css('margin-right', '20px');
 			return false;
 		}
 		if (width > 1000){
@@ -92,9 +92,9 @@
 			spi_w = diff/4.70588 + 310;
 			spi_mr = diff/12.5 + 84;
 
-			$('.scroll-pane').css('width', sp_w+'px');
-			$('.scroll-pane .item').css('width', spi_w+'px');
-			$('.scroll-pane .item').css('margin-right', spi_mr+'px');
+			$('#news_block .scroll-pane').css('width', sp_w+'px');
+			$('#news_block .scroll-pane .item').css('width', spi_w+'px');
+			$('#news_block .scroll-pane .item').css('margin-right', spi_mr+'px');
 			return false;
 		}
 	}

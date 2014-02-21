@@ -1,14 +1,41 @@
 <h1 class="title">{title_page}</h1>
 <span class="date">{date}</span>
 <div class="clear"></div>
-<div class="text">
-	{text}
+<div class="text_bg">
+	<div class="text">
+		{text}
+	</div>
+	{?galleryBlock}
+	<div class="gallery">
+		{galleryBlock}
+	</div>
+	{/?galleryBlock}
+	{?filesBlock}
+		{filesBlock}
+	{/?filesBlock}	
 </div>
-{?galleryBlock}
-<div class="gallery">
-	{galleryBlock}
+<div id="interview_block">
+	<div class="question">
+		<p class="bold">- Как считаете:</p>
+		<p class="normal">Нравится ли Вам наш сайт?</p>
+	</div>
+	<div class="radiobuttons">
+		<fieldset>
+			<input id="first" type="radio" name="answer" value="first">
+		    <label for="first">Нравится</label>
+	    </fieldset>
+	    <fieldset>
+			<input id="second" type="radio" name="answer" value="second">
+		    <label for="second">Не нравится</label>
+	    </fieldset>
+	    <fieldset>
+			<input id="third" type="radio" name="answer" value="third">
+		    <label for="third">Он прекрасен</label>
+	    </fieldset>
+	    <fieldset>
+			<input id="fourth" type="radio" name="answer" value="fourth">
+		    <label for="fourth">Кто его делал?</label>
+	    </fieldset>
+	</div>
+	<a href="#" class="answer_button inactive"></a>
 </div>
-{/?galleryBlock}
-{?filesBlock}
-	{filesBlock}
-{/?filesBlock}	

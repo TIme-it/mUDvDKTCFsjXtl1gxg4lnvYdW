@@ -78,25 +78,12 @@
 	$config['partners']['img_width'] = 140;
 	$config['partners']['img_height'] = 80;
 
-	// -- настройки изображений для модуля применяемости
-	$config['big_image']['img_width'] = 940;
-	$config['big_image']['img_height'] = 260;
-	$config['small_image']['img_width'] = 220;
-	$config['small_image']['img_height'] = 125;
-
-	// -- настройки изображений для подсемейства
-	$config['subfamily_b']['img_width'] = 430;
-	// $config['subfamily_b']['img_width'] = 614;
-	$config['subfamily_b']['img_height'] = 344;
-	$config['subfamily']['img_width'] = 260;
-	$config['subfamily']['img_height'] = 147;
-	
 	// -- настройки для изображений
 	$config['images']['width_big']	  = 800;
 	$config['images']['height_big']	  = 600;
-	$config['images']['width_small']  = 145;
-	$config['images']['height_small'] = 100;
-	$config['images']['quality'] 	  =  80;
+	$config['images']['width_small']  = 170;
+	$config['images']['height_small'] = 130;
+	$config['images']['quality'] 	  =  100;
 	
 	// -- изображение продукции каталога (только характеризующие картиники)
 	// $config['images']['product_main_w']   = 830;

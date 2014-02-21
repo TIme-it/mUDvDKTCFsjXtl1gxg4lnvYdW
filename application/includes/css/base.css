@@ -52,6 +52,19 @@ p#develop {
     background: url(/application/includes/images/head_bg.png) transparent no-repeat 0 -85px;
 }
 
+.top_shadow {
+    background: url(/application/includes/images/header_shadow.png) transparent repeat-x top;
+    width: 100%;
+    height: 46px;
+}
+
+.bg_page {
+    min-width: 1000px;
+    max-width: 1920px;
+    background: url(/application/includes/images/white.png) transparent repeat-x top; 
+    background-color: #DFF3EA;
+}
+
 .note_block h2, #actions_line h2, #main_news h2, #actions_box h2, #newsactions_box h2, .most_popular h2, .popular h2 {
     font: 32px/28px Days, Verdana, Tahoma, Arial;
     color: #000;
@@ -120,10 +133,16 @@ span, p {
 }
 
 .page.container {
-    width: 56%;
-    float: left;
+    width: 835px;
+    max-width: 835px;
     margin: 0 auto;
+}
+
+.page.container.feed_plus {
+    width: 63% !important;
+    float: left;
     margin-left: 30px;
+    margin-bottom: 60px;
 }
 
 .pages {
@@ -141,10 +160,14 @@ span, p {
 }
 
 
-.content .text {
+.content .text_bg {
     background-color: #fff;
-    padding: 25px;
     border-radius: 20px;
+    padding-bottom: 30px;
+}
+
+.content .text {
+    padding: 25px;
 }
 
 .left-sidebar {
@@ -2233,8 +2256,7 @@ span, p {
 /* GALLERY BLOCK BEGIN */ 
 
 #previews {
-    background-color: #D6DBE1;
-    height: 145px;
+    height: 130px;
     overflow: hidden;
     width: 100%;
     margin-top: 20px;
@@ -2242,7 +2264,7 @@ span, p {
 }
 
 #previews #wrap{
-    height: 145px;
+    height: 130px;
     margin: 0 auto;
     clear: none;
     float: left;
@@ -2254,41 +2276,31 @@ span, p {
 
 #previews #leftArrow {
     position: relative;
-    background: url(/application/includes/images/gallery_arrows/gallery_arrows_left.png) transparent no-repeat;
+    background: url(/application/includes/images/gallery/gallery_btn_left.png) transparent no-repeat;
     overflow: hidden;
     clear: both;
     display: block;
     float: left;
-    height: 64px;
-    width: 50px;
-    margin-top: 37px;
+    height: 129px;
+    width: 44px;
 
 }
 
 #previews #rightArrow {
     position: relative;
-    background: url(/application/includes/images/gallery_arrows/gallery_arrows_right.png) transparent no-repeat;
+    background: url(/application/includes/images/gallery/gallery_btn_right.png) transparent no-repeat;
     display: block;
     float: right;
-    height: 64px;
-    width: 50px;
-    margin-top: 37px;
+    height: 129px;
+    width: 44px;
 }
 
-#previews #leftArrow:hover {
-    background: url(/application/includes/images/gallery_arrows/gallery_arrows_left.png) transparent no-repeat 0px;
+#previews #leftArrow:hover, #previews #rightArrow:hover {
+    background-position: 0 -129px;
 }
 
-#previews #rightArrow:hover {
-    background: url(/application/includes/images/gallery_arrows/gallery_arrows_right.png) transparent no-repeat 0px;
-}
-
-#previews #leftArrow:active {
-    background: url(/application/includes/images/gallery_arrows/gallery_arrows_left.png) transparent no-repeat 0px -128px;
-}
-
-#previews #rightArrow:active {
-    background: url(/application/includes/images/gallery_arrows/gallery_arrows_right.png) transparent no-repeat 0px -128px;
+#previews #leftArrow:active, #previews #rightArrow:active {
+    background-position: 0 -258px;
 }
 
 #previews #scroll {
@@ -2296,23 +2308,20 @@ span, p {
     overflow-x: hidden;
     position: relative;
     top: 0;
-    width: 850px;
+    width: 85%;
     z-index: 8;
     height: 135px;
     overflow: hidden;
-    padding-left: 28px;
-    margin-left: 20px;
-    padding-right: 20px;
+    margin: 0 auto;
 }
 
 #previews .item {
     list-style: none;
     list-style-image: none !important;
     float: left;
-    margin-right: 30px;
-    width: 145px;
-    height: 100px;
-    margin-top: 23px;
+    margin-right: 10px;
+    width: 170px;
+    height: 130px;
 }
 
 #previews .jspHorizontalBar {
@@ -2320,62 +2329,30 @@ span, p {
 }
 
 .fancybox-overlay {
-    background-color: rgba(0,0,0,0.8) !important;
+    background: url(/application/includes/images/fancy_outer.png) !important;
 }
 
-.fancybox-wrap .fancybox-skin {
-    background-color: #D0E8D8 !important;    
+.fancybox-skin {
+    background-color: #D6DBE1 !important;    
     border-radius: 10px;
-/*    padding: 25px 40px 10px 40px !important;*/
 }
 
 .fancybox-item.fancybox-close {
-    width: 26px;
-    height: 24px;
-    margin-top: -35px;
-    margin-right: -35px;
-    background: url(/application/includes/images/close.png) transparent no-repeat 0px 0px;
+    width: 43px;
+    height: 44px;
+    margin-top: -10px;
+    margin-right: 25px;
+    background: url(/application/includes/images/popup/close_popup.png) transparent no-repeat 0px 0px;
 }
 
 .fancybox-item.fancybox-close:hover {
-    background: url(/application/includes/images/close.png) transparent no-repeat 0px -24px;
+    background: url(/application/includes/images/popup/close_popup.png) transparent no-repeat 0px -44px;
 }
 
 .fancybox-inner {
-    /*margin-top: 20px !important;*/
+    margin-top: 20px !important;
 }
 
-.gallery .item_img {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.gallery .wrap {
-    display: table;
-    margin: 0 auto;
-    position: relative;
-    width: 615px;
-    top: -45px;
-}
-
-.gallery .wrap a {
-    display: block;
-    float: left;
-    text-align: center;
-    width: 123px;
-    height: 80px;
-    background: url(/application/includes/images/product_foto_frame.png) transparent no-repeat bottom left;
-}
-
-.gallery .wrap a:hover, .gallery .wrap a.active {
-    background: url(/application/includes/images/product_foto_frame_hover.png) transparent no-repeat 0px 0px;
-}
-
-.gallery .wrap a img {
-    margin-left: -13px;
-    margin-top: 9px;
-}
 /* GALLERY BLOCK END */ 
 
 /* PHONE ORDER BLOCK BEGIN */ 
@@ -2538,7 +2515,7 @@ span, p {
 .content .filesList .one_files {
     display: inline-block;
     margin-left: 55px;
-    width: 165px;
+    width: 215px;
     float: left
 }
 
@@ -2547,22 +2524,22 @@ span, p {
     height: 61px;
 }
 
-.content .filesList .one_files p {
-    font: 14px/28px PTSansRegularm, Verdana, Arial;
-    margin-bottom: 0px;
+.content .filesList .one_files a {
+    font: 16px/20px DINPro-Medium, Verdana, Arial;
+    color: #ff8a00;
+    float: left;
+    text-decoration: none;
+    border-bottom: 1px solid;
+    height: 20px;
 }
 
-.content .filesList .one_files a {
-    font: 12px/12px PTSansRegular, Verdana, Arial;
-    color: #d02650;
-    float: left;
+.content .filesList .one_files a:hover {
+    color: #ff0000;
 }
 
 .content .filesList .one_files .infosize {
-    font: 12px/12px PTSansRegular, Verdana, Arial;
-    color: #a7a7a7;
-    float: left;
-    margin-left: 10px;
+    font: 13px/20px DINPro-light, Verdana, Arial;
+    color: #444;
 }
 
 /* FILES LIST BLOCK END */
@@ -2571,15 +2548,39 @@ span, p {
 
 .feedbox {
     float: left;
+    height: 465px;
+    background: url(/application/includes/images/form/form_edge.png) transparent no-repeat 0px 400px;
+    margin-left: 2.5%;
+    margin-top: 53px;
+}
+
+.feedbox .feedback {
+    position: relative;
     width: 315px;
-    margin-left: 7%;
+    background-color: #639095;
+    border-radius: 15px;
+}
+
+.feedbox .feedback p.confirm {
+    font: 20px/22px DINPro-bold, Arial, Verdana;
+    color: #fff;
+    padding: 25px;
+}
+
+.tdline {
+    width: 100%;
+    height: 2px;
+    background: url(/application/includes/images/form/form_line.png) transparent repeat-x top;
+}
+
+.feedbox .feedback .tdline {
+    position: absolute;
+    bottom: 101px;
 }
 
 #ask_question_form {
     width: 275px;
     padding: 30px 20px 0 20px;
-    background-color: #639095;
-    border-radius: 15px;
     margin-bottom: 50px;
 }
 
@@ -2638,6 +2639,16 @@ span, p {
 
 #ask_question_form .left input, #ask_question_form .right input{
     /*width: 370px;*/
+}
+
+#ask_question_form fieldset.buttonfield {
+    text-align: center;
+    margin-top: 35px;
+}
+
+#ask_question_form fieldset.buttonfield label {
+    font-size: 12px;
+    line-height: 22px;
 }
 
 .confirm_button:before {

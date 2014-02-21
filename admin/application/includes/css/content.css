@@ -105,18 +105,18 @@ em{
 }
 
 .content ul li, #tinymce ul li {
-	list-style-image: url(/application/includes/images/list_marker.png) !important;
+	list-style-image: url(/application/includes/images/list-marker.png) !important;
 }
 
-.content ol li{
-
+.content ol li {
+	color: #a0a0a0;
 }
 
 
 .content table, #tinymce table {
 	width:100%;
 	margin-bottom: 17px;
-	border: 1px solid #fff;
+	border: 1px solid #ccc;
 }
 
 .content table caption, #tinymce table caption {
@@ -145,12 +145,11 @@ em{
 
 .content table .table_header td, #tinymce table .table_header td {
 	font: 14px/31px sansationregular;
-	border: 1px solid #fff;
 	color: white;
 }
 
 .content table tr, #tinymce table tr {
-	border-bottom: 1px solid #fff;
+
 }
 
 .content table tr.odd, #tinymce table tr.odd {
@@ -158,10 +157,9 @@ em{
 }
 
 .content table td, #tinymce table td{
-	border: 1px solid #fff;
-	background-color: #F0F0F0;
-	font: 12px/30px Arial;
-	padding:0px 10px;
+	border: 1px solid #ccc;
+	font: 15px/30px DINPro-light, Verdana, Arial;
+	padding: 0px 10px;
 }
 
 .content img, #tinymce img {

@@ -7,13 +7,15 @@
   <body id="main_page">
     <p id="develop">&mdash; Сайт находится на этапе разработки</p>
     <div class="bg_top" style="top: 144px;">
+      <div class="top_shadow"></div>
     </div>
+    <div class="bg_page">
     <div class="middle_wrap">
       {menu_block}  
       <div class="middle">
         <div class="center">
           {feedbackBlock}
-          <div class="page container">
+          <div class="page container {?feedbackBlock}feed_plus{/?feedbackBlock}">
             <div class="content">
               {content}
             </div>
@@ -21,6 +23,7 @@
         </div>
       </div>
       <div class="clear"></div>
+    </div>
     </div>
     {footer}
     {?alert}

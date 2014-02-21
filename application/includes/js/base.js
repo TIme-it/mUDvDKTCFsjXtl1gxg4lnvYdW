@@ -88,30 +88,6 @@ var img_big_h = 480;
 			});
 		})
 
-		// Карточка товара. Изображения товара
-		$('.add_img a').on('click', function(){
-			type = $(this).data('imgtype');
-			id = $(this).data('id');
-			$('.add_img').find('.active').removeClass('active');
-			$(this).addClass('active');
-			if(type == 'orig'){
-				$('.item_img').html('<img src="/application/includes/catalog/catalog_product/b/'+ id +'.png" alt="">')
-			}
-			else {
-				$('.item_img').html('<img src="/application/includes/catalog/catalog_product/d/b/'+ id +'.png" alt="">')
-			}
-			return false;
-		})
-
-		// Галерея на странице
-		$('.wrap a').on('click', function(){
-			id = $(this).data('id');
-			$('.wrap').find('.active').removeClass('active');
-			$(this).addClass('active');
-			$('.gallery .item_img').html('<img src="/application/includes/img/b/'+ id +'.jpg" alt="">')
-			resizable_gallery($('.middle_wrap').width());
-			return false;
-		})
 
 		// календарь в форму обратной связи 
 		$.datepicker.setDefaults(
@@ -146,7 +122,7 @@ var img_big_h = 480;
 		})
 
 		var count_item = $('#previews .item').size();		
-		var step = 175;
+		var step = 180;
 
 		$('#previews #wrap').css("width", count_item * step + "px");
 		var api = $('.scroll-pane').jScrollPane({}).data('jsp');
@@ -584,7 +560,7 @@ var img_big_h = 480;
 		$('#shadow_left, #shadow_right').css({'width':lrshw});		
 		
 		// -- устанавливаем ширину ul в #ajaxGalleryBlock
-		$('#preview ul').css('width', ($('#scroll li').length*150)+'px');		
+		// $('#preview ul').css('width', ($('#scroll li').length*150)+'px');		
 		
 		$('#shadow').on('click', function() {
 			$('#ajaxGalleryBlock').fadeOut();
