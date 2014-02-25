@@ -4,23 +4,68 @@
 <head>
   {head}
 </head>
-  <body id="main_page">
-    <div class="bg_top">
+  <body id="courses">
+    <p id="develop">&mdash; Сайт находится на этапе разработки</p>
+    <div class="bg_top" style="top: 144px;">
+      <div class="top_shadow"></div>
     </div>
+    <div class="bg_page">
     <div class="middle_wrap">
-      {header}
       {menu_block}  
       <div class="middle">
-          <div class="catalog">
-            <div class="content">
-              {content}
+        <div class="left_block">
+          <div class="nav">
+            <ul>
+              <li class="active">
+                <img class="nav_ico" src="/application/includes/images/courses/education_ico.png" alt="" />
+                <div class="nav_item">
+                  <a href="#">Образование</a>
+                  <span class="count"> (152)</span>
+                </div>
+                <div class="clear"></div>
+              </li>
+              <li>
+                <img class="nav_ico" src="/application/includes/images/courses/construction_ico.png" alt="" />
+                <div class="nav_item">
+                  <a href="#">Строительство</a>
+                  <span class="count"> (11)</span>
+                </div>
+                <div class="clear"></div>
+              </li>
+              <li>
+                <img class="nav_ico" src="/application/includes/images/courses/sport_ico.png" alt="" />
+                <div class="nav_item">
+                  <a href="#">Физкультура и спорт</a>
+                  <span class="count"> (7)</span>
+                </div>
+                <div class="clear"></div>
+              </li>
+              <li>
+                <img class="nav_ico" src="/application/includes/images/courses/ecology_ico.png" alt="" />
+                <div class="nav_item">
+                  <a href="#">Экология</a>
+                  <span class="count"> (16)</span>
+                </div>
+                <div class="clear"></div>
+              </li>
+            </ul>
+          </div>
+          <div id="actions_block">
+            <div class="action_descript">
+              <a href="#">Теория и практика дошкольного образования</a>
+              <p class="note">Только в феврале и марте желающим пройти курсы профессиональной переподготовки по программе «Теория и практика дошкольного образования» стоимость обучения 18000 рублей (оплата ежемесячно).</p>
             </div>
-          </div>  
+            <img src="/application/includes/images/action_pic.png" alt="Для инженерных специальностей" class="action_img" width="315" height="155" />
+          </div>
+        </div>
+        <div class="page container">
+          <div class="content">
+            {content}
+          </div>
+        </div>  
       </div>
-        <div class="clear"></div>
-        
-        {pop_products}
       <div class="clear"></div>
+    </div>
     </div>
     {footer}
     {?alert}

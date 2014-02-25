@@ -184,10 +184,12 @@ var img_big_h = 480;
 		$('.menu_block').on('mouseleave',function(){
 			$(this).find('.preactive .submenu').css('display', 'block');
 			$(this).find('.parent.active .submenu').css('display', 'block');
+			$(this).find('.parent.active .left, .parent.active .right, .parent.preactive .left, .parent.preactive .right').css('display', 'block');
 		})
 		$('.menu_block a.m_it').on('mouseenter',function(){
 			$(this).parents('.menu_block').find('.preactive .submenu').css('display', 'none');
 			$(this).parents('.menu_block').find('.parent.active .submenu').css('display', 'none');
+			$(this).parents('.menu_block').find('.parent.active .left, .parent.active .right, .parent.preactive .left, .parent.preactive .right').css('display', 'none');
 
 		})
 
