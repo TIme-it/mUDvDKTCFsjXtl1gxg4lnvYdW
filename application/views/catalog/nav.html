@@ -1,0 +1,14 @@
+<div class="nav">
+  <ul>
+    {nav_list}
+    <li {?active}class="active"{/?active}>
+      <img class="nav_ico" src="/application/includes/catalog/type/{id}.png" alt="" width="55" height="50"/>
+      <div class="nav_item">
+        <a href="{url}">{title}</a>
+        <span class="count"> ({courses_count})</span>
+      </div>
+      <div class="clear"></div>
+    </li>
+    {/nav_list}
+  </ul>
+</div>

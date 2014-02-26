@@ -270,7 +270,7 @@
 			}
 			
 			// -- категории и товары
-			$category['categoryBlock'] = $this->categoryBlock($category['cid'], $id);
+			// $category['categoryBlock'] = $this->categoryBlock($category['cid'], $id);
 			$this->html->tpl_vars['meta_keywords']    = (empty($category['keywords']))    ? '' : trim($category['keywords']);
 			$this->html->tpl_vars['meta_description'] = (empty($category['description'])) ? '' : trim($category['description']);	
 			$category['productBlock']  = $this->productBlock($category['cid'], $id);
@@ -278,19 +278,27 @@
 			$breadcrumbs = array();
 			$this->getCategoryPath($category['cid'], $category['id'], $breadcrumbs);
 			$breadcrumbs[] = array('/catalog/'.$main['main_id'].'/', $main['main_title']);
-			$category['breadcrumbs'] = $this->renderBreadcrumbs($breadcrumbs);
-			$this->html->tpl_vars['footer_text'] = file_get_contents('http://trios.ru/application/includes/text/'.$category['id'].'.txt');
+			// $category['breadcrumbs'] = $this->renderBreadcrumbs($breadcrumbs);
+			// $this->html->tpl_vars['footer_text'] = file_get_contents('http://trios.ru/application/includes/text/'.$category['id'].'.txt');
 			// -- основной рендер
 			$this->layout = 'catalog';
 
-			$right_block['actions_title'][] = $this->catalog->getPublicTitle(302);
-			$right_block['actions_list'] = $this->catalog->getPublicData('actions', 302, 2);
+			// основные категории курсов
+			$category['nav_list'] = $this->catalog->getMainCategory($category['cid']);
+			if(!empty($category['nav_list'])){
+				foreach ($category['nav_list'] as $i => &$item) {
+					$item['url'] = $this->application_controller->get_url($item['mid']);
+					if($_SERVER['REQUEST_URI'] == $item['url']){
+						$item['active'] = true;
+					}
+				}
+			}
+
+			// подкатегории курсов
+			$category['subtype'] = $this->catalog->getSubType($category['cid'], $id);
 			
-			$right_block['news_title'][] = $this->catalog->getPublicTitle(307);
-			$right_block['news_list'] = $this->catalog->getPublicData('news', 307, 5);
 
-			$this->html->tpl_vars['actions_news_block'] = $this->html->render('catalog/actions_news_block.html', $right_block);
-
+			$this->html->tpl_vars['courses_nav'] = $this->html->render('catalog/nav.html', $category);
 			$this->html->render('catalog/category.html', $category, 'content');
 		}
 		
@@ -414,7 +422,7 @@
 				foreach($category['list'] as $i => &$item) {
 					$item['title_hsc'] = htmlspecialchars($item['title']);
 					$item['url'] = $this->application_controller->get_url($item['mid']);
-					if(!file_exists(INCLUDES.'catalog/catalog_category/b/'.$item['id'].'.png')){
+					if(!file_exists(INCLUDES.'catalog/catalog_category/type/'.$item['id'].'.png')){
 						$item['no_img'] = true;
 					}
 					if (mb_strlen($item['note'], 'UTF-8') > 50) {

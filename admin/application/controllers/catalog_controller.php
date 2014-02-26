@@ -199,8 +199,7 @@
 			}
 			//var_dump($category['techcharList']);
 			//$category['list1']=$category['techcharList'];
-
-			$category['alias'] = $this->catalog->getMainAlias($id);
+			$category['alias'] = $this->catalog->getMainAlias($id, 1);
 
 			$this->html->render('catalog/dirs.html', $category, 'dirs');
 			$this->html->render('catalog/category.html', $category, 'content_path');
@@ -437,7 +436,7 @@
 			if(!empty($product['is_popular']))
 				$product['is_popular']   = $product['is_popular'] ? 'checked="checked"' : '';
 
-			$product['alias'] = $this->catalog->getAliasIdProduct($id);
+			$product['alias'] = $this->catalog->getMainAlias($id, 2);
 
 			// получаем список изображений в галереи из футера
 			$product['minigallery'] = $this->minigallery->getAllImg($id);

@@ -63,6 +63,18 @@
 			return $this->db->get_one($sql);
 		}
 
+		// главные категории (Образование, строительство, спорт и экология)
+		public function getMainCategory($cid){
+			$sql = 'SELECT * FROM catalog_categories WHERE cid = '.(int)$cid.' AND pid = 0';
+			return $this->db->get_all($sql);
+		}
+
+		// подкатегории (профессиональная переподготовка, повышения квалификации)
+		public function getSubType($cid, $id){
+			$sql = 'SELECT * FROM catalog_categories WHERE cid = '.(int)$cid.' AND pid = '.(int)$id;
+			return $this->db->get_all($sql);
+		}
+
 
 
 

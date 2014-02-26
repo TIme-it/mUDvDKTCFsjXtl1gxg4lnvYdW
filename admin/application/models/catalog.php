@@ -33,9 +33,9 @@
 		}
 
 
-		public function getMainAlias($id) {
+		public function getMainAlias($id, $ctype) {
 			$sql =  'SELECT alias FROM main '.
-					'WHERE cid = '.(int)$id;
+					'WHERE cid = '.(int)$id.' AND ctype = '.(int)$ctype;
 			return $this->db->get_one($sql);
 		}
 
@@ -48,12 +48,6 @@
 		public function getParentMidProduct($pid) {
 			$sql =  'SELECT id FROM main '.
 					'WHERE cid = '.(int)$pid;
-			return $this->db->get_one($sql);
-		}
-
-		public function getAliasIdProduct($id) {
-			$sql =  'SELECT alias FROM main '.
-					'WHERE cid = '.(int)$id;
 			return $this->db->get_one($sql);
 		}
 		

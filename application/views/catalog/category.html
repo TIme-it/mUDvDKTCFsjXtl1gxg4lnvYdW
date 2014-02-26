@@ -1,4 +1,12 @@
-<h1>Курсы</h1>
+<h1 class="courses_h1">Курсы</h1>
+<div class="select_outer">
+	<select name="subtype" id="subtype">
+		{subtype}
+		<option value="{id}" {selected}>{title}</option>
+		{/subtype}
+	</select>
+</div>
+<div class="clear"></div>
 <div class="text_bg">
 <div class="left_block">
 	{productBlock}

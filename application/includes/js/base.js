@@ -73,63 +73,67 @@ var img_big_h = 480;
 			return false;
 		})
 
-		
+		// sexycombo
 
-		// Заказ товара
-		$('a.order_button').on('click', function(){
-			var link = $(this);
-			$('.fancy').fancybox({
-				beforeShow   : function(){
-					var title = link.data('title');
-					var id = link.data('id');
-					$('.fancybox-inner #question').html('Здравствуйте, меня интересует товар "' + title + '".');
-					$('.fancybox-inner input[name="id"]').val(id);
-	   			}
-			});
-		})
+		$("#subtype").sexyCombo();
 
+		$.sexyCombo.deactivate("#subtype");
+    	$("#activate").bind("click", function () {
+    		$.sexyCombo.activate("#subtype");
+    	});
 
-		// календарь в форму обратной связи 
-		$.datepicker.setDefaults(
-			$.extend($.datepicker.regional["ru"])
-		);
-		$("#date_td").datepicker();
+    	$("#empty-combo").sexyCombo({
+    		emptyText: "Choose a state..."
+    	});
 
-		// Отобразить форму заказа в футере 
-		$('.footer_block .to_call').on('click', function(){
-			$('.footer_block .to_call_form').stop().fadeIn("slow", function() {
-				$(this).css('display', 'block');
-		 	});
-		})
+    	$("#autofill-combo").sexyCombo({
+    		autoFill: true
+    	});
 
-		// Скрыть форму заказа в футере 
-		$('.footer_block .to_call.close').on('click', function(){
-			$('.footer_block .to_call_form').stop().fadeOut("slow", function() {
-				$(this).css('display', 'none');
-		 	});
-		})
+    	$('.combo div.icon').on('click', function(){
+	    	if ($('.list-wrapper').hasClass('visible')){
+	    		$(this).css('background', 'url("/application/includes/images/sexycombo/sexy/title_select_btn.png") 0px -110px');
+	    	}
+	    	if ($('.list-wrapper').hasClass('invisible')){
+	    		$(this).css('background', '');
+	    	}
+    	})
 
-		// Кнопка отправки формы в футере
-		$('.to_call_form a.credit_button').on('click', function(){
-			$(this).parents('form').submit();
-			return false;
-		})
+    	$('.list-wrapper ul li.visible').on('click', function(){
+	    	if ($('.list-wrapper').hasClass('visible')){
+	    		$('.combo div.icon').css('background', 'url("/application/includes/images/sexycombo/sexy/title_select_btn.png") 0px -110px');
+	    	}
+	    	if ($('.list-wrapper').hasClass('invisible')){
+	    		$('.combo div.icon').css('background', '');
+	    	}
+    	})
 
-		// Кнопка направления на страницу с обратной связью (с заполненным полем "Модель")
-		$('.testdrive_bbutton, .testdrive_button, .credit_button, .credit_bbutton').on('click', function(){
-			$(this).parents('form').submit();
-			return false;
-		})
+    	$('.combo').focusout(function(){
+	    	$('.combo div.icon').css('background', '');
+    	})
+
+    	$('.combo div.icon').on('mouseover',function(){
+    		if ($('.list-wrapper').hasClass('visible')){
+	    		$('.combo div.icon').css('background', 'url("/application/includes/images/sexycombo/sexy/title_select_btn.png") 0px -147px');
+	    	}
+    	})
+
+    	$('.combo div.icon').on('mouseout',function(){
+    		if ($('.list-wrapper').hasClass('visible')){
+	    		$('.combo div.icon').css('background', 'url("/application/includes/images/sexycombo/sexy/title_select_btn.png") 0px -110px');
+	    	}
+    	})
 
 		var count_item = $('#previews .item').size();		
 		var step = 180;
 
 		$('#previews #wrap').css("width", count_item * step + "px");
 		var api = $('.scroll-pane').jScrollPane({}).data('jsp');
-		
-		$(window).resize(function(){
-			api.reinitialise();
-		});
+		if (api != null){
+			$(window).resize(function(){
+				api.reinitialise();
+			});
+		}
 
 		$('#previews #leftArrow').on('click', function() {	
 			if(count_item > 3){		
@@ -145,27 +149,6 @@ var img_big_h = 480;
 			return false;    
 		});
 		
-		// Кнопки дилерский/сервисный центр
-		$('#header_col3 a').on('click', function(){
-			hide_obj = $('#header_col3 a.active');
-			hide_obj.removeClass(' active');
-			hide_class = hide_obj.attr('class')+'_info';
-			
-			show_obj = $(this);
-			show_class = show_obj.attr('class')+'_info';
-			show_obj.addClass('active');
-
-
-			$('#header_col3 div.'+hide_class).css('display', 'none');
-			$('#header_col3 div.'+show_class).css('display', 'block');
-			return false;
-		})
-
-		// Кнопка заказать звонок
-		$('.footer_block .to_call').on('click', function(){
-			return false;
-		})
-
 		slider_init($(' .slider_link').data('id'));
 
 		

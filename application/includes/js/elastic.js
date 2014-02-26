@@ -304,16 +304,6 @@
 		})
 
 		/* SLIDER BLOCK END */
- 
-		// Отсчитывает отступ от подменю
-		$('#menu .submenu').each(function(){
-			if($(this).css('display') == 'block'){
-				var height = $(this).height() / 2;
-				var newMargin = parseInt($('.middle_wrap .middle').css('margin-top')) + height;
-				$('.middle_wrap .middle').css('margin-top', newMargin);
-				return false;
-			}
-		})
 
 		// resizable_menu($('.middle_wrap').width());
 		resizable_middle($('body').width());
