@@ -60,14 +60,14 @@
 		// -- страница товара
 		public function product($id = 0) {
 			if(($this->config->get('active','chpu') == 1) && (!is_numeric($id))){
-				$id = $this->catalog->getPageIdAlias($id);
+				$id = $this->catalog->getPageIdAlias($id, 1);
 			}	
 
 			$product  = $this->catalog->getProduct($id);
 			
-			$this->active_main_id = $product['mid'];
-			$mid = $this->catalog->getMidCategories($product['pid']);
-			$product['parent_url'] = $this->application_controller->get_url($mid);
+			// $this->active_main_id = $product['mid'];
+			// $mid = $this->catalog->getMidCategories($product['pid']);
+			// $product['parent_url'] = $this->application_controller->get_url($mid);
 
 			if(empty($product))  { $this->main_controller->page_404(); return false; }
 			$main     = $this->catalog->getInfo($product['cid']);
@@ -251,11 +251,12 @@
 		// -- страница подкатегории
 		public function category($id = 0) {
 			if(($this->config->get('active','chpu') == 1) && (!is_numeric($id))){
-				$id = $this->catalog->getPageIdAlias($id);
+				$id = $this->catalog->getPageIdAlias($id, 0);
 			}	
 
 			$category = $this->catalog->getCategory($id);
-			$this->active_main_id = $category['mid'];
+			// Помечаем активный раздел TODO: Починить (необходимо для меню)
+			// $this->active_main_id = $category['mid'];
 			$category['tchars'] = $this->catalog->getTechChars($id);
 			if(empty($category)) { $this->main_controller->page_404(); return false; }
 			if(!empty($category['cid'])){
@@ -270,7 +271,7 @@
 			}
 			
 			// -- категории и товары
-			// $category['categoryBlock'] = $this->categoryBlock($category['cid'], $id);
+			$category['categoryBlock'] = $this->categoryBlock($category['cid'], $id);
 			$this->html->tpl_vars['meta_keywords']    = (empty($category['keywords']))    ? '' : trim($category['keywords']);
 			$this->html->tpl_vars['meta_description'] = (empty($category['description'])) ? '' : trim($category['description']);	
 			$category['productBlock']  = $this->productBlock($category['cid'], $id);
@@ -287,7 +288,7 @@
 			$category['nav_list'] = $this->catalog->getMainCategory($category['cid']);
 			if(!empty($category['nav_list'])){
 				foreach ($category['nav_list'] as $i => &$item) {
-					$item['url'] = $this->application_controller->get_url($item['mid']);
+					$item['url'] = $this->get_url($item['lid']);
 					if($_SERVER['REQUEST_URI'] == $item['url']){
 						$item['active'] = true;
 					}
@@ -329,7 +330,7 @@
 
 					if($this->config->get('active','chpu') == 1){
 						$item['mid'] = $this->catalog->getMainIdProduct($item['id']);
-						$item['url'] = $this->application_controller->get_url($item['mid']);
+						$item['url'] = $this->get_url($item['lid']);
 					}
 					
 					$item['title_hsc'] = htmlspecialchars($item['title']);
@@ -421,7 +422,7 @@
 			if(!empty($category['list'])) {
 				foreach($category['list'] as $i => &$item) {
 					$item['title_hsc'] = htmlspecialchars($item['title']);
-					$item['url'] = $this->application_controller->get_url($item['mid']);
+					$item['url'] = $this->get_url($item['lid']);
 					if(!file_exists(INCLUDES.'catalog/catalog_category/type/'.$item['id'].'.png')){
 						$item['no_img'] = true;
 					}
@@ -596,6 +597,25 @@
 			$this->session->set('alert', $message);
 		}
 		$this->url->redirect('::referer');
+	}
+
+	// ЧПУ
+	public function get_url($lid){
+		if(!empty($lid)){
+			if($this->config->get('active','chpu') == 1){
+				$data = $this->catalog->getCatalogUrl($lid);
+				$url = '/'.$data['alias'];
+				while(!empty($data['pid'])){
+					$data = $this->catalog->getCatalogUrl($data['pid']);
+					$url = '/'.$data['alias'].$url;
+				}
+				$url = '/'.$data['root_alias'].$url.'/';
+				return $url;
+			}				
+		}
+		else{
+			return false;
+		}
 	}
 }
 

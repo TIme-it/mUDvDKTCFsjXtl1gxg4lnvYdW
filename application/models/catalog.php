@@ -58,6 +58,12 @@
 			return $result;
 		}
 
+		// Сбор алиасов для постройки урла 
+		public function getCatalogUrl($lid){
+			$sql = 'SELECT cl.alias, cl.pid, m.alias as root_alias FROM catalog_links cl LEFT JOIN main m ON cl.cid = m.id WHERE cl.id = '.(int)$lid;
+			return $this->db->get_row($sql);
+		}
+
 		public function getMidCategories($pid){
 			$sql = 'SELECT mid FROM catalog_categories WHERE id = '.(int)$pid;
 			return $this->db->get_one($sql);
@@ -98,8 +104,16 @@
 			return $this->db->get_all($sql);
 		}
 
-		public function getPageIdAlias($alias) {
-			$sql = 'SELECT cid FROM main WHERE alias = "'.$alias.'"';
+		public function getPageIdAlias($alias, $type) {
+			switch ($type) {
+				case 0:
+					$id = 'cat_id';
+					break;
+				case 1:
+					$id = 'prod_id';
+					break;
+			}
+			$sql = 'SELECT '.$id.' FROM catalog_links WHERE alias = "'.$alias.'"';
 			return $this->db->get_one($sql);
 		}
 
@@ -123,7 +137,7 @@
 		}
 		// -- возвращаем список подкатегорий для заданной категории и каталога
 		public function getCategoryList($cid, $pid, $limit = 0) {
-			$sql  = 'SELECT id, mid, title, note FROM catalog_categories '.
+			$sql  = 'SELECT id, lid, title, note FROM catalog_categories '.
 					'WHERE cid = '.(int)$cid.' AND pid = '.(int)$pid.' '.
 					'ORDER BY id';
 			if(!empty($limit)) {

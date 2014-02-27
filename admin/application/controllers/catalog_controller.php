@@ -199,7 +199,7 @@
 			}
 			//var_dump($category['techcharList']);
 			//$category['list1']=$category['techcharList'];
-			$category['alias'] = $this->catalog->getMainAlias($id, 1);
+			$category['alias'] = $this->catalog->getAliasCategory($cid, $id);
 
 			$this->html->render('catalog/dirs.html', $category, 'dirs');
 			$this->html->render('catalog/category.html', $category, 'content_path');
@@ -257,28 +257,29 @@
 				'note'        => trim($_POST['note']),
 				'description' => trim($_POST['description']),
 				'keywords'    => trim($_POST['keywords']),
-				'first_name_column'    => trim($_POST['first_name_column']),
+				// 'first_name_column'    => trim($_POST['first_name_column']),
 				'taitle'    => trim($_POST['taitle']),
 			);
 
-			if(!empty($id)) {	
-				$mid = $this->catalog->getMainIdCategory($id);			
-				$this->db->update('catalog_categories', $category, $id);
-				$this->db->update('main', array('title' => $category['title'], 'alias' => $this->all_controller->rus2translit(strip_tags($_POST['alias']))), $mid);
-			} else {
-				$mid = $this->db->insert('main', array('pid' => $cid, 'title' => $category['title'], 'alias' => $this->all_controller->rus2translit(strip_tags($_POST['alias']))));
-				$category['mid'] = $mid;
-				$id = $this->db->insert('catalog_categories', $category);
-				$this->db->update('main', array('cid' => $id), $mid);
-			}
-
-
-
 			if(!empty($id)) {
+				$lid = $this->catalog->getLidCategory($cid, $id);
 				$this->db->update('catalog_categories', $category, $id);
+				$this->db->update('catalog_links', array(
+									'alias' 	=> $this->all_controller->rus2translit(strip_tags($_POST['alias']))
+				), $lid);
 			} else {
+				// берем lid родителя 
+				$plid = ($pid != 0) ? $this->catalog->getLidCategory($cid, $pid) : 0;
+				
+				$lid = $this->db->insert('catalog_links', array(
+											'pid' 		=> $plid, 
+											'cid'		=> $cid,
+											'alias' 	=> $this->all_controller->rus2translit(strip_tags($_POST['alias']))
+											)
+				);
+				$category['lid'] = $lid;
 				$id = $this->db->insert('catalog_categories', $category);
-
+				$this->db->update('catalog_links', array('cat_id' => $id), $lid);
 			}
 			// -- формирование данных для таблицы поиска
 			$search = array(
@@ -436,7 +437,7 @@
 			if(!empty($product['is_popular']))
 				$product['is_popular']   = $product['is_popular'] ? 'checked="checked"' : '';
 
-			$product['alias'] = $this->catalog->getMainAlias($id, 2);
+			$product['alias'] = $this->catalog->getAliasProduct($cid, $id);
 
 			// получаем список изображений в галереи из футера
 			$product['minigallery'] = $this->minigallery->getAllImg($id);
@@ -509,17 +510,27 @@
 				'is_popular' 	   => (int)$_POST['is_popular']>0 ? 1 : 0,
 				// 'top'		=>(int)$_POST['top'],
 			);
-			if(!empty($id)) {	
-				$mid = $this->catalog->getMainIdProduct($id);			
+			if(!empty($id)) {
+				$lid = $this->catalog->getLidProduct($cid, $id);
 				$this->db->update('catalog', $product, $id);
-				$this->db->update('main', array('title' => $product['title'], 'alias' => $this->all_controller->rus2translit(strip_tags($_POST['alias']))), $mid);
+				$this->db->update('catalog_links', array(
+									'alias' 	=> $this->all_controller->rus2translit(strip_tags($_POST['alias']))
+				), $lid);
 			} else {
-				$mid = $this->db->insert('main', array('pid' => $pmid, 'title' => $product['title'], 'alias' => $this->all_controller->rus2translit(strip_tags($_POST['alias']))));
-				$product['mid'] = $mid;
+				// берем lid родителя 
+				$plid = ($pid != 0) ? $this->catalog->getLidCategory($cid, $pid) : 0;
+				
+				$lid = $this->db->insert('catalog_links', array(
+											'pid' 		=> $plid, 
+											'cid'		=> $cid,
+											'alias' 	=> $this->all_controller->rus2translit(strip_tags($_POST['alias']))
+											)
+				);
+				$product['lid'] = $lid;
 				$id = $this->db->insert('catalog', $product);
-				$this->db->update('main', array('cid' => $id), $mid);
+				$this->db->update('catalog_links', array('prod_id' => $id), $lid);
 			}
-
+	
 			// -- формирование данных для таблицы поиска
 			$search = array(
 				'pid'       => $id,
@@ -660,15 +671,15 @@
 		// -- удаляем категорию со всеми подкатегориями
 		public function delete_category($id) {
 			$cid = $this->db->get_one('SELECT cid FROM catalog_categories WHERE id='.(int)$id);
-			$mid = $this->catalog->getMainIdCategory($id);
-			$this->db->delete('main', array('id' => $mid));
+			$lid = $this->catalog->getLidCategory($cid, $id);
+			$this->db->delete('catalog_links', array('id' => $lid));
 			$this->db->delete('search_index', array('pid' => $id, 'module_id' => 200));
 			
 			//Проверяем права
 			if (!$this->role_controller->CheckAccess(2, $cid)) $this->role_controller->AccessError();
 			
 			// -- запускаем рекурсивное удаление категории и продуктов
-			$this->delete_category_rec($id);
+			$this->delete_category_rec($cid, $id);
 			
 			$this->url->redirect('::referer');
 		}
@@ -679,13 +690,13 @@
 			//Проверяем права
 			if (!$this->role_controller->CheckAccess(2, $cid)) $this->role_controller->AccessError();
 			
-			$this->delete_product_once($id);
+			$this->delete_product_once($cid, $id);
 			
 			$this->url->redirect('::referer');
 		}
 		
 		// -- рекурсивное удаление категорий и продуктов
-		private function delete_category_rec($id) {
+		private function delete_category_rec($cid, $id) {
 			// -- удаляем подкатегории
 			$list = $this->db->get_all_one('SELECT id FROM catalog_categories WHERE pid = '.(int)$id);
 			if(!empty($list)) {
@@ -697,7 +708,7 @@
 			$list = $this->db->get_all_one('SELECT id FROM catalog WHERE pid = '.(int)$id);
 			if(!empty($list)) {
 				foreach($list as $i => &$item) {
-					$this->delete_product_once($item['id']);
+					$this->delete_product_once($cid, $item['id']);
 				}
 			}
 			// -- удаляем категорию
@@ -705,11 +716,11 @@
 		}
 		
 		// -- удаляем продукт
-		private function delete_product_once($id) {	
+		private function delete_product_once($cid, $id) {	
 			// -- удаляем связанные данные
 			// -- TODO: фото, видео, файлы
-			$mid = $this->catalog->getMainIdProduct($id);
-			$this->db->delete('main', array('id' => $mid));
+			$lid = $this->catalog->getLidProduct($cid, $id);
+			$this->db->delete('catalog_links', array('id' => $lid));
 			$this->db->delete('catalog', $id);
 			$this->db->delete('search_index', array('pid' => $id, 'module_id' => 300));
 			$this->trash_controller->delete_addition($id, $this->module_id);
@@ -743,7 +754,6 @@
 
 			echo $this->html->render('/layouts/uploaded_img.html', $data);
 			die();
-		}
-	
+		}	
 	}
 ?>

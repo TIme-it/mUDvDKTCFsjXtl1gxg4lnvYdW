@@ -42,58 +42,11 @@
 			/* HEADER BLOCK END */
 
 			// -- счетчик
-		
-			/* POPULAR PRODUCT BEGIN */ 
-
-			$cat_pid = 301;
-			$data['catalog_url'] = $this->application_controller->get_url($cat_pid); 
-
-			// По порядку: новинки, лидер и 2 популярных товара
-			$data['product_list'] = $this->catalog->getNewestList($cat_pid);
-			if(!empty($data['product_list'])){
-				array_push($data['product_list'], $this->catalog->getLeadList($cat_pid));
-			}
-			$tmp = $this->catalog->getMostPopularList($cat_pid, 4);
-			if(!empty($tmp)){
-				foreach ($tmp as $i => &$item) {
-					array_push($data['product_list'], $item);
-				}
-			}
-
-			if(!empty($data['product_list'])){
-				foreach ($data['product_list'] as $i => &$item) {
-					$item['tchars'] = $this->catalog->getTechChars($item['pid'],$item['id']);
-					if($this->config->get('active','chpu') == 1){
-						$item['mid'] = $this->catalog->getMainIdProduct($item['id']);
-						$item['url'] = $this->application_controller->get_url($item['mid']);
-					}
-					if (!empty($item['tchars'])){
-						foreach ($item['tchars'] as $j => &$value) {
-							$item['product_price'] = ($value['techchar_title'] == 'Цена') ? $value['techchar_value'] : false;
-						}
-					}
-					$item['is_new'] = $item['is_new'] == 1 ? true : false;
-					$item['is_leader'] = $item['is_leader'] == 1 ? true : false;
-				}
-			}
-			$data['bubble_text'] = htmlspecialchars_decode($this->config->get('bubble_text','site'));
-			$data['bubble_undertext'] = htmlspecialchars_decode($this->config->get('bubble_undertext','site'));
-			$this->html->tpl_vars['pop_products'] = $this->html->render('catalog/pop_product.html', $data);
-			
-			/* POPULAR PRODUCT END */ 
-	
 			$this->html->tpl_vars['left_banner'] = $this->visban_controller->show(6);
 			
 			// графические ссылки
-		
-			
 			$this->html->tpl_vars['reserve_link'] = $this->config->get('reserve_link', 'site');			
 
-			
-
-
-		
-			
 			//$this->comments_controller->getLastComments();
 		}
 		
@@ -251,9 +204,9 @@
 						if($item['module'] == 8){
 							if(!empty($item['childs']['list'])){
 								$item['is_parent'] = true;
-								foreach ($item['childs']['list'] as $j => &$value) {
-									// $value['url'] = '/popup/catalog/product/'.$value['cid'];
-								}
+								// foreach ($item['childs']['list'] as $j => &$value) {
+								// 	// $value['url'] = '/popup/catalog/product/'.$value['cid'];
+								// }
 							}
 						}
 						// -- проверка на первый и последний элемент

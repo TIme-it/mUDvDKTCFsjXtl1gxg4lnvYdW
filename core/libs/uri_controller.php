@@ -98,10 +98,10 @@ class uri_controller extends libs_controller {
 							elseif($controller_name == "catalog" && count($urla) > 1){
 								$this->not_found = $tmp;
 								$this->controller = $controller_name.'_controller';
-								if(count($urla) == 2){
+								if((count($urla) <= 3) && (count($urla) > 1) ){
 									$this->method = (empty($urla) || !method_exists($this->controller,$urla[0])) ? 'category': array_shift($urla);
 								}
-								elseif(count($urla) == 3){
+								elseif(count($urla) == 4){
 									$this->method = (empty($urla) || !method_exists($this->controller,$urla[0])) ? 'product': array_shift($urla);
 								}
 								$this->vars = $urla;

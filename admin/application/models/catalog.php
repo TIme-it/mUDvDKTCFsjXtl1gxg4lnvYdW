@@ -1,7 +1,7 @@
 <?php
 	class catalog extends app_model {
 
-		// -- âîçâðàùàåì ýëåìåíò êàòåãîðèè êàòàëîãà
+		// -- Ã¢Ã®Ã§Ã¢Ã°Ã Ã¹Ã Ã¥Ã¬ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã² ÃªÃ Ã²Ã¥Ã£Ã®Ã°Ã¨Ã¨ ÃªÃ Ã²Ã Ã«Ã®Ã£Ã 
 		public function getCategory($id) {
 			$sql =  'SELECT * FROM catalog_categories '.
 					'WHERE id = '.(int)$id;
@@ -32,6 +32,29 @@
 			return $this->db->get_one($sql);
 		}
 
+		// ID ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ð¸ Ð¸Ð· Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹ catalog_links
+		public function getLidCategory($cid, $pid) {
+			$sql = 'SELECT lid FROM catalog_categories WHERE cid = '.(int)$cid.' AND id = '.(int)$pid;
+			return $this->db->get_one($sql);
+		}
+
+		// ID ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð° Ð¸Ð· Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹ catalog_links
+		public function getLidProduct($cid, $pid) {
+			$sql = 'SELECT lid FROM catalog WHERE cid = '.(int)$cid.' AND id = '.(int)$pid;
+			return $this->db->get_one($sql);
+		}
+
+		// alias ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° ÐºÐ°Ñ‚ÐµÐ³Ð¾Ñ€Ð¸Ð¸ Ð¸Ð· Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹ catalog_links
+		public function getAliasCategory($cid, $id) {
+			$sql = 'SELECT cl.alias FROM catalog_links cl LEFT JOIN catalog_categories cc ON cc.lid = cl.id WHERE cc.cid = '.(int)$cid.' AND cc.id = '.(int)$id;
+			return $this->db->get_one($sql);
+		}
+
+		// alias ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° Ð¿Ñ€Ð¾Ð´ÑƒÐºÑ‚Ð° Ð¸Ð· Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹ catalog_links
+		public function getAliasProduct($cid, $id) {
+			$sql = 'SELECT cl.alias FROM catalog_links cl LEFT JOIN catalog c ON c.lid = cl.id WHERE c.cid = '.(int)$cid.' AND c.id = '.(int)$id;
+			return $this->db->get_one($sql);
+		}
 
 		public function getMainAlias($id, $ctype) {
 			$sql =  'SELECT alias FROM main '.
@@ -71,15 +94,15 @@
 		}
 		
 		public function getCategoryForSelect($cid, $pid = 0, &$list = false, $deep = 0, $act = 0) {
-			// -- çàùèòà îò çàöèêëèâàíèÿ
+			// -- Ã§Ã Ã¹Ã¨Ã²Ã  Ã®Ã² Ã§Ã Ã¶Ã¨ÃªÃ«Ã¨Ã¢Ã Ã­Ã¨Ã¿
 			if($deep > 20) return false;
-			// -- âíåøíåå âõîæäåíèå
+			// -- Ã¢Ã­Ã¥Ã¸Ã­Ã¥Ã¥ Ã¢ÃµÃ®Ã¦Ã¤Ã¥Ã­Ã¨Ã¥
 			if($list === false) {
 				$list = array();
 				$this->getCategoryForSelect($cid, 0, $list, 0, $pid);
 				return $list;
 			}
-			// -- âíóòðåííåå âõîæäåíèå
+			// -- Ã¢Ã­Ã³Ã²Ã°Ã¥Ã­Ã­Ã¥Ã¥ Ã¢ÃµÃ®Ã¦Ã¤Ã¥Ã­Ã¨Ã¥
 			$sql  = 'SELECT id cat_id, title cat_title FROM catalog_categories '.
 					'WHERE cid = '.(int)$cid.' AND pid = '.(int)$pid;
 			$data = $this->db->get_all($sql);
@@ -88,7 +111,7 @@
 				$item['cat_deep'] = $deep;
 				$item['active']   = ($item['cat_id'] == $act);
 				$list[]           = $item;
-				// -- âõîæäåíèå â ãëóáèíó
+				// -- Ã¢ÃµÃ®Ã¦Ã¤Ã¥Ã­Ã¨Ã¥ Ã¢ Ã£Ã«Ã³Ã¡Ã¨Ã­Ã³
 				$this->getCategoryForSelect($cid, $item['cat_id'], $list, $deep + 1, $act);
 			}
 		}
