@@ -18,16 +18,12 @@
 		}
 		
 		public function __before() {
-			// -- определение аутентификации
-		
-
-			
-			
 			if(!empty($_SESSION)){
 				session_start();
 			}
+
 			$this->title = htmlspecialchars_decode($this->config->get('title_browser','site'));
-			if($_SERVER['SERVER_NAME']=='glonass.ru'){
+			if($_SERVER['SERVER_NAME']=='midpo.ru'){
 				$this->html->tpl_vars['main_domain'] = true;
 			}
 
@@ -79,30 +75,7 @@
 			// -- если <head> не отрендерили ранее, то рендерим <head> по умолчанию			
 			if(empty($this->html->tpl_vars['head'])) {
 				$this->html->render('head/head_default.html', array('site_title' => $this->title), 'head');
-			} 
-
-			/* ACTIONS ADDITIONAL BLOCK BEGIN */
-			$data['actions_list'] = $this->actions->getLast(289,4);
-			if(!empty($data['actions_list'])){
-				$this->main_controller->format_to_page($data, 'actions_list', 'actions_controller');
-			}
-
-			$this->html->render('actions/bottom_action_block.html', $data, 'bottom_action_block');
-			/* ACTIONS ADDITIONAL BLOCK END*/
-
-			/* NEWS-ACTIONS ADDITIONAL BLOCK BEGIN */
-			$data['actions_list'] = $this->actions->getLast(289,2);
-			$data['news_list'] = $this->news->getLast(288,3);
-			if(!empty($data['actions_list'])){
-				$this->main_controller->format_to_page($data, 'actions_list', 'actions_controller');
-			}
-			if(!empty($data['news_list'])){
-				$this->main_controller->format_to_page($data, 'news_list', 'news_controller');
-			}
-
-			$this->html->render('pages/bottom_newsaction_block.html', $data, 'bottom_newsaction_block');
-			/* NEWS-ACTIONS ADDITIONAL BLOCK END*/
-			
+			}			
 
 			/* FOOTER BLOCK BEGIN */
 

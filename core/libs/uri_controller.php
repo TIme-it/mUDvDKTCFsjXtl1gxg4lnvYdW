@@ -10,7 +10,7 @@ class uri_controller extends libs_controller {
 		$this->analyze();
 		$this->start();
 	}
-	
+
 	public function start() {
 		$this->popup = $this->controller;
 		$this->controller = $this->lib_add($this->controller);
@@ -36,7 +36,7 @@ class uri_controller extends libs_controller {
 
 	public function analyze() {
 		$this->uri = $_SERVER['REQUEST_URI']; 
-		// -- �������� $_GET
+		// -- îòñåêàåì $_GET
 		$this->uri = explode('?', $this->uri);
 		$this->uri = $this->uri[0];
 		
@@ -96,24 +96,30 @@ class uri_controller extends libs_controller {
 								$controller_name = preg_replace("/^.(.*).$/", "\\1", $link);
 							}
 							elseif($controller_name == "catalog" && count($urla) > 1){
-								$this->not_found = $tmp;
-								$this->controller = $controller_name.'_controller';
-								if((count($urla) <= 3) && (count($urla) > 1) ){
-									$this->method = (empty($urla) || !method_exists($this->controller,$urla[0])) ? 'category': array_shift($urla);
+								
+								// определяем метод и проверяем на корректность ссылку
+								$is_correct_url = $this->catalog->verify_url($urla[0]);
+								if((!$is_correct_url)) {
+									$this->controller = 'main_controller';
+									$this->method     = 'page_404';
+									$this->vars = false;
 								}
-								elseif(count($urla) == 4){
-									$this->method = (empty($urla) || !method_exists($this->controller,$urla[0])) ? 'product': array_shift($urla);
+								else {
+									$this->not_found = $tmp;
+									$this->controller = $controller_name.'_controller';
+									$this->method = $this->catalog->getMethod($urla[0]);
+									$this->vars = $urla;
 								}
-								$this->vars = $urla;
 
+
+								// var_dump($this->controller);
+								// var_dump($this->method);
+								// var_dump($this->vars);
+								// die();	
 								if (($this->config->get('active','chpu') == 1) && (count($this->vars) == 1)){
 									$temp[] = $this->all->getPagePid($alias);
 									$this->vars = $temp;
 								}
-								// var_dump($this->controller);
-								// var_dump($this->method);
-								// var_dump($this->vars[0]);
-								// die();	
 								break;
 							}
 							$this->not_found = $tmp;

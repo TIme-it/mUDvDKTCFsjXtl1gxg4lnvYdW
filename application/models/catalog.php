@@ -1,6 +1,55 @@
 <?php
 	class catalog extends app_model {
 	
+
+		// проверка на корректность ссылки
+		public function verify_url($url){
+			$data = $this->db->get_row('SELECT cl.pid, m.alias as root_alias FROM catalog_links cl LEFT JOIN main m ON cl.cid = m.id WHERE cl.alias = '.'"'.$url.'"');
+			$correct_url = '/'.$url;
+			$this->verify_url_req($data['pid'], $correct_url);
+			$tmp = explode('/', $correct_url.'/'.$data['root_alias'].'/');
+			$tmp = array_reverse($tmp);
+			$result = '/';
+			if(!empty($result)){
+				foreach ($tmp as $i => &$item) {
+					if(!empty($item))
+						$result .= $item.'/';
+				}
+			}	
+
+			if(substr($_SERVER['REQUEST_URI'],strlen($_SERVER['REQUEST_URI'])-1,1) != '/'){
+				$_SERVER['REQUEST_URI'] = $_SERVER['REQUEST_URI'].'/';
+			}
+
+			if ($result == $_SERVER['REQUEST_URI']){
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+	
+		public function verify_url_req($pid, &$url){
+			$data = $this->db->get_row('SELECT pid, alias FROM catalog_links WHERE id = '.(int)$pid);
+			$url .= '/'.$data['alias'];
+			if ($data['pid'] != 0) {
+				$this->verify_url_req($data['pid'], $url);
+			}
+		}
+
+		// достаем название метода каталога
+		public function getMethod($url){
+			$data = $this->db->get_row('SELECT cat_id, prod_id FROM catalog_links WHERE alias = '.'"'.$url.'"');
+			if(!empty($data['cat_id'])) {
+				return 'category';
+			}
+			else {
+				return 'product';
+			}
+		}
+
+
+
 		// -- возвращаем список товаров для заданной категории и каталога
 		public function getProductList($cid, $pid, $page = 0, $filter = false) {
 			$where = '';

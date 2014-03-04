@@ -25,6 +25,7 @@
 			return $this->db->get_one($sql);
 		}
 
+
 		public function getMainPid($alias){
 			$sql = 'SELECT pid FROM main WHERE alias = '.'"'.$alias.'"';
 			return $this->db->get_one($sql);
