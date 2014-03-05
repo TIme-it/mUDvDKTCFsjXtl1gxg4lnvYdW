@@ -817,13 +817,13 @@ span, p {
     min-width: 1000px;
 }
 
-#main_slider ul {
+#main_slider #slider_jsp {
     position: relative;
     margin-top: 143px;
     margin-left: 50px;
 }
 
-#main_slider ul li {
+#main_slider #slider_jsp .item {
     position: absolute;
     float: left;
     margin: 0px 5%;
@@ -831,26 +831,26 @@ span, p {
     width: 13%;
 }
 
-#main_slider ul li.active {
+#main_slider #slider_jsp .item.active {
     display: none;
 }
 
-#main_slider ul li.first {
+#main_slider #slider_jsp .item.first {
     margin-right: 135px;
     left: 0;
 }
 
-#main_slider ul li.last {
+#main_slider #slider_jsp .item.last {
     right: 0;
     left: initial;
     margin-right: 3% !important;
 }
 
-#main_slider ul li a {
+#main_slider #slider_jsp .item a {
     text-decoration: none;
 }
 
-#main_slider ul li a span {
+#main_slider #slider_jsp .item a span {
     /*display: inline-block;*/
     height: 23px;
     font: 18px/22px Days, Verdana, Arial;
@@ -858,7 +858,7 @@ span, p {
     border-bottom: 1px dotted #444
 }
 
-#main_slider ul li a:hover > span {
+#main_slider #slider_jsp .item a:hover > span {
     color: #ff0000;
     border-bottom: 1px dotted #ff0000
 }
@@ -959,6 +959,14 @@ span, p {
     /*top: 275px;
     left: 290px;*/
     z-index: 150;
+}
+
+#slider_jsp .jspContainer {
+    height: 100px !important;
+}
+
+#slider_jsp #wrap {
+    height: 100px;
 }
 
 .hide_class{

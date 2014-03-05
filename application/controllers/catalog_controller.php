@@ -64,8 +64,7 @@
 			}	
 
 			$product  = $this->catalog->getProduct($id);
-			
-			// $this->active_main_id = $product['mid'];
+			$this->active_catalog_id = $product['lid'];
 			// $mid = $this->catalog->getMidCategories($product['pid']);
 			// $product['parent_url'] = $this->application_controller->get_url($mid);
 
@@ -256,7 +255,7 @@
 
 			$category = $this->catalog->getCategory($id);
 			// Помечаем активный раздел TODO: Починить (необходимо для меню)
-			// $this->active_main_id = $category['mid'];
+			$this->active_catalog_id = $category['lid'];
 			$category['tchars'] = $this->catalog->getTechChars($id);
 			if(empty($category)) { $this->main_controller->page_404(); return false; }
 			if(!empty($category['cid'])){

@@ -124,6 +124,28 @@ var img_big_h = 480;
 	    	}
     	})
 
+    	/* JSP для слайдера */ 
+    	var slider_count_item = $('#slider_jsp .item').size();
+    	var slider_step = 500;
+
+
+		$('#slider_jsp #wrap').css("width", slider_count_item * slider_step + "px");
+		var slider_api = $('#slider_jsp .scroll-pane').jScrollPane({}).data('jsp');
+		if (slider_api != null){
+			$(window).resize(function(){
+				slider_api.reinitialise();
+			});
+		}
+
+		right_jsp = function(){
+			console.log(slider_api)
+			slider_api.scrollByX(slider_step, 1000);	
+			return false; 
+		}
+
+    	/* -- JSP для слайдера */ 
+
+
 		var count_item = $('#previews .item').size();		
 		var step = 180;
 

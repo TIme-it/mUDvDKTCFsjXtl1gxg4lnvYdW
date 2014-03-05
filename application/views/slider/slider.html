@@ -1,8 +1,12 @@
-<ul>
-  {slides}
-    <li class="{?first}first{/?first} {?last}last{/?last} {?active}active{/?active}"><a href="#"><span>{title}</span></a></li>
-  {/slides}
-</ul>
+<div id="slider_jsp">
+  <div class="scroll-pane">
+      <div id="wrap">
+        {slides}
+          <div class="item {?first}first{/?first} {?last}last{/?last} {?active}active{/?active}"><a href="#"><span>{title}</span></a></div>
+        {/slides}
+      </div>
+  </div>
+</div>
 <div class="slider_bg">
   <div class="images hide">
     <img src="/application/includes/images/slider/education/sheet3.png" data-pos="1" alt="" />

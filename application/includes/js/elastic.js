@@ -287,6 +287,7 @@
 
 		$('#main_slider .right_arrow').on('click', function(){
 			if($(this).hasClass('active')){
+				right_jsp();
 				slide_animation();
 
 				hide_obj.removeClass('hide');

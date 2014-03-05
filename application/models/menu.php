@@ -30,7 +30,22 @@
 				if($this->config->get('active','chpu') == 1){
 					$item['url'] = $this->application_controller->get_url($item['id']);
 				}
-				$this->getMenuReq($item['childs']['list'], $item['id'], $deep+1, $level, $limit);
+				
+				if($item['name'] != 'catalog'){
+					$this->getMenuReq($item['childs']['list'], $item['id'], $deep+1, $level, $limit);
+				}
+				else {
+					$this->getChildCatalog($item['childs']['list'], $item['id']);
+				}
+			}
+		}
+
+		public function getChildCatalog(&$node, $pid){
+			$node = $this->db->get_all('SELECT pid, title, lid FROM catalog_categories WHERE cid = '.(int)$pid.' AND pid = 0');
+			if(!empty($node)){
+				foreach ($node as $i => &$item) {
+					$item['url'] = $this->catalog_controller->get_url($item['lid']);
+				}
 			}
 		}
 		

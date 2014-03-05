@@ -7,6 +7,7 @@
 		static protected $user_id = 0;       // -- id если мы аутентифицированы
 	
 		protected $active_main_id = 0;       // -- "main.id" активного раздела
+		protected $active_catalog_id = 0;       // -- "catalog.id" активного раздела
 		protected $active_path_id = array(); // -- массив активных путей
 		protected $data           = null;    // -- $_POST['data'] для сохранения в моделях
 		protected $title          = '';      // -- содержимое тега <title>
@@ -162,19 +163,20 @@
 						// -- проверка на активность раздела
 							// var_dump($this->active_main_id);
 						
-						if($item['id'] == $this->active_main_id) {
+						if(!empty($item['id']) && $item['id'] == $this->active_main_id) {
 							$item['is_active'] = 'active';
-						} elseif(in_array($item['id'], $this->active_path_id)) {
+ 						} elseif(!empty($item['id']) && in_array($item['id'], $this->active_path_id)) {
 							$item['is_active'] = 'preactive';
 							// var_dump($item['id']);
 						}
+
+						if(!empty($item['lid']) && $item['lid'] == $this->active_catalog_id) {
+							$item['is_active'] = 'active';
+ 						}
 							// die();
 
-						if(!empty($item['id']) && $item['id'] == $this->active_main_id) {
-							$item['is_active'] = 'active';
 
- 						} 				
-						if($item['module'] == 8){
+						if(!empty($item['module']) && $item['module'] == 8){
 							if(!empty($item['childs']['list'])){
 								$item['is_parent'] = true;
 								// foreach ($item['childs']['list'] as $j => &$value) {
