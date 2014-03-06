@@ -1,10 +1,21 @@
 <div id="slider_jsp">
-  <div class="scroll-pane">
-      <div id="wrap">
-        {slides}
-          <div class="item {?first}first{/?first} {?last}last{/?last} {?active}active{/?active}"><a href="#"><span>{title}</span></a></div>
-        {/slides}
-      </div>
+  <div id="scroll_left">
+    <div class="scroll-pane left_pane">
+        <div id="wrap_left">
+          {slides}
+            <div class="item {?active}active{/?active}" data-num={#}><a href="#"><span>{title}</span></a></div>
+          {/slides}
+        </div>
+    </div>
+  </div>
+  <div id="scroll_right">
+    <div class="scroll-pane right_pane">
+        <div id="wrap_right">
+          {slides}
+            <div class="item"><a href="#"><span>{title}</span></a></div>
+          {/slides}
+        </div>
+    </div>
   </div>
 </div>
 <div class="slider_bg">
@@ -18,8 +29,8 @@
     <img src="/application/includes/images/slider/education/sheet2.png" data-pos="2" alt="" />
     <img src="/application/includes/images/slider/education/sheet1.png" data-pos="3" alt="" />
   </div>
-  <a href="#" class="left_arrow active"></a>
-  <a href="#" class="right_arrow active"></a>
+  <a href="#" id="leftArrow" class="active"></a>
+  <a href="#" id="rightArrow" class="active"></a>
   <div class="note">
     <h1>Образование</h1>
     <p>Модернизация образования требует нового качества работы педагогов. Наш институт,  учитывая происходящие процессы обновления содержания образования, появление новых педагогических технологий, организует курсы повышения квалификации и профессиональной переподготовки.</p>

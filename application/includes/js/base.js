@@ -125,22 +125,71 @@ var img_big_h = 480;
     	})
 
     	/* JSP для слайдера */ 
-    	var slider_count_item = $('#slider_jsp .item').size();
-    	var slider_step = 500;
+    	var count_item = $('#slider_jsp #wrap_left .item').size();			
+		if(count_item){
+			var left_step = 420;
+			var right_step = 450;
+			
+			var count_visible_item = $('#slider_jsp #scroll_left').width() / right_step
+			var settings = {		
+				// autoReinitialise: true
+			};
+			var lf = true
+			var rf = true
 
+			$('#slider_jsp #wrap_left').css("width", count_item * left_step + "px");
+			$('#slider_jsp #wrap_right').css("width", count_item * right_step + "px");
+			
+			slider_api = $('.left_pane').jScrollPane(settings).data('jsp');
+			slider_api2 = $('.right_pane').jScrollPane(settings).data('jsp');
 
-		$('#slider_jsp #wrap').css("width", slider_count_item * slider_step + "px");
-		var slider_api = $('#slider_jsp .scroll-pane').jScrollPane({}).data('jsp');
-		if (slider_api != null){
+			slider_api2.scrollByX(right_step*count_visible_item);
+
+			$('#slider_jsp #leftArrow').on('click', function() {		
+				$('#slider_jsp #wrap_left').prepend( $('#slider_jsp #wrap_left .item').last() );		
+				slider_api.scrollByX(left_step);
+				slider_api.scrollByX(-left_step, 1000);
+
+				if(!lf) $('#slider_jsp #wrap_right').prepend( $('#slider_jsp #wrap_right .item').last() );
+				slider_api2.scrollByX(right_step);
+				slider_api2.scrollByX(-right_step, 1000);
+
+				lf = false
+				return false;
+			});	
+		}
+
+		if ((slider_api != null) && (slider_api2 != null)){
 			$(window).resize(function(){
 				slider_api.reinitialise();
+				slider_api2.reinitialise();
 			});
 		}
 
 		right_jsp = function(){
-			console.log(slider_api)
-			slider_api.scrollByX(slider_step, 1000);	
-			return false; 
+			curr_num = $('#wrap_left .item.active').data('num');
+			$('#wrap_left .item.active').removeClass('active');
+			$('#wrap_left .item').each(function(){
+				if(curr_num >= $('#wrap_left .item').length){
+					curr_num = 0;
+				}
+				if($(this).data('num') == curr_num+1){
+					$(this).addClass('active');
+				}
+			})
+
+			$('.slider_bg .note h1').html($('#wrap_left .item.active span').html());
+
+			if(!rf) $('#slider_jsp #wrap_left').append( $('#slider_jsp #wrap_left .item').first() );		
+			slider_api.scrollByX(-left_step);
+			slider_api.scrollByX(left_step, 1000);	
+			
+			$('#slider_jsp #wrap_right').append( $('#slider_jsp #wrap_right .item').first() );
+			slider_api2.scrollByX(-right_step);
+			slider_api2.scrollByX(right_step, 1000);	
+			
+			rf = false
+			return false;  
 		}
 
     	/* -- JSP для слайдера */ 

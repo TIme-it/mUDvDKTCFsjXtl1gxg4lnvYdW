@@ -197,10 +197,10 @@
 			      break;
 			}
 		})
-		$('#main_slider .left_arrow').addClass('active');
-		$('#main_slider .left_arrow').removeClass('inactive');
-		$('#main_slider .right_arrow').addClass('active');
-		$('#main_slider .right_arrow').removeClass('inactive');
+		$('#main_slider #leftArrow').addClass('active');
+		$('#main_slider #leftArrow').removeClass('inactive');
+		$('#main_slider #rightArrow').addClass('active');
+		$('#main_slider #rightArrow').removeClass('inactive');
 	}
 
 	slide_animation = function(){
@@ -276,7 +276,7 @@
 			}
 		})
 	}
-	
+
 	$(document).ready(function() {
 
 		/* SLIDER BLOCK BEGIN */
@@ -285,7 +285,7 @@
 		
 		// Правая кнопка слайдера
 
-		$('#main_slider .right_arrow').on('click', function(){
+		$('#main_slider #rightArrow').on('click', function(){
 			if($(this).hasClass('active')){
 				right_jsp();
 				slide_animation();
@@ -293,10 +293,10 @@
 				hide_obj.removeClass('hide');
 				show_obj.addClass('hide');
 
-				$('#main_slider .left_arrow').removeClass('active');
-				$('#main_slider .left_arrow').addClass('inactive');
-				$('#main_slider .right_arrow').removeClass('active');
-				$('#main_slider .right_arrow').addClass('inactive');
+				$('#main_slider #leftArrow').removeClass('active');
+				$('#main_slider #leftArrow').addClass('inactive');
+				$('#main_slider #rightArrow').removeClass('active');
+				$('#main_slider #rightArrow').addClass('inactive');
 
 				setTimeout(showimage_init, 1100);
 				setTimeout(hideimage_init, 1100);
@@ -311,7 +311,7 @@
 		resizable_news_block($('.middle_wrap').width());
 		resizable_reviews_block($('.middle_wrap').width());
 		resizable_slider_block($('.middle_wrap').width());
-	
+			
 		$(window).resize(function(){
 			// resizable_menu($('.middle_wrap').width());
 			resizable_middle($('body').width());
