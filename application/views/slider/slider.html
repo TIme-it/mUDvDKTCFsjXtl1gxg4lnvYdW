@@ -3,7 +3,14 @@
     <div class="scroll-pane left_pane">
         <div id="wrap_left">
           {slides}
-            <div class="item {?active}active{/?active}" data-num={#}><a href="#"><span>{title}</span></a></div>
+            <div class="item {?active}active{/?active} {?first}first{/?first}" id="id{id}" data-num={#}>
+              <a href="{link}">
+                <span>{title}</span>
+              </a>
+              <div class="note">
+                <p>{note}</p>
+              </div>
+            </div>
           {/slides}
         </div>
     </div>
@@ -12,7 +19,14 @@
     <div class="scroll-pane right_pane">
         <div id="wrap_right">
           {slides}
-            <div class="item"><a href="#"><span>{title}</span></a></div>
+            <div class="item {?active}active{/?active} " id="rid{id}" data-num={#}>
+              <a href="{link}">
+                <span>{title}</span>
+              </a>
+              <div class="note">
+                <p>{note}</p>
+              </div>
+            </div>
           {/slides}
         </div>
     </div>

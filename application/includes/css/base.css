@@ -820,15 +820,13 @@ span, p {
 #main_slider #slider_jsp {
     position: relative;
     margin-top: 143px;
-    margin-left: 50px;
+    margin-left: 2.5%;
 }
 
 #main_slider #slider_jsp .item {
-    /*position: absolute;*/
     float: left;
     margin: 0px 6%;
-    left: 325px;
-    width: 13%;
+    width: 215px;
     text-align: center;
 }
 
@@ -836,10 +834,28 @@ span, p {
     margin: 0px 5%;
 }
 
-#main_slider #slider_jsp .item.first {
+#main_slider #slider_jsp .item.active {
+    visibility: hidden;
+}
+
+#main_slider #slider_jsp .jspHorizontalBar {
+    display: none;
+}
+
+#main_slider #slider_jsp .item .note {
+    display: none;
+}
+
+@media (max-width: 1600px) {
+    #main_slider #slider_jsp .item.first {
+        display: none;
+    }
+}
+
+/*#main_slider #slider_jsp .item.first {
     margin-right: 135px;
     left: 0;
-}
+}*/
 
 #main_slider #slider_jsp .item.last {
     right: 0;
@@ -863,7 +879,6 @@ span, p {
     color: #ff0000;
     border-bottom: 1px dotted #ff0000
 }
-
 
 .slider_bg {
     position: relative;

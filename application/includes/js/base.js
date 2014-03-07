@@ -125,73 +125,140 @@ var img_big_h = 480;
     	})
 
     	/* JSP для слайдера */ 
-    	var count_item = $('#slider_jsp #wrap_left .item').size();			
-		if(count_item){
-			var left_step = 420;
-			var right_step = 450;
-			
-			var count_visible_item = $('#slider_jsp #scroll_left').width() / right_step
-			var settings = {		
-				// autoReinitialise: true
-			};
-			var lf = true
-			var rf = true
+    	
 
-			$('#slider_jsp #wrap_left').css("width", count_item * left_step + "px");
-			$('#slider_jsp #wrap_right').css("width", count_item * right_step + "px");
-			
-			slider_api = $('.left_pane').jScrollPane(settings).data('jsp');
-			slider_api2 = $('.right_pane').jScrollPane(settings).data('jsp');
+		slider_jsp_init = function(l_stp, r_stp, reinit){
+			var count_item = $('#slider_jsp #wrap_left .item').size();			
+			if(count_item){
+				var left_step = l_stp+25;
+				var right_step = r_stp;
+				var reinit = reinit;
+				
+				
+				var count_visible_item = $('#slider_jsp #scroll_left').width() / right_step
+				var settings = {		
+					// autoReinitialise: true
+				};
+				var lf = true
+				var rf = true
 
-			slider_api2.scrollByX(right_step*count_visible_item);
+				$('#slider_jsp #wrap_left').css("width", count_item * left_step + "px");
+				$('#slider_jsp #wrap_right').css("width", count_item * right_step + "px");
+				
+				if(reinit){
+					slider_api.reinitialise();
+					slider_api2.reinitialise();
+				}
+				else {
+					slider_api = $('.left_pane').jScrollPane(settings).data('jsp');
+					slider_api2 = $('.right_pane').jScrollPane(settings).data('jsp');
+				}
 
-			$('#slider_jsp #leftArrow').on('click', function() {		
-				$('#slider_jsp #wrap_left').prepend( $('#slider_jsp #wrap_left .item').last() );		
-				slider_api.scrollByX(left_step);
-				slider_api.scrollByX(-left_step, 1000);
 
-				if(!lf) $('#slider_jsp #wrap_right').prepend( $('#slider_jsp #wrap_right .item').last() );
-				slider_api2.scrollByX(right_step);
-				slider_api2.scrollByX(-right_step, 1000);
 
-				lf = false
-				return false;
-			});	
+				slider_api2.scrollByX(right_step*count_visible_item);
+
+				$('#slider_jsp #leftArrow').on('click', function() {		
+					$('#slider_jsp #wrap_left').prepend( $('#slider_jsp #wrap_left .item').last() );		
+					slider_api.scrollByX(left_step);
+					slider_api.scrollByX(-left_step, 1000);
+
+					if(!lf) $('#slider_jsp #wrap_right').prepend( $('#slider_jsp #wrap_right .item').last() );
+					slider_api2.scrollByX(right_step);
+					slider_api2.scrollByX(-right_step, 1000);
+
+					lf = false
+					return false;
+				});	
+			}
+
+
+			right_jsp = function(){
+				curr_num = $('#wrap_left .item.active').data('num');
+				$('#wrap_left .item.active').removeClass('active');
+
+				$('#wrap_left .item').each(function(){
+					if(curr_num >= $('#wrap_left .item').length){
+						curr_num = 0;
+					}
+					if($(this).data('num') == curr_num+1){
+						$(this).addClass('active');
+					}
+				})
+				$('#wrap_right .item.active').removeClass('active');
+
+				$('#wrap_right .item').each(function(){
+					if(curr_num >= $('#wrap_right .item').length){
+						curr_num = 0;
+					}
+					if($(this).data('num') == curr_num+1){
+						$(this).addClass('active');
+					}
+				})
+
+				$('.slider_bg .note h1').html($('#wrap_left .item.active span').html());
+				$('.slider_bg a.more_button').attr('href', $('#slider_jsp .item.active a').attr('href'));
+				$('.slider_bg .note p').html($('#wrap_left .item.active .note p').html());
+
+				if(!rf) $('#slider_jsp #wrap_left').append( $('#slider_jsp #wrap_left .item').first() );		
+				slider_api.scrollByX(-left_step);
+				slider_api.scrollByX(left_step, 1000);	
+				
+				$('#slider_jsp #wrap_right').append( $('#slider_jsp #wrap_right .item').first() );
+				slider_api2.scrollByX(-right_step);
+				slider_api2.scrollByX(right_step, 1000);	
+				
+				rf = false
+				$('#wrap_left .item').each(function(){
+					$(this).css('visibility', 'visible');				
+				});
+				$('#wrap_left .item.first').removeClass('first');
+				$('#wrap_left').children('.item').eq(1).addClass('first');
+
+				$('#wrap_left .item.first').css('display', 'block');
+				if ($('.middle_wrap').width() <= 1600) {
+					setTimeout(visibile_item, 400);
+				}
+				
+				return false;  
+			}
+
+			visibile_item = function(){
+				$('#wrap_left .item.first').css('visibility', 'hidden');
+			}
 		}
 
-		if ((slider_api != null) && (slider_api2 != null)){
-			$(window).resize(function(){
-				slider_api.reinitialise();
-				slider_api2.reinitialise();
-			});
-		}
+		slider_jsp_init(420, 450);
+		$(window).resize(function(){
+			l_stp = $('#wrap_left .item').outerWidth(true);
+			r_stp = $('#wrap_right .item').outerWidth(true);
+			reinit = false;
+			if(slider_api != null){
+				reinit = true;
+			}
 
-		right_jsp = function(){
-			curr_num = $('#wrap_left .item.active').data('num');
-			$('#wrap_left .item.active').removeClass('active');
+			slider_api.scrollToX(0, 0);
+			slider_api2.scrollToX($('#wrap_right').width(), 0);
+
 			$('#wrap_left .item').each(function(){
-				if(curr_num >= $('#wrap_left .item').length){
-					curr_num = 0;
-				}
-				if($(this).data('num') == curr_num+1){
-					$(this).addClass('active');
-				}
+				left_tmp = $('#wrap_left .item.active').prev('#wrap_left .item').data('num');
+				left_elem = (left_tmp-2) * $('#wrap_left .item').outerWidth(true);
 			})
 
-			$('.slider_bg .note h1').html($('#wrap_left .item.active span').html());
+			$('#wrap_right .item').each(function(){
+				right_tmp = $('#wrap_left .item.active').next('#wrap_left .item').data('num');
+				right_elem = right_tmp * $('#wrap_left .item').outerWidth(true);
+			})
 
-			if(!rf) $('#slider_jsp #wrap_left').append( $('#slider_jsp #wrap_left .item').first() );		
-			slider_api.scrollByX(-left_step);
-			slider_api.scrollByX(left_step, 1000);	
-			
-			$('#slider_jsp #wrap_right').append( $('#slider_jsp #wrap_right .item').first() );
-			slider_api2.scrollByX(-right_step);
-			slider_api2.scrollByX(right_step, 1000);	
-			
-			rf = false
-			return false;  
-		}
+			slider_api.scrollByX(left_elem, 0);
+			slider_api.scrollByX(-right_elem, 0);
 
+			slider_jsp_init(l_stp, r_stp, reinit);
+		});
+
+		$('#slider_jsp .item a').on('click', function(){
+			return false;
+		})
     	/* -- JSP для слайдера */ 
 
 
