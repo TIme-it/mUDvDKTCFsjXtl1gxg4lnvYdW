@@ -1,8 +1,9 @@
 <h1 class="courses_h1">Курсы</h1>
 <div class="select_outer">
 	<select name="subtype" id="subtype">
+		<option value="0" {selected}>все</option>
 		{subtype}
-		<option value="{id}" {selected}>{title}</option>
+		<option value="{id}" {selected} data-url='{url}'>{title}</option>
 		{/subtype}
 	</select>
 </div>

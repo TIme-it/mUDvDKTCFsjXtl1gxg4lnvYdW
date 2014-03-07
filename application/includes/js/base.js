@@ -68,6 +68,19 @@ var img_big_h = 480;
 
 	$(document).ready(function() {
 
+		// ссылки в селекте курсов
+
+		$('.select_outer #subtype').on('change', function(){
+			active = $('.select_outer .list-wrapper ul li.active span').html();
+			$('.select_outer #subtype option').each(function(){
+				if($(this).html() == active){
+					url = $(this).data('url');
+					console.log(url)
+					window.location.href = url;
+				}
+			});
+		})
+
 		// Заглшука на ссылки
 		$('a[href="#"]').on('click', function(){
 			return false;

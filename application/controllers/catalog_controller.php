@@ -296,7 +296,11 @@
 
 			// подкатегории курсов
 			$category['subtype'] = $this->catalog->getSubType($category['cid'], $id);
-			
+			if(!empty($category['subtype'])){
+				foreach ($category['subtype'] as $i => &$item) {
+					$item['url'] = $this->get_url($item['lid']);
+				}
+			}
 
 			$this->html->tpl_vars['courses_nav'] = $this->html->render('catalog/nav.html', $category);
 			$this->html->render('catalog/category.html', $category, 'content');
