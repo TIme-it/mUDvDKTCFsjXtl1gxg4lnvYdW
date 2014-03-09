@@ -207,6 +207,17 @@
 			return $this->db->get_row($sql);
 		}
 		
+		// -- данные о продуктах категории
+		public function getCategoryProduct($cid, $pid) {
+			$sql = 'SELECT c.* FROM catalog_categories cc LEFT JOIN catalog c ON cc.id = c.pid WHERE cc.cid = '.(int)$cid.' AND cc.pid = '.(int)$pid;
+			return $this->db->get_all($sql);
+		}
+		// -- данные о количестве продуктов категории
+		public function getCountCategoryProduct($cid, $pid) {
+			$sql = 'SELECT COUNT(c.id) FROM catalog_categories cc LEFT JOIN catalog c ON cc.id = c.pid WHERE cc.cid = '.(int)$cid.' AND cc.pid = '.(int)$pid;
+			return $this->db->get_one($sql);
+		}
+		
 		// -- данные о самых популярных продуктах
 		public function getMostPopularList($cid, $limit) {
 			$sql = 'SELECT * FROM catalog WHERE is_popular = 1 AND is_new != 1 AND is_leader != 1 AND cid = '.(int)$cid.' ORDER BY rand() LIMIT '.(int)$limit;

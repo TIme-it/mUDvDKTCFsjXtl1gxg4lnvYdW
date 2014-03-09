@@ -9,24 +9,23 @@
 </div>
 <div class="clear"></div>
 <div class="text_bg">
-<div class="left_block">
-	{productBlock}
+	<ul id="product">
+		{product}
+		<li>
+			<div class="info">
+				<span class="number">{#}. </span>
+				<p class="title">{title}</p>
+				<div class="clear"></div>
+			</div>
+			<div class="right">
+				<div class="hours_link">
+					<p class="hour">от 72 до 500 ч.</p>
+					<a class="link" href="{url}">подробнее...</a>
+				</div>
+				<a class="signup_button" href="#"></a>
+			</div>
+			<div class="clear"></div>
+		</li>
+		{/product}
+	</ul>
 </div>
-<div class="right_block">
-	{actions_news_block}
-</div>
-</div>
-
-<script type="text/javascript">
-	(function($) {
-		$(document).ready(function() { 
-			$('.action_item div').each(function(){
-				m_height = $('.action_item').height();
-				d_height = $(this).outerHeight(true);
-				css_top = (m_height - d_height)/2;
-				$(this).css('top', css_top+'px');
-			})
-		});
-
-	})(jQuery);
-</script>

@@ -52,6 +52,19 @@
 			$page = (empty($_GET['page'])) ? 1 : (int)$_GET['page'];
 				
 			$catalog['productBlock']  = $this->productBlock($cid,  0, $page);
+
+			// основные категории курсов
+			$catalog['nav_list'] = $this->catalog->getMainCategory($cid);
+			if(!empty($catalog['nav_list'])){
+				foreach ($catalog['nav_list'] as $i => &$item) {
+					$item['url'] = $this->get_url($item['lid']);
+					if($_SERVER['REQUEST_URI'] == $item['url']){
+						$item['active'] = true;
+					}
+				}
+			}
+
+			$this->html->tpl_vars['courses_nav'] = $this->html->render('catalog/nav.html', $catalog);
 					
 			$this->layout = 'catalog';
 			$this->html->render('catalog/index.html', $catalog, 'content');
@@ -273,7 +286,7 @@
 			$category['categoryBlock'] = $this->categoryBlock($category['cid'], $id);
 			$this->html->tpl_vars['meta_keywords']    = (empty($category['keywords']))    ? '' : trim($category['keywords']);
 			$this->html->tpl_vars['meta_description'] = (empty($category['description'])) ? '' : trim($category['description']);	
-			$category['productBlock']  = $this->productBlock($category['cid'], $id);
+			// $category['productBlock']  = $this->productBlock($category['cid'], $id);
 			// -- крошки
 			$breadcrumbs = array();
 			$this->getCategoryPath($category['cid'], $category['id'], $breadcrumbs);
@@ -288,6 +301,7 @@
 			if(!empty($category['nav_list'])){
 				foreach ($category['nav_list'] as $i => &$item) {
 					$item['url'] = $this->get_url($item['lid']);
+					$item['courses_count'] = $this->catalog->getCountCategoryProduct($category['cid'], $item['id']);
 					if($_SERVER['REQUEST_URI'] == $item['url']){
 						$item['active'] = true;
 					}
@@ -298,6 +312,14 @@
 			$category['subtype'] = $this->catalog->getSubType($category['cid'], $id);
 			if(!empty($category['subtype'])){
 				foreach ($category['subtype'] as $i => &$item) {
+					$item['url'] = $this->get_url($item['lid']);
+				}
+			}
+
+			// продукты категории
+			$category['product'] = $this->catalog->getCategoryProduct($category['cid'], $id);
+			if(!empty($category['product'])){
+				foreach ($category['product'] as $i => &$item) {
 					$item['url'] = $this->get_url($item['lid']);
 				}
 			}
