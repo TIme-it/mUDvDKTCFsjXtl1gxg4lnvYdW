@@ -75,7 +75,6 @@ var img_big_h = 480;
 			$('.select_outer #subtype option').each(function(){
 				if($(this).html() == active){
 					url = $(this).data('url');
-					console.log(url)
 					window.location.href = url;
 				}
 			});

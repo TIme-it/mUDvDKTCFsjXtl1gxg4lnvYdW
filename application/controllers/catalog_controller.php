@@ -165,6 +165,15 @@
 			}
 
 			$this->layout = 'catalog';
+			$nav = array(
+				'product' => true,
+				'subcategory_title' => mb_strtolower($breadcrumbs[1][1], 'UTF-8'),
+				'category_title' =>  mb_strtolower($breadcrumbs[2][1], 'UTF-8'),
+				'catalog_url' =>  $this->application_controller->get_url($product['cid']),
+				);
+			$this->html->tpl_vars['is_product'] = true;
+
+			$this->html->tpl_vars['courses_nav'] = $this->html->render('pages/feedback.html', $nav);
 			$this->html->render('catalog/product.html', $product, 'content');
 		}
 
@@ -303,21 +312,40 @@
 					$item['url'] = $this->get_url($item['lid']);
 					$item['courses_count'] = $this->catalog->getCountCategoryProduct($category['cid'], $item['id']);
 					if($_SERVER['REQUEST_URI'] == $item['url']){
+						$category['purl'] = $item['url'];
+						$item['active'] = true;
+					}
+					if(stristr($_SERVER['REQUEST_URI'], $item['url']) !== FALSE){
+						$category['purl'] = $item['url'];
 						$item['active'] = true;
 					}
 				}
 			}
 
 			// подкатегории курсов
-			$category['subtype'] = $this->catalog->getSubType($category['cid'], $id);
+			if($category['pid'] == 0){
+				$category['subtype'] = $this->catalog->getSubType($category['cid'], $id);
+			}
+			else {
+				$category['subtype'] = $this->catalog->getSubType($category['cid'], $category['pid']);
+			}
 			if(!empty($category['subtype'])){
 				foreach ($category['subtype'] as $i => &$item) {
 					$item['url'] = $this->get_url($item['lid']);
+					if($_SERVER['REQUEST_URI'] == $item['url']) {
+						$item['selected'] = 'selected=selected';
+					}
 				}
 			}
 
 			// продукты категории
-			$category['product'] = $this->catalog->getCategoryProduct($category['cid'], $id);
+			if($category['pid'] == 0){
+				$category['product'] = $this->catalog->getCategoryProduct($category['cid'], $id);
+			}
+			// продукты подкатегории
+			else { 
+				$category['product'] = $this->catalog->getSubCategoryProduct($category['cid'], $id);
+			}
 			if(!empty($category['product'])){
 				foreach ($category['product'] as $i => &$item) {
 					$item['url'] = $this->get_url($item['lid']);

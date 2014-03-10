@@ -1,4 +1,15 @@
-<div class="feedbox">
+{?product}
+<a class="all_courses_button" href="{catalog_url}">смотреть все курсы</a>
+<div class="product_nav">
+  <p class="gray_txt">Курс:</p>
+  <p class="titles">{subcategory_title}</p>
+  <p class="gray_txt">по направлению:</p>
+  <p class="titles">{category_title}</p>
+  <p class="time">от 72 до 500 часов</p>
+</div>
+{/?product}
+
+<div class="feedbox" {?product}style="margin-right: 30px; margin-left: 0px; margin-top: 30px;"{/?product}>
 	<div class="feedback">
 		<h2>Хочу записаться</h2>
 		<!-- <h2>{header_feedback}</h2> -->

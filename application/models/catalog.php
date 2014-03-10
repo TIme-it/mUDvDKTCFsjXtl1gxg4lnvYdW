@@ -209,7 +209,13 @@
 		
 		// -- данные о продуктах категории
 		public function getCategoryProduct($cid, $pid) {
-			$sql = 'SELECT c.* FROM catalog_categories cc LEFT JOIN catalog c ON cc.id = c.pid WHERE cc.cid = '.(int)$cid.' AND cc.pid = '.(int)$pid;
+			$sql = 'SELECT c.* FROM catalog_categories cc LEFT JOIN catalog c ON cc.id = c.pid WHERE cc.cid = '.(int)$cid.' AND cc.pid = '.(int)$pid.' AND c.id != 0 ORDER BY title ASC';
+			return $this->db->get_all($sql);
+		}
+
+		// -- данные о продуктах подкатегории
+		public function getSubCategoryProduct($cid, $pid) {
+			$sql = 'SELECT c.* FROM catalog_categories cc LEFT JOIN catalog c ON cc.id = c.pid WHERE cc.cid = '.(int)$cid.' AND cc.id = '.(int)$pid.' AND c.id != 0 ORDER BY title ASC';
 			return $this->db->get_all($sql);
 		}
 		// -- данные о количестве продуктов категории

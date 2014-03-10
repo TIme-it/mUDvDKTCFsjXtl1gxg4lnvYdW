@@ -1,7 +1,7 @@
 <h1 class="courses_h1">Курсы</h1>
 <div class="select_outer">
 	<select name="subtype" id="subtype">
-		<option value="0" {selected}>все</option>
+		<option value="0" {selected} data-url='{purl}'>все</option>
 		{subtype}
 		<option value="{id}" {selected} data-url='{url}'>{title}</option>
 		{/subtype}
@@ -9,23 +9,25 @@
 </div>
 <div class="clear"></div>
 <div class="text_bg">
+	{?product}
 	<ul id="product">
-		{product}
-		<li>
-			<div class="info">
-				<span class="number">{#}. </span>
-				<p class="title">{title}</p>
-				<div class="clear"></div>
-			</div>
-			<div class="right">
-				<div class="hours_link">
-					<p class="hour">от 72 до 500 ч.</p>
-					<a class="link" href="{url}">подробнее...</a>
+			{product}
+			<li>
+				<div class="info">
+					<span class="number">{#}. </span>
+					<p class="title">{title}</p>
+					<div class="clear"></div>
 				</div>
-				<a class="signup_button" href="#"></a>
-			</div>
-			<div class="clear"></div>
-		</li>
-		{/product}
+				<div class="right">
+					<div class="hours_link">
+						<p class="hour">от 72 до 500 ч.</p>
+						<a class="link" href="{url}">подробнее...</a>
+					</div>
+					<a class="signup_button" href="#"></a>
+				</div>
+				<div class="clear"></div>
+			</li>
+			{/product}
 	</ul>
+	{/?product}
 </div>

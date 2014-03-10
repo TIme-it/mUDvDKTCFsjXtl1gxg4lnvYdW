@@ -2027,8 +2027,69 @@ span, p {
     right: 0;
     background: url(/application/includes/images/courses/course_content_edge.png) transparent no-repeat right;
     width: 100%;
-    height: 13px;
-    
+    height: 13px; 
+}
+
+#courses.product .left_block {
+    margin-top: 0px;
+}
+
+.all_courses_button {
+    display: block;
+    width: 128px;
+    height: 32px;
+    background: url(/application/includes/images/courses_bg.png) transparent no-repeat top left;
+    font: 13px/20px DINPro-light, Verdana, Arial;
+    color: #fff;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.all_courses_button:hover {
+    color: #ff0000;
+}
+
+#courses .left_block .product_nav {
+    position: relative;
+    width: 320px;
+    padding: 20px 0px 20px 25px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 20px 0px 0px 20px;
+}
+
+#courses .left_block .all_courses_button {
+    margin-bottom: 23px;
+}
+
+#courses .left_block .product_nav:after {
+    position: absolute;
+    content: '';
+    bottom: -13px;
+    right: 0;
+    background: url(/application/includes/images/content_bg_edge.png) transparent no-repeat right;
+    width: 100%;
+    height: 13px; 
+}
+
+#courses .left_block .product_nav .gray_txt {
+    font: 17px/22px DINPro-light, Verdana, Arial;
+    color: #9f9f9f;
+}
+
+#courses .left_block .product_nav .time {
+    height: 26px;
+    font: 17px/22px DINPro-light, Verdana, Arial;
+    color: #444;
+    padding-left: 35px;
+    background: url(/application/includes/images/time_ico.png) transparent no-repeat left bottom;
+    padding-top: 10px;
+}
+
+#courses .left_block .product_nav .titles {
+    font: 20px/22px Days, Verdana, Arial;
+    color: #629094;
+    margin-bottom: 10px;
 }
 
 #courses .left_block .nav ul li {
