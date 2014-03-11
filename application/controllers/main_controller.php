@@ -34,48 +34,6 @@
 			$this->html->tpl_vars['certificate_link'] = $this->config->get('certificate_link','site');
 			/* ADDITIONAL TEXTS END*/ 
 
-			/* PRODUCT BLOCK BEGIN */ 
-
-			$cat_pid = 301;
-			$data['catalog_url'] = $this->application_controller->get_url($cat_pid); 
-
-			// По порядку: новинки, лидер и 2 популярных товара
-			$data['product_list'] = $this->catalog->getNewestList($cat_pid);
-			if(!empty($data['product_list'])){
-				array_push($data['product_list'], $this->catalog->getLeadList($cat_pid));
-			}
-			$tmp = $this->catalog->getMostPopularList($cat_pid, 2);
-			if(!empty($tmp)){
-				foreach ($tmp as $i => &$item) {
-					array_push($data['product_list'], $item);
-				}
-			}
-
-			if(!empty($data['product_list'])){
-				foreach ($data['product_list'] as $i => &$item) {
-					$item['tchars'] = $this->catalog->getTechChars($item['pid'],$item['id']);
-					if($this->config->get('active','chpu') == 1){
-						$item['mid'] = $this->catalog->getMainIdProduct($item['id']);
-						$item['url'] = $this->application_controller->get_url($item['mid']);
-					}
-					if (!empty($item['tchars'])){
-						foreach ($item['tchars'] as $j => &$value) {
-							$item['product_price'] = ($value['techchar_title'] == 'Цена') ? $value['techchar_value'] : false;
-						}
-					}
-					$item['is_new'] = $item['is_new'] == 1 ? true : false;
-					$item['is_leader'] = $item['is_leader'] == 1 ? true : false;
-
-					if (mb_strlen($item['note'], 'UTF-8') > 280) {
-						$item['note'] = mb_substr($item['note'], 0, 277, 'UTF-8');
-						$item['note'] = mb_substr($item['note'], 0, mb_strrpos($item['note'],' ', 'UTF-8'), 'UTF-8').'...</p>';
-					}
-				}
-			}
-			$this->html->render('catalog/main_pop_product.html', $data,'main_pop_product');
-
-			/* PRODUCT BLOCK END */ 
-
 			$this->layout = 'main';
 		}
 
