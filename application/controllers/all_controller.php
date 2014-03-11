@@ -382,6 +382,44 @@
 			$this->url->redirect('::referer');
 		}
 
+		// -- обработка формы "Записаться"
+		public function signup() {
+			session_start();
+			if ((!empty($_POST['capcha'])) && ($_POST['capcha'] != $_SESSION['captcha_cap'])) {
+				$this->session->set('alert', 'Вы ввели неверный код');
+				$this->url->redirect('::referer');
+			}
+
+			// -- форматирование входящих данных
+			$data['fio']   = (!empty($_POST['fio'])   && trim($_POST['fio'])   != '') ? strip_tags(trim($_POST['fio']))         : false;
+			$data['email'] = (!empty($_POST['email']) && trim($_POST['email']) != '') ? strip_tags(trim($_POST['email']))       : false;
+			$data['phone']  = (!empty($_POST['phone'])  && trim($_POST['phone'])  != '') ? nl2br(strip_tags(trim($_POST['phone']))) : false;
+			$data['course_title']  = (!empty($_POST['course_title'])  && trim($_POST['course_title'])  != '') ? nl2br(strip_tags(trim($_POST['course_title']))) : false;
+
+			// -- валидация на незаполненность
+			if(!$data['fio'] || !$data['email'] || !$data['phone']) {
+				$this->session->set('alert', 'Некоторые поля были не заполнены');
+				$this->url->redirect('::referer');
+			}
+			// -- отправка письма
+			$sended = false;
+			$letter = $this->html->render('letters/signup.html', $data);
+			$email  = $this->config->get('feedback_email', 'site');
+			if(isset($_FILES['file']['error'])) {
+				if(isset($_FILES['file']['tmp_name']) && file_exists($_FILES['file']['tmp_name'])) {
+					$sended = $this->mail->send_mail($email, $letter, false, array($_FILES['file']['name'] => $_FILES['file']['tmp_name']));				
+				} else{
+					$sended = $this->mail->send_mail($email, $letter);
+				}
+			} else {
+				$sended = $this->mail->send_mail($email, $letter);
+			}
+			// -- формирование сообщения + редирект
+			$message = $sended ? 'Ваше сообщение было успешно отправлено' : 'При отправке сообщения произошла ошибка';
+			$this->session->set('alert', $message);
+			$this->url->redirect('::referer');
+		}
+
 		public function footer_feedback(){
 			// -- форматирование входящих данных
 			$data['footer_fio']   = (!empty($_POST['footer_fio'])   && trim($_POST['footer_fio'])   != '') ? strip_tags(trim($_POST['footer_fio']))         : false;

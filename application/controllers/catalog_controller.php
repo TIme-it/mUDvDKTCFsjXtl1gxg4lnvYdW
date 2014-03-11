@@ -172,6 +172,7 @@
 				'category_title' =>  mb_strtolower($breadcrumbs[2][1], 'UTF-8'),
 				'catalog_url' =>  $this->application_controller->get_url($product['cid']),
 				'hours' =>  $product['hours'],
+				'course_title' => $product['title'],
 				);
 			$this->html->tpl_vars['is_product'] = true;
 

@@ -17,8 +17,9 @@
 		<div class="clear"></div>
 
 		<div id="ask_question_form" class="content_block_inner">
-			<form id="faqForm" class="form" action="/popup/all/feedback/" method="post" onsubmit="return CheckFeedbackForm($(this));">
+			<form id="faqForm" class="form" action="/popup/all/signup/" method="post" onsubmit="return CheckSignUpForm($(this));">
 				<input type="hidden" name="pid" value="{id}" />
+				<input type="hidden" name="course_title" value="{course_title}" />
 				<fieldset>
 					<label for ="fio">меня зовут: <span>*</span></label>
 					<input type="text" name="fio" id="fio" placeholder="ФИО" rel=""/>
@@ -51,35 +52,5 @@
 
 
 <script type="text/javascript">
-	(function($) {
-			CheckFeedbackForm = function(form) {
-				var errors = [];
-				var obj = form.find('#fio');
-				if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите свое имя');
-
-				obj = form.find('#phone');
-				if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите номер телефона');
-
-				obj = form.find('#email');
-				if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите электронную почту');
-				
-				if (obj.val() != '') {
-					var template = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
-					if (! template.test(obj.val())) {
-						errors.push('Введен не корректный e-mail');
-					}
-				} else {
-					// errors.push('Введите свой e-mail');
-				}
-	
-				obj = form.find('#capcha');
-				if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите защитный код');
-				
-				if (errors.length > 0) {
-					alert(errors.join('\n\r'));
-					return false;
-				}
-				return true;
-			}
-		})(jQuery);
+	ui_init('.feedbox');
 </script>

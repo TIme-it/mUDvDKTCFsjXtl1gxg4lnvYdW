@@ -5,6 +5,36 @@ var img_big_w = 640;
 var img_big_h = 480;
 
 (function($) {
+
+	CheckSignUpForm = function(form) {
+		var errors = [];
+		var obj = form.find('#fio');
+		if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите свое имя');
+
+		obj = form.find('#phone');
+		if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите номер телефона');
+
+		obj = form.find('#email');
+		if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите электронную почту');
+		
+		if (obj.val() != '') {
+			var template = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
+			if (! template.test(obj.val())) {
+				errors.push('Введен не корректный e-mail');
+			}
+		} else {
+			// errors.push('Введите свой e-mail');
+		}
+
+		obj = form.find('#capcha');
+		if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите защитный код');
+		
+		if (errors.length > 0) {
+			alert(errors.join('\n\r'));
+			return false;
+		}
+		return true;
+	}
 	
 	makeMain = function (id) {
 		$('#mainImg').html('<a href="javascript:void(0);" id="mainLeftArrow" onClick="return prevImg('+id+');"></a>'+
@@ -662,6 +692,15 @@ var img_big_h = 480;
 		$('.fancy').fancybox();
 		//тест фансибокса
 		// $('.fancy').fancybox();
+		
+		$('ul#product .fancy').on('click', function(){
+			var title = $(this).data('title');
+			$('.fancy').fancybox({
+				beforeShow   : function(){
+					$('#faqForm input[name="course_title"]').val(title);
+	   			}
+			});
+		})
 		
 		$('a[href$="ajax/1"], a[href$="ajax/2"], a[href$="ajax/3"], a[href$="ajax/4"], a[href$="ajax/5"], a[href$="ajax/6"]').on('click', function(){
 			$('.fancy').fancybox({
