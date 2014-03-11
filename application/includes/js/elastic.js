@@ -314,10 +314,29 @@
 		hideimage_init();
 		
 		// Правая кнопка слайдера
-
 		$('#main_slider #rightArrow').on('click', function(){
 			if($(this).hasClass('active')){
 				right_jsp();
+				slide_animation();
+
+				hide_obj.removeClass('hide');
+				show_obj.addClass('hide');
+
+				$('#main_slider #leftArrow').removeClass('active');
+				$('#main_slider #leftArrow').addClass('inactive');
+				$('#main_slider #rightArrow').removeClass('active');
+				$('#main_slider #rightArrow').addClass('inactive');
+
+				setTimeout(showimage_init, 1100);
+				setTimeout(hideimage_init, 1100);
+			}
+			return false;
+		})
+		
+		// Левая кнопка слайдера
+		$('#main_slider #leftArrow').on('click', function(){
+			if($(this).hasClass('active')){
+				left_jsp();
 				slide_animation();
 
 				hide_obj.removeClass('hide');
