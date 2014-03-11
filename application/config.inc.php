@@ -2,7 +2,7 @@
 $config["site"]["title_h1"] = "Заголовок &quot;Нашего Сайта&quot; ";
 $config["site"]["contact_email"] = "alextret91@yandex.ru";
 $config["site"]["print_word"] = "";
-$config["site"]["feedback_email"] = "";
+$config["site"]["feedback_email"] = "alextret91@yandex.ru";
 $config["site"]["recalls_email"] = "alextret91@yandex.ru";
 $config["site"]["recalls_count"] = "";
 $config["site"]["firms_count"] = "6";

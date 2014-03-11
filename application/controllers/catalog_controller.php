@@ -175,7 +175,7 @@
 				);
 			$this->html->tpl_vars['is_product'] = true;
 
-			$this->html->tpl_vars['courses_nav'] = $this->html->render('pages/feedback.html', $nav);
+			$this->html->tpl_vars['courses_nav'] = $this->html->render('popup/sign_up.html', $nav);
 			$this->html->render('catalog/product.html', $product, 'content');
 		}
 

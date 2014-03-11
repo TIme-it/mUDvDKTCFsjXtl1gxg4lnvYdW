@@ -2002,7 +2002,7 @@ span, p {
 
 #courses .page.container .text_bg {
     margin-top: 7px;
-    border-radius: 0px 20px 20px 0px;
+    border-radius: 0px 20px 20px 20px;
     min-height: 630px;
 }
 
@@ -2013,7 +2013,7 @@ span, p {
 #courses .left_block .nav {
     position: relative;
     width: 320px;
-    padding: 20px 0px 20px 35px;
+    padding: 20px 0px 20px 25px;
     height: auto;
     background: url(/application/includes/images/courses/course_content_center.png) transparent repeat-y right;
     background-color: #608E92;
@@ -2587,28 +2587,29 @@ body#pages #interview_block .radiobuttons {
 }
 
 .fancybox-overlay {
-    background: url(/application/includes/images/fancy_outer.png) !important;
+    background-color: rgba(0,0,0,0.2) !important;
 }
 
-.fancybox-skin {
-    background-color: #D6DBE1 !important;    
-    border-radius: 10px;
+.fancybox-wrap .fancybox-skin {
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
 }
 
 .fancybox-item.fancybox-close {
-    width: 43px;
-    height: 44px;
-    margin-top: -10px;
-    margin-right: 25px;
-    background: url(/application/includes/images/popup/close_popup.png) transparent no-repeat 0px 0px;
+    width: 26px;
+    height: 24px;
+    margin-top: -35px;
+    margin-right: -35px;
+    background: url(/application/includes/images/close.png) transparent no-repeat 0px 0px;
 }
 
 .fancybox-item.fancybox-close:hover {
-    background: url(/application/includes/images/popup/close_popup.png) transparent no-repeat 0px -44px;
+    background: url(/application/includes/images/close.png) transparent no-repeat 0px -24px;
 }
 
 .fancybox-inner {
-    margin-top: 20px !important;
+    /*margin-top: 20px !important;*/
 }
 
 /* GALLERY BLOCK END */ 
@@ -2877,12 +2878,34 @@ body#pages #interview_block .radiobuttons {
     padding: 0 10px;
 }
 
+#ask_question_form textarea {
+    width: 255px;
+    font: 16px/30px DINPro-light, Verdana, Arial;
+    height: 185px;
+    border: none;
+    box-shadow: black 2px 3px 5px -3px inset;
+    border-radius: 3px;
+    background-color: #DFE9EA;
+    padding: 0 10px;
+    resize: none;
+}
+
 #ask_question_form input[type="text"]::-webkit-input-placeholder {
     color: #7c7e7d;
     font: 14px/31px DINPro-light, Verdana, Arial;
 } 
 
 #ask_question_form input[type="text"]:-moz-placeholder {
+    color: #7c7e7d;
+    font: 14px/31px DINPro-light, Verdana, Arial;
+}
+
+#ask_question_form textarea::-webkit-input-placeholder {
+    color: #7c7e7d;
+    font: 14px/31px DINPro-light, Verdana, Arial;
+} 
+
+#ask_question_form textarea:-moz-placeholder {
     color: #7c7e7d;
     font: 14px/31px DINPro-light, Verdana, Arial;
 }
@@ -2939,7 +2962,7 @@ body#pages #interview_block .radiobuttons {
     background: url(/application/includes/images/form/confirm_btn_center.png) transparent repeat-x top;
 }
 
-.middle_wrap .confirm_button span {
+.middle_wrap .confirm_button span, .feedbox .confirm_button span {
     font: 25px/46px DINPro-Bold, Verdana, Arial;
     color: #fff;
 }
@@ -3153,6 +3176,17 @@ div.list-wrapper {
 
 .jspVerticalBar {
     display: none !important;
+}
+
+.alertMessage {
+    border-radius: 25px;
+    background-color: #639095;
+    padding: 30px;
+}
+
+.alertMessage p {
+    font: 17px/22px Days, Verdana, Arial;
+    color: #fff;
 }
 
 

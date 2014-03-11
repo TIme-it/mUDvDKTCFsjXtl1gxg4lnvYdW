@@ -26,5 +26,10 @@ class popup_controller extends application_controller {
 			return false;
 		}
 	}
+
+	public function signup(){
+		echo $this->html->render('popup/sign_up.html', array());
+		die();
+	}
 }
 ?>

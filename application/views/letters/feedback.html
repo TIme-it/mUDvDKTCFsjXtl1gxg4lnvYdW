@@ -1,16 +1,16 @@
 <h3>Пришло новое сообщение с сайта</h3>
 <h3>{header_feedback}</h3>
 <table border="0" cellpadding="5">
-	<tr><td valign="top"><b>Ф.И.О.:</b></td>
-		<td valign="top">{fio}</td></tr>
-	<tr><td valign="top"><b>Контактный телефон:</b></td>
-		<td valign="top">{phone}</td></tr>
+	<tr><td valign="top"><b>Фамилия:</b></td>
+		<td valign="top">{surname}</td></tr>
+	<tr><td valign="top"><b>Имя:</b></td>
+		<td valign="top">{name}</td></tr>
+	<tr><td valign="top"><b>Отчество:</b></td>
+		<td valign="top">{secname}</td></tr>
+	{?phone}<tr><td valign="top"><b>Контактный телефон:</b></td>
+		<td valign="top">{phone}</td></tr>{/?phone}
 	<tr><td valign="top"><b>e-mail:</b></td>
 		<td valign="top">{email}</td></tr>
-	<tr><td valign="top"><b>Модель авто:</b></td>
-		<td valign="top">{model_title}</td></tr>
-	<tr><td valign="top"><b>Дата:</b></td>
-		<td valign="top">{date_td}</td></tr>
-	<tr><td valign="top"><b>Дополнительная информация:</b></td>
+	<tr><td valign="top"><b>Комментарий:</b></td>
 		<td valign="top">{question}</td></tr>
 </table>

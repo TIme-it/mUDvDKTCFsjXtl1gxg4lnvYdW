@@ -351,20 +351,15 @@
 			}
 
 			// -- форматирование входящих данных
-			$data['fio']   = (!empty($_POST['fio'])   && trim($_POST['fio'])   != '') ? strip_tags(trim($_POST['fio']))         : false;
+			$data['surname']   = (!empty($_POST['surname'])   && trim($_POST['surname'])   != '') ? strip_tags(trim($_POST['surname']))         : false;
+			$data['name']   = (!empty($_POST['name'])   && trim($_POST['name'])   != '') ? strip_tags(trim($_POST['name']))         : false;
+			$data['secname']   = (!empty($_POST['secname'])   && trim($_POST['secname'])   != '') ? strip_tags(trim($_POST['secname']))         : false;
 			$data['email'] = (!empty($_POST['email']) && trim($_POST['email']) != '') ? strip_tags(trim($_POST['email']))       : false;
-			$data['date_td'] = (!empty($_POST['date_td']) && trim($_POST['date_td']) != '') ? strip_tags(trim($_POST['date_td']))       : false;
 			$data['question'] = (!empty($_POST['question']) && trim($_POST['question']) != '') ? strip_tags(trim($_POST['question']))       : false;
 			$data['phone']  = (!empty($_POST['phone'])  && trim($_POST['phone'])  != '') ? nl2br(strip_tags(trim($_POST['phone']))) : false;
-			if($_POST['model_id'] != -1){
-				$data['model_title'] = $this->catalog->getTitleProduct($_POST['model_id']);
-			}
-			else {
-				$data['model_title'] = 'Не указана';
-			}
 
 			// -- валидация на незаполненность
-			if(!$data['fio'] || !$data['email'] || !$data['phone']) {
+			if(!$data['surname'] || !$data['name'] || !$data['secname'] || !$data['email'] || !$data['question']) {
 				$this->session->set('alert', 'Некоторые поля были не заполнены');
 				$this->url->redirect('::referer');
 			}
