@@ -98,8 +98,8 @@
 	// $config['images']['product_big_h']   = 300;
 	// $config['images']['product_small_w'] = 150;
 	// $config['images']['product_small_h'] = 100;
-	$config['images']['category_w'] = 280;
-	$config['images']['category_h'] = 230;
+	$config['images']['category_w'] = 55;
+	$config['images']['category_h'] = 50;
 	$config['images']['product_big_w'] = 394;
 	$config['images']['product_big_h'] = 318;
 	$config['images']['product_medium_w'] = 188;

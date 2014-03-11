@@ -153,6 +153,7 @@
 				if(file_exists($this->path.$cat_item['id'].'_category.txt')) {
 					$category['text'] = file_get_contents($this->path.$cat_item['id'].'_category.txt');
 				}
+				$category['character'] = (file_exists(INCLUDES.'catalog/catalog_category/b/'.$id.'.png'))?'<a href="/application/includes/catalog/catalog_category/b/'.$id.'.png'.'" target="_blank">Смотреть</a> <a href="/admin/catalog/deleteCategoryImg/'.$id.'/" onclick="if(!confirm(\'Вы действительно хотите удалить картинку?\')) return false;">Удалить</a>':'';
 				if (isset($category['text']))
 					{
 						$category['image']=$category['text'];
@@ -175,20 +176,6 @@
 				$category['files_block']       = $this->addmodules_controller->generateFilesBlock($id,  $this->module_id);
 				$category['prod_display']  = 'block';
 				$category['product_list']  = $this->catalog->getProductList($cid,  $id);
-
-				if(!empty($category['product_list'])){
-					foreach ($category['product_list'] as $i => &$item) {
-						if($item['is_leader'] == 1){
-							$item['option_style'] = 'style="color: #ffaa00;"';
-						}
-						elseif($item['is_new'] == 1){
-							$item['option_style'] = 'style="color: #00aa00;"';
-						}
-						elseif($item['is_popular'] == 1){
-							$item['option_style'] = 'style="color: #ee0000;"';
-						}
-					}
-				}
 
 				$category['category_list'] = $this->catalog->getCategoryList($cid, $id);				
 				$category['techchars'] = $this->catalog->get_techchars();
@@ -490,6 +477,7 @@
 				'cid'         => (int)$cid,
 				'title'       => trim($_POST['title']),
 				'note'        => trim($_POST['note']),
+				'hours'        => trim($_POST['hours']),
 				// 'price_hour'       => (float)$_POST['price_hour'],
 				// 'price_turn'       => (float)$_POST['price_turn'],
 				// 'geo'		=> (int)$_POST['geo'],
@@ -505,9 +493,6 @@
 				'sendfile'    => (int)(!empty($_POST['sendfile'])),
 				'date'		  => time(),
 				'active'    => (int)(!empty($_POST['active'])),
-				'is_new' 	   => (int)$_POST['is_new']>0 ? 1 : 0,
-				'is_leader' 	   => (int)$_POST['is_leader']>0 ? 1 : 0,
-				'is_popular' 	   => (int)$_POST['is_popular']>0 ? 1 : 0,
 				// 'top'		=>(int)$_POST['top'],
 			);
 			if(!empty($id)) {
@@ -681,6 +666,14 @@
 			// -- запускаем рекурсивное удаление категории и продуктов
 			$this->delete_category_rec($cid, $id);
 			
+			$this->url->redirect('::referer');
+		}
+
+		// удаление картинки категории
+		public function deleteCategoryImg($id){
+			if(file_exists(INCLUDES.'catalog/catalog_category/b/'.$id.'.png')){
+				unlink(INCLUDES.'catalog/catalog_category/b/'.$id.'.png');
+			}
 			$this->url->redirect('::referer');
 		}
 		

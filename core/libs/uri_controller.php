@@ -98,28 +98,21 @@ class uri_controller extends libs_controller {
 							elseif($controller_name == "catalog" && count($urla) > 1){
 								
 								// определяем метод и проверяем на корректность ссылку
-								$is_correct_url = $this->catalog->verify_url($urla[0]);
-								if((!$is_correct_url)) {
-									$this->controller = 'main_controller';
-									$this->method     = 'page_404';
-									$this->vars = false;
-								}
-								else {
+								$item_id = $this->catalog->parsing_url($uri);
+
+								if(!empty($item_id['cat_id'])){
 									$this->not_found = $tmp;
 									$this->controller = $controller_name.'_controller';
-									$this->method = $this->catalog->getMethod($urla[0]);
-									$this->vars = $urla;
+									$this->method = 'category';
+									$this->vars = array($item_id['cat_id']);
+								}
+								else{
+									$this->not_found = $tmp;
+									$this->controller = $controller_name.'_controller';
+									$this->method = 'product';
+									$this->vars = array($item_id['prod_id']);
 								}
 
-
-								// var_dump($this->controller);
-								// var_dump($this->method);
-								// var_dump($this->vars);
-								// die();	
-								if (($this->config->get('active','chpu') == 1) && (count($this->vars) == 1)){
-									$temp[] = $this->all->getPagePid($alias);
-									$this->vars = $temp;
-								}
 								break;
 							}
 							$this->not_found = $tmp;

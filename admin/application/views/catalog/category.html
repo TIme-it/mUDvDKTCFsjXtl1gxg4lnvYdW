@@ -23,8 +23,7 @@
 	{/?timage}
 	<fieldset>
 		<label for="character">Характеризующая картинка</label>
-		<input type="file" name="main_img" />
-		<a href="/application/includes/catalog/catalog_category/b/{id}.png" target="_blank">Смотреть</a>
+		<input type="file" name="main_img" /> {character}
 	</fieldset>
 	<fieldset>
 		<a href="#" class="toggler">
@@ -51,7 +50,7 @@
 		{delete_button}
 	</fieldset>
 </form>
-<h2>Характеристики для товаров категории</h2>
+<!-- <h2>Характеристики для товаров категории</h2>
 <form class="page_form">
 <div>
 	<fieldset>
@@ -78,13 +77,13 @@
 		</fieldset>
 	</div>
 </div>
-	</form>
+	</form> -->
 <h2>Дополнительные модули</h2>
 {photos_block}
 {files_block}
 {images_block}
 <div style="display: {prod_display};">
-	<h2>Товары</h2>
+	<h2>Курсы</h2>
 	<ul class="listing">
 		{product_list}
 		<li>
@@ -94,7 +93,7 @@
 		{/product_list}
 	</ul>
 	<div class="yellow">
-		<button type="button" onclick="window.location='/{admin_dir}/catalog/product/{main_cid}/{main_id}/0/'">Добавить товар</button>
+		<button type="button" onclick="window.location='/{admin_dir}/catalog/product/{main_cid}/{main_id}/0/'">Добавить курс</button>
 	</div>
 	<h2>Подкатегории</h2>
 	<ul class="listing">

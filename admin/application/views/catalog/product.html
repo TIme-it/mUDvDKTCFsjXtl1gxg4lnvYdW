@@ -30,119 +30,43 @@
 		<label for="big_img">Основное изображение (квадратное)</label>
 		<input type="file" name="big_img" /> {big_img}
 		<a href="/application/includes/catalog/catalog_product/b/{id}.png" target="_blank">Смотреть</a>
-		<br/>
+<!-- 		<br/>
 		<br/>
 
 		<label for="big_img">Дополнительные изображения товаров</label>
 		<fieldset id="multiload_file">
-				<input type="file" name="img[]" id="dl_file" />
-				<div class="file_name">
-					<span class="filename"></span>
-					<span class="delfile"><img src="/admin/application/includes/images/cancel.gif" border="0"></span>
-				</div>
-				<div class="div_add_file"><a href="#" class="add_file" style="padding: 2px 60px 2px 64px;">Добавить изображение...</a></div>
-				<div class="clear"></div>
-			</fieldset>
-			<div class="uploaded_img">
-				{minigallery}
-					<div class="img_item">
-						<img src="/application/includes/catalog/catalog_product/d/s/{id}.png" alt="" width="75px" height="75px"/>
-						<a href="#" class="del_img" data-id="{id}" data-pid="{pid}"></a>
-					</div>
-				{/minigallery}				
+			<input type="file" name="img[]" id="dl_file" />
+			<div class="file_name">
+				<span class="filename"></span>
+				<span class="delfile"><img src="/admin/application/includes/images/cancel.gif" border="0"></span>
 			</div>
-	</fieldset>
-	<fieldset>
-		<input type="hidden" name="is_new" value="0">
-		<input type="checkbox" name="is_new" value="1" style="vertical-align: middle;" {is_new}>
-		<span style="color: #00aa00;">Новинка</span>
-		<br/>
-		<input type="hidden" name="is_leader" value="0">
-		<input type="checkbox" name="is_leader" value="1" style="vertical-align: middle;" {is_leader}>
-		<span style="color: #ffaa00;">Лидер</span>
-		<br/>
-		<input type="hidden" name="is_popular" value="0">
-		<input type="checkbox" name="is_popular" value="1" style="vertical-align: middle;" {is_popular}>
-		<span style="color: #ee0000;">Один из самых популярных товаров</span>
+			<div class="div_add_file"><a href="#" class="add_file" style="padding: 2px 60px 2px 64px;">Добавить изображение...</a></div>
+			<div class="clear"></div>
+		</fieldset>
+		<div class="uploaded_img">
+			{minigallery}
+				<div class="img_item">
+					<img src="/application/includes/catalog/catalog_product/d/s/{id}.png" alt="" width="75px" height="75px"/>
+					<a href="#" class="del_img" data-id="{id}" data-pid="{pid}"></a>
+				</div>
+			{/minigallery}				
+		</div> -->
 	</fieldset>
 	<fieldset>
 		<label>Текст</label>
 		<textarea name="text" class="mceEditor" id="text">{text}</textarea>
 	</fieldset>
 	<fieldset>
+		<label>Часы</label>
+		<input type="text" name="hours" class="text_field" value="{hours}" />
+	</fieldset>
+	<!-- <fieldset>
 		<h2>Существенные характеристики</h2>
 		{tchars}
 				<input type="hidden" name="techchar_id[]" value="{techchar_id}">
 				<label for="techchar_value">{techchar_title}</label>
 				<input name="techchar_value[]" class="text_field" value="{techchar_value}" />
 		{/tchars}
-	</fieldset>
-	<!-- <fieldset>
-		<a href="#" class="toggler">
-			<span class="arrow"></span>
-			<span>Мини-галлерея</span>
-		</a>
-		<div>
-			<fieldset id="multiload_file">
-				<input type="file" name="img[]" id="dl_file" />
-				<div class="file_name">
-					<span class="filename"></span>
-					<span class="delfile"><img src="/admin/application/includes/images/cancel.gif" border="0"></span>
-				</div>
-				<div class="div_add_file"><a href="#" class="add_file" style="padding: 2px 60px 2px 64px;">Добавить изображение...</a></div>
-				<div class="clear"></div>
-			</fieldset>
-			<div class="uploaded_img">
-				{minigallery}
-					<div class="img_item">
-						<img src="/application/includes/catalog/minigallery/s/{id}.jpg" alt="" width="75px" height="75px"/>
-						<a href="#" class="del_img" data-id="{id}" data-pid="{pid}"><img src="/application/includes/images/closer.png" border="0" /></a>
-					</div>
-				{/minigallery}				
-			</div>
-		</div>
-	</fieldset>
-	{?timage}
-	<fieldset>
-		<label for="" class="block"><span style="color:red">Подчистить ссылки на триос. (Менять только в поле расположенном выше)</span><span class="help" rel="1:1"></span></label>
-		<textarea name="" class="text_field big_text mceEditor">{timage}</textarea><br clear="all"/>
-	</fieldset>
-	{/?timage}
-	
-	<fieldset>
-		<a href="#" class="toggler">
-			<span class="arrow"></span>
-			<span>Комплектации</span>
-		</a>
-		<div>
-			<textarea name="configuration" class="mceEditor" id="configuration">{configuration}</textarea>
-		</div>
-	</fieldset>
-	<fieldset>
-		<a href="#" class="toggler">
-			<span class="arrow"></span>
-			<span>Характеристики</span>
-		</a>
-		<div>
-			<textarea name="characters" class="mceEditor" id="characters">{characters}</textarea>
-			<fieldset>
-				<h2>Существенные характеристики</h2>
-				{tchars}
-						<input type="hidden" name="techchar_id[]" value="{techchar_id}">
-						<label for="techchar_value">{techchar_title}</label>
-						<input name="techchar_value[]" class="text_field" value="{techchar_value}" />
-				{/tchars}
-			</fieldset>
-		</div>
-	</fieldset>
-	<fieldset>
-		<a href="#" class="toggler">
-			<span class="arrow"></span>
-			<span>Описание</span>
-		</a>
-		<div>
-			<textarea name="descript" class="mceEditor" id="descript">{descript}</textarea>
-		</div>
 	</fieldset> -->
 	<fieldset>
 		<a href="#" class="toggler">

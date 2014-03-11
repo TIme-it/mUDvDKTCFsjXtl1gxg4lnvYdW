@@ -58,6 +58,7 @@
 			if(!empty($catalog['nav_list'])){
 				foreach ($catalog['nav_list'] as $i => &$item) {
 					$item['url'] = $this->get_url($item['lid']);
+					$item['courses_count'] = $this->catalog->getCountCategoryProduct($cid, $item['id']);
 					if($_SERVER['REQUEST_URI'] == $item['url']){
 						$item['active'] = true;
 					}
@@ -72,9 +73,9 @@
 		
 		// -- страница товара
 		public function product($id = 0) {
-			if(($this->config->get('active','chpu') == 1) && (!is_numeric($id))){
-				$id = $this->catalog->getPageIdAlias($id, 1);
-			}	
+			// if(($this->config->get('active','chpu') == 1) && (!is_numeric($id))){
+			// 	$id = $this->catalog->getPageIdAlias($id, 1);
+			// }	
 
 			$product  = $this->catalog->getProduct($id);
 			$this->active_catalog_id = $product['lid'];
@@ -170,6 +171,7 @@
 				'subcategory_title' => mb_strtolower($breadcrumbs[1][1], 'UTF-8'),
 				'category_title' =>  mb_strtolower($breadcrumbs[2][1], 'UTF-8'),
 				'catalog_url' =>  $this->application_controller->get_url($product['cid']),
+				'hours' =>  $product['hours'],
 				);
 			$this->html->tpl_vars['is_product'] = true;
 
@@ -271,13 +273,20 @@
 		
 		// -- страница подкатегории
 		public function category($id = 0) {
-			if(($this->config->get('active','chpu') == 1) && (!is_numeric($id))){
-				$id = $this->catalog->getPageIdAlias($id, 0);
-			}	
+			// if(($this->config->get('active','chpu') == 1) && (!is_numeric($id))){
+			// 	$id = $this->catalog->getPageIdAlias($id, 0);
+			// }	
 
 			$category = $this->catalog->getCategory($id);
-			// Помечаем активный раздел TODO: Починить (необходимо для меню)
-			$this->active_catalog_id = $category['lid'];
+
+			if($category['pid'] == 0){
+				$this->active_catalog_id = $category['lid'];
+			}
+			else {
+				$this->active_catalog_id = $this->catalog->getParentLid($category['cid'], $category['pid']);
+			}
+
+
 			$category['tchars'] = $this->catalog->getTechChars($id);
 			if(empty($category)) { $this->main_controller->page_404(); return false; }
 			if(!empty($category['cid'])){
