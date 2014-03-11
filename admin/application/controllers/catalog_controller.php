@@ -187,7 +187,15 @@
 			//var_dump($category['techcharList']);
 			//$category['list1']=$category['techcharList'];
 			$category['alias'] = $this->catalog->getAliasCategory($cid, $id);
-
+			$category['main_category'] = false;
+			$category['sub_category'] = false;
+			if($pid == 0){
+				$category['main_category'] = true;
+			}
+			else {
+				$category['sub_category'] = true;
+			}
+		
 			$this->html->render('catalog/dirs.html', $category, 'dirs');
 			$this->html->render('catalog/category.html', $category, 'content_path');
 		}

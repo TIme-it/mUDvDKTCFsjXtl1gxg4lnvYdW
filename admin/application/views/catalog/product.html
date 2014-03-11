@@ -22,14 +22,26 @@
 		<input type="text" name="alias" id = "url" value="{alias}" class="text_field"/>
 	</fieldset>
 	<fieldset>
+		<a href="#" class="toggler">
+			<span class="arrow"></span>
+			<span>Описание для поисковых систем</span>
+		</a>
+		<div>
+			<label for="description">Описание страницы</label>
+			<input type="text" class="text_field" name="description" value="{description}"/>
+			<label for="keywords">Ключевые слова</label>
+			<input type="text" class="text_field" name="keywords" value="{keywords}" />
+		</div>
+	</fieldset>	
+	<!-- <fieldset>
 		<label for="note">Краткое описание</label>
 		<textarea name="note" class="text_field" id="note_id">{note}</textarea>
-	</fieldset>
+	</fieldset> -->
 
-	<fieldset>
+	<!-- <fieldset>
 		<label for="big_img">Основное изображение (квадратное)</label>
 		<input type="file" name="big_img" /> {big_img}
-		<a href="/application/includes/catalog/catalog_product/b/{id}.png" target="_blank">Смотреть</a>
+		<a href="/application/includes/catalog/catalog_product/b/{id}.png" target="_blank">Смотреть</a> -->
 <!-- 		<br/>
 		<br/>
 
@@ -51,7 +63,7 @@
 				</div>
 			{/minigallery}				
 		</div> -->
-	</fieldset>
+	<!-- </fieldset> -->
 	<fieldset>
 		<label>Текст</label>
 		<textarea name="text" class="mceEditor" id="text">{text}</textarea>
@@ -68,19 +80,7 @@
 				<input name="techchar_value[]" class="text_field" value="{techchar_value}" />
 		{/tchars}
 	</fieldset> -->
-	<fieldset>
-		<a href="#" class="toggler">
-			<span class="arrow"></span>
-			<span>Описание для поисковых систем</span>
-		</a>
-		<div>
-			<label for="description">Описание страницы</label>
-			<input type="text" class="text_field" name="description" value="{description}"/>
-			<label for="keywords">Ключевые слова</label>
-			<input type="text" class="text_field" name="keywords" value="{keywords}" />
-		</div>
-	</fieldset>	
-
+	
 	<!--
 	<fieldset>
 		<label for="title_category">Стоимость</label>

@@ -11,20 +11,16 @@
 		<label for="alias" class="block">URL (например, turmalin)</label>
 		<input type="text" name="alias" id = "url" value="{alias}" class="text_field"/>
 	</fieldset>
-	<fieldset>
+	<!-- <fieldset>
 		<label for="note">Описание</label>
 		<textarea name="note" class="text_field" style="resize: none;">{note}</textarea>
-	</fieldset>
+	</fieldset> -->
 	{?timage}
 	<fieldset>
 		<label for="" class="block"><span style="color:red">Подчистить ссылки на триос. (Менять только в поле расположенном выше)</span><span class="help" rel="1:1"></span></label>
 		<textarea name="" class="text_field big_text mceEditor">{timage}</textarea><br clear="all"/>
 	</fieldset>
 	{/?timage}
-	<fieldset>
-		<label for="character">Характеризующая картинка</label>
-		<input type="file" name="main_img" /> {character}
-	</fieldset>
 	<fieldset>
 		<a href="#" class="toggler">
 			<span class="arrow"></span>
@@ -38,9 +34,14 @@
 		</div>
 	</fieldset>
 	<fieldset>
+		<label for="character">Характеризующая картинка</label>
+		<input type="file" name="main_img" /> {character}
+	</fieldset>
+	
+	<!-- <fieldset>
 		<label for="text" class="block">Текст страницы</label>
 		<textarea name="text" class="text_field mceEditor" >{text}</textarea>
-	</fieldset>
+	</fieldset> -->
 <!-- 	<fieldset>
 		<label for="text" class="block">Название первого столбца</label>
 		<input type="text" class="text_field" name="first_name_column" value="{first_name_column}" />
@@ -83,6 +84,7 @@
 {files_block}
 {images_block}
 <div style="display: {prod_display};">
+	{!main_category}
 	<h2>Курсы</h2>
 	<ul class="listing">
 		{product_list}
@@ -95,6 +97,8 @@
 	<div class="yellow">
 		<button type="button" onclick="window.location='/{admin_dir}/catalog/product/{main_cid}/{main_id}/0/'">Добавить курс</button>
 	</div>
+	{/!main_category}
+	{!sub_category}
 	<h2>Подкатегории</h2>
 	<ul class="listing">
 		{category_list}
@@ -107,6 +111,7 @@
 	<div class="yellow">
 		<button type="button" onclick="window.location='/{admin_dir}/catalog/category/{main_cid}/{main_id}/0/'">Добавить подкатегорию</button>
 	</div>
+	{/!sub_category}
 </div>
 
 
