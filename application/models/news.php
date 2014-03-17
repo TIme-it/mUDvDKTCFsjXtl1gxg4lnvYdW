@@ -37,15 +37,17 @@ class news extends application_controller {
 		return $this->db->get_row($sql);
 	}
 	
-	public function getNewsCount($pid) {
+	public function getNewsCount($pid, $year) {
+		$year_sql = ($year == (int)date('Y')) ? 'AND YEAR(date) = '.$year : 'AND YEAR(date) <= '.$year;
 		$sql   = 'SELECT COUNT(*) FROM news '.
-				 'WHERE pid = '.(int)$pid.' AND active != 0';
+				 'WHERE pid = '.(int)$pid.' AND active != 0 '.$year_sql;
 		return $this->db->get_one($sql);
 	}
 	
-	public function getNews($pid, $page, $count) {
+	public function getNews($pid, $page, $count, $year) {
+		$year_sql = ($year == (int)date('Y')) ? 'AND YEAR(date) = '.$year : 'AND YEAR(date) <= '.$year;
 		$sql   = 'SELECT *, MONTH(date) AS month, YEAR(date) AS year FROM news '.
-				 'WHERE pid = '.(int)$pid.' AND active != 0 ORDER BY date DESC, id DESC LIMIT '.($page * $count).', '.$count;
+				 'WHERE pid = '.(int)$pid.' AND active != 0 '.$year_sql.' ORDER BY date DESC, id DESC LIMIT '.($page * $count).', '.$count;
 		return $this->db->get_all($sql);
 	}
 	

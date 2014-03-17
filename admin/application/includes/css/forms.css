@@ -134,7 +134,7 @@ textarea.text_field {
 		}
 			.modules .inline {
 				display:inline-block;
-				width:190px;
+				/*width:190px;*/
 			}
 			.modules span {
 				display:none;

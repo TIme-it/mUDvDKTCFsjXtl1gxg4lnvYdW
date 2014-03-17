@@ -64,21 +64,24 @@
 					$page['print_checked'] = 'checked="checked"';
 					$page['print_display'] = 'class="inline_display"';
 				}
-				$page['feedback_list'] = $this->all->getFeedBackTypes();
-				if(!empty($page['feedback'])) {
-					if(!empty($page['feedback_list'])){
-						foreach ($page['feedback_list'] as $i => &$item) {
-							if((int)$item['id']==(int)$page['feedback']){
-								$item['selected'] = true;
+				// $page['feedback_list'] = $this->all->getFeedBackTypes();
+				// if(!empty($page['feedback'])) {
+				// 	if(!empty($page['feedback_list'])){
+				// 		foreach ($page['feedback_list'] as $i => &$item) {
+				// 			if((int)$item['id']==(int)$page['feedback']){
+				// 				$item['selected'] = true;
 
-							}
-						}
-					}
+				// 			}
+				// 		}
+				// 	}
 					
-				}
+				// }
 			}
 			if($isset_sub && !empty($page['subsection'])) {
 				$page['subsection_checked'] = 'checked="checked"';
+			}
+			if(!empty($page['feedback'])){	
+				$page['feedback_checked'] = ($page['feedback'] == 1) ? 'checked="checked"': false;
 			}
 			// -- выбор шаблона
 			if($isset_base && $isset_sub) {

@@ -257,25 +257,20 @@
 		
 		// -- формирования данных для блока "модули"
 		public function buildModulesBlock($pid, $mid, $title, $is_long_text = true, $hid_model_id = false) {
+
 			// -- сквозные параметры
 			$header_subsection = $this->config->get('header_subsection', 'site');
 			$header_feedback   = $this->config->get('header_feedback',   'site');
 			
 			$page = $this->all->getModulesBlockInfo($pid, $mid);
 
-			$page['pid'] = $pid;
+			$page['pid'] = (int)$pid;
 			$page['mid'] = $mid;
 			$page['print_word'] = $this->config->get('print_word',        'site');
 			
 			// -- добавляем "обратная связь", если нужно
 			if(!empty($page['feedback'])) {
 				$page['header_feedback'] = $header_feedback;
-				$page['models'] = $this->catalog->getMainProductList(280);
-				if (!empty($hid_model_id) && !empty($page['models'])){
-					foreach ($page['models'] as $i => &$item) {
-						$item['selected'] = ($item['id'] == $hid_model_id) ? 'selected = "selected"' : false;
-					}
-				}
 				$this->html->render('pages/feedback.html', $page, 'feedbackBlock');
 				// -- добавляем возможность отправить файл, если нужно
 				if(!empty($page['sendfile'])) {

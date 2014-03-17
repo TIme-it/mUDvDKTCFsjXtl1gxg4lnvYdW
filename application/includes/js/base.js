@@ -94,10 +94,40 @@ var img_big_h = 480;
 			$(this).parents('form').submit();
 			return false;
 		})
+
+		// год в списке 
+		$('a.news_year').on('click', function(){
+			change_news_year_ajax($(this).data('newscount'), $(this).data('pid'), $(this).data('year'));
+			return false;
+		});
+
+		// количество новостей в списке 
+		$('#news_count').on('change', function(){
+			change_news_count_ajax($('#news_count option:selected').val(), $('#news_count option:selected').data('pid'));
+		});
 	}
 
-	$(document).ready(function() {
+	// change_news_count_init = function(root){
+	// 	if(!root){
+	// 		root = $('body')
+	// 	}
+	// 	// количество новостей в списке 
+	// 	$(root + ' #news_count').on('change', function(){
+	// 		change_news_count_ajax($('#news_count option:selected').val(), $('#news_count option:selected').data('pid'));
+	// 	});
+	// }
 
+	$(document).ready(function() {
+		// год в списке 
+		$('a.news_year').on('click', function(){
+			change_news_year_ajax($(this).data('newscount'), $(this).data('pid'), $(this).data('year'));
+			return false;
+		});
+
+		// количество новостей в списке 
+		$('#news_count').on('change', function(){
+			change_news_count_ajax($('#news_count option:selected').val(), $('#news_count option:selected').data('pid'));
+		});
 		// ссылки в селекте курсов
 
 		$('.select_outer #subtype').on('change', function(){
@@ -978,6 +1008,43 @@ var img_big_h = 480;
 	      	data: {
 	      		'page':page,
 	      		'pid':pid
+	      	},
+
+			success:  function(result) {
+				$('.news_content').html(result);
+			}
+		});
+		return false;
+	}
+
+	change_news_count_ajax = function(news_count, pid) {	
+		$.ajax({
+			url:  '/popup/news/news_ajax/',
+			type: 'POST',
+	      	dataType : 'JSON',
+	      	data: {
+	      		'news_count':news_count,
+	      		'page':1,
+	      		'pid':pid
+	      	},
+
+			success:  function(result) {
+				$('.news_content').html(result);
+			}
+		});
+		return false;
+	}
+
+	change_news_year_ajax = function(news_count, pid, year) {	
+		$.ajax({
+			url:  '/popup/news/news_ajax/',
+			type: 'POST',
+	      	dataType : 'JSON',
+	      	data: {
+	      		'news_count':news_count,
+	      		'page':1,
+	      		'pid':pid,
+	      		'news_year':year
 	      	},
 
 			success:  function(result) {

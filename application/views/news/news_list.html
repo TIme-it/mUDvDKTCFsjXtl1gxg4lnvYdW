@@ -1,7 +1,17 @@
+<span>Показывать новости за </span>
+{years_list}
+<a href="#" data-year="{year}" data-newscount="{news_count}" data-pid="{pid}" class="news_year {selected}">{year}{txt}</a>
+{/years_list}
+<span>по </span>
+<select name="news_count" id="news_count">
+	{news_count_list}
+	<option value="{count}" data-pid="{pid}" {selected}>{count}</option>
+	{/news_count_list}
+</select>
+<span> на страницу</span>
 <ul id="news_list">
 {list}
 	<li>
-		<img src="/application/includes/news/{id}.jpg" width="106" height="100" alt="">
 		<div class="note_wrap">
 			<a href="{url}"><span>{title}</span></a>
 			{?note}
@@ -16,3 +26,7 @@
 {/list}
 {pagination}
 </ul>
+
+<script type="text/javascript">
+	ui_init('.content');
+</script>

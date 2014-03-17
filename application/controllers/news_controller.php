@@ -31,6 +31,10 @@
 			$this->active_main_id = $pid;
 			
 			if(empty($id)) { // -- если не указана конкретная новость, то выводим весь список	
+				if(empty($_SESSION)){
+					session_start();
+		   		}
+
 				// -- SEO
 				$this->html->tpl_vars['meta_description'] = $info['description'];
 				$this->html->tpl_vars['meta_keywords']    = $info['keywords'];
@@ -59,11 +63,38 @@
 				$this->all_controller->buildModulesBlock($pid, 0, $info['title'], $is_long_text);
 				
 				$page = empty($_GET['page']) ? 1 : (int)$_GET['page'];
-				$news_count = $this->config->get('news_count', 'site');
-				$news_all_count = $this->news->getNewsCount($pid);
+
+				// если в сессии нет данных о количестве новостей, то брать из конфига
+				$news_count = (empty($_SESSION['news_count'])) ? $this->config->get('news_count', 'site') : $_SESSION['news_count'];
+				// если в сессии нет данных о годе, то брать текущий
+				$news_year = (empty($_SESSION['news_year'])) ? (int)date('Y') : $_SESSION['news_year'];
+
+
+				// список количества элементов на странице + определение активного итема
+				$news['news_count_list'] = array();
+				for ($i=0; $i < 3; $i++) { 
+					$news['news_count_list'][$i]['count'] = 8 * ($i+1);
+					$news['news_count_list'][$i]['selected'] = ($news['news_count_list'][$i]['count'] == $news_count) ? 'selected="selected"' : '';
+				}
+
+				// текущий год и ранее. определение активной кнопки
+				$news['years_list'] = array();
+				$news['years_list'][0]['year'] = (int)date('Y');
+				$news['years_list'][1]['year'] = (date('Y')-1);
+				$news['years_list'][1]['txt'] = ' год и ранее';
+				for ($i=0; $i < 2; $i++) { 
+					$news['years_list'][$i]['selected'] = ($news['years_list'][$i]['year'] == $news_year) ? 'active' : '';
+				}
+
+				// var_dump($news['news_count_list']);
+				// die();
+				// для шаблона
+				$news['news_count'] = $news_count;
+
+				$news_all_count = $this->news->getNewsCount($pid, $news_year);
 				$news['pagination'] = $this->pagination_controller->index_ajax($news_all_count, $news_count, $page, 'news_ajax', ','.$pid);
 				
-				$news['list'] = $this->news->getNews($pid, $page-1, $news_count);
+				$news['list'] = $this->news->getNews($pid, $page-1, $news_count, $news_year);
 				if(!empty($news['list'])) {
 					$img_w = $this->config->get('img_width','news');
 					$img_h = $this->config->get('img_height','news');
@@ -106,13 +137,13 @@
 					$news['list'][ count($news['list'])-1 ]['li_class'] .= ' last';
 					$news['list'][ count($news['list'])-1 ]['last'] = 1;
 				}
+				$news['pid'] = $pid;
 				$news['news_list'] = $this->html->render('news/news_list.html', $news);
 				
 				// -- дополнительные модули
 				$news['galleryBlock'] = $this->all_controller->images($pid, 0);
 				$news['filesBlock']   = $this->all_controller->files($pid,  0);
 				
-				$news['pid'] = $pid;
 				$this->layout = 'pages';
 				$this->html->render('news/'.$info['template'].'.html', $news, 'content');
 			} else { // -- работаем с конкретной новостью по id
@@ -154,16 +185,53 @@
 
 
 		public function news_ajax() {
+			if(empty($_SESSION)){
+				session_start();
+	   		}
+
+	   		if(!empty($_POST['news_count'])){
+	   			$this->session->set('news_count', $_POST['news_count']);
+	   		}
+
+	   		if(!empty($_POST['news_year'])){
+	   			$this->session->set('news_year', $_POST['news_year']);
+	   		}
+
 			$pid = $_POST['pid'];
 			$page = $_POST['page'];
 			// $info = $this->news->getPageInfo($pid);
+
 			
-			$news_count = $this->config->get('news_count', 'site');
+			// если в сессии нет данных о количестве новостей, то брать из конфига
+			$news_count = (empty($_SESSION['news_count'])) ? $this->config->get('news_count', 'site') : $_SESSION['news_count'];
+			// если в сессии нет данных о годе, то брать текущий
+			$news_year = (empty($_SESSION['news_year'])) ? (int)date('Y') : $_SESSION['news_year'];
+
+
+			// список количества элементов на странице + определение активного итема
+			$news['news_count_list'] = array();
+			for ($i=0; $i < 3; $i++) { 
+				$news['news_count_list'][$i]['count'] = 8 * ($i+1);
+				$news['news_count_list'][$i]['selected'] = ($news['news_count_list'][$i]['count'] == $news_count) ? 'selected="selected"' : '';
+			}
+
+			// текущий год и ранее. определение активной кнопки
+			$news['years_list'] = array();
+			$news['years_list'][0]['year'] = (int)date('Y');
+			$news['years_list'][1]['year'] = (date('Y')-1);
+			$news['years_list'][1]['txt'] = ' год и ранее';
+			for ($i=0; $i < 2; $i++) { 
+				$news['years_list'][$i]['selected'] = ($news['years_list'][$i]['year'] == $news_year) ? 'active' : '';
+			}
+			
+			// для шаблона
+			$news['news_count'] = $news_count;
+
 			// var_dump($news_count);
 			// die();
-			$news_all_count = $this->news->getNewsCount($pid);
+			$news_all_count = $this->news->getNewsCount($pid, $news_year);
 			$news['pagination'] = $this->pagination_controller->index_ajax($news_all_count, $news_count, $page, 'news_ajax', ','.$pid);
-			$news['list'] = $this->news->getNews($pid, $page-1, $news_count);
+			$news['list'] = $this->news->getNews($pid, $page-1, $news_count, $news_year);
 			if(!empty($news['list'])){
 				foreach ($news['list'] as $i => &$item) {
 					$item['date'] = $this->date->format2($item['date']);
@@ -191,7 +259,7 @@
 
 				}
 			}
-			
+			$news['pid'] = $pid;
 			echo json_encode($this->html->render('news/news_list.html', $news));
 			die();
 		}

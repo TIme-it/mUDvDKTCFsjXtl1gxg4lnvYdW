@@ -181,6 +181,7 @@
 			
 			$news['active']   = $news['active'] ? 'checked="checked"' : '';
 			
+			
 			// -- прикрепляем текст
 			$news['text'] = (file_exists($this->path.$id.'.txt')) ? htmlspecialchars(file_get_contents($this->path.$id.'.txt')) : '';
 
@@ -215,6 +216,9 @@
 			}
 			
 			$news['caption'] = $news['title'];
+
+			// var_dump($news['feedback_checked']);
+			// die();
 			
 			// -- основной шаблон
 			$this->html->render('news/item.html', $news, 'content_path');
