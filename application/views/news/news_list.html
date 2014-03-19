@@ -1,14 +1,20 @@
-<span>Показывать новости за </span>
-{years_list}
-<a href="#" data-year="{year}" data-newscount="{news_count}" data-pid="{pid}" class="news_year {selected}">{year}{txt}</a>
-{/years_list}
-<span>по </span>
-<select name="news_count" id="news_count">
-	{news_count_list}
-	<option value="{count}" data-pid="{pid}" {selected}>{count}</option>
-	{/news_count_list}
-</select>
-<span> на страницу</span>
+<div class="news_panel">
+	<span class="news_filter">Показывать новости за </span>
+	{years_list}
+	<a href="#" data-year="{year}" data-newscount="{news_count}" data-pid="{pid}" class="news_year {selected}">{year}{txt}</a>
+	{/years_list}
+	<div class="count_filter">
+		<span class="news_filter">по </span>
+
+		<select name="news_count" id="news_count">
+			{news_count_list}
+			<option value="{count}" data-pid="{pid}" {selected}>{count}</option>
+			{/news_count_list}
+		</select>
+
+		<span class="news_filter"> на страницу</span>
+	</div>
+</div>
 <ul id="news_list">
 {list}
 	<li>

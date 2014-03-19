@@ -19,7 +19,7 @@
 			// -- получаем данные по текущему разделу
 			$info = $this->news->getPageInfo($pid, $this->module_id);
 			if(empty($info)) {
-				$this->layout = 'pages';
+				$this->layout = 'news';
 				$this->main_controller->page_404();
 				return false;
 			}
@@ -144,7 +144,7 @@
 				$news['galleryBlock'] = $this->all_controller->images($pid, 0);
 				$news['filesBlock']   = $this->all_controller->files($pid,  0);
 				
-				$this->layout = 'pages';
+				$this->layout = 'news';
 				$this->html->render('news/'.$info['template'].'.html', $news, 'content');
 			} else { // -- работаем с конкретной новостью по id
 				$news = $this->news->getOneNews($id);
@@ -178,7 +178,7 @@
 				
 				//Строка новостей
 				$this->html->tpl_vars['news_line'] = $this->make_news_line();
-				$this->layout = 'pages';
+				$this->layout = 'news';
 				$this->html->render('news/item.html', $news, 'content');
 			}
 		}

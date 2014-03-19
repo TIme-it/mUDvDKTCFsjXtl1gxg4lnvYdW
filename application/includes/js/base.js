@@ -148,6 +148,7 @@ var img_big_h = 480;
 		// sexycombo
 
 		$("#subtype").sexyCombo();
+		$("#news_count").sexyCombo();
 
 		$.sexyCombo.deactivate("#subtype");
     	$("#activate").bind("click", function () {

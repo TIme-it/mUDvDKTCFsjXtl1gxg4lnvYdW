@@ -285,13 +285,6 @@ span, p {
 }
 
 
-
-
-
-
-
-
-
 .middle_wrap .move {
     overflow: hidden;
 }
@@ -1797,6 +1790,81 @@ span, p {
 #news_list li .note_wrap p {
     font: 13px/24px PTSansRegular, Verdana, Arial;
 }
+
+.news_panel {
+    position: relative;
+    height: 83px;
+    background: url(/application/includes/images/news/news_panel_center.png) transparent repeat-x 0 0;
+}
+
+.news_panel:after {
+    position: absolute;
+    content: '';
+    width: 28px;
+    height: 83px;
+    left: -28px;
+    background: url(/application/includes/images/news/news_panel_left.png) transparent no-repeat left;
+}
+
+.news_panel:before {
+    position: absolute;
+    content: '';
+    width: 28px;
+    height: 83px;
+    right: -28px;
+    background: url(/application/includes/images/news/news_panel_right.png) transparent no-repeat right;
+}
+
+.news_panel .news_filter {
+    font: 19px/65px DINPro-light, Verdana, Arial;
+    color: #fff;
+}
+
+.news_panel .news_year, .news_panel .news_year:visited {
+    font: 19px/65px DINPro-light, Verdana, Arial;
+    color: #eee;
+    text-decoration: none;
+    border-bottom: 1px dotted;
+    margin: 0 10px;
+}
+
+.news_panel .news_year:hover {
+    color: #ff0000;
+}
+
+.news_panel .news_year.active {
+    position: relative;
+    display: inline-block;
+    font: 19px/32px DINPro-bold, Verdana, Arial;
+    color: #fde800;
+    height: 40px;
+    text-decoration: none;
+    border-bottom: none;
+    background: url(/application/includes/images/news/news_marker_center.png) transparent repeat-x 0 0;
+}
+
+.news_panel .news_year.active:after {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 40px;
+    left: -10px;
+    background: url(/application/includes/images/news/news_marker_left.png) transparent no-repeat left;
+}
+
+.news_panel .news_year.active:before {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 40px;
+    right: -10px;
+    background: url(/application/includes/images/news/news_marker_right.png) transparent no-repeat right;
+}
+
+.news_panel .count_filter {
+    float: right;
+}
+
 
 /* NEWS BLOCK END */ 
 
