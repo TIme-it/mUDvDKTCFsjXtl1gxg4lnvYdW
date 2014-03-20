@@ -101,6 +101,60 @@ var img_big_h = 480;
 			return false;
 		});
 
+
+		/* sexycombo количества в списке новостей начало */
+
+		$("#news_count").sexyCombo();
+
+		$.sexyCombo.deactivate("#news_count");
+    	$("#activate").bind("click", function () {
+    		$.sexyCombo.activate("#news_count");
+    	});
+
+    	$("#empty-combo").sexyCombo({
+    		emptyText: "Choose a state..."
+    	});
+
+    	$("#autofill-combo").sexyCombo({
+    		autoFill: true
+    	});
+
+    	$('.select_outer_news .combo div.icon').on('click', function(){
+	    	if ($('.list-wrapper').hasClass('visible')){
+	    		$(this).css('background', 'url("/application/includes/images/news/news_counter_btn.png") 0px -81px');
+	    	}
+	    	if ($('.list-wrapper').hasClass('invisible')){
+	    		$(this).css('background', '');
+	    	}
+    	})
+
+    	$('.select_outer_news .list-wrapper ul li.visible').on('click', function(){
+	    	if ($('.list-wrapper').hasClass('visible')){
+	    		$('.combo div.icon').css('background', 'url("/application/includes/news/news_counter_btn.png") 0px -81px');
+	    	}
+	    	if ($('.list-wrapper').hasClass('invisible')){
+	    		$('.combo div.icon').css('background', '');
+	    	}
+    	})
+
+    	$('.select_outer_news .combo').focusout(function(){
+	    	$('.combo div.icon').css('background', '');
+    	})
+
+    	$('.select_outer_news .combo div.icon').on('mouseover',function(){
+    		if ($('.list-wrapper').hasClass('visible')){
+	    		$('.combo div.icon').css('background', 'url("/application/includes/images/news/news_counter_btn.png") 0px -108px');
+	    	}
+    	})
+
+    	$('.select_outer_news .combo div.icon').on('mouseout',function(){
+    		if ($('.list-wrapper').hasClass('visible')){
+	    		$('.combo div.icon').css('background', 'url("/application/includes/images/news/news_counter_btn.png") 0px -81px');
+	    	}
+    	})
+
+    	/* sexycombo количества в списке новостей конец */
+
 		// количество новостей в списке 
 		$('#news_count').on('change', function(){
 			change_news_count_ajax($('#news_count option:selected').val(), $('#news_count option:selected').data('pid'));
@@ -124,10 +178,6 @@ var img_big_h = 480;
 			return false;
 		});
 
-		// количество новостей в списке 
-		$('#news_count').on('change', function(){
-			change_news_count_ajax($('#news_count option:selected').val(), $('#news_count option:selected').data('pid'));
-		});
 		// ссылки в селекте курсов
 
 		$('.select_outer #subtype').on('change', function(){
@@ -145,10 +195,9 @@ var img_big_h = 480;
 			return false;
 		})
 
-		// sexycombo
+		/* sexycombo курсов начало */
 
 		$("#subtype").sexyCombo();
-		$("#news_count").sexyCombo();
 
 		$.sexyCombo.deactivate("#subtype");
     	$("#activate").bind("click", function () {
@@ -163,7 +212,7 @@ var img_big_h = 480;
     		autoFill: true
     	});
 
-    	$('.combo div.icon').on('click', function(){
+    	$('.select_outer .combo div.icon').on('click', function(){
 	    	if ($('.list-wrapper').hasClass('visible')){
 	    		$(this).css('background', 'url("/application/includes/images/sexycombo/sexy/title_select_btn.png") 0px -110px');
 	    	}
@@ -172,7 +221,7 @@ var img_big_h = 480;
 	    	}
     	})
 
-    	$('.list-wrapper ul li.visible').on('click', function(){
+    	$('.select_outer .list-wrapper ul li.visible').on('click', function(){
 	    	if ($('.list-wrapper').hasClass('visible')){
 	    		$('.combo div.icon').css('background', 'url("/application/includes/images/sexycombo/sexy/title_select_btn.png") 0px -110px');
 	    	}
@@ -181,21 +230,25 @@ var img_big_h = 480;
 	    	}
     	})
 
-    	$('.combo').focusout(function(){
+    	$('.select_outer .combo').focusout(function(){
 	    	$('.combo div.icon').css('background', '');
     	})
 
-    	$('.combo div.icon').on('mouseover',function(){
+    	$('.select_outer .combo div.icon').on('mouseover',function(){
     		if ($('.list-wrapper').hasClass('visible')){
 	    		$('.combo div.icon').css('background', 'url("/application/includes/images/sexycombo/sexy/title_select_btn.png") 0px -147px');
 	    	}
     	})
 
-    	$('.combo div.icon').on('mouseout',function(){
+    	$('.select_outer .combo div.icon').on('mouseout',function(){
     		if ($('.list-wrapper').hasClass('visible')){
 	    		$('.combo div.icon').css('background', 'url("/application/includes/images/sexycombo/sexy/title_select_btn.png") 0px -110px');
 	    	}
     	})
+
+    	/* sexycombo курсов конец */
+
+		
 
     	/* JSP для слайдера */ 
     	
