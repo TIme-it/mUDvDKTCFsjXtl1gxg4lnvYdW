@@ -82,14 +82,14 @@
 		}
 		if (width <= 1000) {
 			$('#news_block .scroll-pane').css('width', '490px');
-			$('#news_block .scroll-pane .item').css('width', '140px');
+			$('#news_block .scroll-pane .item').css('width', '145px');
 			$('#news_block .scroll-pane .item').css('margin-right', '20px');
 			return false;
 		}
 		if (width > 1000){
 			diff = width - 1800;
 			sp_w = diff/1.1561 + 1182;
-			spi_w = diff/4.70588 + 310;
+			spi_w = diff/4.848484 + 310;
 			spi_mr = diff/12.5 + 84;
 
 			$('#news_block .scroll-pane').css('width', sp_w+'px');

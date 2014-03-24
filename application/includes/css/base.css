@@ -975,6 +975,13 @@ span, p {
     height: 100px !important;
 }
 
+#news_block .jspContainer {
+    min-height: 240px !important;
+    max-height: 460px !important;
+    height: 100% !important;
+    overflow: visible;
+}
+
 #slider_jsp #wrap_left, #slider_jsp #wrap_right {
     height: 100px;
 }
@@ -1667,6 +1674,10 @@ span, p {
     display: none;
 }
 
+#news_block #scroll #wrap {
+    height: 240px;
+}
+
 #news_block .item {
     width: 310px;
     margin-right: 84px;
@@ -1676,13 +1687,76 @@ span, p {
 
 #news_block .date, #news_list .date {
     margin-bottom: 5px;
+    position: relative;
+    overflow: hidden;
 }
 
-#news_block .date p, #news_list .date p {
+#news_list .date {
+    position: relative;
+    overflow: hidden;
+    font-size: 24px;
+    font-weight: normal;
+    text-align: center;
+}
+
+#news_list .date > span {
+    font: 11px/20px DINPro-light, Verdana, Arial;
+    color: #8c8c8c;
+    display: inline-block;
+    margin: 0 .4em;
+    padding: 0px 5px 0px 5px;
+}
+
+#news_list .date > span:before,
+#news_list .date > span:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    border-top: 1px solid #E4E4E4;
+    margin-top: .8em;
+}
+#news_list .date > span:before {
+    margin-left: -102%;
+}
+#news_list .date > span:after {
+    margin-left: 2%;
+}
+
+
+
+#news_list .note_wrap {
+    position: relative;
+    overflow: hidden;
+    margin: 0 .4em;
+}
+
+#news_list .note_wrap > a {
+    display: inline-block;
+    margin: 0 .4em;
+}
+
+#news_list .note_wrap > a:before,
+#news_list .note_wrap > a:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    border-top: 1px solid #E4E4E4;
+    margin-top: .8em;
+}
+#news_list .note_wrap > a:before {
+    margin-left: -102%;
+}
+#news_list .note_wrap > a:after {
+    margin-left: 2%;
+}
+
+
+
+#news_block .date p {
     font: 11px/20px DINPro-light, Verdana, Arial;
     color: #8c8c8c;
     display: table;
-    background: #FBFEFB;
+    background: #fff;
     padding: 0px 5px 0px 5px;
     margin: 0 auto;
 }
@@ -1882,6 +1956,10 @@ span, p {
     border-radius: 0px 0px 20px 20px;
     margin-top: -14px;
     padding-top: 40px;
+}
+
+.text_bg.news_item {
+    min-height: 345px;
 }
 
 

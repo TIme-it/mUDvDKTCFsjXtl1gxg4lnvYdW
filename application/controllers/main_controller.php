@@ -29,35 +29,25 @@
 
 			/* SLIDES BLOCK END */
 
-			/* ADDITIONAL TEXTS BEGIN*/ 
-			$this->html->tpl_vars['bubble_text'] = htmlspecialchars_decode($this->config->get('bubble_text','site'));
-			$this->html->tpl_vars['certificate_link'] = $this->config->get('certificate_link','site');
-			/* ADDITIONAL TEXTS END*/ 
+			/* NEWS BLOCK BEGIN */ 
 
-			$this->layout = 'main';
-		}
+			$data['news_list'] = $this->news->getLast(39, 15);
+			if(!empty($data['news_list'])){
+				foreach ($data['news_list'] as $i => &$item) {
+					$item['url'] = $this->news_controller->get_url($item['id']);
 
-
-		protected function format_to_page(&$array, $name, $controller){
-
-			if(!empty($array[$name])){
-				foreach ($array[$name] as $i => &$item) {
-					$item['date'] = $this->date->format4($item['date']);
-					$item['url'] = $this->$controller->get_url($item['id']);
-					if (mb_strlen($item['note'], 'UTF-8') > 200) {
-						$item['note'] = mb_substr($item['note'], 0, 197, 'UTF-8');
-						$item['note'] = mb_substr($item['note'], 0, mb_strrpos($item['note'],' ', 'UTF-8'), 'UTF-8').'...</p>';
-					}
-
-					if (mb_strlen($item['title'], 'UTF-8') > 45) {
-						$item['list_title'] = mb_substr($item['title'], 0, 43, 'UTF-8');
-						$item['list_title'] = mb_substr($item['list_title'], 0, mb_strrpos($item['list_title'],' ', 'UTF-8'), 'UTF-8').'...';
-					}
-					else {
-						$item['list_title'] = $item['title'];
+					if (mb_strlen($item['note'], 'UTF-8') > 500) {
+						$item['note'] = mb_substr($item['note'], 0, 497, 'UTF-8');
+						$item['note'] = mb_substr($item['note'], 0, mb_strrpos($item['note'],' ', 'UTF-8'), 'UTF-8').'...';
 					}
 				}
 			}
+
+			$this->html->tpl_vars['news_list'] = $data['news_list'];
+
+			/* NEWS BLOCK END */
+
+			$this->layout = 'main';
 		}
 		
 		// -- HTTP 404

@@ -178,7 +178,7 @@
 				
 				//Строка новостей
 				$this->html->tpl_vars['news_line'] = $this->make_news_line();
-				$this->layout = 'news';
+				$this->layout = 'pages';
 				$this->html->render('news/item.html', $news, 'content');
 			}
 		}
