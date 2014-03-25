@@ -105,7 +105,7 @@
 			// -- дополнительные модули
 			$faq['galleryBlock'] = $this->all_controller->images($pid, 0);
 			$faq['filesBlock']   = $this->all_controller->files($pid,  0);
-			$this->layout='pages';
+			$this->layout='faq';
 			// -- основной рендер
 			$this->html->render('faqs/layoutFaq.html', $faq, 'content');
 		}

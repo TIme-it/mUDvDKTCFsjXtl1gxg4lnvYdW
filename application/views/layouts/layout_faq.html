@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+<head>
+  {head}
+</head>
+  <body id="faq_page">
+    <p id="develop">&mdash; Сайт находится на этапе разработки</p>
+    <div class="bg_top" style="top: 144px;">
+      <div class="top_shadow"></div>
+    </div>
+    <div class="bg_page">
+      <div class="middle_wrap">
+        {menu_block}  
+        <div class="clear"></div>
+      </div>
+      <div class="faq_fon">
+        <div class="middle_wrap">
+          <div class="middle">
+            {feedbackBlock}
+            <div class="container" style="margin: 0 127px 0 128px;">
+              <div class="content">
+                {content}
+                <div id="interview_block">
+                  <div class="question">
+                    <p class="bold">- Как считаете:</p>
+                    <p class="normal">Нравится ли Вам наш сайт?</p>
+                  </div>
+                  <a href="#" class="answer_button inactive"></a>
+                  <div class="radiobuttons">
+                    <fieldset>
+                      <input id="first" type="radio" name="answer" value="first">
+                        <label for="first">Нравится</label>
+                      </fieldset>
+                      <fieldset>
+                      <input id="second" type="radio" name="answer" value="second">
+                        <label for="second">Не нравится</label>
+                      </fieldset>
+                      <fieldset>
+                      <input id="third" type="radio" name="answer" value="third">
+                        <label for="third">Он прекрасен</label>
+                      </fieldset>
+                      <fieldset>
+                      <input id="fourth" type="radio" name="answer" value="fourth">
+                        <label for="fourth">Кто его делал?</label>
+                      </fieldset>
+                  </div>
+                </div>
+              </div>
+            </div>  
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+    {footer}
+    {?alert}
+      <script type="text/javascript">
+        $.fancybox('<div class="alertMessage"><p>{alert}</p></div>');
+      </script>
+    {/?alert}
+  </body>
+</html>

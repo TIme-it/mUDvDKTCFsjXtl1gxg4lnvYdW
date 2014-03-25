@@ -1552,8 +1552,34 @@ span, p {
 
 /* FAQ BLOCK BEGIN */
 
+#faq_page .faq_fon {
+    position: relative;
+    margin: 0 auto;
+}
+
+#faq_page .faq_fon:before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 74px;
+    top: 160px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: url(/application/includes/images/faq/comments_bg.png) transparent no-repeat center;
+}
+
+#faq_page .faq_fon:after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 74px;
+    bottom: 160px;
+    margin: 0 auto;
+    background: url(/application/includes/images/faq/comments_bg_i.png) transparent no-repeat center;
+}
+
 .content .questions {
-    margin-top: 30px;
+    margin-top: 100px;
 }
 
 .content .questions ul {
@@ -1570,7 +1596,6 @@ span, p {
     margin-left: 0px;
     margin-top: 30px;
     line-height: 0px;
-    border-bottom: 1px dotted #ccc; 
 }
 
 .content .questions ul li.quest_item.last {
@@ -1582,32 +1607,15 @@ span, p {
     margin-bottom: 20px;
 }
 
-.questions ul li .answer {
-    margin-bottom: 30px;
-}
-
-.questions ul li p.user, .questions ul li .answer p.ans {
-    font: 13px/13px PTSansRegular, Verdana, Arial;
-    margin-bottom: 0px;
-    color: #009f3b;
-}
-
 .questions ul li .answer p.ans {
-    margin-bottom: 3px;
+    font: 18px/22px DINPro-Bold, Verdana, Arial;
+    color: #fff;
+    margin-bottom: 25px;
 }
 
-
-.questions ul li p.date {
-    position: absolute;
-    left: -90px;
-    width: 80px;
-    height: 36px;
-    text-align: center;
-    font: 13px/30px PTSansRegular, Verdana, Arial;
+.questions ul li .answer p.ans_txt {
+    font: 16px/22px DINPro-light, Verdana, Arial;
     color: #fff;
-    margin-bottom: 0px;
-    padding-left: 3px;
-    background: url(/application/includes/images/data_bg.png) transparent no-repeat top left;
 }
 
 .questions ul.reviews li p.user {
@@ -1619,6 +1627,113 @@ span, p {
     margin-bottom: 80px;
 }
 
+#faq .top {
+    margin: 0 auto;
+    width: 535px;
+    text-align: center;
+}
+
+#faq .top .ask_question_button {
+    position: relative;
+    width: 135px;
+    height: 38px;
+    display: block;
+    float: left;
+    text-decoration: none;
+    font: 18px/35px DINPro-Bold, Verdana, Arial;
+    color: #ff8a00;
+    margin-right: 15px;
+    background: url(/application/includes/images/faq/ask_btn_center.png) transparent repeat-x 0 0;
+}
+
+#faq .top .ask_question_button:before {
+    position: absolute;
+    content: '';
+    left: -8px;
+    width: 8px;
+    height: 38px;
+    background: url(/application/includes/images/faq/ask_btn_left.png) transparent repeat-x top left;
+}
+
+#faq .top .ask_question_button:after {
+    position: absolute;
+    content: '';
+    right: -8px;
+    width: 8px;
+    height: 38px;
+    background: url(/application/includes/images/faq/ask_btn_right.png) transparent repeat-x top right;
+}
+
+#faq .top .ask_question_button:hover, #faq .top .ask_question_button:hover:before, #faq .top .ask_question_button:hover:after {
+    background-position: 0px -38px;
+    color: #fff;
+}
+
+#faq .top .ask_question_button:active, #faq .top .ask_question_button:active:before, #faq .top .ask_question_button:active:after {
+    background-position: 0px -76px;
+    color: #fff;
+}
+
+#faq .top span {
+    font: 17px/35px DINPro-light, Verdana, Arial;
+    color: #444;
+}
+
+#faq ul li .question {
+    width: 50%;
+    float: left;
+}
+
+#faq ul li .answer {
+    max-width: 519px;
+    width: 44%;
+    float: left;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-left: 1px solid #325557;
+    border-top: 1px solid #325557;
+    border-bottom: 1px solid #85A3A5;
+    border-right: 1px solid #85A3A5;
+    background-color: #3D6A6D;
+}
+
+#faq ul li .avatar, #faq ul li .right_text {
+    float: left;
+}
+
+#faq ul li .right_text {
+    margin-left: 2.5%;
+    width: 70%;
+}
+
+#faq ul li .avatar img {
+    width: 82px;
+    height: 82px;
+}
+
+#faq ul li .avatar .photo_frame {
+    width: 89px !important;
+    height: 89px !important;
+    background: url(/application/includes/images/faq/photo_frame_small.png) transparent no-repeat 0px 0px !important;
+}
+
+#faq ul li .fio {
+    display: inline-block;
+    font: 14px/22px DINPro-light, Verdana, Arial;
+    color: #fde800;
+    margin-bottom: 5px;
+}
+
+#faq ul li .date {
+    font: 12px/24px DINPro-light, Verdana, Arial;
+    color: #fff;   
+    float: right;
+}
+
+#faq ul li .review {
+    font: 16px/22px DINPro-Bold, Verdana, Arial;
+    color: #fff;
+}
 
 /* FAQ BLOCK END */
 
@@ -2059,17 +2174,17 @@ span, p {
     margin: 0 75px;
 }
 
-#reviews_block ul li .avatar {
+#reviews_block ul li .avatar, #faq ul li {
     position: relative;
     margin: 0 auto;
     display: table;
 }
 
-#reviews_block ul li .avatar img {
+#reviews_block ul li .avatar img, #faq ul li .avatar img {
     border-radius: 70px;
 }
 
-#reviews_block ul li .avatar .photo_frame {
+#reviews_block ul li .avatar .photo_frame, #faq ul li .avatar .photo_frame {
     position: absolute;
     top: 0;
     left: -4px;
@@ -2093,12 +2208,12 @@ span, p {
     font: 17px/20px DINPro-Bold, Verdana, Arial;
 }
 
-#reviews_block ul li .post {
+#reviews_block ul li .post, #faq ul li .post {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-#reviews_block ul li .post p {
+#reviews_block ul li .post p, #faq ul li .post p {
     display: table;
     margin: 0 auto;
     margin-top: -25px;
@@ -2118,7 +2233,7 @@ span, p {
     text-align: center;
 }
 
-#reviews_block ul li .yellow_line {
+#reviews_block ul li .yellow_line, #faq ul li .yellow_line {
     margin-top: -13px;
     width: 100%;
     height: 1px;
@@ -2128,7 +2243,7 @@ span, p {
     overflow: hidden;
 }
 
-#reviews_block ul li .line_bg {
+#reviews_block ul li .line_bg, #faq ul li .line_bg {
     height: 13px;
     background: url(/application/includes/images/comments/booble_edge_fon.png) transparent no-repeat 0px 0px;
     margin-top: -1px;
@@ -2539,7 +2654,6 @@ body#pages #interview_block .radiobuttons {
 
 .paginator {
     width: 100%;
-    background-color: #E9E9E9;
     height: 22px;
     border-radius: 2px;
     margin-bottom: 40px;
@@ -2560,7 +2674,8 @@ body#pages #interview_block .radiobuttons {
 }
 
 .paginator .pagi_num a {
-    color: #000 !important;
+    font: 14px/22px DINpro-light, Verdana, Arial;
+    color: #444 !important;
 }
 
 .paginator .pagi_num a:hover {
@@ -2569,9 +2684,14 @@ body#pages #interview_block .radiobuttons {
 }
 
 .paginator .pagi_select {
-    /*background: url(/application/includes/images/pagination_marker.png) transparent no-repeat 0px 0px;*/
-    width: 34px;
-    height: 38px;
+    background: url(/application/includes/images/paginator_marker.png) transparent no-repeat 0px 0px;
+    width: 39px;
+    height: 39px;
+}
+
+.paginator .pagi_select .sel {
+    font: 14px/22px DINpro-bold, Verdana, Arial;
+    color: #fff;
 }
 
 /* PAGINATION BLOCK END */ 
