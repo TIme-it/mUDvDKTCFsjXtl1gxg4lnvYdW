@@ -20,7 +20,7 @@ class uri_controller extends libs_controller {
 		}
 
 		$ur = explode('?', $_SERVER['REQUEST_URI']);
-		if(($this->not_found !== '0') && ($ur[0] != '/') && ($this->config->get('active','chpu') == 1) && (!defined('APPLICATION_ADMIN')) && ($this->popup != "popup_controller") && ($this->popup != "catalog_controller")){
+		if(($this->not_found !== '0') && ($ur[0] != '/') && ($this->config->get('active','chpu') == 1) && (!defined('APPLICATION_ADMIN')) && ($this->popup != "popup_controller") && ($this->popup != "catalog_controller") && ($this->popup != "profile_controller")){
 			$this->controller = $this->lib_add('main_controller');
 			$this->method     = 'page_404';
 		}
@@ -83,7 +83,8 @@ class uri_controller extends libs_controller {
 									unset($item);
 								}
 								else {
-									$module_id = $this->all->getMainAliasUrl($item);
+									// костыль для профиля
+									$module_id = ($item == 'profile') ? 5: $this->all->getMainAliasUrl($item);
 									$alias = $item;
 									$tmp = $this->all->getMainPid($item);
 									$urla[] = $item;
@@ -135,6 +136,7 @@ class uri_controller extends libs_controller {
 			$this->method = $this->config->get('index_method','system');
 			$this->vars = array();
 		}
+
 	
 		$this->url->set('page',substr($this->controller,0,-11));
 		$this->url->set('action',$this->method);

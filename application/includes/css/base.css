@@ -2190,10 +2190,15 @@ span, p {
 #reviews_block ul li .avatar .photo_frame, #faq ul li .avatar .photo_frame {
     position: absolute;
     top: 0;
-    left: 0;
+    left: -4px;
     width: 142px;
     height: 128px;
     background: url(/application/includes/images/comments/foto_frame.png) transparent no-repeat -1px -1px;
+}
+
+#faq ul li .avatar .photo_frame { 
+    top: 0;
+    left: 0;
 }
 
 #reviews_block ul li .fio {
