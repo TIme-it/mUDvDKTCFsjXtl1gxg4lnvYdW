@@ -407,7 +407,12 @@ var img_big_h = 480;
 		}
 
 		slider_jsp_init(420, 450);
+		// window.onload = function(){
+		$(window).load(function(){
+			$('.test_fon').css('height', $('.questions ul').height()+100);
+		})
 		$(window).resize(function(){
+			$('.test_fon').css('height', $('.questions ul').height()+100);
 			l_stp = $('#wrap_left .item').outerWidth(true);
 			r_stp = $('#wrap_right .item').outerWidth(true);
 			reinit = false;
@@ -866,8 +871,16 @@ var img_big_h = 480;
 		})
 
 		$('.fancy').fancybox();
-		//тест фансибокса
-		// $('.fancy').fancybox();
+
+		$('.ask_question_button.fancy').on('click', function(){
+			var pid = $(this).data('pid');
+			$('.ask_question_button.fancy').fancybox({
+				beforeShow   : function(){
+					$('#faqForm input[name="pid"]').val(pid);
+	   			}
+			});
+		})
+		
 		
 		$('ul#product .fancy').on('click', function(){
 			var title = $(this).data('title');
@@ -1160,6 +1173,7 @@ var img_big_h = 480;
 
 			success:  function(result) {
 				$('.questions').html(result);
+				$('.test_fon').css('height', $('.questions ul').height()+100);
 			}
 		});
 		return false;

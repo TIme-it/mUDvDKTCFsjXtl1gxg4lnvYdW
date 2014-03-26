@@ -31,5 +31,10 @@ class popup_controller extends application_controller {
 		echo $this->html->render('popup/sign_up.html', array());
 		die();
 	}
+
+	public function fancy_faq(){
+		echo $this->html->render('popup/faq.html', array());
+		die();
+	}
 }
 ?>

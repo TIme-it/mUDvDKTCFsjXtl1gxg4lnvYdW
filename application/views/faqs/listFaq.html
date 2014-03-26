@@ -1,14 +1,29 @@
 <ul>
 	{list}
-	<li class="quest_item {?first} first{/?first} {?last}last{/?last}">
-		<p class="date">{dateQuestion}</p>
-		<p class="user">{fioUser} спрашивает:</p>
-		<p class="question">{question}</p>
-		<div class="answer">
-			<p class="ans">Ответ:</p>
+	<li class="faq_item">
+			<div class="question">
+			<div class="avatar">
+					<img src="/application/includes/images/no_avatar.png" alt="" width="130" height="130"/>
+					<div class="photo_frame"></div>
+				</div>
+				<div class="right_text">
+ 				<p class="fio">{fioUser}</p>
+ 				<span class="date">{dateQuestion}</span>
+ 				<div class="post">
+ 					<div class="yellow_line"></div>
+ 					<div class="line_bg"></div>
+ 				</div>
+ 				<p class="review">
+ 					{question}
+ 				</p>
+				</div>
+			</div>
+			<div class="answer">
+				<p class="ans">Ответ:</p>
 			{answer}
-		</div>
+			</div>
+			<div class="clear"></div>
 	</li>
 	{/list}
-	{pagination}
 </ul>
+{pagination}

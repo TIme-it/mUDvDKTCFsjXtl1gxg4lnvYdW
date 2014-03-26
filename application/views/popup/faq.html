@@ -1,12 +1,12 @@
 <div class="feedbox">
 	<div class="feedback">
-		<h2>Обратная связь</h2>
+		<h2>Задайте вопрос</h2>
 		<!-- <h2>{header_feedback}</h2> -->
 		<div class="tdline"></div>
 		<div class="clear"></div>
 
 		<div id="ask_question_form" class="content_block_inner">
-			<form id="faqForm" class="form" action="/popup/all/feedback/" method="post" onsubmit="return CheckFeedbackForm($(this));">
+			<form id="faqForm" class="form" action="/popup/faq/sendQuestion/" method="post" onsubmit="return CheckFeedbackForm($(this));">
 				<input type="hidden" name="pid" value="{id}" />
 				<fieldset>
 					<label for ="surname">фамилия: <span>*</span></label>
@@ -29,8 +29,8 @@
 					<input type="text" name="email" id="email" placeholder="info@primer.com" rel=""/>
 				</fieldset>
 				<fieldset>
-					<label class ="faq_label" for ="question">комментарий: <span>*</span></label>
-					<textarea name="question" id="question" class="text_f def_text" placeholder="комментарий" rel=""></textarea>
+					<label class ="faq_label" for ="question">вопрос: <span>*</span></label>
+					<textarea name="question" id="question" class="text_f def_text" placeholder="вопрос" rel=""></textarea>
 				</fieldset>
 				<div class="clear"></div>
 				<fieldset class="field_capcha">
@@ -52,6 +52,7 @@
 
 
 <script type="text/javascript">
+	ui_init('.feedbox');
 	(function($) {
 		CheckFeedbackForm = function(form) {
 			var errors = [];
@@ -65,7 +66,7 @@
 			if (obj.val() == '') errors.push('Введите свое отчество');
 
 			obj = form.find('#question');
-			if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите комментарий');
+			if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Задайте вопрос');
 			
 			obj = form.find('#email');
 			if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите электронную почту');

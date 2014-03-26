@@ -93,7 +93,7 @@
 						
 						$item['isAnswer']   = $this->html->render('faqs/answer'.$template_num.'.html', $item);
 					}
-					$item['dateQuestion'] = $this->date->format5($item['dateQuestion']);
+					$item['dateQuestion'] = $this->date->format2($item['dateQuestion']);
 					$item['last'] = ($i+1 == count($faq['list'])) ? true : false;
 				}
 				$this->html->render('faqs/listFaq'.$template_num.'.html', $faq, 'faqList');
@@ -202,26 +202,25 @@
 				$this->session->set('alert', 'Вы ввели неверный код');
 				$this->url->redirect('::referer');
 			}
+			// -- валидация на заполненность
+			// if(!$faq['fioUser'] || !$faq['email']) {
+			if((!$_POST['surname']) || (!$_POST['name']) || (!$_POST['secname']) || (!$_POST['email']) || (!$_POST['question'])) {
+				$this->session->set('alert', 'Некоторые поля были не заполнены');
+				$this->url->redirect('::referer');
+			}
 			
 			// -- подготовка данных
 			$faq = array(
 				'ip'           => (!empty($_SERVER['HTTP_X_FORWARED_FOR'])) ? $_SERVER['HTTP_X_FORWARED_FOR'] : $_SERVER['REMOTE_ADDR'],
-				'fioUser'      => (!empty($_POST['fio']))  ? trim($_POST['fio'])  : false,
-				// 'email'        => (!empty($_POST['email']))    ? trim($_POST['email'])    : false,
-				// 'phone'        => (!empty($_POST['phone']))    ? trim($_POST['phone'])    : false,
+				'fioUser'      => trim($_POST['surname']).' '.trim($_POST['name']).' '.trim($_POST['secname']),
+				'email'        => (!empty($_POST['email']))    ? trim($_POST['email'])    : false,
+				'phone'        => (!empty($_POST['phone']))    ? trim($_POST['phone'])    : false,
 				'question'     => (!empty($_POST['question'])) ? trim($_POST['question']) : false,
 				'dateQuestion' => $this->date->sql_format(time(), true),
-				'feedback'     => (int)$_POST['feedback'],
+				// 'feedback'     => (int)$_POST['feedback'],
 				'pid'          => $pid,
 				// 'company'	   => (!empty($_POST['company']))  ? trim($_POST['company'])  : false,
 			);
-			
-			// -- валидация на заполненность
-			// if(!$faq['fioUser'] || !$faq['email']) {
-			if(!$faq['fioUser']) {
-				$this->session->set('alert', 'Некоторые поля были не заполнены');
-				$this->url->redirect('::referer');
-			}
 			
 			// -- извлечение конфига
 			$config = $this->faq->getConfig($pid);
