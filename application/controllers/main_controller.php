@@ -47,6 +47,25 @@
 
 			/* NEWS BLOCK END */
 
+			/* REVIEWS BLOCK BEGIN */
+
+			$data['reviews_list'] = $this->reviews->getReviews(41, 0, 3, 1);
+			// выделение жирным фамилии
+			if(!empty($data['reviews_list'])){
+				foreach ($data['reviews_list'] as $i => &$item) {
+					$tmp = explode(' ', $item['fioUser']);
+					$tmp[0] = '<strong>'.$tmp[0].'</strong>';
+					$item['fioUser'] = '';
+					for ($i=0; $i < count($tmp) ; $i++) { 
+						$item['fioUser'] .= $tmp[$i].' '; 
+					}
+				}
+			}
+			
+			$this->html->tpl_vars['reviews_list'] = $data['reviews_list'];
+			
+			/* REVIEWS BLOCK END */ 
+
 			$this->layout = 'main';
 		}
 		

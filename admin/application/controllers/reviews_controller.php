@@ -149,26 +149,66 @@
 			
 			$_POST['active']       = (int)(!empty($_POST['active']));
 			$_POST['dateQuestion'] = $this->date->sql_format($_POST['date'].' '.$_POST['date_h'].':'.$_POST['date_m'].':00', true);
-			$_POST['dateAnswer']   = $this->date->sql_format($_POST['date_a'].' '.$_POST['date_a_h'].':'.$_POST['date_a_m'].':00', true);
+			// $_POST['dateAnswer']   = $this->date->sql_format($_POST['date_a'].' '.$_POST['date_a_h'].':'.$_POST['date_a_m'].':00', true);
 			unset($_POST['date']);   unset($_POST['date_a']);
 			unset($_POST['date_h']); unset($_POST['date_a_h']);
 			unset($_POST['date_m']); unset($_POST['date_a_m']);
-			
-			if(!empty($_POST['active'])) {
-				$data = $this->db->get_row('SELECT feedback, dateQuestion FROM reviews WHERE id = '.(int)$_POST['id']);
-				if($data['feedback'] == 1) {
-					$data = array_merge($_POST, $data);
-					$data['domain'] = $this->config->get('domain', 'site');
-					$data['dateQuestion'] = $this->date->format($data['dateQuestion']);
-					$data['dateAnswer']   = $this->date->format($data['dateAnswer']);
-					$letter = $this->html->render('letters/reviews_user.html', $data);
-					$this->mail->send_mail($data['email'], $letter);
-					$_POST['feedback'] = 2;
+
+			if(empty($_POST['id'])){
+				$reviews = array(
+					'ip'           => (!empty($_SERVER['HTTP_X_FORWARED_FOR'])) ? $_SERVER['HTTP_X_FORWARED_FOR'] : $_SERVER['REMOTE_ADDR'],
+					'fioUser'      => (!empty($_POST['fioUser']))  ? trim($_POST['fioUser'])  : false,
+					'postSpecialist'     => (!empty($_POST['postSpecialist']))  ? trim($_POST['postSpecialist'])  : false,
+					'active'	   => $_POST['active'],
+					// 'email'        => (!empty($_POST['email']))    ? trim($_POST['email'])    : false,
+					// 'phone'        => (!empty($_POST['phone']))    ? trim($_POST['phone'])    : false,
+					'question'     => (!empty($_POST['question'])) ? trim($_POST['question']) : false,
+					'dateQuestion' => $_POST['dateQuestion'],
+					'pid'          => $_POST['pid'],
+					// 'company'	   => (!empty($_POST['company']))  ? trim($_POST['company'])  : false,
+				);
+
+				$id = $this->db->insert('reviews', $reviews);
+			}
+			else{	
+				$id = $_POST['id'];
+
+				if(!empty($_POST['active'])) {
+					$data = $this->db->get_row('SELECT feedback, dateQuestion FROM reviews WHERE id = '.(int)$id);
+					if($data['feedback'] == 1) {
+						$data = array_merge($_POST, $data);
+						$data['domain'] = $this->config->get('domain', 'site');
+						$data['dateQuestion'] = $this->date->format($data['dateQuestion']);
+						$data['dateAnswer']   = $this->date->format($data['dateAnswer']);
+						$letter = $this->html->render('letters/reviews_user.html', $data);
+						$this->mail->send_mail($data['email'], $letter);
+						$_POST['feedback'] = 2;
+					}
+				}
+				$answer = array(
+					'fioUser' => $_POST['fioUser'],
+					'postSpecialist' => $_POST['postSpecialist'],
+					'question' => $_POST['question'],
+					'active' => $_POST['active'],
+					'id' => $_POST['id'],
+					'pid' => $_POST['pid'],
+					'dateQuestion' => $_POST['dateQuestion'],
+				);
+				$this->db->update('reviews', $answer, $id);
+			}
+
+			if(isset($_FILES['character_image']['tmp_name']) && file_exists($_FILES['character_image']['tmp_name'])) {
+				$file = $this->file->getFileInfo($_FILES['character_image']['name']);
+				if($file) {
+					if(move_uploaded_file($_FILES['character_image']['tmp_name'], $this->path.$id.'.jpg')) {
+						$this->image->analyze($this->path.$id.'.jpg');
+						$this->image->ToFile($this->path.$id.'.jpg', 80, $this->config->get('img_width','reviews'), $this->config->get('img_height','reviews'));
+					}
 				}
 			}
-			$this->db->update('reviews', $_POST, $_POST['id']);
+
 			$this->session->set('alert', ALERT_CHANGE_DATA);
-			$this->url->redirect('::referer');
+			$this->url->redirect('/admin/reviews/view_items/'.$_POST['pid']);
 		}
 		
 		public function edit_category($id) {
@@ -219,6 +259,7 @@
 			if (!$this->role_controller->CheckAccess(2, $pid)) $this->role_controller->AccessError();
 			
 			$this->db->delete('reviews', (int)$id);
+			unlink(INCLUDES.'reviews/'.$id.'.jpg');
 			$this->url->redirect('::referer');
 		}
 		
@@ -238,6 +279,31 @@
 				}
 			}
 			$this->url->redirect('::referer');
+		}
+
+		// добавление отзыва (сперто из новостей)
+		public function add_item($pid) {
+			//Проверяем права
+			if (!$this->role_controller->CheckAccess(2, $pid)) $this->role_controller->AccessError();
+			
+			$review = array(
+				'id'             => 0,
+				'pid'            => $pid,
+				'caption'		 => 'Добавление отзыва',
+				'date'           => $this->date->today(false),
+				'module_id'      => $this->module_id,
+				'module_name'    => 'reviews',
+				'is_show_date'   => 'checked="checked"',
+				'inmenu_checked' => 'checked="checked"'
+			);
+			// -- выдираем информацию об разделе новости по pid
+			$volume = $this->reviews->aboutReviewsCategory($review['pid']);
+			if(!empty($volume)) {
+				$review['volume_title'] = $volume['title'];
+			}
+
+			// -- основной шаблон
+			$this->html->render('reviews/item.html', $review, 'content_path');
 		}
 		
 	}

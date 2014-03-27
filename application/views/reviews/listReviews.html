@@ -1,10 +1,21 @@
-<ul class="reviews">
-	{list}
-	<li class="quest_item {?first} first{/?first} {?last}last{/?last}">
-		<p class="date">{dateQuestion}</p>
-		<p class="review">{question}</p>
-		<p class="user">{fioUser}</p>
+<ul>
+{list}
+	<li {?%2}style="margin-left: 5%;"{/?%2}>
+		<div class="avatar">
+			<img src="/application/includes/reviews/{id}.jpg" alt="" width="130" height="130"/>
+			<div class="photo_frame"></div>
+		</div>
+		<p class="fio">{fioUser}</p>
+		<div class="post">
+			<div class="yellow_line"></div>
+			<div class="line_bg"></div>
+			<p>{postSpecialist}</p>
+		</div>
+		<p class="review">
+			{question}
+		</p>
 	</li>
-	{/list}
-	{pagination}
+	{?%2}<div class="clear"></div>{/?%2}
+{/list}
 </ul>
+{pagination}

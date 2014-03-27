@@ -59,6 +59,10 @@
 	// -- настройки изображений для новостей
 	$config['news']['img_width'] = 106;
 	$config['news']['img_height'] = 100;
+	
+	// -- настройки изображений для отзывов
+	$config['reviews']['img_width'] = 256;
+	$config['reviews']['img_height'] = 256;
 
 	// -- настройки изображений для статей
 	$config['articles']['img_width'] = 140;

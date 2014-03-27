@@ -2159,18 +2159,25 @@ span, p {
     padding-bottom: 10px;
 }
 
-#reviews_block ul {
+#reviews_list {
+    min-height: 294px;
+    margin-top: 120px;
+    background: none;
+    padding-bottom: 10px;
+}
+
+#reviews_block ul, #reviews_list ul {
     display: table;
     margin: 0 auto;
 }
 
-#reviews_block ul li {
+#reviews_block ul li, #reviews_list ul li {
     float: left;
     width: 425px;
     margin: 0 75px;
 }
 
-#reviews_block ul li .avatar {
+#reviews_block ul li .avatar, #reviews_list ul li .avatar {
     position: relative;
     margin: 0 auto;
     display: table;
@@ -2183,11 +2190,11 @@ span, p {
     height: 100%;
 }
 
-#reviews_block ul li .avatar img, #faq ul li .avatar img {
+#reviews_block ul li .avatar img, #faq ul li .avatar img, #reviews_list ul li .avatar img {
     border-radius: 70px;
 }
 
-#reviews_block ul li .avatar .photo_frame, #faq ul li .avatar .photo_frame {
+#reviews_block ul li .avatar .photo_frame, #faq ul li .avatar .photo_frame, #reviews_list ul li .avatar .photo_frame {
     position: absolute;
     top: 0;
     left: -4px;
@@ -2201,7 +2208,7 @@ span, p {
     left: 0;
 }
 
-#reviews_block ul li .fio {
+#reviews_block ul li .fio, #reviews_list ul li .fio {
     display: table;
     margin: 0 auto;
     font: 17px/20px DINPro-Regular, Verdana, Arial;
@@ -2212,16 +2219,16 @@ span, p {
     text-align: center;
 }
 
-#reviews_block ul li .fio strong {
+#reviews_block ul li .fio strong, #reviews_list ul li .fio strong {
     font: 17px/20px DINPro-Bold, Verdana, Arial;
 }
 
-#reviews_block ul li .post, #faq ul li .post {
+#reviews_block ul li .post, #faq ul li .post, #reviews_list ul li .post {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-#reviews_block ul li .post p, #faq ul li .post p {
+#reviews_block ul li .post p, #faq ul li .post p, #reviews_list ul li .post p {
     display: table;
     margin: 0 auto;
     margin-top: -25px;
@@ -2235,13 +2242,13 @@ span, p {
     text-align: center;
 }
 
-#reviews_block ul li .review {
+#reviews_block ul li .review, #reviews_list ul li .review{
     font: 13px/20px DINPro-Regular, Verdana, Arial;
     color: #fff;
     text-align: center;
 }
 
-#reviews_block ul li .yellow_line, #faq ul li .yellow_line {
+#reviews_block ul li .yellow_line, #faq ul li .yellow_line, #reviews_list ul li .yellow_line {
     margin-top: -13px;
     width: 100%;
     height: 1px;
@@ -2251,7 +2258,7 @@ span, p {
     overflow: hidden;
 }
 
-#reviews_block ul li .line_bg, #faq ul li .line_bg {
+#reviews_block ul li .line_bg, #faq ul li .line_bg, #reviews_list ul li .line_bg {
     height: 13px;
     background: url(/application/includes/images/comments/booble_edge_fon.png) transparent no-repeat 0px 0px;
     margin-top: -1px;
@@ -2270,6 +2277,13 @@ span, p {
     background: url(/application/includes/images/comments/allcomments_bg.png) transparent no-repeat top left;
     text-align: center;
     padding-top: 2px;
+}
+
+#reviews_list ul li {
+    float: left;
+    width: 47%;
+    margin: 0;
+    margin-bottom: 20px;
 }
 
 /* REVIEWS BLOCK END */
@@ -2704,6 +2718,10 @@ body#pages #interview_block .radiobuttons {
 
 #faq_page .paginator {
     margin-top: 25px;
+}
+
+#faq_page #reviews_list .paginator {
+    margin-top: 45px;
 }
 
 #faq_page .paginator .pagi_num {

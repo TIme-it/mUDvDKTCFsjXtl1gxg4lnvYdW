@@ -74,6 +74,14 @@
 					$item['num'] = $reviews['start'] + $i;
 					$item['dateQuestion'] = $this->date->format5($item['dateQuestion']);
 					$item['last'] = ($i+1 == count($reviews['list'])) ? true : false;
+
+					// выделение жирным фамилии
+					$tmp = explode(' ', $item['fioUser']);
+					$tmp[0] = '<strong>'.$tmp[0].'</strong>';
+					$item['fioUser'] = '';
+					for ($i=0; $i < count($tmp) ; $i++) { 
+						$item['fioUser'] .= $tmp[$i].' '; 
+					}
 				}
 				$this->html->render('reviews/listReviews'.$template_num.'.html', $reviews, 'reviewsList');
 				if($template_num == '2') {
@@ -84,7 +92,7 @@
 			// -- дополнительные модули
 			$reviews['galleryBlock'] = $this->all_controller->images($pid, 0);
 			$reviews['filesBlock']   = $this->all_controller->files($pid,  0);
-			$this->layout='pages';
+			$this->layout='reviews';
 			// -- основной рендер
 			$this->html->render('reviews/layoutReviews.html', $reviews, 'content');
 		}

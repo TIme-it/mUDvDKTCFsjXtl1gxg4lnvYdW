@@ -14,5 +14,11 @@
 		public function getPid($id) {
 			return $this->db->get_one('SELECT id FROM reviews WHERE id = "'.(int)$id.'"');
 		}
+
+		// -- ïîëó÷èòü èíôó î ðàçäåëå íîâîñòåé
+		public function aboutReviewsCategory($id) {
+			$sql = 'SELECT * FROM main WHERE id = '.(int)$id;
+			return $this->db->get_row($sql);
+		}
 	}
 ?>

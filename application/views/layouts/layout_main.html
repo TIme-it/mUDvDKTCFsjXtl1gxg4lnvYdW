@@ -63,53 +63,26 @@
 		 <!-- <div class="reviews_bg"></div> -->
 	 	<div id="reviews_block">
 			<div class="middle_wrap">
-				<a href="/vopros-otvet/" class="allreviews_button">все отзывы</a>
+				<a href="/otzyvy/" class="allreviews_button">все отзывы</a>
 		 		<ul>
+		 			{reviews_list}
 		 			<li>
 		 				<div class="avatar">
-		 					<img src="/application/includes/images/comments/comments_fotot1.png" alt="" width="130" height="130"/>
+		 					<img src="/application/includes/reviews/{id}.jpg" alt="" width="130" height="130"/>
 		 					<div class="photo_frame"></div>
 		 				</div>
-		 				<p class="fio"><strong>Панин</strong> Александр Валерьевич</p>
+		 				<p class="fio">{fioUser}</p>
+		 				<!-- <p class="fio"><strong>Панин</strong> Александр Валерьевич</p> -->
 		 				<div class="post">
 		 					<div class="yellow_line"></div>
 		 					<div class="line_bg"></div>
-		 					<p>студент</p>
+		 					<p>{postSpecialist}</p>
 		 				</div>
 		 				<p class="review">
-		 					На нашей планете есть удивительная народность вегетарианцев, не знающая болезней и имеющая среднюю продолжительность жизни в 110-120 лет. Они живут на севере Индии в Гималаях в очень суровых условиях, на берегу реки Хунзы, в 100 километрах от самого северного
+		 					{question}
 		 				</p>
 		 			</li>
-		 			<li>
-		 				<div class="avatar">
-		 					<img src="/application/includes/images/comments/comments_fotot2.png" alt="" width="130" height="130"/>
-		 					<div class="photo_frame"></div>
-		 				</div>
-		 				<p class="fio"><strong>Иванов</strong> Сергей Петрович</p>
-		 				<div class="post">
-		 					<div class="yellow_line"></div>
-		 					<div class="line_bg"></div>
-		 					<p>директор фирмы заказчика</p>
-		 				</div>
-		 				<p class="review">
-		 					На нашей планете есть удивительная народность вегетарианцев, не знающая болезней и имеющая среднюю продолжительность жизни в 110-120 лет. Они живут на севере Индии в Гималаях в очень суровых условиях, на берегу реки Хунзы, в 100 километрах от самого северного
-		 				</p>
-		 			</li>
-		 			<li>
-		 				<div class="avatar">
-		 					<img src="/application/includes/images/comments/comments_fotot3.png" alt="" width="130" height="130"/>
-		 					<div class="photo_frame"></div>
-		 				</div>
-		 				<p class="fio"><strong>Дроздова</strong> Юлия Сергеевна</p>
-		 				<div class="post">
-		 					<div class="yellow_line"></div>
-		 					<div class="line_bg"></div>
-		 					<p>студент</p>
-		 				</div>
-		 				<p class="review">
-		 					На нашей планете есть удивительная народность вегетарианцев, не знающая болезней и имеющая среднюю продолжительность жизни в 110-120 лет. Они живут на севере Индии в Гималаях в очень суровых условиях, на берегу реки Хунзы, в 100 километрах от самого северного
-		 				</p>
-		 			</li>
+		 			{/reviews_list}
 		 		</ul>
 	 		</div>
 	 	</div>
