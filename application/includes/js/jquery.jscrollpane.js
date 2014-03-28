@@ -943,8 +943,8 @@
 								case 33: // page up
 								case 39: // right
 								case 37: // left
-									keyDown = e.keyCode;
-									keyDownHandler();
+									// keyDown = e.keyCode;
+									// keyDownHandler();
 									break;
 								case 35: // end
 									scrollToY(contentHeight - paneHeight);
