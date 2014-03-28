@@ -1,22 +1,27 @@
 @font-face {
     font-family: Days; /* Имя шрифта */
-    src: url('/application/includes/fonts/Days.otf') format('opentype'); /* Путь к файлу со шрифтом */
+    src: url('/application/includes/fonts/Days.otf') format('opentype'), 
+         url('/application/includes/fonts/Days.eot') format('embedded-opentype'); /* IE9 Compat Modes */
 }
 @font-face {
     font-family: DINPro-Bold; /* Имя шрифта */
-    src: url('/application/includes/fonts/DINPro-Bold.otf') format('opentype'); /* Путь к файлу со шрифтом */
+    src: url('/application/includes/fonts/DINPro-Bold.otf') format('opentype'),  
+         url('/application/includes/fonts/DINPro-Bold.eot') format('embedded-opentype'); /* IE9 Compat Modes */
 }
 @font-face {
     font-family: DINPro-Light; /* Имя шрифта */
-    src: url('/application/includes/fonts/DINPro-Light.otf') format('opentype'); /* Путь к файлу со шрифтом */
+    src: url('/application/includes/fonts/DINPro-Light.otf') format('opentype'),
+         url('/application/includes/fonts/DINPro-Light.eot') format('embedded-opentype'); /* IE9 Compat Modes */
 }
 @font-face {
     font-family: DINPro-Medium; /* Имя шрифта */
-    src: url('/application/includes/fonts/DINPro-Medium.otf') format('opentype'); /* Путь к файлу со шрифтом */
+    src: url('/application/includes/fonts/DINPro-Medium.otf') format('opentype'),
+         url('/application/includes/fonts/DINPro-Medium.eot') format('embedded-opentype'); /* IE9 Compat Modes */
 }
 @font-face {
     font-family: DINPro-Regular; /* Имя шрифта */
-    src: url('/application/includes/fonts/DINPro-Regular.otf') format('opentype'); /* Путь к файлу со шрифтом */
+    src: url('/application/includes/fonts/DINPro-Regular.otf') format('opentype'),
+         url('/application/includes/fonts/DINPro-Regular.eot') format('embedded-opentype'); /* IE9 Compat Modes */
 }
 
 .content h1, #tinymce h1 {

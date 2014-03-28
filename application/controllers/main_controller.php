@@ -29,11 +29,18 @@
 
 			/* SLIDES BLOCK END */
 
+			/* ACTIONS BLOCK BEGIN */
+
+			$this->html->tpl_vars['actions_list'] = $this->actions->getLast(42, 1);
+			
+			/* ACTIONS BLOCK END*/
+
 			/* NEWS BLOCK BEGIN */ 
 
 			$data['news_list'] = $this->news->getLast(39, 15);
 			if(!empty($data['news_list'])){
 				foreach ($data['news_list'] as $i => &$item) {
+					$item['date'] = $this->date->format2($item['date']);
 					$item['url'] = $this->news_controller->get_url($item['id']);
 
 					if (mb_strlen($item['note'], 'UTF-8') > 500) {

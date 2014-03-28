@@ -7,23 +7,28 @@
 */
 @font-face {
     font-family: Days; /* Имя шрифта */
-    src: url('/application/includes/fonts/Days.otf') format('opentype'); /* Путь к файлу со шрифтом */
+    src: url('/application/includes/fonts/Days.otf') format('opentype'), 
+         url('/application/includes/fonts/Days.eot') format('embedded-opentype'); /* IE9 Compat Modes */
 }
 @font-face {
     font-family: DINPro-Bold; /* Имя шрифта */
-    src: url('/application/includes/fonts/DINPro-Bold.otf') format('opentype'); /* Путь к файлу со шрифтом */
+    src: url('/application/includes/fonts/DINPro-Bold.otf') format('opentype'),  
+         url('/application/includes/fonts/DINPro-Bold.eot') format('embedded-opentype'); /* IE9 Compat Modes */
 }
 @font-face {
     font-family: DINPro-Light; /* Имя шрифта */
-    src: url('/application/includes/fonts/DINPro-Light.otf') format('opentype'); /* Путь к файлу со шрифтом */
+    src: url('/application/includes/fonts/DINPro-Light.otf') format('opentype'),
+         url('/application/includes/fonts/DINPro-Light.eot') format('embedded-opentype'); /* IE9 Compat Modes */
 }
 @font-face {
     font-family: DINPro-Medium; /* Имя шрифта */
-    src: url('/application/includes/fonts/DINPro-Medium.otf') format('opentype'); /* Путь к файлу со шрифтом */
+    src: url('/application/includes/fonts/DINPro-Medium.otf') format('opentype'),
+         url('/application/includes/fonts/DINPro-Medium.eot') format('embedded-opentype'); /* IE9 Compat Modes */
 }
 @font-face {
     font-family: DINPro-Regular; /* Имя шрифта */
-    src: url('/application/includes/fonts/DINPro-Regular.otf') format('opentype'); /* Путь к файлу со шрифтом */
+    src: url('/application/includes/fonts/DINPro-Regular.otf') format('opentype'),
+         url('/application/includes/fonts/DINPro-Regular.eot') format('embedded-opentype'); /* IE9 Compat Modes */
 }
 
 body {
@@ -1841,6 +1846,11 @@ span, p {
     margin: 0 .4em;
 }
 
+#news_list .note_wrap img {
+    margin: 0 auto;
+    width: 100%;
+}
+
 #news_list .note_wrap > a {
     display: inline-block;
     margin: 0 .4em;
@@ -1860,8 +1870,6 @@ span, p {
 #news_list .note_wrap > a:after {
     margin-left: 2%;
 }
-
-
 
 #news_block .date p {
     font: 11px/20px DINPro-light, Verdana, Arial;
@@ -1941,6 +1949,10 @@ span, p {
     width: 46%;
 }
 
+.actions_list li {
+    margin-left: 10% !important;
+    width: 35% !important;
+}
 
 #news_list li .note_wrap {
     
@@ -2103,7 +2115,7 @@ span, p {
     color: #ff0000;
 }
 
-.action_descript .note, .news_descript .note {
+.action_descript p, .news_descript .note {
     margin-top: 10px;
     margin-bottom: 22px;
     font: 14px/20px DINPro-light, Verdana, Arial;

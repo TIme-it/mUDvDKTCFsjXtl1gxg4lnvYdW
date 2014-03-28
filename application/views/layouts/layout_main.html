@@ -26,14 +26,16 @@
 		 		{slider}
 		 	</div>
 		 	<div id="actions_news">
+		 		{actions_list}
 			 	<div id="actions_block">
-			 		<a href="#" class="allactions_button">все акции</a>
+			 		<a href="/akcii/" class="allactions_button">все акции</a>
 			 		<div class="action_descript">
-			 			<a href="#">Теория и практика дошкольного образования</a>
-			 			<p class="note">Только в феврале и марте желающим пройти курсы профессиональной переподготовки по программе «Теория и практика дошкольного образования» стоимость обучения 18000 рублей (оплата ежемесячно).</p>
+			 			<a href="/akcii/">{title}</a>
+			 			{note}
 			 		</div>
-			 		<img src="/application/includes/images/action_pic.png" alt="Для инженерных специальностей" class="action_img" width="364" height="182" />
+			 		<img src="/application/includes/actions/{id}.jpg" alt="{title}" class="action_img" width="364" height="182" />
 			 	</div>
+		 		{/actions_list}
 			 	<div id="news_block">
 			 		<h1>Новости</h1>
 			 		<a href="/news/" class="allnews_button">все новости</a>

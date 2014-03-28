@@ -1,18 +1,35 @@
-<ul id="news_list">
+<div class="news_panel">
+
+</div>
+<div class="text_bg news_bg">
+<ul id="news_list" class="actions_list">
 {list}
-	<li>
-		<img src="/application/includes/actions/{id}.jpg" width="106" height="100" alt="">
+	<li {?%2}style="margin-left: 5% !important;"{/?%2}>
+		<div class="date">
+			<span>{date}</span>
+		</div>
 		<div class="note_wrap">
-			<a href="{url}"><span>{title}</span></a>
+			<p class="title">{title}</p>
+			<img src="/application/includes/actions/{id}.jpg" alt="">
 			{?note}
 				<div class="note">
-					<span class="date">{date}</span>
 					{note}
 				</div>
 			{/?note}
+			<div class="gray_line" style="z-index: 1;"></div>
 		</div>
 	</li>
-	<div class="clear"></div>
+	{?%2}<div class="clear"></div>{/?%2}
 {/list}
+	<div class="clear"></div>
 {pagination}
 </ul>
+</div>
+
+<script type="text/javascript">
+	(function($) {
+		$(document).ready(function() {
+			ui_init('.content');
+		});
+	})(jQuery);
+</script>

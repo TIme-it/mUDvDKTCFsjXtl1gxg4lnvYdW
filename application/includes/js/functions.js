@@ -35,9 +35,9 @@ function Menu(id)
 		return false;
 	})
 
-	$('#news_list li, #actions_list li, .action_block').on('click',function(){
-		location.href = $(this).find('a').attr('href');
-	})
+	// $('#news_list li, #actions_list li, .action_block').on('click',function(){
+	// 	location.href = $(this).find('a').attr('href');
+	// })
 
 	$('#file_view').on('click',function(){
 		$('#file').trigger('click');

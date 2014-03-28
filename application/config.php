@@ -69,10 +69,8 @@
 	$config['articles']['img_height'] = 80;
 	
 	// -- настройки изображений для акций
-	$config['actions']['img_width'] = 106;
-	$config['actions']['img_height'] = 100;
-	$config['actions_banner']['img_width'] = 185;
-	$config['actions_banner']['img_height'] = 285;
+	$config['actions']['img_width'] = 364;
+	$config['actions']['img_height'] = 182;
 
 	// -- настройки изображений для портфолио
 	$config['portfolio']['img_width'] = 260;

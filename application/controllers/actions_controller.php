@@ -122,7 +122,7 @@
 				
 				/*хлебные крошки*/
 				// $this->GetBreadCrums($actions['pid'],array('url' =>"" ,'title' =>$actions['title'],'last_link' =>true ));
-				$this->layout = 'pages';
+				$this->layout = 'news';
 				$this->html->render('actions/'.$info['template'].'.html', $actions, 'content');
 			} else { // -- работаем с конкретной новостью по id
 				$actions = $this->actions->getOneactions($id);
@@ -186,17 +186,17 @@
 						}
 					}
 
-					if (mb_strlen($item['title'], 'UTF-8') > 45) {
-						$item['list_title'] = mb_substr($item['title'], 0, 43, 'UTF-8');
-						$item['list_title'] = mb_substr($item['list_title'], 0, mb_strrpos($item['list_title'],' ', 'UTF-8'), 'UTF-8').'...';
-					}
-					else {
-						$item['list_title'] = $item['title'];
-					}
-					if (mb_strlen($item['note'], 'UTF-8') > 120) {
-						$item['note'] = mb_substr($item['note'], 0, 117, 'UTF-8');
-						$item['note'] = mb_substr($item['note'], 0, mb_strrpos($item['note'],' ', 'UTF-8'), 'UTF-8').'...';
-					}
+					// if (mb_strlen($item['title'], 'UTF-8') > 45) {
+					// 	$item['list_title'] = mb_substr($item['title'], 0, 43, 'UTF-8');
+					// 	$item['list_title'] = mb_substr($item['list_title'], 0, mb_strrpos($item['list_title'],' ', 'UTF-8'), 'UTF-8').'...';
+					// }
+					// else {
+					// 	$item['list_title'] = $item['title'];
+					// }
+					// if (mb_strlen($item['note'], 'UTF-8') > 120) {
+					// 	$item['note'] = mb_substr($item['note'], 0, 117, 'UTF-8');
+					// 	$item['note'] = mb_substr($item['note'], 0, mb_strrpos($item['note'],' ', 'UTF-8'), 'UTF-8').'...';
+					// }
 
 				}
 			}
