@@ -52,6 +52,13 @@
 			if(empty($this->data['question']['question']) || empty($this->data['answer'])) {
 				$this->url->redirect('::referer');
 			}
+			if (!empty($this->data['question']["date_end"])) {
+				$this->data['question']["date_end"]	=	date('Y-m-d 00:00:00', strtotime($this->data['question']["date_end"]));				
+			}			
+			if (!empty($this->data['question']["date_begin"])) {
+				$this->data['question']["date_begin"]	=	date('Y-m-d 00:00:00', strtotime($this->data['question']["date_begin"]));
+			}
+			
 			$id = $this->question->save($this->data);
 			if($id) {
 				foreach($this->data['answer'] as $answer_id => &$item) {
@@ -69,7 +76,7 @@
 				}
 			}
 			$this->session->set('alert', ALERT_CHANGE_DATA);
-			$this->url->redirect('::referer');
+			$this->url->redirect('/admin/question/item/'.$id.'/');
 		}
 		
 		// -- ajax добавление ответа

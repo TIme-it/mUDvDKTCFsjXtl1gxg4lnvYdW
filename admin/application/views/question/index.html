@@ -1,21 +1,4 @@
-<h2>Голосование</h2>
-<form action="/{admin_dir}/question/edit_main/" method="post" class="page_form">
-	<fieldset>
-		<label for="title">Заголовок раздела</label>
-		<input type="text" name="data[quest_title_category]" class="text_field" value="{quest_title_category}" />
-	</fieldset>
-	<fieldset>
-		<label for="title">Заголовок блока</label>
-		<input type="text" name="data[quest_title_block]" class="text_field" value="{quest_title_block}" />
-	</fieldset>
-	<fieldset>
-		<label for="title">Количество опросов на странице</label>
-		<input type="text" name="data[count_question]" class="text_field min" value="{count_question}" />
-	</fieldset>
-	<fieldset class="yellow">
-		<input type="submit" value="Сохранить" />
-	</fieldset>
-</form>
+<div><h2>Голосование</h2></div>
 {header_visible}
 <ul class="listing">
 	{question_visible_list}
