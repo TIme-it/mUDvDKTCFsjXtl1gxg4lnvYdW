@@ -1,0 +1,144 @@
+{wysiwyg}
+<h2><a href="/admin/users/">Администрирование</a> / Новый пользователь</h2>
+<form action="/{admin_dir}/users/add_user/" method="post" class="page_form" enctype="multipart/form-data" onSubmit="return Validate($(this));">
+	
+	<fieldset>
+		<label>Логин</label>
+		<input type="text" id="login" class="text_field" name="login" value="" onKeyUp="return CheckLogin();">
+		<span class="state"></span>
+	</fieldset>	
+	
+	<fieldset>
+		<label>Фамилия</label>
+		<input type="text" id="login" class="text_field" name="lastname" value="" >
+	
+	</fieldset>	
+	<fieldset>
+		<label>Имя</label>
+		<input type="text" id="login" class="text_field" name="name" value="" >
+	
+	</fieldset>	
+	<fieldset>
+		<label>Отчество</label>
+		<input type="text" id="login" class="text_field" name="middlename" value="" >
+	
+	</fieldset>
+			
+	<fieldset>
+		<label>E-mail</label>
+		<input type="text" id="email" class="text_field" name="email" value="">
+	</fieldset>
+	
+	<fieldset>
+		<label>Пароль</label>
+		<input type="password" id="pass" class="text_field" name="pass" value="" onKeyUp="return CheckPass();">
+		<span class="statep1"></span>
+	</fieldset>
+	
+	<fieldset>
+		<label>Подтверждение пароля</label>
+		<input type="password" id="pass2" class="text_field" name="pass2" value="" onKeyUp="return CheckPass();">
+		<span class="statep"></span>
+	</fieldset>
+	
+	<fieldset class="yellow">
+		<input type="submit" name="submit" value="Сохранить" />
+	</fieldset>
+</form>
+<script type="text/javascript">
+	(function($) {
+		
+		$(document).ready(function() {
+			$('#login').val('');
+			$('#pass').val('');
+			$('#pass2').val('');
+		});
+		
+		Validate = function(form) {
+			var errors = [];
+			
+			var obj = form.find('#login');
+			if (obj.val() == '') errors.push('Введите логин');
+			else if (obj.val().length < 3) errors.push('Логин должен содержать более 2 символов');
+			
+			obj = form.find('#email');
+			if (obj.val() == '' || obj.val() == 'E-mail') {
+				errors.push('Введите свой e-mail');
+			} else {
+				var template = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
+				if (! template.test(obj.val())) {
+					errors.push('Введен не корректный e-mail');
+				}
+			}
+			
+			obj = form.find('#pass');
+			if (obj.val() == '') errors.push('Введите пароль');
+			else if (obj.val().length < 3) errors.push('Пароль должен содержать более 2 символов');
+			
+			obj2 = form.find('#pass2');
+			if (obj2.val() == '') errors.push('Введите подтверждение пароля');
+			
+			if ( obj.val() != obj2.val() ) errors.push('Пароли не совпадают');
+			
+			if (errors.length > 0) {
+				alert(errors.join('\n\r'));
+				return false;
+			}
+			return true;
+		}
+		
+		CheckLogin = function() {
+			$('.state').hide();
+			var login = $('#login').val();
+			
+			if (login.length > 0) {
+				$.ajax({
+					url: '/admin/users/CheckUserLogin',
+					type: 'POST',
+					data: { 'login':login},
+					cache: false,
+					success: function(res) {
+						if (res) {
+							$('.state').css('background-image','url("/admin/application/includes/images/delete.png")');
+							$('.state').html('Логин занят');
+						} else {
+							$('.state').css('background-image','url("/admin/application/includes/images/ok.png")');
+							$('.state').html('');
+						}
+						$('.state').css('display','inline-block');
+					}
+				});
+			}
+			return false;
+		}
+		
+		CheckPass = function() {
+			$('.statep1').hide();
+			$('.statep').hide();
+			var pass1 = $('#pass').val();
+			var pass2 = $('#pass2').val();
+			
+			if (pass1 != '') {
+				if (pass1.length < 3) {
+					$('.statep1').css('background-image','url("/admin/application/includes/images/delete.png")');
+					$('.statep1').html('Пароль слишком короткий');
+					$('.statep1').css('display','inline-block');
+				}
+				
+				if (pass2 != '') {
+					if (pass1 == pass2) {
+						$('.statep').css('background-image','url("/admin/application/includes/images/ok.png")');
+						$('.statep').html('');
+					} else {
+						$('.statep').css('background-image','url("/admin/application/includes/images/delete.png")');
+						$('.statep').html('Пароли не совпадают');
+					}
+					
+					$('.statep').css('display','inline-block');
+				}
+			}
+			return false;
+		}
+		
+	})(jQuery);
+</script>

@@ -1,0 +1,82 @@
+{wysiwyg}
+<h2><a href="/admin/role/">Администрирование</a> / Роли / {title}</h2>
+<form action="/{admin_dir}/role/role/" method="post" class="page_form" enctype="multipart/form-data">
+	<input type="hidden" name="id" value="{id}">
+	<fieldset>
+		<label>Название</label>
+		<input type="text" id="title" class="text_field" name="title" value="{title}" onKeyUp="return CheckTitle();">
+		<span class="state"></span>
+	</fieldset>
+	
+	<h2 style="margin-top: 20px;">Права роли</h2>
+	<fieldset class="role_rights">
+		{!no_main_edit}
+			<span>Главная страница:</span>
+			<input type="hidden" name="main_edit" value="0"/>
+			<input type="checkbox" name="main_edit" value="1" {main_edit}/>
+			
+			<div style="padding: 4px; font-size: 0; line-height: 0;"></div>
+		{/!no_main_edit}
+		
+		{!no_role_edit}
+			<span>Раздел администрирования:</span>
+			<input type="hidden" name="role_edit" value="0"/>
+			<input type="checkbox" name="role_edit" value="1" {role_edit}/>
+			
+			<div style="padding: 4px; font-size: 0; line-height: 0;"></div>
+		{/!no_role_edit}
+		
+		{!no_page_add}
+			<span>Добавление страниц:</span>
+			<input type="hidden" name="page_add" value="0"/>
+			<input type="checkbox" name="page_add" value="1" {page_add}/>
+			
+			<div style="padding: 4px; font-size: 0; line-height: 0;"></div>
+		{/!no_page_add}
+		
+		{!no_banners}
+			<span>Редактирование баннеров:</span>
+			<input type="hidden" name="banners_edit" value="0"/>
+			<input type="checkbox" name="banners_edit" value="1" {banners_edit}/>
+			
+			<div style="padding: 4px; font-size: 0; line-height: 0;"></div>
+		{/!no_banners}
+	</fieldset>
+	
+	<fieldset>
+		<b><a href="/admin/role/role_pages/{id}">Права на страницы</a></b>
+	</fieldset>
+	
+	<fieldset class="yellow">
+		<input type="submit" name="submit" value="Сохранить" />
+	</fieldset>
+</form>
+<script type="text/javascript">
+	(function($) {
+		
+		CheckTitle = function() {
+			$('.state').hide();
+			var title = $('#title').val();
+			
+			if (title.length > 0) {
+				$.ajax({
+					url: '/admin/role/CheckRoleTitleNew',
+					type: 'POST',
+					data: { 'id': {id},'title':title},
+					cache: false,
+					success: function(res) {
+						if (res) {
+							$('.state').css('background-image','url("/admin/application/includes/images/delete.png")');
+							$('.state').html('Название занято');
+						} else {
+							$('.state').css('background-image','url("/admin/application/includes/images/ok.png")');
+							$('.state').html('');
+						}
+						$('.state').css('display','inline-block');
+					}
+				});
+			}
+			return false;
+		}
+	})(jQuery);
+</script>
