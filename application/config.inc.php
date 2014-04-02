@@ -46,8 +46,7 @@ $config["site"]["main_title"] = "Закажите БЕСПЛАТНЫЙ расч�
 $config["site"]["main_title_url"] = "/uslugi/raschet_okupaemosti/";
 $config["site"]["main_text"] = "";
 $config["site"]["header_text"] = "официальный дилер Lifan Тольятти";
-$config["site"]["footer_text"] = "&lt;p&gt;&lt;strong&gt;ООО &quot;Midpoquot;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Официальный дилер Lifan Тольятти&lt;/p&gt;";
+$config["site"]["footer_text"] = "Межрегиональный институт дополнительного профессионального образования";
 $config["site"]["footer_text_opt"] = "&lt;p&gt;&lt;strong&gt;Режим работы Дилерского центра:&lt;/strong&gt; (Пн-Пт) 9:00 - 19:00, (Сб-Вс) 10:00 - 18:00&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Режим работы Сервисного центра:&lt;/strong&gt; (Пн-Пт)&amp;nbsp;9:00 - 19:00, (Сб-Вс)&amp;nbsp;10:00 - 18:00&lt;/p&gt;";
 $config["site"]["header_logo"] = "Midpo";
@@ -68,8 +67,8 @@ $config["site"]["dil_name"] = "Дилерский центр:";
 $config["site"]["ser_name"] = "Сервисный центр:";
 $config["site"]["foot_address_name"] = "Адрес:";
 $config["site"]["foot_address"] = "г. Тольятти, ул. Льва Толстого, №3";
-$config["site"]["header_phone"] = "&lt;p&gt;&lt;span style=&quot;color: #000000; font-family: Verdana, Arial; font-size: 17px; text-align: right;&quot;&gt;8 (800)&amp;nbsp;&lt;/span&gt;&lt;strong style=&quot;margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 17px; line-height: 15px; vertical-align: baseline; background-color: transparent; font-family: PTSansBold; color: #000000; text-align: right;&quot;&gt;300 20 402&lt;/strong&gt;&lt;/p&gt;";
-$config["site"]["header_mail"] = "alextret91@yandex.ru";
+$config["site"]["header_phone"] = "+7 (8482) 36-67-57";
+$config["site"]["header_mail"] = "noumidpo@yandex.ru";
 $config["site"]["bubble_text"] = "";
 $config["site"]["bubble_undertext"] = "";
 $config["site"]["certificate_link"] = "";
@@ -83,4 +82,5 @@ $config["site"]["footer_item4"] = "Контакты";
 $config["site"]["footer_link_item4"] = "/kontakty/";
 $config["site"]["footer_item5"] = "";
 $config["site"]["footer_link_item5"] = "";
+$config["site"]["logo_text"] = "Межрегиональный институт дополнительного профессионального образования";
 ?>

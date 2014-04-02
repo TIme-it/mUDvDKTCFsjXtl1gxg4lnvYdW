@@ -1,13 +1,81 @@
-<h1>Личный кабинет {login}</h1>
-<a href="/profile/edit/">редактировать</a> | 
-<a href="/profile/pass_change/">сменить пароль</a> | 
-<a href="/basket/history/">история заказов</a>
-<table style="margin-top: 30px;">
-	<tr><td><img src="{avatar_src}" width="230" height="230" /></td>
-		<td style="vertical-align:top;padding-left: 20px;">
-			<p>{login}</p>
-			{sex}
-			{years}
-			{about}
-		</td></tr>
-</table>
+<div id="profile">
+	<h1>Личный кабинет</h1>
+	<div class="tabs">
+		<div class="tabs_buttons">
+			<a href="#tabs-1"><span>персональные данные</span></a>
+			<a href="#tabs-2"><span>информация по курсам</span></a>
+			<a href="#tabs-3"><span>тех. поддержка</span></a>
+		</div>
+		<div class="text_bg news_bg">
+			<div id="tabs-1">
+				<div class="left_side">
+					<div class="avatar">
+						<img src="{avatar_src}" alt="">
+						<div class="avatar_frame"></div>
+						<a href="#" class="del_avatar"></a>
+					</div>
+					<p class="ava_txt">Изображение в формате JPG, GIF или PNG размером 200 на 200 пикселей</p>
+					<a href="#" class="upload_button"></a>
+					<div class="gray_line"></div>
+					<div class="subscription">
+						<div class="subs_img">
+							
+						</div>
+						<p class="subs_txt">Подписка активирована</p>
+						<a href="#" class="tumbler"></a>
+					</div>
+				</div>
+				<div class="right_side">
+					<form id="profileForm" class="form" action="#" method="post">
+						<fieldset>
+							<label for="fio">Меня зовут:</label>
+							<input type="text" name="surname" id="surname" rel=""/>
+							<input type="text" name="name" id="name" rel=""/>
+							<input type="text" name="secname" id="secname" rel=""/>
+						</fieldset>
+						<fieldset>
+							<label for="bday">Дата рождения:</label>
+							<select name="day">
+								<option value="1">1</option>
+								<option value="2">2</option>
+							</select>
+							<select name="month">
+								<option value="января">января</option>
+								<option value="февраля">февраля</option>
+							</select>
+							<select name="year">
+								<option value="1985">1985</option>
+								<option value="1986">1986</option>
+							</select>
+						</fieldset>
+						<fieldset>
+							<label for="sex">Пол:</label>
+							<select name="sex">
+								<option value="0">мужской</option>
+								<option value="1">женский</option>
+							</select>
+						</fieldset>
+
+						<fieldset>
+							<label for="contacts">Контакты:</label>
+							<input type="text" name="email" id="email" rel=""/>
+							<input type="text" name="phone" id="phone" rel=""/>
+							<input type="text" name="address" id="address" rel=""/>
+						</fieldset>
+						
+						<a href = "#" class = "submit_button confirm_button">
+							<span>СОХРАНИТЬ</span>
+						</a>
+					</form>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div id="tabs-2">
+				
+			</div>
+			<div id="tabs-3">
+				
+			</div>
+		</div>
+	</div>
+</div>

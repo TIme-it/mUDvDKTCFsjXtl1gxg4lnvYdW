@@ -20,14 +20,17 @@
 				// -- данные профиля
 				$user = $this->profile->getUser(self::$user_id);
 				// -- аватарка
-				/*$user['avatar_src'] = '/application/includes/images/no_avatar_b.jpg';
-				if(file_exists($this->path.'ava_b'.DS.self::$user_id.'.jpg')) {
-					$user['avatar_src'] = '/application/includes/profile/ava_b/'.self::$user_id.'.jpg?_='.$user['flush'];
-				}*/
+				$user['avatar_src'] = '/application/includes/images/profile/avatar_default_men.png';
+
+				if(file_exists($this->path.self::$user_id.'.jpg')) {
+					$user['avatar_src'] = '/application/includes/profile/'.self::$user_id.'.jpg?_='.$user['flush'];
+				}
 				// -- дата рождения
 				if(!empty($user['bday'])) {
 					$user['bday'] = date('d.m.Y года', $user['bday']);
 				}
+
+				$this->layout = 'profile';
 				$this->html->render('profile/index.html', $user, 'content');
 			}
 		}
@@ -110,7 +113,11 @@
 		
 		// -- форма аутентификации
 		public function login() {
+			if(!empty($_SESSION)){
+				session_start();
+			}
 			$data = array();
+
 			if(!empty(self::$user_id)) {
 				$this->url->redirect('/profile/');
 			}

@@ -514,28 +514,18 @@ var img_big_h = 480;
 
 		
 		/* MENU BLOCK BEGIN */
-		$('.main_menu.parent').on('mouseout',function(){
-			$(this).find('.submenu').css('display', 'none');
-			$(this).find('.m_it span').css('color', '#000');
-			$(this).find('.m_it span').css('border-bottom', '1px dotted #000');
-		})
-		$('.main_menu.parent').on('mouseover',function(){
-			$(this).find('.submenu').css('display', 'block');
-			$(this).find('.m_it span').css('color', '#fff');
-			$(this).find('.m_it span').css('border-bottom', '1px solid #fff');
-		})
-		
-		$('.menu_block').on('mouseleave',function(){
-			$(this).find('.preactive .submenu').css('display', 'block');
-			$(this).find('.parent.active .submenu').css('display', 'block');
-			$(this).find('.parent.active .left, .parent.active .right, .parent.preactive .left, .parent.preactive .right').css('display', 'block');
-		})
-		$('.menu_block a.m_it').on('mouseenter',function(){
-			$(this).parents('.menu_block').find('.preactive .submenu').css('display', 'none');
-			$(this).parents('.menu_block').find('.parent.active .submenu').css('display', 'none');
-			$(this).parents('.menu_block').find('.parent.active .left, .parent.active .right, .parent.preactive .left, .parent.preactive .right').css('display', 'none');
-
-		})
+		$('.menu_block .parent').on('mouseover',function(){
+			if((!$(this).hasClass('active')) && (!$(this).hasClass('preactive'))){
+				$('.menu_block .parent.active ').find('.submenu').css('display', 'none');
+				$('.menu_block .parent.preactive ').find('.submenu').css('display', 'none');
+			}
+		});
+		$('.menu_block .parent').on('mouseleave',function(){
+			if((!$(this).hasClass('active')) && (!$(this).hasClass('preactive'))){
+				$('.menu_block .parent.active ').find('.submenu').css('display', 'block');
+				$('.menu_block .parent.preactive ').find('.submenu').css('display', 'block');
+			}
+		});
 
 		/* MENU BLOCK END */
 

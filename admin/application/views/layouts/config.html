@@ -11,13 +11,13 @@
 				<label for="title_browser">Заголовок веб-браузера (тег &lt;TITLE&gt;)</label>
 				<input type="text" name="title_browser" class="text_field" value="{title_browser}" />
 			</fieldset>
-			<!-- <fieldset>
-				<label for="logop">Логотип сайта для печати</label>
-				<input type="file" name="logop" /> {logop_show}
-			</fieldset> -->
+			<fieldset>
+				<label for="logo_text">Наименование организации</label>
+				<input type="text" name="logo_text" class="text_field" value="{logo_text}" /> 
+			</fieldset>
 			<fieldset>
 				<label for="header_phone">Телефон</label>
-				<textarea name="header_phone" id="note_id" cols="30" rows="10">{header_phone}</textarea>
+				<input type="text" name="header_phone" class="text_field" value="{header_phone}" />
 			</fieldset>
 			<fieldset>
 				<label for="header_mail">Адрес электронной почты</label>
@@ -31,6 +31,10 @@
 			<span>Футер</span>
 		</a>
 		<div>
+			<fieldset>
+				<label for="footer_text">Наименование организации</label>
+				<input type="text" name="footer_text" class="text_field" value="{footer_text}" /> 
+			</fieldset>
 			<fieldset>
 				<h2>Пункт #1</h2>
 				<label for="footer_items">Текст</label>

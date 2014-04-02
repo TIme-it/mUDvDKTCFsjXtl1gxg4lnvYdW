@@ -3,6 +3,7 @@ class popup_controller extends application_controller {
 	
 	//Метод показа блока
 	public function index($controller, $method=false, $vars=false) {	
+		
 		if($controller == "map"){
 			$this->layout = 'pages';
 		}	

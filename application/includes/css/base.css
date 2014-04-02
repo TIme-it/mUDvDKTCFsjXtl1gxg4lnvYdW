@@ -386,11 +386,11 @@ span, p {
 }
 
 .head_info {
-    width: 93px;
+    width: 75px;
     height: 52px;
     float: right;
     text-align: center;
-    margin-right: 5.5%;
+    margin-right: 3%;
     background-color: #639095;
     padding: 31px 25px;
 }
@@ -513,10 +513,9 @@ span, p {
 
 /* MENU BLOCK BEGIN */
 
-
 .menu_content {
-    padding-left: 360px;
-    padding-right: 280px;
+    padding-left: 325px;
+    padding-right: 180px;
 }
 
 
@@ -531,7 +530,7 @@ span, p {
     width: 100%;
     min-height: 114px;
     height: auto;
-    padding-left: 2.5%;
+    padding-left: 1.5%;
 }
 
 .menu_block .fon {
@@ -548,7 +547,8 @@ span, p {
     margin: 0 auto;
     display: table;
     height: 48px;
-    padding: 5px 15px;
+    padding: 5px 4px;
+    min-width: 501px;
 }
 
 #menu li {
@@ -575,6 +575,10 @@ span, p {
     background: none;
     background-color: #639095;
     border-radius: 5px;
+}
+
+#menu li.main_menu.parent.preactive a.m_it > span {
+    color: #fff;
 }
 
 #menu li.main_menu.parent:hover > .left, #menu li.main_menu.parent.active > .left, #menu li.main_menu.parent.preactive > .left {
@@ -656,7 +660,6 @@ span, p {
 }
 
 #menu li.main_menu.parent a.m_it span {
-    color: #000;
     border-bottom: 1px dotted;
 }
 
@@ -701,6 +704,16 @@ span, p {
     border-bottom: 1px solid #fde800;
 }
 
+#menu li.parent:hover > .submenu {
+    display: block;
+}
+
+@media (max-width: 1160px) {
+    #menu li.main_menu a.m_it span, #menu li .submenu li a span {
+        font-size: 13px;
+    }
+}
+
 /* MENU BLOCK END */
 
 /* INFO PANEL BEGIN */
@@ -714,7 +727,7 @@ span, p {
 .info_panel .search {
     position: relative;
     float: left;
-    margin-left: 2.5%;
+    margin-left: 1.5%;
 }
 
 .info_panel .search form {
@@ -794,7 +807,7 @@ span, p {
     height: 48px;
     float: right;
     background: url(/application/includes/images/moodle_btn.png) transparent no-repeat top left;
-    margin-right: 3%;
+    margin-right: 1.5%;
 }
 
 .enter:hover {
@@ -1743,7 +1756,7 @@ span, p {
 #news_block {
     position: relative;
     float: right;
-    margin-right: 3%;
+    margin-right: 1.5%;
     margin-top: 40px;
 }
 
@@ -2098,7 +2111,7 @@ span, p {
 #actions_block {
     width: 365px;
     float: left;
-    margin-left: 2.5%;
+    margin-left: 1.5%;
     margin-top: 40px;
 }
 
@@ -2800,13 +2813,13 @@ body#pages #interview_block .radiobuttons {
 .footer_block p.foot_text {
     width: 270px;
     float: left;
-    margin-left: 2.5%;
+    margin-left: 1.5%;
 }
 
 .footer_block .made {
     width: 61px;
     float: right;
-    margin-right: 3%;
+    margin-right: 1.5%;
 }
 
 .footer_block .made a {
@@ -3701,6 +3714,198 @@ div.combo {
 }
 
 /* SEXYCOMBO FOR NEWS END */
+
+/* PROFILE BLOCK BEGIN */
+
+#profile {
+    min-width: 970px;
+    max-width: 984px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#profile h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#profile .tabs_buttons {
+    position: relative;
+    width: auto;
+    height: 78px;
+    margin-left: 22px;
+    margin-right: 22px;
+    background: url(/application/includes/images/profile/tabs_bg_center.png) transparent repeat-x 0 0;
+}
+
+#profile .tabs_buttons:before {
+    position: absolute;
+    content: '';
+    width: 22px;
+    left: -22px;
+    height: 78px;
+    background: url(/application/includes/images/profile/tabs_bg_left.png) transparent repeat-x top left;
+}
+
+#profile .tabs_buttons:after {
+    position: absolute;
+    content: '';
+    width: 22px;
+    right: -22px;
+    height: 78px;
+    background: url(/application/includes/images/profile/tabs_bg_right.png) transparent repeat-x top right;
+}
+
+#profile .tabs_buttons a {
+    display: inline-block;
+    height: 78px;
+    text-decoration: none;
+    margin-left: 55px;
+    margin-right: 54px;
+}
+
+#profile .tabs_buttons a span {
+    font: 18px/66px Days, Verdana, Arial;
+    color: #fff;
+    border-bottom: 1px dotted;
+}
+
+#profile .tabs_buttons a.active > span {
+    color: #fde800;
+    border-bottom: none;
+}
+
+#profile .tabs_buttons a.active {
+    color: #fde800;
+    background: url(/application/includes/images/profile/lk_tabs_marker.png) transparent no-repeat center 52px; 
+}
+
+#profile .tabs_buttons a:hover > span {
+    color: #ff0000;
+}
+
+#profile .left_side {
+    width: 22%;
+    height: auto;
+    float: left;
+    padding: 0 80px;
+}
+
+#profile .left_side .avatar {
+    position: relative;
+}
+
+#profile .left_side .avatar_frame {
+    position: absolute;
+    top: 0;
+    width: 210px;
+    height: 210px;
+    background: url(/application/includes/images/profile/avatar_frame.png) transparent no-repeat 0 0;
+}
+
+#profile .left_side .ava_txt {
+    font: 12px/18px DINPro-light, Verdana, Arial;
+    color: #8d8d8d;
+    margin-top: 15px;
+    text-align: center;
+}
+
+#profile .left_side .gray_line {
+    top 0;
+    z-index: 0;
+    margin-top: 30px;
+}
+
+#profile .left_side .subscription .subs_img {
+    float: left;
+    width: 45px;
+    height: 87px;
+    background: url(/application/includes/images/profile/subscription.png) transparent no-repeat 0 0; 
+}
+
+#profile .left_side .subscription .subs_txt {
+    float: right;
+    font: 14px/22px DINPro-light, Verdana, Arial;
+    color: #444;
+}
+
+#profile .left_side .subscription .tumbler {
+    display: block;
+    float: left;
+    width: 72px;
+    height: 28px;
+    margin-left: 20px;
+    background: url(/application/includes/images/profile/subscription_btn.png) transparent no-repeat 0 0;
+}
+
+#profile .right_side {
+    width: 54%;
+    height: auto;
+    float: right;
+    padding-right: 75px;
+}
+
+#profile label {
+    display: block;
+    font: 16px/39px DINPro-Medium, Verdana, Arial;
+}
+
+#profile label[for="bday"], #profile label[for="sex"]{
+    display: inline-block;
+    font: 16px/39px DINPro-Medium, Verdana, Arial;
+}
+
+#profile input {
+    width: 100%;
+    font: 17px/17px DINPro-light, Verdana, Arial;
+    height: 33px;
+    color: #444;
+    border: none;
+    box-shadow: black 1px 2px 5px -3px inset;
+    border-radius: 3px;
+    background-color: #F6F6F6;
+    padding: 0 10px;
+    margin-bottom: 5px;
+}
+
+#profile .confirm_button {
+    margin-left: 5px;
+}
+
+.del_avatar {
+    width: 13px;
+    height: 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(/application/includes/images/profile/avatar_delete.png) transparent no-repeat 0 0;
+}
+
+.del_avatar:hover {
+    background-position: 0 -12px;
+}
+
+.del_avatar:active {
+    background-position: 0 -24px;
+}
+
+.upload_button {
+    display: block;
+    margin: 0 auto; 
+    width: 101px;
+    height: 48px;
+    background: url(/application/includes/images/profile/avatar_load_btn.png) transparent no-repeat 0 0;
+}
+
+.upload_button:hover {
+    background-position: 0 -48px;
+}
+
+.upload_button:active {
+    background-position: 0 -96px;
+}
+
+/* PROFILE BLOCK END */
 
 .jspVerticalBar {
     display: none !important;
