@@ -2496,65 +2496,65 @@ span, p {
     margin-top: 5px;
 }
 
-#courses ul#product .info{
+#courses ul#product .info, #profile ul#product .info {
     width: 50%;
     float: left;
 }
 
-#courses ul#product .right{
+#courses ul#product .right, #profile ul#product .right {
     width: 235px;
     float: right;
     border-left: 1px dotted #ccc;
 }
 
-#courses ul#product {
+#courses ul#product, #profile ul#product {
     -webkit-padding-start: 0px;
     -moz-padding-start: 0px;
 }
 
-#courses ul#product li {
+#courses ul#product li, #profile ul#product li {
     list-style: none !important;
     padding-left:  0px;
     margin-bottom: 25px;
 }
 
-#courses ul#product li .number {
+#courses ul#product li .number, #profile ul#product li .number {
     font: 15px/22px DINPro-Bold, Verdana, Arial;
     color: #a0a0a0;
     float: left;
 }
 
-#courses ul#product li .title {
+#courses ul#product li .title, #profile ul#product li .title {
     font: 15px/22px DINPro-light, Verdana, Arial;
     color: #444444;
     padding-left: 25px;
 }
 
-#courses ul#product li .right {
+#courses ul#product li .right, #profile ul#product li .right {
     padding-left: 15px;
     margin-left: 15px;
 }
 
-#courses ul#product li .right .hours_link {
+#courses ul#product li .right .hours_link, #profile ul#product li .right .hours_link {
     float: left;
 }
 
-#courses ul#product li .right .signup_button {
+#courses ul#product li .right .signup_button, #profile ul#product li .right .signup_button {
     float: right;
 }
 
-#courses ul#product li .right .hour {
+#courses ul#product li .right .hour, #profile ul#product li .right .hour {
     font: 14px/22px DINPro-light, Verdana, Arial;
     color: #a0a0a0;
     margin-bottom: 0px;
 }
 
-#courses ul#product li .right .link {
+#courses ul#product li .right .link, #profile ul#product li .right .link {
     font: 15px/22px DINPro-bold, Verdana, Arial;
     color: #629094;
 }
 
-#courses ul#product li .right .link:hover {
+#courses ul#product li .right .link:hover, #profile ul#product li .right .link:hover {
     color: #ff0000;
 }
 
@@ -3956,6 +3956,15 @@ div.combo {
 
 .upload_button:active {
     background-position: 0 -96px;
+}
+
+#profile #tabs-2 {
+    padding: 0 80px;
+}
+
+#profile #tabs-2 p {
+    font: 16px/22px DINPro-Medium, Verdana, Arial;
+    color: #629094;
 }
 
 /* PROFILE BLOCK END */
