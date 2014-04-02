@@ -1596,13 +1596,13 @@ span, p {
     margin-top: 100px;
 }
 
-.content .questions ul {
+.content .questions ul, #profile #tabs-3 ul {
     -webkit-padding-start: 0px;
     -moz-padding-start: 0px;
     margin-left: 0px;
 }
 
-.content .questions ul li {
+.content .questions ul li, #profile #tabs-3 ul li {
     position: relative;
     list-style-image: none !important;
     list-style: none !important;
@@ -1620,24 +1620,24 @@ span, p {
     font: 18px/30px PTSansBold, Verdana, Arial;
     margin-bottom: 20px;
 }
-.questions ul li .answer p {
+.questions ul li .answer p, #profile #tabs-3 ul li .answer p {
     font: 16px/22px DINPro-light, Verdana, Arial;
     color: #fff;
 }
 
-.questions ul li .answer p.ans {
+.questions ul li .answer p.ans, #profile #tabs-3 ul li .answer p.ans {
     font: 18px/22px DINPro-Bold, Verdana, Arial;
     color: #fff;
     margin-bottom: 25px;
 }
 
 
-.questions ul.reviews li p.user {
+.questions ul.reviews li p.user, #profile #tabs-3 ul.reviews li p.user {
     text-align: right;
     margin-bottom: 30px;
 }
 
-.questions .paginator {
+.questions .paginator, #profile #tabs-3 .paginator {
     margin-bottom: 80px;
 }
 
@@ -1693,12 +1693,12 @@ span, p {
     color: #444;
 }
 
-#faq ul li .question {
+#faq ul li .question, #profile ul li .question {
     width: 50%;
     float: left;
 }
 
-#faq ul li .answer {
+#faq ul li .answer, #profile ul li .answer {
     max-width: 519px;
     width: 44%;
     float: left;
@@ -1711,40 +1711,40 @@ span, p {
     background-color: #3D6A6D;
 }
 
-#faq ul li .avatar, #faq ul li .right_text {
+#faq ul li .avatar, #faq ul li .right_text, #profile ul li .avatar, #profile ul li .right_text {
     float: left;
 }
 
-#faq ul li .right_text {
+#faq ul li .right_text, #profile ul li .right_text {
     margin-left: 2.5%;
     width: 70%;
 }
 
-#faq ul li .avatar img {
+#faq ul li .avatar img, #profile ul li .avatar img {
     width: 82px;
     height: 82px;
 }
 
-#faq ul li .avatar .photo_frame {
+#faq ul li .avatar .photo_frame, #profile ul li .avatar .photo_frame {
     width: 89px !important;
     height: 89px !important;
     background: url(/application/includes/images/faq/photo_frame_small.png) transparent no-repeat 1px 0px !important;
 }
 
-#faq ul li .fio {
+#faq ul li .fio, #profile ul li .fio {
     display: inline-block;
     font: 14px/22px DINPro-light, Verdana, Arial;
     color: #fde800;
     margin-bottom: 5px;
 }
 
-#faq ul li .date {
+#faq ul li .date, #profile #tabs-3 ul li .date {
     font: 12px/24px DINPro-light, Verdana, Arial;
     color: #fff;   
     float: right;
 }
 
-#faq ul li .review {
+#faq ul li .review, #profile #tabs-3 ul li .review {
     font: 16px/22px DINPro-Bold, Verdana, Arial;
     color: #fff;
 }
@@ -2215,11 +2215,11 @@ span, p {
     height: 100%;
 }
 
-#reviews_block ul li .avatar img, #faq ul li .avatar img, #reviews_list ul li .avatar img {
+#reviews_block ul li .avatar img, #faq ul li .avatar img, #reviews_list ul li .avatar img, #profile #tabs-3 .avatar img {
     border-radius: 70px;
 }
 
-#reviews_block ul li .avatar .photo_frame, #faq ul li .avatar .photo_frame, #reviews_list ul li .avatar .photo_frame {
+#reviews_block ul li .avatar .photo_frame, #faq ul li .avatar .photo_frame, #reviews_list ul li .avatar .photo_frame, #profile #tabs-3 ul li .avatar .photo_frame {
     position: absolute;
     top: 0;
     left: -4px;
@@ -2248,7 +2248,7 @@ span, p {
     font: 17px/20px DINPro-Bold, Verdana, Arial;
 }
 
-#reviews_block ul li .post, #faq ul li .post, #reviews_list ul li .post {
+#reviews_block ul li .post, #faq ul li .post, #reviews_list ul li .post, #profile #tabs-3 ul li .post {
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -2267,13 +2267,13 @@ span, p {
     text-align: center;
 }
 
-#reviews_block ul li .review, #reviews_list ul li .review{
+#reviews_block ul li .review, #reviews_list ul li .review {
     font: 13px/20px DINPro-Regular, Verdana, Arial;
     color: #fff;
     text-align: center;
 }
 
-#reviews_block ul li .yellow_line, #faq ul li .yellow_line, #reviews_list ul li .yellow_line {
+#reviews_block ul li .yellow_line, #faq ul li .yellow_line, #reviews_list ul li .yellow_line, #profile #tabs-3 ul li .yellow_line {
     margin-top: -13px;
     width: 100%;
     height: 1px;
@@ -2283,7 +2283,7 @@ span, p {
     overflow: hidden;
 }
 
-#reviews_block ul li .line_bg, #faq ul li .line_bg, #reviews_list ul li .line_bg {
+#reviews_block ul li .line_bg, #faq ul li .line_bg, #reviews_list ul li .line_bg, #profile #tabs-3 ul li .line_bg {
     height: 13px;
     background: url(/application/includes/images/comments/booble_edge_fon.png) transparent no-repeat 0px 0px;
     margin-top: -1px;
@@ -2491,6 +2491,7 @@ span, p {
 }
 
 #courses .select_outer {
+    width: 72%;
     float: left;
     margin-left: 15px;
     margin-top: 5px;
@@ -3781,7 +3782,7 @@ div.combo {
 }
 
 #profile .tabs_buttons a:hover > span {
-    color: #ff0000;
+    color: #E67817;
 }
 
 #profile .left_side {
@@ -3856,7 +3857,7 @@ div.combo {
 }
 
 #profile input {
-    width: 100%;
+    width: 96%;
     font: 17px/17px DINPro-light, Verdana, Arial;
     height: 33px;
     color: #444;
@@ -3965,6 +3966,105 @@ div.combo {
 #profile #tabs-2 p {
     font: 16px/22px DINPro-Medium, Verdana, Arial;
     color: #629094;
+}
+
+#profile .unsignup_button {
+    float: right;
+}
+
+.unsignup_button {
+    display: block;
+    width: 122px;
+    height: 48px;
+    background: url(/application/includes/images/profile/cancel_btn.png) transparent no-repeat top left;
+    /*margin-top: 20px;*/ /*потом вернуть */
+}
+
+.unsignup_button:hover {
+    background-position: 0px -48px;
+}
+
+.unsignup_button:active {
+    background-position: 0px -96px;
+}
+
+#profile #tabs-3 ul {
+    position: relative;
+    background-color: #648F92;
+    padding: 0 80px;
+    padding-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 140px;
+}
+
+#profile #tabs-3 ul:before {
+    position: absolute;
+    content: '';
+    top: -30px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #648F92;
+    -moz-transform: skewY(-2deg);
+    -ms-transform: skewY(-2deg);
+    -webkit-transform: skewY(-2deg);
+    -o-transform: skewY(-2deg);     
+}
+
+#profile #tabs-3 ul:after {
+    position: absolute;
+    content: '';
+    bottom: -42px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #648F92;
+    -moz-transform: skewY(-2deg);
+    -ms-transform: skewY(-2deg);
+    -webkit-transform: skewY(-2deg);
+    -o-transform: skewY(-2deg);     
+}
+
+#profile #tabs-3 ul li .avatar .photo_frame {
+    top: -2px;
+}
+
+#profile #tabs-3 .top {
+    padding: 0 80px;
+    margin-bottom: 70px;
+}
+
+#profile #tabs-3 .top fieldset {
+    float: left;
+}
+
+#profile #tabs-3 .top label{
+    font: 16px/22px DINpro-light, Verdana, Arial;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+#profile #tabs-3 textarea#quest {
+    width: 600px;
+    font: 16px/30px DINPro-light, Verdana, Arial;
+    height: 105px;
+    border: none;
+    box-shadow: black 1px 2px 5px -3px inset;
+    border-radius: 3px;
+    background-color: #F6F6F6;
+    padding: 0 10px;
+    resize: none;
+    overflow: hidden;
+    margin-right: 35px;
+}
+
+#profile #tabs-3 .confirm_button {
+    width: 165px;
+    margin: 50px auto;
+}
+
+#profile #tabs-3 ul li {
+    margin-top: 10px;
 }
 
 /* PROFILE BLOCK END */
