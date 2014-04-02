@@ -15,13 +15,15 @@
       <div class="middle">
         <div class="left_block">
           {courses_nav}
-          <div id="actions_block">
-            <div class="action_descript">
-              <a href="#">Теория и практика дошкольного образования</a>
-              <p class="note">Только в феврале и марте желающим пройти курсы профессиональной переподготовки по программе «Теория и практика дошкольного образования» стоимость обучения 18000 рублей (оплата ежемесячно).</p>
+          {actions_list}
+            <div id="actions_block">
+              <div class="action_descript">
+                <span class="title">{title}</span>
+                {note}
+              </div>
+              <img src="/application/includes/actions/{id}.jpg" alt="{title}" class="action_img" width="330" height="165" />
             </div>
-            <img src="/application/includes/images/action_pic.png" alt="Для инженерных специальностей" class="action_img" width="315" height="155" />
-          </div>
+          {/actions_list}
         </div>
         <div class="page container">
           <div class="content">

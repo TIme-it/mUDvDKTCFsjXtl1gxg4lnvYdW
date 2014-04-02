@@ -10,14 +10,14 @@
 			if(!empty($data['question_visible_list'])) {
 				$data['header_visible'] = '<h2>Активные опросы</h2>';
 				foreach($data['question_visible_list'] as $i => &$item) {
-					$this->getFormatData(&$item);
+					$this->getFormatData($item);
 				}
 			}
 			$data['question_unvisible_list'] = $this->question->getList(0);
 			if(!empty($data['question_unvisible_list'])) {
 				$data['header_unvisible'] = '<h2>Неактивные опросы</h2>';
 				foreach($data['question_unvisible_list'] as $i => &$item) {
-					$this->getFormatData(&$item);
+					$this->getFormatData($item);
 				}
 			}
 			

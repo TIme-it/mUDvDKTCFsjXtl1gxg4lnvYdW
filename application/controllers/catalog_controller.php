@@ -53,6 +53,12 @@
 				
 			$catalog['productBlock']  = $this->productBlock($cid,  0, $page);
 
+			/* ACTIONS BLOCK BEGIN */
+
+			$this->html->tpl_vars['actions_list'] = $this->actions->getLast(42, 1);
+			
+			/* ACTIONS BLOCK END*/
+
 			// основные категории курсов
 			$catalog['nav_list'] = $this->catalog->getMainCategory($cid);
 			if(!empty($catalog['nav_list'])){
@@ -175,6 +181,12 @@
 				'course_title' => $product['title'],
 				);
 			$this->html->tpl_vars['is_product'] = true;
+
+			/* ACTIONS BLOCK BEGIN */
+
+			$this->html->tpl_vars['actions_list'] = $this->actions->getLast(42, 1);
+			
+			/* ACTIONS BLOCK END*/
 
 			$this->html->tpl_vars['courses_nav'] = $this->html->render('popup/sign_up.html', $nav);
 			$this->html->render('catalog/product.html', $product, 'content');
@@ -361,6 +373,12 @@
 					$item['url'] = $this->get_url($item['lid']);
 				}
 			}
+
+			/* ACTIONS BLOCK BEGIN */
+
+			$this->html->tpl_vars['actions_list'] = $this->actions->getLast(42, 1);
+			
+			/* ACTIONS BLOCK END*/
 
 			$this->html->tpl_vars['courses_nav'] = $this->html->render('catalog/nav.html', $category);
 			$this->html->render('catalog/category.html', $category, 'content');

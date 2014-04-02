@@ -1975,7 +1975,7 @@ span, p {
     min-height: 88px;
 }
 
-#news_list li .note_wrap .title {
+#news_list li .note_wrap .title, #actions_block .title {
     font: 16px/22px DINPro-Medium, Verdana, Arial;
     color: #444;
     text-align: center;
@@ -2144,6 +2144,7 @@ span, p {
     width: 315px;
     float: none;
     margin-left: 0;
+    margin-bottom: 40px;
 }
 
 #courses .middle {
