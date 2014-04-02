@@ -3604,7 +3604,7 @@ div.combo {
 */
 
 
-.select_outer_news div.combo {
+.select_outer_news div.combo, #profile .select_outer_day div.combo, #profile .select_outer_month div.combo, #profile .select_outer_year div.combo, #profile .select_outer_sex div.combo {
     position:relative;
     white-space: nowrap;
     height: 21px;
@@ -3613,7 +3613,7 @@ div.combo {
     padding: 0;
 }
 
-.select_outer_news .combo input {
+.select_outer_news .combo input, .select_outer_day .combo input, .select_outer_month .combo input, .select_outer_year .combo input, .select_outer_sex .combo input {
     margin: 0 0 0 0;
     padding:1px 7px;
     border: none;
@@ -3625,14 +3625,14 @@ div.combo {
     top: 0px;
 }
 
-.select_outer_news .combo div.icon {
+.select_outer_news .combo div.icon, .select_outer_day .combo div.icon, .select_outer_month .combo div.icon, .select_outer_year .combo div.icon, .select_outer_sex .combo div.icon {
     border: 0;
     position: absolute;
     top: 1px;
     right: 5px;
 }
 
-.select_outer_news div.list-wrapper {
+.select_outer_news div.list-wrapper, .select_outer_day div.list-wrapper, .select_outer_month div.list-wrapper, .select_outer_year div.list-wrapper, .select_outer_sex div.list-wrapper {
     position: absolute;
     left: 0px;
     top: 29px;
@@ -3646,7 +3646,7 @@ div.combo {
     width: 59px;
 }
 
-.select_outer_news .combo ul {
+.select_outer_news .combo ul, .select_outer_day .combo ul, .select_outer_month .combo ul, .select_outer_year .combo ul, .select_outer_sex .combo ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -3656,7 +3656,7 @@ div.combo {
     margin-left: 0 !important;
 }
 
-.select_outer_news .combo  li {
+.select_outer_news .combo  li, .select_outer_day .combo  li, .select_outer_month .combo  li, .select_outer_year .combo  li, .select_outer_sex .combo  li {
     padding: 0;
     padding-left: 5px;
     font:normal 14px Verdana, tahoma, arial, helvetica, sans-serif;
@@ -3666,7 +3666,7 @@ div.combo {
     margin: 0;
 }
 
-.select_outer_news .combo li.active {
+.select_outer_news .combo li.active, .select_outer_day .combo li.active, .select_outer_month .combo li.active, .select_outer_year .combo li.active, .select_outer_sex .combo li.active {
     background-color: #FDEB31;
 }
 
@@ -3676,18 +3676,18 @@ div.combo {
     margin-top: 0;
 }
 
-.select_outer_news  .combo div.list-wrapper span {
+.select_outer_news .combo div.list-wrapper span, .select_outer_day .combo div.list-wrapper span, .select_outer_month .combo div.list-wrapper span, .select_outer_year .combo div.list-wrapper span, .select_outer_sex .combo div.list-wrapper span {
     font: 19px/36px DINPro-light, Verdana, Arial;
     color: #fff !important;
     margin-left: 5px;
 }
 
-.select_outer_news .combo li.active span {
+.select_outer_news .combo li.active span, .select_outer_day .combo li.active span, .select_outer_month .combo li.active span, .select_outer_year .combo li.active span, .select_outer_sex .combo li.active span {
     color: #444 !important;
 }
 
 
-.select_outer_news .combo input {
+.select_outer_news .combo input, .select_outer_day .combo input, .select_outer_month .combo input, .select_outer_year .combo input, .select_outer_sex .combo input {
     width: 45px;
     height: 25px;
     font: 19px/19px DINPro-light, Verdana, Arial;
@@ -3698,18 +3698,18 @@ div.combo {
     border-top: 1px solid #1E2A2A;
 }
 
-.select_outer_news .combo .icon {
+.select_outer_news .combo .icon, .select_outer_day .combo .icon, .select_outer_month .combo .icon, .select_outer_year .combo .icon, .select_outer_sex .combo .icon {
     width: 27px;
     height: 27px;
     background: url(/application/includes/images/news/news_counter_btn.png) transparent no-repeat 0 0;
     cursor: pointer;
 }
 
-.select_outer_news .combo div.icon:hover {
+.select_outer_news .combo div.icon:hover, .select_outer_day .combo div.icon:hover, .select_outer_month .combo div.icon:hover, .select_outer_year .combo div.icon:hover, .select_outer_sex .combo div.icon:hover {
     background-position: 0px -27px;
 }
 
-.select_outer_news .combo div.icon:active {
+.select_outer_news .combo div.icon:active, .select_outer_day .combo div.icon:active, .select_outer_month .combo div.icon:active, .select_outer_year .combo div.icon:active, .select_outer_sex .combo div.icon:active {
     background-position: 0px -54px;
 }
 
@@ -3866,6 +3866,59 @@ div.combo {
     background-color: #F6F6F6;
     padding: 0 10px;
     margin-bottom: 5px;
+}
+
+#profile .select_outer_day, #profile .select_outer_month, #profile .select_outer_year, #profile .select_outer_sex {
+    display: inline-block;
+    width: 64px;
+    height: 33px;
+    margin-left: 10px;
+}
+
+#profile .select_outer_day .combo input, #profile .select_outer_month .combo input, #profile .select_outer_year .combo input, #profile .select_outer_sex .combo input {
+    margin-top: 10px;
+}
+
+#profile .select_outer_day .combo input {
+    width: 45px;
+}
+
+#profile .select_outer_month {
+    width: 110px
+}
+
+#profile .select_outer_month input{
+    width: 90px;
+}
+
+#profile .select_outer_year {
+    width: 85px;
+}
+
+#profile .select_outer_year input {
+    width: 65px;
+}
+
+#profile .select_outer_sex {
+    width: 115px;
+}
+
+#profile .select_outer_sex input {
+    width: 95px;
+}
+
+#profile .select_outer_day .combo div.icon, #profile .select_outer_month .combo div.icon, #profile .select_outer_year .combo div.icon, #profile .select_outer_sex .combo div.icon {
+    top: 13px;
+    right: 2px;
+}
+
+#profile .select_outer_news div.list-wrapper, #profile .select_outer_day div.list-wrapper, #profile .select_outer_month div.list-wrapper, #profile .select_outer_year div.list-wrapper, #profile .select_outer_sex div.list-wrapper {
+    width: 100%;
+    margin-top: 13px;   
+}
+
+#profile .select_outer_day .combo li, #profile .select_outer_month .combo li, #profile .select_outer_year .combo li, #profile .select_outer_sex .combo li {
+    height: 35px;
 }
 
 #profile .confirm_button {

@@ -248,7 +248,58 @@ var img_big_h = 480;
 
     	/* sexycombo курсов конец */
 
-		
+		/* sexycombo в профиле */
+
+		$("#day, #month, #year, #sex").sexyCombo();
+
+		$.sexyCombo.deactivate("#day, #month, #year, #sex");
+    	$("#activate").bind("click", function () {
+    		$.sexyCombo.activate("#day, #month, #year, #sex");
+    	});
+
+    	$("#empty-combo").sexyCombo({
+    		emptyText: "Choose a state..."
+    	});
+
+    	$("#autofill-combo").sexyCombo({
+    		autoFill: true
+    	});
+
+    	$('.select_outer_day .combo div.icon, .select_outer_month .combo div.icon, .select_outer_year .combo div.icon, .select_outer_sex .combo div.icon').on('click', function(){
+	    	if ($('.list-wrapper').hasClass('visible')){
+	    		$(this).css('background', 'url("/application/includes/images/news/news_counter_btn.png") 0px -81px');
+	    	}
+	    	if ($('.list-wrapper').hasClass('invisible')){
+	    		$(this).css('background', '');
+	    	}
+    	})
+
+    	$('.select_outer_day .list-wrapper ul li.visible, .select_outer_month .list-wrapper ul li.visible, .select_outer_year .list-wrapper ul li.visible, .select_outer_sex .list-wrapper ul li.visible').on('click', function(){
+	    	if ($('.list-wrapper').hasClass('visible')){
+	    		$('.combo div.icon').css('background', 'url("/application/includes/news/news_counter_btn.png") 0px -81px');
+	    	}
+	    	if ($('.list-wrapper').hasClass('invisible')){
+	    		$('.combo div.icon').css('background', '');
+	    	}
+    	})
+
+    	$('.select_outer_day .combo, .select_outer_month .combo, .select_outer_year .combo, .select_outer_sex .combo').focusout(function(){
+	    	$('.combo div.icon').css('background', '');
+    	})
+
+    	$('.select_outer_day .combo div.icon, .select_outer_month .combo div.icon, .select_outer_year .combo div.icon, .select_outer_sex .combo div.icon').on('mouseover',function(){
+    		if ($(this).next('.list-wrapper').hasClass('visible')){
+	    		$(this).css('background', 'url("/application/includes/images/news/news_counter_btn.png") 0px -108px');
+	    	}
+    	})
+
+    	$('.select_outer_day .combo div.icon, .select_outer_month .combo div.icon, .select_outer_year .combo div.icon, .select_outer_sex .combo div.icon').on('mouseout',function(){
+    		if ($(this).next('.list-wrapper').hasClass('visible')){
+	    		$(this).css('background', 'url("/application/includes/images/news/news_counter_btn.png") 0px -81px');
+	    	}
+    	})
+
+    	/* sexycombo в профиле конец */
 
     	/* JSP для слайдера */ 
     	
