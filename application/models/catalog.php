@@ -191,6 +191,12 @@
 			$sql = 'SELECT lid FROM catalog_categories WHERE cid = '.(int)$cid.' AND id = '.(int)$pid;
 			return $this->db->get_one($sql);
 		}
+
+		// -- получаем lid продукта
+		public function getProductLid($cid, $pid) {
+			$sql = 'SELECT lid FROM catalog WHERE cid = '.(int)$cid.' AND id = '.(int)$pid;
+			return $this->db->get_one($sql);
+		}
 		
 		// -- данные о самых популярных продуктах
 		public function getMostPopularList($cid, $limit) {

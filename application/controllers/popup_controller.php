@@ -8,7 +8,7 @@ class popup_controller extends application_controller {
 			$this->layout = 'pages';
 		}	
 		if($controller == "search"){
-			$this->layout = 'pages';
+			$this->layout = 'news';
 		}	
 		if($controller == "catalog"){
 			$this->layout = 'catalog';

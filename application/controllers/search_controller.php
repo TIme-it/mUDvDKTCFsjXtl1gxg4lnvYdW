@@ -26,7 +26,12 @@
 					$href  = 'http://'.$this->config->get('domain', 'site');
 					$data['text'] = '<ul start="'.(($page-1)*$this->max_count+1).'">';
 					foreach($data['list'] as $i => &$item) {
+
 						switch ($item['module_id']) {
+							case '1':
+								$item['url'] = $this->application_controller->get_url($item['pid']);
+								break;
+
 							case '2':
 								if(file_exists($this->config->get('news', 'files').$item['pid'].'.jpg'))
 									$item['img_url'] = '/application/includes/news/'.$item['pid'].'.jpg';
@@ -47,13 +52,16 @@
 							case '200':
 								if(file_exists(INCLUDES.'catalog/catalog_category/b/'.$item['pid'].'.png'))
 									$item['img_url'] = '/application/includes/catalog/catalog_category/b/'.$item['pid'].'.png';
-								$item['url'] = $this->application_controller->get_url($this->search->getMainIdProduct($item['pid']));
+									$item['lid'] = $this->catalog->getParentLid(2, $item['pid']);
+									$item['url'] = $this->catalog_controller->get_url($item['lid']);
+									
 								break;
 
 							case '300':
 								if(file_exists(INCLUDES.'catalog/catalog_product/s/'.$item['pid'].'.png'))
 									$item['img_url'] = '/application/includes/catalog/catalog_product/s/'.$item['pid'].'.png';
-								$item['url'] = $this->application_controller->get_url($this->search->getMainIdProduct($item['pid']));
+									$item['lid'] = $this->catalog->getProductLid(2, $item['pid']);
+									$item['url'] = $this->catalog_controller->get_url($item['lid']);
 								break;
 							
 							default:
@@ -98,7 +106,7 @@
 			$data['title'] = 'Результаты поиска';
 			$data['search_text'] = $search_text;
 			$data['search_res'] = $this->html->render('search/search_res.html', $data);
-			$this->layout = 'pages';
+			$this->layout = 'news';
 			
 			$this->html->render('search/index.html', $data, 'content');
 		}
@@ -115,6 +123,10 @@
 					$data['text'] = '<ul start="'.(($page-1)*$this->max_count+1).'">';
 					foreach($data['list'] as $i => &$item) {
 						switch ($item['module_id']) {
+							case '1':
+								$item['url'] = $this->application_controller->get_url($item['pid']);
+								break;
+
 							case '2':
 								if(file_exists($this->config->get('news', 'files').$item['pid'].'.jpg'))
 									$item['img_url'] = '/application/includes/news/'.$item['pid'].'.jpg';
@@ -129,19 +141,22 @@
 							case '12':
 								if(file_exists($this->config->get('actions', 'files').$item['pid'].'.jpg'))
 									$item['img_url'] = '/application/includes/actions/'.$item['pid'].'.jpg';
-									$item['url'] = $this->actions_controller->get_url($item['pid']);
+								$item['url'] = $this->actions_controller->get_url($item['pid']);
 								break;
 
 							case '200':
 								if(file_exists(INCLUDES.'catalog/catalog_category/b/'.$item['pid'].'.png'))
 									$item['img_url'] = '/application/includes/catalog/catalog_category/b/'.$item['pid'].'.png';
-								$item['url'] = $this->application_controller->get_url($this->search->getMainIdProduct($item['pid']));
+									$item['lid'] = $this->catalog->getParentLid(2, $item['pid']);
+									$item['url'] = $this->catalog_controller->get_url($item['lid']);
+									
 								break;
 
 							case '300':
 								if(file_exists(INCLUDES.'catalog/catalog_product/s/'.$item['pid'].'.png'))
 									$item['img_url'] = '/application/includes/catalog/catalog_product/s/'.$item['pid'].'.png';
-								$item['url'] = $this->application_controller->get_url($this->search->getMainIdProduct($item['pid']));
+									$item['lid'] = $this->catalog->getProductLid(2, $item['pid']);
+									$item['url'] = $this->catalog_controller->get_url($item['lid']);
 								break;
 							
 							default:
