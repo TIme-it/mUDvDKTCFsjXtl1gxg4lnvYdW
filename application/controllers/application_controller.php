@@ -23,6 +23,10 @@
 				session_start();
 			}
 
+			$_SESSION['id'] =$this->profile_controller->detectUser();// збс
+			// -- определение аутентификации			
+			$this->profile_controller->detectUser();
+
 			$this->title = htmlspecialchars_decode($this->config->get('title_browser','site'));
 			if($_SERVER['SERVER_NAME']=='midpo.ru'){
 				$this->html->tpl_vars['main_domain'] = true;
@@ -33,8 +37,7 @@
 			$this->html->tpl_vars['contact_email1'] = $this->config->get('contact_email1','site');
 
 			/* HEADER BLOCK BEGIN */
-			$this->html->tpl_vars['header_phone'] = htmlspecialchars_decode($this->config->get('header_phone','site'));
-			$this->html->tpl_vars['header_mail'] = $this->config->get('header_mail','site');
+			$this->html->tpl_vars['logo_text'] = $this->config->get('logo_text','site');
 			$this->html->tpl_vars['header'] = $this->html->render('layouts/header.html');
 			/* HEADER BLOCK END */
 
@@ -80,6 +83,7 @@
 
 			/* FOOTER BLOCK BEGIN */
 
+			$this->html->tpl_vars['footer_text'] = $this->config->get('footer_text','site');
 			if(empty($this->html->tpl_vars['footer'])) {
 		 	 	// $data = $this->makeFooter();
 		 	 	for ($i=1; $i <= 5; $i++) { 
