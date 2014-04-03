@@ -138,13 +138,13 @@ span, p {
 }
 
 .page.container {
-    width: 835px;
-    max-width: 835px;
+    width: 69%;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
 .page.container.feed_plus {
-    width: 63% !important;
+    width: 69% !important;
     float: left;
     margin-left: 30px;
     margin-bottom: 60px;
@@ -390,7 +390,7 @@ span, p {
     height: 52px;
     float: right;
     text-align: center;
-    margin-right: 3%;
+    margin-right: 1.5%;
     background-color: #639095;
     padding: 31px 25px;
 }
@@ -416,6 +416,31 @@ span, p {
 .head_info a:hover > span {
     color: #ff0000;
     border-bottom: 1px solid #ff0000;
+}
+
+.head_info.not_auth {
+    background-color: #f6f6f6;
+}
+
+.head_info.not_auth a {
+    display: block;
+    text-decoration: none;
+    line-height: 48px;
+    padding-left: 42px;
+    background: url(/application/includes/images/enter_ico.png) transparent no-repeat 0px 10px;
+    height: 44px;
+}
+
+.head_info.not_auth a span {
+    font: 12px/20px Days, Verdana, Arial;
+    color: #40767c;
+    line-height: 13px;
+    border-bottom: 1px dotted #40767c;
+}
+
+.head_info.not_auth a:hover > span {
+    color: #ff0000;
+    border-bottom: 1px dotted #ff0000;
 }
 
 .head_phone {
@@ -527,7 +552,7 @@ span, p {
 }
 
 .menu_block {
-    width: 100%;
+    width: 98.5%;
     min-height: 114px;
     height: auto;
     padding-left: 1.5%;
@@ -711,6 +736,12 @@ span, p {
 @media (max-width: 1160px) {
     #menu li.main_menu a.m_it span, #menu li .submenu li a span {
         font-size: 13px;
+    }
+}
+
+@media (max-width: 1230px) {
+    .page.container.feed_plus {
+        width: 61% !important;
     }
 }
 
@@ -2605,7 +2636,7 @@ body#pages #interview_block .radiobuttons {
 
 #interview_block .question {
     float: left;
-    margin-right: 60px;
+    margin-right: 40px;
 }
 
 #interview_block .question p {
@@ -2620,7 +2651,7 @@ body#pages #interview_block .radiobuttons {
 
 #interview_block .radiobuttons {
     float: left;
-    margin-right: 60px;
+    margin-right: 20px;
 }
 
 #interview_block .radiobuttons fieldset {
@@ -4111,6 +4142,12 @@ div.combo {
 
 #profile #tabs-3 ul li {
     margin-top: 10px;
+}
+
+.min_wrapper {
+    min-width: 970px;
+    max-width: 984px;
+    margin: 0 auto;
 }
 
 /* PROFILE BLOCK END */
