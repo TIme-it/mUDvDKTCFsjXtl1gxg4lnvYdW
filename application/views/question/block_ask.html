@@ -1,15 +1,17 @@
-<form method="post" action="/question/send/{pid}/" name="question" id="question">
-	<h2 id="question_header">{title}</h2>
-	<div id="question_text">
-		{question}
-	</div>
-	{answer_list}
-		<div class="answer">
-			<span>&mdash;</span>
-			<input type="radio" name="answer" value="{id}" id="radio_{id}" />
-			<label for="radio_{id}">{answer}</label>
+<div id="interview_block">
+	<form method="post" action="/popup/question/send/{pid}/" name="question" id="question">
+		<div class="question">
+		  <p class="bold">- {title}:</p>
+		  {question}
 		</div>
-	{/answer_list}
-	<a id="answer_button" href="#" onClick="document.forms.question.submit(); return false;">ответить</a>
-</form>
-<p id="question_other"><span>&mdash;</span><a href="/question/">архив опросов</a></p>
+		<a href="#" class="answer_button inactive submit_button"></a>
+		<div class="radiobuttons">
+			{answer_list}
+		  	<fieldset>
+		    	<input id="radio_{id}" type="radio" name="answer" data-count="{#}" value="{id}">
+		     	<label for="radio_{id}">{answer}</label>
+		    </fieldset>
+		    {/answer_list}
+		</div>
+	</form>
+</div>

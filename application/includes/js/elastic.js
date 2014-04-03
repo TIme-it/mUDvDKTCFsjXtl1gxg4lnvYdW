@@ -301,6 +301,20 @@
 
 	$(document).ready(function() {
 
+		/* QUESTION BLOCK BEGIN */ 
+
+		$('#interview_block .radiobuttons input[type="radio"]').on('change', function(){
+			$('#interview_block .answer_button').removeClass('inactive');
+			$('#interview_block .answer_button').addClass('active');
+			$('#interview_block .answer_button').css('top', 25*($(this).data('count')-1)+'px');
+
+
+
+			 console.log($(this));
+		})
+
+		/* QUESTION BLOCK END */ 
+
 		/* SLIDER BLOCK BEGIN */
 		showimage_init();
 		hideimage_init();

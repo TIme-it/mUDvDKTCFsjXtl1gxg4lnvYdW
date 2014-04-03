@@ -2582,13 +2582,14 @@ span, p {
 
 #interview_block {
     display: table;
+    position: relative;
     margin: 0 auto;
     height: 180px;
     padding-top: 80px;
 }
 
 body#pages #interview_block {
-    width: 100%;
+    width: 95%;
 }
 
 body#pages #interview_block .question, body#pages #interview_block .radiobuttons {
@@ -2607,13 +2608,13 @@ body#pages #interview_block .radiobuttons {
     margin-right: 60px;
 }
 
-#interview_block .question p.bold {
-    font: 25px/22px Days, Verdana, Arial;
+#interview_block .question p {
+    font: 17px/20px DINPro-light, Verdana, Arial;
     color: #444;
 }
 
-#interview_block .question p.normal {
-    font: 17px/20px DINPro-light, Verdana, Arial;
+#interview_block .question p.bold {
+    font: 25px/22px Days, Verdana, Arial;
     color: #444;
 }
 
@@ -2659,6 +2660,27 @@ body#pages #interview_block .radiobuttons {
     margin-right: 15px;
 }
 
+#interview_block .radiobuttons label.result {
+    padding-left: 0px;
+    cursor: default;
+}
+
+#interview_block .radiobuttons label.result:hover {
+    color: #444;
+}
+
+#interview_block .radiobuttons .prc {
+    width: 48px; 
+    display: inline-block; 
+    color: #111;
+}
+
+#interview_block label.result:before {
+    content: '';
+    background: none;
+}
+
+
 #interview_block .radiobuttons input[type=radio]:checked + label {
     color: #e67817;
 }
@@ -2672,6 +2694,12 @@ body#pages #interview_block .radiobuttons {
     float: right;
 }
 
+.answer_button {
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
 .answer_button.inactive {
     margin-top: -17px;
     cursor: default;
@@ -2682,7 +2710,7 @@ body#pages #interview_block .radiobuttons {
 }
 
 .answer_button.active {
-    margin-top: -13px;
+    margin-top: -17px;
     display: block;
     width: 169px;
     height: 79px;
@@ -2694,7 +2722,7 @@ body#pages #interview_block .radiobuttons {
 }
 
 .answer_button.active:active {
-    background-position: 0px -237px;
+    background-position: 0px -243px;
 }
 
 /* INTERVIEW BLOCK END */

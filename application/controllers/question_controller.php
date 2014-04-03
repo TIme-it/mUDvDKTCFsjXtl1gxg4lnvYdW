@@ -1,8 +1,8 @@
 <?php
 	class question_controller extends application_controller {
 		
-		private $time_to_block = 7200; // 2 часа
-		private $user_ip = null;
+		// private $time_to_block = 7200; // 2 часа
+		// private $user_ip = null;
 		
 		public function __construct() {
 			parent::__construct();
@@ -39,7 +39,6 @@
 		// -- делаем блок
 		public function makeBlock() {
 			$data = $this->question->getQuestion($this->user_ip, $this->time_to_block);
-			
 			// -- если нет неотвеченных опросов, показываем результаты последнего
 			if(empty($data)) {
 				$data = $this->question->getResultLastQuestion();
@@ -54,6 +53,8 @@
 			}
 			
 			$data['title'] = $this->config->get('quest_title_block', 'site');
+			// var_dump($data);
+			// die();
 			$this->html->render('question/block_ask.html', $data, 'question_block');
 		}
 		
