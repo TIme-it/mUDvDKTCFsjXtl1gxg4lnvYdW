@@ -27,9 +27,9 @@
 					<form id="profileForm" class="form" enctype="multipart/form-data" action="/profile/edit/" method="post">
 						<fieldset>
 							<label for="fio">Меня зовут:</label>
-							<input type="text" 	name="lastname"  	id="lastname" 		value="{lastname}" 		rel=""/>
-							<input type="text" 	name="name" 		id="name" 			value="{name}" 			rel=""/>
-							<input type="text" 	name="middlename" 	id="middlename" 	value="{middlename}" 	rel=""/>
+							<input type="text" 	name="lastname"  	id="lastname" 		value="{lastname}" 		rel="" 		placeholder="Фамилия"/>
+							<input type="text" 	name="name" 		id="name" 			value="{name}" 			rel=""		placeholder="Имя"/>
+							<input type="text" 	name="middlename" 	id="middlename" 	value="{middlename}" 	rel=""		placeholder="Отчество"/>
 						</fieldset>
 						<fieldset>
 							<label for="bday">Дата рождения:</label>
@@ -61,9 +61,9 @@
 
 						<fieldset>
 							<label for="contacts">Контакты:</label>
-							<input type="text" name="email" id="email" value="{email}" rel=""/>
-							<input type="text" name="tel" id="tel" value="{tel}" rel=""/>
-							<input type="text" name="adr" id="adr" value="{adr}" rel=""/>
+							<input type="text" name="email" id="email" value="{email}" rel="" 		placeholder="E-mail"/>
+							<input type="text" name="tel" id="tel" value="{tel}" rel="" 		placeholder="Телефон"/>
+							<input type="text" name="adr" id="adr" value="{adr}" rel="" 		placeholder="Адрес"/>
 						</fieldset>
 						
 						<input type="file" name="avatar" hidden style="display: none;" id="avatar_file" />
