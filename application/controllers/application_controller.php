@@ -13,6 +13,9 @@
 		protected $title          = '';      // -- содержимое тега <title>
 		protected $layout         = 'default';
 		protected $BreadCrums     =  array();
+
+		private $time_to_block = 7200; // 2 часа
+		private $user_ip = null;
 	
 		public function __construct() {
 			// -- empty
@@ -80,6 +83,28 @@
 			if(empty($this->html->tpl_vars['head'])) {
 				$this->html->render('head/head_default.html', array('site_title' => $this->title), 'head');
 			}			
+
+			/* QUESTION BLOCK BEGIN */
+
+			$data = $this->question->getQuestion((!empty($_SERVER['HTTP_X_FORWARED_FOR'])) ? $_SERVER['HTTP_X_FORWARED_FOR'] : $_SERVER['REMOTE_ADDR'], $this->time_to_block);
+			// -- если нет неотвеченных опросов, показываем результаты последнего
+			if(empty($data)) {
+				$data = $this->question->getResultLastQuestion();
+				if(!empty($data['answer_list'])) {
+					foreach($data['answer_list'] as $i => &$item) {
+						$item['prc'] = round($item['prc']).'%';
+					}
+					$data['title'] = $this->config->get('quest_title_block', 'site');
+					$this->html->tpl_vars['question_block'] = $this->html->render('question/block_result.html', $data);
+				}
+				// return true;
+			}
+			else {
+				$data['title'] = $this->config->get('quest_title_block', 'site');
+				$this->html->tpl_vars['question_block'] = $this->html->render('question/block_ask.html', $data);
+			}
+
+			/* QUESTION BLOCK END */
 
 			/* FOOTER BLOCK BEGIN */
 

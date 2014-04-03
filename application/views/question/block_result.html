@@ -1,12 +1,14 @@
-<form method="post" action="/question/send/{pid}/" name="question" id="question">
-	<h2 id="question_header">{title}</h2>
-	<div id="question_text">
-		{question}
+<div id="interview_block">
+	<div class="question">
+	  <p class="bold">- {title}:</p>
+	  {question}
 	</div>
-	{answer_list}
-		<div class="answer">
-			<label><span class="prc">{prc}</span>{answer}</label>
-		</div>
-	{/answer_list}
-</form>
-<p id="question_other"><span>&mdash;</span><a href="/question/">архив опросов</a></p>
+	<div class="radiobuttons">
+		{answer_list}
+	  	<fieldset>
+	    	<!-- <input id="radio_{id}" type="radio" name="answer" data-count="{#}" value="{id}"> -->
+	     	<label for="radio_{id}" class="result"><span class="prc"><strong>{prc}</strong></span> {answer}</label>
+	    </fieldset>
+	    {/answer_list}
+	</div>
+</div>
