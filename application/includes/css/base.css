@@ -138,13 +138,13 @@ span, p {
 }
 
 .page.container {
-    width: 835px;
-    max-width: 835px;
+    width: 69%;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
 .page.container.feed_plus {
-    width: 63% !important;
+    width: 69% !important;
     float: left;
     margin-left: 30px;
     margin-bottom: 60px;
@@ -711,6 +711,12 @@ span, p {
 @media (max-width: 1160px) {
     #menu li.main_menu a.m_it span, #menu li .submenu li a span {
         font-size: 13px;
+    }
+}
+
+@media (max-width: 1230px) {
+    .page.container.feed_plus {
+        width: 61% !important;
     }
 }
 
@@ -2605,7 +2611,7 @@ body#pages #interview_block .radiobuttons {
 
 #interview_block .question {
     float: left;
-    margin-right: 60px;
+    margin-right: 40px;
 }
 
 #interview_block .question p {
@@ -2620,7 +2626,7 @@ body#pages #interview_block .radiobuttons {
 
 #interview_block .radiobuttons {
     float: left;
-    margin-right: 60px;
+    margin-right: 20px;
 }
 
 #interview_block .radiobuttons fieldset {
