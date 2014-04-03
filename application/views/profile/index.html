@@ -12,45 +12,40 @@
 					<div class="avatar">
 						<img src="{avatar_src}" alt="">
 						<div class="avatar_frame"></div>
-						<a href="#" class="del_avatar"></a>
+						<a href="/profile/delete_avatar/" class="del_avatar"></a>						
 					</div>
 					<p class="ava_txt">Изображение в формате JPG, GIF или PNG размером 200 на 200 пикселей</p>
-					<a href="#" class="upload_button"></a>
+					<a href="#" class="upload_button avatar"></a>
 					<div class="gray_line"></div>
 					<div class="subscription">
-						<div class="subs_img">
-							
-						</div>
-						<p class="subs_txt">Подписка активирована</p>
-						<a href="#" class="tumbler"></a>
+						<div class="subs_img {?subscribe}on{/?subscribe}{!subscribe}off{/!subscribe}"></div>
+						<p class="subs_txt">{?subscribe}Подписка активирована{/?subscribe}{!subscribe}Подписка отменена{/!subscribe}</p>
+						<a href="javascript:void(0);" id="tumbler_subscribe"  class="tumbler subscribe {?subscribe}on{/?subscribe}{!subscribe}off{/!subscribe}"></a>						
 					</div>
 				</div>
 				<div class="right_side">
-					<form id="profileForm" class="form" action="#" method="post">
+					<form id="profileForm" class="form" enctype="multipart/form-data" action="/profile/edit/" method="post">
 						<fieldset>
 							<label for="fio">Меня зовут:</label>
-							<input type="text" name="surname" id="surname" rel=""/>
-							<input type="text" name="name" id="name" rel=""/>
-							<input type="text" name="secname" id="secname" rel=""/>
+							<input type="text" 	name="lastname"  	id="lastname" 		value="{lastname}" 		rel=""/>
+							<input type="text" 	name="name" 		id="name" 			value="{name}" 			rel=""/>
+							<input type="text" 	name="middlename" 	id="middlename" 	value="{middlename}" 	rel=""/>
 						</fieldset>
 						<fieldset>
 							<label for="bday">Дата рождения:</label>
 							<div class="select_outer_day">
 								<select name="day" id="day">
-									<option value="1">1</option>
-									<option value="2">2</option>
+									{bday_opt_d}
 								</select>
 							</div>
 							<div class="select_outer_month">
 								<select name="month" id="month">
-									<option value="января">января</option>
-									<option value="февраля">февраля</option>
+									{bday_opt_m}
 								</select>
 							</div>
 							<div class="select_outer_year">
 								<select name="year" id="year">
-									<option value="1985">1985</option>
-									<option value="1986">1986</option>
+									{bday_opt_y}
 								</select>
 							</div>
 						</fieldset>
@@ -58,20 +53,23 @@
 							<label for="sex">Пол:</label>
 							<div class="select_outer_sex">
 								<select name="sex" id="sex">
-									<option value="0">мужской</option>
-									<option value="1">женский</option>
+									<option  value="0">мужской</option>
+									<option {selected_1} value="1">женский</option>
 								</select>
 							</div>
 						</fieldset>
 
 						<fieldset>
 							<label for="contacts">Контакты:</label>
-							<input type="text" name="email" id="email" rel=""/>
-							<input type="text" name="phone" id="phone" rel=""/>
-							<input type="text" name="address" id="address" rel=""/>
+							<input type="text" name="email" id="email" value="{email}" rel=""/>
+							<input type="text" name="tel" id="tel" value="{tel}" rel=""/>
+							<input type="text" name="adr" id="adr" value="{adr}" rel=""/>
 						</fieldset>
 						
+						<input type="file" name="avatar" hidden style="display: none;" id="avatar_file" />
+						
 						<a href = "#" class = "submit_button confirm_button">
+							<input hidden style="display: none;" id="subscribe" name="subscribe" value="{subscribe}" />							
 							<span>СОХРАНИТЬ</span>
 						</a>
 					</form>

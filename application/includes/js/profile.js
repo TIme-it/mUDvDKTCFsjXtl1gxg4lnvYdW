@@ -1,6 +1,31 @@
 (function($) {
 
+	$('#tumbler_subscribe').on('click', function(){
+		var flg	=	"off";		
+		if ($(this).hasClass('on')) 
+			flg = 'on';		
+		$(this).removeClass('on off');		
+		$('.subscription .subs_img').removeClass('on off');		
+		if (flg == 'off') {
+			$(this).addClass('on');
+			$('.subscription .subs_img').addClass('on');
+			$('#subscribe').val(1);
+			$('.subscription .subs_txt').text('Подписка активирована');
+		} else {
+			$(this).addClass('off');
+			$('.subscription .subs_img').addClass('off');
+			$('#subscribe').val(0);	
+			$('.subscription .subs_txt').text('Подписка отменена');
+		}						
+	})	
+	
+	$('.upload_button.avatar').on('click', function(){
+		$('#avatar_file').click();
+	});	
+
 	$(document).ready(function() {
+	
+	
 		// -- обработчик на все формы авторизации
 		// $('.login_form').submit(function() {
 		// 	var data = {

@@ -3845,6 +3845,7 @@ div.combo {
     float: right;
     font: 14px/22px DINPro-light, Verdana, Arial;
     color: #444;
+	width: 153px;
 }
 
 #profile .left_side .subscription .tumbler {
@@ -4104,4 +4105,20 @@ div.combo {
 
 ymaps {
     margin-bottom: 30px;
+}
+
+#profile .left_side .subscription .tumbler.on {
+	background: url(/application/includes/images/profile/subscription_btn.png) transparent no-repeat 0 0;
+}
+
+#profile .left_side .subscription .tumbler.off {
+	background: url(/application/includes/images/profile/subscription_btn.png) transparent no-repeat 0px -28px;
+}
+
+#profile .left_side .subscription .subs_img.on {
+	background: url(/application/includes/images/profile/subscription.png) transparent no-repeat 0 0;
+}
+
+#profile .left_side .subscription .subs_img.off {
+	background: url(/application/includes/images/profile/subscription.png) transparent no-repeat 0px -87px;
 }
