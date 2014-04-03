@@ -62,8 +62,15 @@
 				if (!empty($user['sex'])) {
 					 $user['selected_1']	=	" selected";
 				}
-											
-								
+				
+				$user['product_list'] = $this->catalog->getKursyUserALL(self::$user_id);
+				if (!empty($user['product_list']))	{
+					$num	=	0;
+					foreach($user['product_list'] as $key => &$item) {
+						$item['num']	=	++$num;
+					}
+				}
+				
 				$this->layout = 'profile';
 				$this->html->render('profile/index.html', $user, 'content');
 			}

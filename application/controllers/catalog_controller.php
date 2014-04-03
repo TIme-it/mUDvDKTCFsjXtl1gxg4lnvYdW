@@ -359,7 +359,7 @@
 					}
 				}
 			}
-
+			
 			// продукты категории
 			if($category['pid'] == 0){
 				$category['product'] = $this->catalog->getCategoryProduct($category['cid'], $id);
@@ -368,12 +368,23 @@
 			else { 
 				$category['product'] = $this->catalog->getSubCategoryProduct($category['cid'], $id);
 			}
-			if(!empty($category['product'])){
+			if(!empty($category['product'])){			
 				foreach ($category['product'] as $i => &$item) {
-					$item['url'] = $this->get_url($item['lid']);
+					$item['button']	=	' signup_button';
+					if (!empty(self::$user_id)) {						
+						$item['add_kursy'] = ' exist';						
+						$kursy	=	$this->catalog->getKursyUser($item['id'], self::$user_id);
+						if (!empty($kursy)) {
+							$item['url'] = '/popup/all/delkursy/'.$item['id'].'/';							
+						}	else {
+							$item['url'] = '/popup/all/addkursy/'.$item['id'].'/';
+							$item['button']	=	' signup_button';
+						}
+					} else
+						$item['url'] = '/popup/signup/';
 				}
 			}
-
+			
 			/* ACTIONS BLOCK BEGIN */
 
 			$this->html->tpl_vars['actions_list'] = $this->actions->getLast(42, 1);
@@ -384,6 +395,7 @@
 			$this->html->render('catalog/category.html', $category, 'content');
 		}
 		
+
 		// -- генерируем блок товаров
 		private function productBlock($cid, $pid, $page = 1) {	
 			$product_count = $this->config->get('product_count', 'site');
