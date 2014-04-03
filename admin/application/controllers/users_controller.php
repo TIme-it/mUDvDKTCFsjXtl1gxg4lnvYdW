@@ -79,7 +79,8 @@
 					'name'			=>	$name,				
 					'lastname'		=>	$lastname,				
 					'middlename'	=>	$middlename,				
-					'pass'			=>	$pass,					
+					'pass'			=>	$pass,
+					'state'			=>	1,
 					'email' 		=> 	trim(mb_strtolower($_POST['email'],'UTF-8')),
 				);
 				

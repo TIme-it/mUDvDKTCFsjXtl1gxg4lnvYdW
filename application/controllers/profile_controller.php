@@ -19,17 +19,51 @@
 			} else {
 				// -- данные профиля
 				$user = $this->profile->getUser(self::$user_id);
+				
 				// -- аватарка
-				$user['avatar_src'] = '/application/includes/images/profile/avatar_default_men.png';
-
-				if(file_exists($this->path.self::$user_id.'.jpg')) {
-					$user['avatar_src'] = '/application/includes/profile/'.self::$user_id.'.jpg?_='.$user['flush'];
+				$user['avatar_src'] = '/application/includes/images/profile/avatar_default_men.png';				
+				if(file_exists($this->path.'ava_b'.DS.self::$user_id.'.jpg')) {
+					$user['avatar_src'] = '/application/includes/profile/ava_b/'.self::$user_id.'.jpg?_='.rand(0, 10000);					
+				}				
+				if(file_exists($this->path.'ava_b'.DS.self::$user_id.'.png')) {
+					$user['avatar_src'] = '/application/includes/profile/ava_b/'.self::$user_id.'.png?_='.rand(0, 10000);
+				}				
+				if(file_exists($this->path.'ava_b'.DS.self::$user_id.'.gif')) {
+					$user['avatar_src'] = '/application/includes/profile/ava_b/'.self::$user_id.'.gif?_='.rand(0, 10000);
 				}
-				// -- дата рождения
-				if(!empty($user['bday'])) {
-					$user['bday'] = date('d.m.Y года', $user['bday']);
+				
+				// -- дата рождения									
+				$user['bday_opt_d'] = '';
+				for($i = 1; $i <= 31; $i++) {
+					$user['bday_opt_d'] .= '<option value="'.$i.'"'.
+					($i == date('d', $user['bday']) ? ' selected="selected"' : '').'>'.sprintf('%02d', $i).'&nbsp;</option>';
 				}
-
+				// -- день рождения: месяцы
+				$user['bday_opt_m'] =
+					'<option value="01"'.(date('m', $user['bday']) ==  1 ? ' selected="selected"' : '').'>января&nbsp;</option>'.
+					'<option value="02"'.(date('m', $user['bday']) ==  2 ? ' selected="selected"' : '').'>февраля&nbsp;</option>'.
+					'<option value="03"'.(date('m', $user['bday']) ==  3 ? ' selected="selected"' : '').'>марта&nbsp;</option>'.
+					'<option value="04"'.(date('m', $user['bday']) ==  4 ? ' selected="selected"' : '').'>апреля&nbsp;</option>'.
+					'<option value="05"'.(date('m', $user['bday']) ==  5 ? ' selected="selected"' : '').'>мая&nbsp;</option>'.
+					'<option value="06"'.(date('m', $user['bday']) ==  6 ? ' selected="selected"' : '').'>июня&nbsp;</option>'.
+					'<option value="07"'.(date('m', $user['bday']) ==  7 ? ' selected="selected"' : '').'>июля&nbsp;</option>'.
+					'<option value="08"'.(date('m', $user['bday']) ==  8 ? ' selected="selected"' : '').'>августа&nbsp;</option>'.
+					'<option value="09"'.(date('m', $user['bday']) ==  9 ? ' selected="selected"' : '').'>сентября&nbsp;</option>'.
+					'<option value="10"'.(date('m', $user['bday']) == 10 ? ' selected="selected"' : '').'>октября&nbsp;</option>'.
+					'<option value="11"'.(date('m', $user['bday']) == 11 ? ' selected="selected"' : '').'>ноября&nbsp;</option>'.
+					'<option value="12"'.(date('m', $user['bday']) == 12 ? ' selected="selected"' : '').'>декабря&nbsp;</option>';
+				// -- день рождения: годы
+				$user['bday_opt_y'] = '';
+				for($i = date('Y'); $i >= 1930; $i--) {
+					$user['bday_opt_y'] .= '<option value="'.$i.'"'.
+					($i == date('Y', $user['bday']) ? ' selected="selected"' : '').'>'.$i.'&nbsp;</option>';
+				}					
+				
+				if (!empty($user['sex'])) {
+					 $user['selected_1']	=	" selected";
+				}
+											
+								
 				$this->layout = 'profile';
 				$this->html->render('profile/index.html', $user, 'content');
 			}
@@ -126,10 +160,12 @@
 				if(empty($_POST['login']) || empty($_POST['pass'])) {
 					$this->session->set('alert', 'Необходимо указать логин и пароль');
 				} else {
+					$pass = md5( 'egi'.mb_strtolower($_POST['pass'], 'UTF-8').'pet' );
 					$sql  = 'SELECT id, state, pass FROM users WHERE '.
 							'	login = '.$this->db->escape($_POST['login']).' AND '.
-							'	pass  = MD5('.$this->db->escape($_POST['pass']).')';
+							'	pass  = "'.$pass.'" ';
 					$user_data = $this->db->get_row($sql);
+															
 					if(!empty($user_data)) {
 						switch($user_data['state']) {
 							case 0:
@@ -188,20 +224,81 @@
 			} else {
 				// -- если мы аутентифицированы
 				$user = array();
-				if(!empty($_POST)) {
+				if(!empty($_POST)) { 
+															
+					switch (trim($_POST['month__sexyCombo'])) {
+						case 'января':
+							$_POST['month__sexyCombo']	=	1;
+							break;
+						case 'февраля':
+							$_POST['month__sexyCombo']	=	2;
+							break;
+						case 'марта':
+							$_POST['month__sexyCombo']	=	3;
+							break;
+						case 'апреля':
+							$_POST['month__sexyCombo']	=	4;
+							break;
+						case 'мая':
+							$_POST['month__sexyCombo']	=	5;
+							break;
+						case 'июня':
+							$_POST['month__sexyCombo']	=	6;
+							break;
+						case 'июля':
+							$_POST['month__sexyCombo']	=	7;
+							break;
+						case 'августа':
+							$_POST['month__sexyCombo']	=	8;
+							break;
+						case 'сентября':
+							$_POST['month__sexyCombo']	=	9;
+							break;						
+						case 'октября':
+							$_POST['month__sexyCombo']	=	10;
+							break;						
+						case 'ноября':
+							$_POST['month__sexyCombo']	=	11;
+							break;						
+						case 'декабря':
+							$_POST['month__sexyCombo']	=	12;
+							break;
+					}
+															
+					$bday	=	mktime(0, 0, 0, (int)$_POST['month__sexyCombo'], (int)$_POST['day__sexyCombo'], (int)$_POST['year__sexyCombo']);
+				
+					// $ava = $this->path.'ava_b'.DS.$user['id'].'.jpg';
+					
+					if(!empty($_FILES['avatar']['tmp_name']) && file_exists($_FILES['avatar']['tmp_name'])) {
+						$ext	=	$this->getExtension($_FILES['avatar']['name']);						
+						switch ($ext) {
+							case "jpg":								
+							case "gif":								
+							case "png":
+								$file	=	$this->path.'ava_b'.DS.self::$user_id.'.'.$ext;
+								copy($_FILES['avatar']['tmp_name'], $file);
+								$img	=	$this->image->analyze($file);
+								$this->image->toFile($file, 80, 210, 210);
+								break;								
+						}							
+					}					
+					
 					// -- сохраняем данные о юзере
 					$user = array(
-						'bday'  => strtotime(join('-',array_reverse($_POST['bday']))),
-						'name'  => strip_tags($_POST['name']),
-						'surname'  => strip_tags($_POST['surname']),
-						'otch'  => strip_tags($_POST['otch']),
-						'user_address'  => strip_tags($_POST['user_address']),
-						'inn'  => (int)($_POST['inn']),
-						'snils'  => strip_tags($_POST['snils']),
-						'phone'  => strip_tags($_POST['phone']),
+						'bday'  		=> $bday,
+						'name'  		=> strip_tags($_POST['name']),
+						'lastname'  	=> strip_tags($_POST['lastname']),
+						'middlename'  	=> strip_tags($_POST['middlename']),						
+						'email'  		=> strip_tags($_POST['email']),						
+						'tel'  			=> strip_tags($_POST['tel']),
+						'adr'  			=> strip_tags($_POST['adr']),
+						'sex'  			=> (int)$_POST['sex'],
+						'subscribe'  	=> (int)$_POST['subscribe'],
 					);
 					$this->db->update('users', $user, self::$user_id);
 					$this->session->set('alert', 'Данные профиля были успешно изменены');
+					$this->url->redirect('/profile/');
+					die();
 				}
 				$user = $this->profile->getUser(self::$user_id);
 				// -- день рождения
@@ -233,9 +330,15 @@
 					($i == $user['bday'][2] ? ' selected="selected"' : '').'>'.$i.'&nbsp;</option>';
 				}
 				// -- аватар
-				$user['ava_src'] = '/application/includes/images/no_avatar_b.jpg';
-				if(file_exists($this->path.'ava_b'.DS.$user['id'].'.jpg')) {
-					$user['ava_src'] = '/application/includes/profile/ava_b/'.$user['id'].'.jpg?_='.$user['flush'];
+				$user['ava_src'] = '/application/includes/images/profile/avatar_default_men.png';				
+				if(file_exists($this->path.'ava_b'.DS.self::$user_id.'.jpg')) {
+					$user['ava_src'] = $this->path.'ava_b'.DS.self::$user_id.'.jpg?_='.rand(0, 1000);					
+				}				
+				if(file_exists($this->path.'ava_b'.DS.self::$user_id.'.png')) {
+					$user['ava_src'] = $this->path.'ava_b'.DS.self::$user_id.'.png?_='.rand(0, 1000);
+				}				
+				if(file_exists($this->path.'ava_b'.DS.self::$user_id.'.gif')) {
+					$user['ava_src'] = $this->path.'ava_b'.DS.self::$user_id.'.gif?_='.rand(0, 1000);
 				}
 				// -- токен для смены аватара
 				$user['user_id']      = $user['id'];
@@ -245,6 +348,23 @@
 			}
 		}
 		
+		function delete_avatar() {
+			if(file_exists($this->path.'ava_b'.DS.self::$user_id.'.jpg')) {				
+				unlink($this->path.'ava_b'.DS.self::$user_id.'.jpg');
+			}				
+			if(file_exists($this->path.'ava_b'.DS.self::$user_id.'.png')) {				
+				unlink($this->path.'ava_b'.DS.self::$user_id.'.png');
+			}				
+			if(file_exists($this->path.'ava_b'.DS.self::$user_id.'.gif')) {			
+				unlink($this->path.'ava_b'.DS.self::$user_id.'.gif');
+			}		
+						
+			$this->url->redirect('::referer');
+		}	
+		
+		function getExtension($filename) {
+			return end(explode(".", $filename));
+		}		
 		// -- сменить аватар: используется библиотекой uploadify
 		/*public function change_avatar() {
 			if(!empty($_POST['user_id']) && !empty($_POST['token']) && $_POST['token'] == md5($_POST['user_id'].'aOr')) {
@@ -348,8 +468,8 @@
 				$result['w_and_h'] = 'width="'.$result['width'].'" height="'.$result['height'].'"';
 			}
 			return $result;
-		}		
-		*/
+		}*/
+		
 		
 		// -- сменить пароль
 		public function pass_change() {

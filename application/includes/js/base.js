@@ -171,6 +171,11 @@ var img_big_h = 480;
 	// 	});
 	// }
 
+
+	
+
+	
+	
 	$(document).ready(function() {
 		// год в списке 
 		$('a.news_year').on('click', function(){
@@ -178,6 +183,7 @@ var img_big_h = 480;
 			return false;
 		});
 
+		
 		// ссылки в селекте курсов
 
 		$('.select_outer #subtype').on('change', function(){
@@ -194,7 +200,8 @@ var img_big_h = 480;
 		$('a[href="#"]').on('click', function(){
 			return false;
 		})
-
+		
+		
 		/* sexycombo курсов начало */
 
 		$("#subtype").sexyCombo();
