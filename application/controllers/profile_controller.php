@@ -9,7 +9,7 @@
 		
 		public function __construct() {
 			parent::__construct();
-			$this->path = $this->config->get('profile', 'files');
+			$this->path = $this->config->get('profile', 'files');			
 		}
 		
 		// -- профиль юзера
@@ -68,15 +68,82 @@
 					$num	=	0;
 					foreach($user['product_list'] as $key => &$item) {
 						$item['num']	=	++$num;
+						$item['link'] = $this->get_url($item['lid']);
 					}
 				}
 				
+				$pid	=	40;
+				$faq = $this->faq->getMainInfo($pid);
+				$page = empty($_GET['page']) ? 1 : (int)$_GET['page'];
+				$faq_count = $this->config->get('faq_count', 'site');
+				$faq_all_count = $this->faq->getFaqsCount($pid, !$out_valid, self::$user_id);
+				$user['faq_pagination'] = $this->pagination_controller->index_ajax($faq_all_count, $faq_count, $page, 'faq_user_ajax', ','.$pid);
+				
+				$user['faq_list'] = $this->faq->getFaqs($pid, $page-1, $faq_count, !$out_valid, self::$user_id);
+				if(!empty($user['faq_list'])) {
+					$user['start'] = 1;
+					$template     = (empty($faq['template'])) ? 'layoutFaq' : $faq['template'];
+					$template_num = ($template == 'layoutFaq2') ? '2' : '';
+					$user['faq_list'][0]['first'] = true;
+					foreach($user['faq_list'] as $i => &$item) {
+						$item['num'] = $faq['start'] + $i;					
+						if(!empty($item['answer'])) {
+							$item['dateAnswer'] = $this->date->format($item['dateAnswer']);
+							
+							if ( mb_strlen($item['answer'],'UTF-8')>400 ) {
+								$item['short'] = mb_substr($item['answer'],0,400,'UTF-8');
+								if (preg_match('/^(.*)\.\s/i', $item['short'], $match)) {
+									$item['short'] = $match[0];
+								}else {
+									$item['short'] .= '...';
+								};						
+								$item['full_answer'] = '/faq/one_view/'.$item['id'];
+							}						
+							$item['isAnswer']   = $this->html->render('faqs/answer'.$template_num.'.html', $item);
+						}
+						$item['dateQuestion'] = $this->date->format2($item['dateQuestion']);
+						$item['last'] = ($i+1 == count($user['faq_list'])) ? true : false;
+						
+						$item['avatar_src'] = '/application/includes/images/profile/avatar_default_men.png';				
+						if(file_exists($this->path.'ava_b'.DS.self::$user_id.'.jpg')) {
+							$item['avatar_src'] = '/application/includes/profile/ava_b/'.self::$user_id.'.jpg?_='.rand(0, 10000);					
+						}				
+						if(file_exists($this->path.'ava_b'.DS.self::$user_id.'.png')) {
+							$item['avatar_src'] = '/application/includes/profile/ava_b/'.self::$user_id.'.png?_='.rand(0, 10000);
+						}				
+						if(file_exists($this->path.'ava_b'.DS.self::$user_id.'.gif')) {
+							$item['avatar_src'] = '/application/includes/profile/ava_b/'.self::$user_id.'.gif?_='.rand(0, 10000);
+						}						
+					}
+					$this->html->render('faqs/listFaq'.$template_num.'.html', $user, 'faqList');
+					if($template_num == '2') {
+						$this->html->render('faqs/listFaqPrev2.html', $user, 'faqListPrev');
+					}
+				} else if (empty($user['text'])) $user['text'] = '<p>&nbsp;</p>';		
+				
+								
 				$this->layout = 'profile';
 				$this->html->render('profile/index.html', $user, 'content');
 			}
 		}
 		
-
+		public function get_url($lid){
+			if(!empty($lid)){
+				if($this->config->get('active','chpu') == 1){
+					$data = $this->catalog->getCatalogUrl($lid);
+					$url = '/'.$data['alias'];
+					while(!empty($data['pid'])){
+						$data = $this->catalog->getCatalogUrl($data['pid']);
+						$url = '/'.$data['alias'].$url;
+					}
+					$url = '/'.$data['root_alias'].$url.'/';
+					return $url;
+				}				
+			}
+			else{
+				return false;
+			}
+		}
 		
 		// -- регистрaция
 		/*public function reg() {
@@ -218,6 +285,63 @@
 		// -- выход из профиля
 		public function logout() {
 			$this->toAuth(self::$user_id, '', time() - 30*24*3600);
+			$this->url->redirect('::referer');
+		}		
+		
+		
+		public function addquest() {
+			if (!empty(self::$user_id)) {
+				session_start();
+				$pid = 40;
+				
+				// -- валидация на заполненность				
+				if (empty($_POST['question'])) {
+					$this->session->set('alert', 'Поле вопроса не было заполнено');
+					$this->url->redirect('::referer');
+				}
+				
+				$user	=	$this->profile->getUser(self::$user_id);
+				
+				// -- подготовка данных
+				$faq = array(
+					'ip'           => (!empty($_SERVER['HTTP_X_FORWARED_FOR'])) ? $_SERVER['HTTP_X_FORWARED_FOR'] : $_SERVER['REMOTE_ADDR'],
+					'fioUser'      => trim($user['lastname']).' '.trim($user['name']).' '.trim($user['middlename']),
+					'email'        => (!empty($user['email']))    	? trim($user['email'])    : false,
+					'phone'        => (!empty($user['tel']))    	? trim($user['tel'])    : false,
+					'question'     => (!empty($_POST['question'])) 	? trim($_POST['question']) : false,
+					'dateQuestion' => $this->date->sql_format(time(), true),
+					// 'feedback'     => (int)$_POST['feedback'],
+					'pid'          => $pid,
+					'user_id'	   => self::$user_id,
+				);
+				
+				// -- извлечение конфига
+				$config = $this->faq->getConfig($pid);
+
+				// -- режим "вопросы добавляются сразу"
+				if(!empty($config['out_valid'])) {
+					$faq['active'] = 1;
+				}
+				
+				if(!($id = $this->db->insert('faq', $faq))) {
+					$this->session->set('alert', 'Возникла ошибка при добавлении вопроса');
+					$this->url->redirect('::referer');
+				}
+				$_POST['id'] = $id;
+				
+				// -- режим "отправляем админу уведомление"
+				$config['send_notice'] = $this->config->get('contact_email', 'site');
+				if(!empty($config['send_notice'])) {
+					$to_email = $this->config->get('contact_email', 'site');
+					$_POST['domain']       = $this->config->get('domain', 'site');
+					$_POST['dateQuestion'] = $this->date->format(date('Y-m-d H:i:s'));
+					$letter = $this->html->render('letters/faq_admin.html', $_POST);
+					$this->mail->send_mail($to_email, $letter);
+				}
+				
+				// OK
+				$this->session->set('alert', 'Ваш вопрос успешно добавлен');				
+			}			
 			$this->url->redirect('::referer');
 		}
 		

@@ -24,7 +24,24 @@
 	});	
 
 	$(document).ready(function() {
-	
+
+		faq_user_ajax = function(page, pid) {	
+			$.ajax({
+				url:  '/popup/faq/faq_user_ajax/',
+				type: 'POST',
+				dataType : 'JSON',
+				data: {
+					'page':page,
+					'pid':pid
+				},
+
+				success:  function(result) {
+					$('.questions').html(result);
+					$('.test_fon').css('height', $('.questions ul').height()+100);
+				}
+			});
+			return false;
+		}	
 	
 		// -- обработчик на все формы авторизации
 		// $('.login_form').submit(function() {

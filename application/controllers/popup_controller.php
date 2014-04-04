@@ -34,7 +34,8 @@ class popup_controller extends application_controller {
 	}
 
 	public function fancy_faq(){
-		echo $this->html->render('popup/faq.html', array());
+		$user = $this->profile->getUser(self::$user_id);
+		echo $this->html->render('popup/faq.html', $user);
 		die();
 	}
 }

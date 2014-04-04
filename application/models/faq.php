@@ -7,15 +7,16 @@
 			return $this->db->get_row($sql);
 		}
 		
-		public function getFaqsCount($pid, $is_active_only) {
+		public function getFaqsCount($pid, $is_active_only, $user_id = false) {
 			$sql  = 'SELECT COUNT(*) '.
-					'FROM faq WHERE pid = '.(int)$pid.($is_active_only ? ' AND active = 1' : '');
+					'FROM faq WHERE pid = '.(int)$pid.($is_active_only ? ' AND active = 1' : '').' '.(!empty($user_id) ? ' AND user_id = '.$user_id.' ' : '');
 			return $this->db->get_one($sql);
 		}
 		
-		public function getFaqs($pid, $page, $count, $is_active_only) {
+		public function getFaqs($pid, $page, $count, $is_active_only, $user_id = false) {
 			$sql  = 'SELECT *, IF(dateAnswer IS NULL, dateQuestion, dateAnswer) sortDate '.
-					'FROM faq WHERE pid = '.(int)$pid.($is_active_only ? ' AND active = 1' : '').' ORDER BY dateQuestion DESC LIMIT '.($page * $count).', '.$count;
+					'FROM faq WHERE pid = '.(int)$pid.($is_active_only ? ' AND active = 1' : '').' '.(!empty($user_id) ? ' AND user_id = '.$user_id.' ' : '').' ORDER BY dateQuestion DESC LIMIT '.($page * $count).', '.$count;
+			
 			return $this->db->get_all($sql);
 		}
 		

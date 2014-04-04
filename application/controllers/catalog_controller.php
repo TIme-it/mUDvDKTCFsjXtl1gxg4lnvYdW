@@ -379,9 +379,10 @@
 						}	else {
 							$item['url'] = '/popup/all/addkursy/'.$item['id'].'/';
 							$item['button']	=	' signup_button';
-						}
+						}						
 					} else
 						$item['url'] = '/popup/signup/';
+					$item['link'] = $this->get_url($item['lid']);
 				}
 			}
 			

@@ -7,6 +7,7 @@
 		
 		public function __construct() {
 			parent::__construct();
+			$this->path_profile  = $this->config->get('profile', 'files');
 			$this->path  = $this->config->get('faq', 'files');
 			$this->count = $this->config->get('faq_count','site');
 		}
@@ -71,6 +72,19 @@
 				$faq['list'][0]['first'] = true;
 				foreach($faq['list'] as $i => &$item) {
 
+					$item['avatar_src'] = '/application/includes/images/profile/avatar_default_men.png';				
+					if (!empty($item['user_id'])) {
+						if(file_exists($this->path_profile.'ava_b'.DS.self::$user_id.'.jpg')) {
+							$item['avatar_src'] = '/application/includes/profile/ava_b/'.self::$user_id.'.jpg?_='.rand(0, 10000);					
+						}				
+						if(file_exists($this->path_profile.'ava_b'.DS.self::$user_id.'.png')) {
+							$item['avatar_src'] = '/application/includes/profile/ava_b/'.self::$user_id.'.png?_='.rand(0, 10000);
+						}				
+						if(file_exists($this->path_profile.'ava_b'.DS.self::$user_id.'.gif')) {
+							$item['avatar_src'] = '/application/includes/profile/ava_b/'.self::$user_id.'.gif?_='.rand(0, 10000);
+						}				
+					}				
+				
 					$item['num'] = $faq['start'] + $i;
 					// $item['fioUser'] = $this->morph->get_all($item['fioUser']);
 					// $item['fioUser'] = $item['fioUser']['r'];
@@ -131,6 +145,19 @@
 				$template     = (empty($faq['template'])) ? 'layoutFaq' : $faq['template'];
 				$template_num = ($template == 'layoutFaq2') ? '2' : '';
 				foreach($faq['list'] as $i => &$item) {
+					$item['avatar_src'] = '/application/includes/images/profile/avatar_default_men.png';				
+					if (!empty($item['user_id'])) {
+						if(file_exists($this->path_profile.'ava_b'.DS.self::$user_id.'.jpg')) {
+							$item['avatar_src'] = '/application/includes/profile/ava_b/'.self::$user_id.'.jpg?_='.rand(0, 10000);					
+						}				
+						if(file_exists($this->path_profile.'ava_b'.DS.self::$user_id.'.png')) {
+							$item['avatar_src'] = '/application/includes/profile/ava_b/'.self::$user_id.'.png?_='.rand(0, 10000);
+						}				
+						if(file_exists($this->path_profile.'ava_b'.DS.self::$user_id.'.gif')) {
+							$item['avatar_src'] = '/application/includes/profile/ava_b/'.self::$user_id.'.gif?_='.rand(0, 10000);
+						}				
+					}				
+				
 					$item['num'] = $faq['start'] + $i;
 					if(!empty($item['answer'])) {
 						$item['dateAnswer'] = $this->date->format($item['dateAnswer']);
@@ -152,6 +179,68 @@
 					$item['dateQuestion'] = $this->date->format5($item['dateQuestion']);
 					$item['last'] = ($i+1 == count($faq['list'])) ? true : false;
 				}
+				$res['faqList'] = $this->html->render('faqs/listFaq'.$template_num.'.html', $faq);
+				if($template_num == '2') {
+					$res['faqListPrev'] = $this->html->render('faqs/listFaqPrev2.html', $faq);
+				} else $res['faqListPrev'] = '';
+			}
+			echo json_encode($this->html->render('faqs/listFaq'.$template_num.'.html', $faq));
+			die();
+			// die(json_encode($res));
+		}		
+		
+		public function faq_user_ajax() {
+
+			$pid = $_POST['pid'];
+			$page = $_POST['page'];
+
+			$res=array();
+			$faq = $this->faq->getMainInfo($pid);
+			$faq['config'] = unserialize($faq['config']);
+			$out_valid     = (bool)$faq['config']['out_valid'];
+			
+			$faq_count = $this->config->get('faq_count', 'site');
+			$faq_all_count = $this->faq->getFaqsCount($pid, !$out_valid, self::$user_id);
+			$faq['pagination'] = $this->pagination_controller->index_ajax($faq_all_count, $faq_count, $page, 'faq_user_ajax', ','.$pid);
+			
+			$faq['list'] = $this->faq->getFaqs($pid, $page-1, $faq_count, !$out_valid, self::$user_id);
+			if(!empty($faq['list'])) {
+				$faq['start'] = (($page-1) * $this->count) + 1;
+				$template     = (empty($faq['template'])) ? 'layoutFaq' : $faq['template'];
+				$template_num = ($template == 'layoutFaq2') ? '2' : '';
+				foreach($faq['list'] as $i => &$item) {
+					$item['avatar_src'] = '/application/includes/images/profile/avatar_default_men.png';				
+					if(file_exists($this->path_profile.'ava_b'.DS.self::$user_id.'.jpg')) {
+						$item['avatar_src'] = '/application/includes/profile/ava_b/'.self::$user_id.'.jpg?_='.rand(0, 10000);					
+					}				
+					if(file_exists($this->path_profile.'ava_b'.DS.self::$user_id.'.png')) {
+						$item['avatar_src'] = '/application/includes/profile/ava_b/'.self::$user_id.'.png?_='.rand(0, 10000);
+					}				
+					if(file_exists($this->path_profile.'ava_b'.DS.self::$user_id.'.gif')) {
+						$item['avatar_src'] = '/application/includes/profile/ava_b/'.self::$user_id.'.gif?_='.rand(0, 10000);
+					}				
+					$item['num'] = $faq['start'] + $i;
+					if(!empty($item['answer'])) {
+						$item['dateAnswer'] = $this->date->format($item['dateAnswer']);
+						
+						if ( mb_strlen($item['answer'],'UTF-8')>400 ) {
+							$item['short'] = mb_substr($item['answer'],0,400,'UTF-8');
+							if (preg_match('/^(.*)\.\s/i', $item['short'], $match)) {
+								$item['short'] = $match[0];
+							}else {
+								$item['short'] .= '...';
+							};						
+							
+							//Ссылка на полный ответ
+							$item['full_answer'] = '/faq/one_view/'.$item['id'];
+						}
+						
+						$item['isAnswer']   = $this->html->render('faqs/answer'.$template_num.'.html', $item);
+					}
+					$item['dateQuestion'] = $this->date->format5($item['dateQuestion']);
+					$item['last'] = ($i+1 == count($faq['list'])) ? true : false;
+				}
+				
 				$res['faqList'] = $this->html->render('faqs/listFaq'.$template_num.'.html', $faq);
 				if($template_num == '2') {
 					$res['faqListPrev'] = $this->html->render('faqs/listFaqPrev2.html', $faq);
@@ -190,11 +279,7 @@
 		}
 
 		public function sendQuestion() {
-			// -- валидация на каптчу
-			// if($_POST['captcha'] !== $this->session->get('captcha_faq')) {
-			// 	$this->session->set('alert', 'Вы не верно ввели код с картинки');
-			// 	$this->url->redirect('::referer');
-			// }
+
 			session_start();
 			$pid = (int)$_POST['pid'];
 
@@ -203,8 +288,9 @@
 				$this->url->redirect('::referer');
 			}
 			// -- валидация на заполненность
-			// if(!$faq['fioUser'] || !$faq['email']) {
-			if((!$_POST['surname']) || (!$_POST['name']) || (!$_POST['secname']) || (!$_POST['email']) || (!$_POST['question'])) {
+			
+			if((empty($_POST['surname'])) || (empty($_POST['name'])) || (empty($_POST['secname'])) || (empty($_POST['email'])) 
+				|| (empty($_POST['question']))) {
 				$this->session->set('alert', 'Некоторые поля были не заполнены');
 				$this->url->redirect('::referer');
 			}
@@ -219,7 +305,7 @@
 				'dateQuestion' => $this->date->sql_format(time(), true),
 				// 'feedback'     => (int)$_POST['feedback'],
 				'pid'          => $pid,
-				// 'company'	   => (!empty($_POST['company']))  ? trim($_POST['company'])  : false,
+				'user_id'	   => self::$user_id,
 			);
 			
 			// -- извлечение конфига
