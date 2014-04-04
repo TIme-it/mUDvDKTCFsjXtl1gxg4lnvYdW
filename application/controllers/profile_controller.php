@@ -14,6 +14,7 @@
 		
 		// -- профиль юзера
 		public function index() {
+			$out_valid = 1;
 			if(empty(self::$user_id)) {
 				$this->html->render('profile/login.html', array(), 'content');
 			} else {

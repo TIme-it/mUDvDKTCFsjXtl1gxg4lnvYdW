@@ -15,15 +15,8 @@
 			//Список пользователей
 			$user_id = $this->session->get('admin');
 			$role['users'] = $this->users->getUsers();
-			if (!empty($role['users'])) {
-				foreach ($role['users'] as &$v) {
-					if ($v['role_id'] == 0) $v['role'] = '&nbsp;нет роли';
-					else $v['role'] = '<a href="/admin/role/role/'.$v['role_id'].'/" style="margin-left: 3px;">'.$v['title'].'</a>';
-					
-					if ($v['pid'] == 0) $v['creator'] = '&nbsp;Главный администратор';
-					else $v['creator'] = '<a href="/admin/role/user/'.$v['pid'].'/" style="margin-left: 3px;">'.$v['creator'].'</a>';
-				}
-			} else $role['message'] = '<div style="margin:5px 0 5px 14px;">Пользователей нет</div>';
+			if (empty($role['users']))
+				$role['message'] = '<div style="margin:5px 0 5px 14px;">Пользователей нет</div>';
 									
 			$this->html->tpl_vars['content_path'] = $this->html->render('users/view.html', $role);
 		}

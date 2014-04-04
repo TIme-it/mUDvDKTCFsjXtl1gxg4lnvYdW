@@ -100,7 +100,7 @@
 		//Выборка дочерних пользователей
 		public function getSubUsers($pid, $only_ids = false) {
 			$res = array();
-			$this->getSubUsersLevel($pid, $res, $only_ids);
+			// $this->getSubUsersLevel($pid, $res, $only_ids);
 			return $res;
 		}
 		
