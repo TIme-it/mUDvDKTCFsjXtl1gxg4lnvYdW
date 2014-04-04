@@ -4397,3 +4397,17 @@ pre {
     -moz-box-shadow: 0 0 2px #F0EFE7;
     box-shadow: 0 0 2px #F0EFE7;
 }
+
+#soc_but {
+    height: 30px;
+    margin-top: 15px;
+}
+
+#soc_but .left {
+    float: left;
+    width: 150px;
+}
+
+.fb_iframe_widget_lift {
+    z-index: 9 !important;
+}

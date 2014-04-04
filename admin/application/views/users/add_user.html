@@ -63,7 +63,7 @@
 			
 			obj = form.find('#email');
 			if (obj.val() == '' || obj.val() == 'E-mail') {
-				errors.push('Введите свой e-mail');
+				errors.push('Введите e-mail');
 			} else {
 				var template = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
 				if (! template.test(obj.val())) {

@@ -29,6 +29,12 @@
 			$_SESSION['id'] =$this->profile_controller->detectUser();// збс
 			// -- определение аутентификации			
 			$this->profile_controller->detectUser();
+			
+			if (!empty(self::$user_id)) {
+				$user = $this->profile->getUser(self::$user_id);
+				$this->html->tpl_vars['auth_title'] = $user['login'];
+				$this->html->tpl_vars['auth'] 		= " exist";
+			}
 
 			$this->title = htmlspecialchars_decode($this->config->get('title_browser','site'));
 			if($_SERVER['SERVER_NAME']=='midpo.ru'){
@@ -38,12 +44,15 @@
 			$this->html->tpl_vars['title_h1'] 	   = $this->config->get('title_h1','site');
 			$this->html->tpl_vars['contact_email'] = $this->config->get('contact_email','site');
 			$this->html->tpl_vars['contact_email1'] = $this->config->get('contact_email1','site');
-
+			
+			$this->html->tpl_vars['social']  = $this->html->render('pages/social_buttons.html');
+			
 			/* HEADER BLOCK BEGIN */
 			$this->html->tpl_vars['logo_text'] = $this->config->get('logo_text','site');
 			$this->html->tpl_vars['header'] = $this->html->render('layouts/header.html');
 			/* HEADER BLOCK END */
 
+			
 			// -- счетчик
 			$this->html->tpl_vars['left_banner'] = $this->visban_controller->show(6);
 			
@@ -123,6 +132,9 @@
 				$this->session->del('alert');
 				$this->html->tpl_vars['alert'] = $alert;
 			}
+			
+			
+			
 			
 			// -- выводим всё на экран
 			echo $this->html->render('layouts/layout_'.$this->layout.'.html');

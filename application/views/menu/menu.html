@@ -1,21 +1,26 @@
 <div class="menu_block">
 	<a href="/" class="logo"><img src="/application/includes/images/head_logo.png" alt="" /></a>
 	<a href="/" class="logo_text">{logo_text}</a>
+	{?auth}
 	<div class="head_info auth">
 		<p>Добро пожаловать на сайт,</p>
-		<a href="/profile/"><span>Гость</span></a>
-	</div>	
-	<!-- <div class="head_info not_auth">
-		<a href="/profile/login/"><span>Вход</span></a>
-	</div>	 -->
+		<a href="/profile/"><span>{auth_title}</span></a>
+	</div>
+	{/?auth}		
+	{!auth}
+	<div class="head_info not_auth">
+		<a href="javascript:void(0);" ><span>Вход</span></a>
+	</div>
+	{/!auth}	
 	<div class="login_block">
 		<span>Введите</span>
-		<form action="/profile/login/">
+		<form action="/profile/login/" method="post" >
 			<fieldset>
 				<input type="text" name="login" id="login" placeholder="логин">
-				<input type="text" name="password" id="password" placeholder="и пароль">
+				<input type="password" name="pass" id="password" placeholder="и пароль">
 				<div></div>
 			</fieldset>
+			<input type="hidden" name="remember" id="checkbox" value="1">
 			<a href="#" class="enter_button submit_button"></a>
 			<div class="clear"></div>
 		</form>
