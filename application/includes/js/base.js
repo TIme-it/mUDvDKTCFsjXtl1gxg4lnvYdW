@@ -199,8 +199,20 @@ var img_big_h = 480;
 		// Заглшука на ссылки
 		$('a[href="#"]').on('click', function(){
 			return false;
+		})		
+		
+		$('.head_info.not_auth').on('click', function(){
+			$('.login_block').show();
+			return false;
 		})
 		
+		$(document).mouseup(function (e) {
+			var container = $(".login_block, .head_info.not_auth");
+			if (container.has(e.target).length === 0){
+				container.hide();
+				$('.head_info.not_auth').show();
+			}
+		});		
 		
 		/* sexycombo курсов начало */
 

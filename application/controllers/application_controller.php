@@ -29,6 +29,12 @@
 			$_SESSION['id'] =$this->profile_controller->detectUser();// збс
 			// -- определение аутентификации			
 			$this->profile_controller->detectUser();
+			
+			if (!empty(self::$user_id)) {
+				$user = $this->profile->getUser(self::$user_id);
+				$this->html->tpl_vars['auth_title'] = $user['login'];
+				$this->html->tpl_vars['auth'] 		= " exist";
+			}
 
 			$this->title = htmlspecialchars_decode($this->config->get('title_browser','site'));
 			if($_SERVER['SERVER_NAME']=='midpo.ru'){
@@ -44,6 +50,7 @@
 			$this->html->tpl_vars['header'] = $this->html->render('layouts/header.html');
 			/* HEADER BLOCK END */
 
+			
 			// -- счетчик
 			$this->html->tpl_vars['left_banner'] = $this->visban_controller->show(6);
 			

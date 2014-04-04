@@ -255,6 +255,8 @@
 						$this->session->set('alert', 'Неправильная пара логин/пароль');
 					}
 				}
+				$this->url->redirect('::referer');
+				die();
 			}
 			$this->html->render('profile/login.html', $data, 'content');
 		}
