@@ -403,11 +403,18 @@
 					// $ava = $this->path.'ava_b'.DS.$user['id'].'.jpg';
 					
 					if(!empty($_FILES['avatar']['tmp_name']) && file_exists($_FILES['avatar']['tmp_name'])) {
+						
 						$ext	=	$this->getExtension($_FILES['avatar']['name']);						
 						switch ($ext) {
 							case "jpg":								
 							case "gif":								
 							case "png":
+								if(file_exists($this->path.'ava_b'.DS.self::$user_id.'.jpg')) 			
+									unlink($this->path.'ava_b'.DS.self::$user_id.'.jpg');											
+								if(file_exists($this->path.'ava_b'.DS.self::$user_id.'.png')) 			
+									unlink($this->path.'ava_b'.DS.self::$user_id.'.png');										
+								if(file_exists($this->path.'ava_b'.DS.self::$user_id.'.gif')) 		
+									unlink($this->path.'ava_b'.DS.self::$user_id.'.gif');															
 								$file	=	$this->path.'ava_b'.DS.self::$user_id.'.'.$ext;
 								copy($_FILES['avatar']['tmp_name'], $file);
 								$img	=	$this->image->analyze($file);
