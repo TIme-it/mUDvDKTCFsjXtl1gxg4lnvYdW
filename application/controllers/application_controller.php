@@ -44,7 +44,9 @@
 			$this->html->tpl_vars['title_h1'] 	   = $this->config->get('title_h1','site');
 			$this->html->tpl_vars['contact_email'] = $this->config->get('contact_email','site');
 			$this->html->tpl_vars['contact_email1'] = $this->config->get('contact_email1','site');
-
+			
+			$this->html->tpl_vars['social']  = $this->html->render('pages/social_buttons.html');
+			
 			/* HEADER BLOCK BEGIN */
 			$this->html->tpl_vars['logo_text'] = $this->config->get('logo_text','site');
 			$this->html->tpl_vars['header'] = $this->html->render('layouts/header.html');
@@ -130,6 +132,9 @@
 				$this->session->del('alert');
 				$this->html->tpl_vars['alert'] = $alert;
 			}
+			
+			
+			
 			
 			// -- выводим всё на экран
 			echo $this->html->render('layouts/layout_'.$this->layout.'.html');

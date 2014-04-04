@@ -4288,3 +4288,17 @@ ymaps {
 .right .unsignup_button {
 	float: right;
 }
+
+#soc_but {
+height: 30px;
+margin-top: 15px;
+}
+
+#soc_but .left {
+float: left;
+width: 150px;
+}
+
+.fb_iframe_widget_lift {
+z-index: 9 !important;
+}
