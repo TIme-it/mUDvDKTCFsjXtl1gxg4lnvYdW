@@ -88,6 +88,9 @@
 			header('HTTP/1.0 404 Not Found');
 			$this->html->render('main/page_404.html', array(), 'content');
 		}
+		
+
+				
 
 	}
 ?>

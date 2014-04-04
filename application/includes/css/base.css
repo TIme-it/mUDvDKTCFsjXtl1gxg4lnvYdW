@@ -1,4 +1,4 @@
-/** @TODO A.Lidonov 20.01 Вынести формы в отдельную секцию
+﻿/** @TODO A.Lidonov 20.01 Вынести формы в отдельную секцию
  * 
  */
 
@@ -4283,4 +4283,8 @@ ymaps {
 
 #profile .left_side .subscription .subs_img.off {
 	background: url(/application/includes/images/profile/subscription.png) transparent no-repeat 0px -87px;
+}
+
+.right .unsignup_button {
+	float: right;
 }

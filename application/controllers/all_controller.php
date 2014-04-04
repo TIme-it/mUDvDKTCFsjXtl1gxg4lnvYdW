@@ -479,5 +479,34 @@
 			echo $sended;
 			die();
 		}
+		
+		public function addkursy($id = false) {
+			if (!empty(self::$user_id))  {				
+				$KursyUser	=	$this->catalog->getKursyUser($id, self::$user_id);
+				if (empty($KursyUser)) {				
+					$data	=	array(
+						'catalog_id'	=>	(int)$id,
+						'user_id'		=>	self::$user_id,						
+					);
+					$id = $this->db->insert('catalog_users', $data);
+					
+					$user = $this->profile->getUser(self::$user_id);
+					$user['course_title']	=	$this->catalog->getTitleProduct((int)$id);
+					$letter	=	$this->html->render('letters/signup_authuser.html', $user);
+					$to			=	$this->config->get('contact_email','site');
+					$subject	=	'Запись на курсы';
+					$this->mail->send_mail($to, $letter, $subject);
+					
+				}				
+			} 			
+			$this->url->redirect('::referer');			
+		}		
+		
+		public function delkursy($id = false) {
+			if (!empty(self::$user_id))  {				
+				$this->db->delete('catalog_users', array('catalog_id' => $id, 'user_id' => self::$user_id));						
+			} 			
+			$this->url->redirect('::referer');			
+		}
 	}
 ?>

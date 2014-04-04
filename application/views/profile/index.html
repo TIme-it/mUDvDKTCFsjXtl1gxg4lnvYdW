@@ -79,6 +79,27 @@
 			<div id="tabs-2">
 				<p>Вы подписаны на следующие курсы:</p>
 				<ul id="product">
+					
+					{product_list}
+					<li>
+						<div class="info">
+							<span class="number">{num}. </span>
+							<p class="title">{title}</p>
+							<div class="clear"></div>
+						</div>
+						<div class="right">
+							<div class="hours_link">
+								<p class="hour">{hours}</p>
+								<a class="link" href="{url}">подробнее...</a>
+							</div>
+							<a class="unsignup_button" href="/popup/all/delkursy/{id}/" ></a>
+						</div>
+						<div class="clear"></div>
+					</li>					
+					{/product_list}
+					
+					
+					<!--
 					<li>
 						<div class="info">
 							<span class="number">1. </span>
@@ -123,7 +144,7 @@
 							<a class="unsignup_button" data-title="{title}" href="/popup/unsignup/"href="#"></a>
 						</div>
 						<div class="clear"></div>
-					</li>
+					</li>-->
 				</ul>
 			</div>
 			<div id="tabs-3">

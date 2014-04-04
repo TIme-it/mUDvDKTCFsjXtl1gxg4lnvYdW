@@ -167,7 +167,19 @@
 		public function getMainProductList($cid) {
 			$sql = 'SELECT * FROM catalog WHERE cid = '.(int)$cid;
 			return $this->db->get_row($sql);
+		}		
+		
+		public function getKursyUser($catalog_id, $user_id) {
+			$sql = 'SELECT * FROM catalog_users WHERE catalog_id	=	'.(int)$catalog_id.' AND user_id	=	'.$user_id;
+			return $this->db->get_row($sql);
 		}
+		
+		public function getKursyUserALL($user_id) {
+			$sql = 'SELECT c.* FROM catalog_users cu, catalog c  WHERE cu.user_id = '.(int)$user_id.' AND cu.catalog_id = c.id ORDER BY c.id ASC';
+			
+			return $this->db->get_all($sql);
+		}		
+	
 		
 		// -- данные о продуктах категории
 		public function getCategoryProduct($cid, $pid) {
