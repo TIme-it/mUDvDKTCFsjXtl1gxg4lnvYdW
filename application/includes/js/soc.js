@@ -139,7 +139,7 @@ $(document).ready(function() {
 	
 	
 	twttr.anywhere(function (T) {
-			$('#button_tw').live('click',function() {
+			$('#button_tw').on('click',function() {
 				if (T.isConnected()) {
 					$.ajax({
 						url: '/profile/twauthAjax/',
@@ -178,7 +178,7 @@ $(document).ready(function() {
 			});		
 		});	
 
-	$('#button_ok').live('click',function(){
+	$('#button_ok').on('click',function(){
 		
 		// location.href ='http://www.odnoklassniki.ru/oauth/authorize?client_id=127037440&scope={scope}&response_type={responseType}&redirect_uri={redirectUri}'
 		location.href ='http://www.odnoklassniki.ru/oauth/authorize?client_id=127037440&scope=SET STATUS;VALUABLE ACCESS&response_type=code&redirect_uri=http://italcity.ru/profile/okauthAjax/'
@@ -187,7 +187,7 @@ $(document).ready(function() {
 		return false;
 	})
 	// $('#button_lj').hide();
-	$('#button_lj').live('click',function(){
+	$('#button_lj').on('click',function(){
 		location.href = 'https://loginza.ru/api/widget?token_url=http://italcity.ru/profile/ljauthAjax/&providers_set=livejournal&provider=livejournal'
 		// location.href = 'https://loginza.ru/api/widget?token_url=http://italcity.ru/profile/ljauthAjax/'
 		return false;

@@ -424,6 +424,9 @@
 					}					
 					
 					// -- сохраняем данные о юзере
+					$user = $this->profile->getUser(self::$user_id);
+					if (empty($_POST['email']))
+						$_POST['email']	=	$user['email'];
 					$user = array(
 						'bday'  		=> $bday,
 						'name'  		=> strip_tags($_POST['name']),
