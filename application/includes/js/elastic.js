@@ -322,7 +322,7 @@
 		// Правая кнопка слайдера
 		$('#main_slider #rightArrow').on('click', function(){
 			if($(this).hasClass('active')){
-				right_jsp();
+				// right_jsp();
 				slide_animation();
 
 				hide_obj.removeClass('hide');
@@ -342,7 +342,7 @@
 		// Левая кнопка слайдера
 		$('#main_slider #leftArrow').on('click', function(){
 			if($(this).hasClass('active')){
-				left_jsp();
+				// left_jsp();
 				slide_animation();
 
 				hide_obj.removeClass('hide');
