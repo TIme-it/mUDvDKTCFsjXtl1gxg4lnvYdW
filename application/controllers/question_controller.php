@@ -91,6 +91,12 @@
 			die();
 		}
 
+		// Анкета
+		public function form(){
+			$this->layout='news';
+			$this->html->render('question/form.html', array(), 'content');
+		}
+
 		// Отправка письма для формы "Заказать звонок"
 		public function phone_call(){
 			session_start();
