@@ -4508,12 +4508,14 @@ pre {
 }
 
 #notebook .right {
+    position: relative;
     float: right;
 }
 
 #notebook .right img.pen_img {
-    margin-top: 160px;
-    margin-right: 80px;
+    position: absolute;
+    top: 160px;
+    right: 80px;
 }
 
 /* QUESTION FORM BLOCK END */
