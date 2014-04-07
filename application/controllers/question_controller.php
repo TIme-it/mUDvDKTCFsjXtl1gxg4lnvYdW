@@ -93,8 +93,61 @@
 
 		// Анкета
 		public function form(){
-			$this->layout='news';
-			$this->html->render('question/form.html', array(), 'content');
+			$data['course_list'] = $this->question->getCourses(2);
+
+			$this->layout = 'profile';
+			$this->html->render('question/form.html', $data, 'content');
+		}
+
+		// Отправка анкеты
+		public function sendForm(){
+			session_start();
+			if ((!empty($_POST['capcha'])) && ($_POST['capcha'] != $_SESSION['captcha_form'])) {
+				$this->session->set('alert', 'Вы ввели неверный код');
+				$this->url->redirect('::referer');
+			}
+
+			$data = array(
+					'fio' => (!empty($_POST['fio'])   && trim($_POST['fio'])   != '') ? strip_tags(trim($_POST['fio']))         : false,
+					'phone' => (!empty($_POST['phone'])  && trim($_POST['phone'])  != '') ? nl2br(strip_tags(trim($_POST['phone']))) : false,
+					'email' => (!empty($_POST['email']) && trim($_POST['email']) != '') ? strip_tags(trim($_POST['email']))       : false,
+					'course' => (!empty($_POST['course']) && trim($_POST['course']) != '') ? strip_tags(trim($_POST['course']))       : false,
+					'q_1' => (!empty($_POST['q_1']) && trim($_POST['q_1']) != '') ? strip_tags(trim($_POST['q_1']))       : false,
+					// некогда объяснять!
+					'q_2_1' =>(!empty($_POST['q_2_1']) && trim($_POST['q_2_1']) != '') ? strip_tags(trim($_POST['q_2_1']))       : false,
+					'q_2_2' =>(!empty($_POST['q_2_2']) && trim($_POST['q_2_2']) != '') ? strip_tags(trim($_POST['q_2_2']))       : false,
+					'q_2_3' =>(!empty($_POST['q_2_3']) && trim($_POST['q_2_3']) != '') ? strip_tags(trim($_POST['q_2_3']))       : false,
+					'q_2_4' =>(!empty($_POST['q_2_4']) && trim($_POST['q_2_4']) != '') ? strip_tags(trim($_POST['q_2_4']))       : false,
+					'other' => (!empty($_POST['other']) && trim($_POST['other']) != '') ? strip_tags(trim($_POST['other']))       : false,
+					'q_3' => (!empty($_POST['q_3']) && trim($_POST['q_3']) != '') ? strip_tags(trim($_POST['q_3']))       : false,
+					'q_4' => (!empty($_POST['q_4']) && trim($_POST['q_4']) != '') ? strip_tags(trim($_POST['q_4']))       : false,
+				);
+
+			// -- валидация на незаполненность
+			if(!$data['fio'] || !$data['email']) {
+				$this->session->set('alert', 'Некоторые поля были не заполнены');
+				$this->url->redirect('::referer');
+			}
+
+			// -- отправка письма
+			$sended = false;
+			$letter = $this->html->render('letters/anform.html', $data);
+
+			$email  = $this->config->get('feedback_email', 'site');
+			if(isset($_FILES['file']['error'])) {
+				if(isset($_FILES['file']['tmp_name']) && file_exists($_FILES['file']['tmp_name'])) {
+					$sended = $this->mail->send_mail($email, $letter, false, array($_FILES['file']['name'] => $_FILES['file']['tmp_name']));				
+				} else{
+					$sended = $this->mail->send_mail($email, $letter);
+				}
+			} else {
+				$sended = $this->mail->send_mail($email, $letter);
+			}
+			// -- формирование сообщения + редирект
+			$message = $sended ? 'Ваша анкета была успешно отправлена' : 'При отправке анкеты произошла ошибка';
+			$this->session->set('alert', $message);
+			$this->url->redirect('::referer');
+
 		}
 
 		// Отправка письма для формы "Заказать звонок"

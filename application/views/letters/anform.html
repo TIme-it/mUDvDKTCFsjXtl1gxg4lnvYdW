@@ -1,0 +1,22 @@
+<h3>Пришло новое сообщение с сайта</h3>
+<h3>Анкета</h3>
+<table border="0" cellpadding="5">
+	<tr><td valign="top"><b>ФИО:</b></td>
+		<td valign="top">{fio}</td></tr>
+	{?q_1}<tr><td valign="top"><b>Как Вы оцениваете содержание нашего сайта?</b></td>
+		<td valign="top">{q_1}</td></tr>{/?q_1}
+	<tr><td valign="top"><b>Какие каналы получения информации Вы используете при поиске курсов дополнительного профессионального образования?</b></td>
+		{?q_2_1}<td valign="top">{q_2_1}</td>{/?q_2_1}
+		{?q_2_2}<td valign="top">{q_2_2}</td>{/?q_2_2}
+		{?q_2_3}<td valign="top">{q_2_3}</td>{/?q_2_3}
+		{?q_2_4}<td valign="top">другое: {other}</td>{/?q_2_4}
+		<td valign="top">{other}</td></tr>
+	{?q_3}<tr><td valign="top"><b>Курсы дополнительного профессионального образования интересны Вам в плане:</b></td>
+		<td valign="top">{q_3}</td></tr>{/?q_3}
+	{?q_4}<tr><td valign="top"><b>Какой формат обучения для Вас предпочтителен:</b></td>
+		<td valign="top">{q_4}</td></tr>{/?q_4}
+	{?phone}<tr><td valign="top"><b>Контактный телефон:</b></td>
+		<td valign="top">{phone}</td></tr>{/?phone}
+	<tr><td valign="top"><b>e-mail:</b></td>
+		<td valign="top">{email}</td></tr>
+</table>

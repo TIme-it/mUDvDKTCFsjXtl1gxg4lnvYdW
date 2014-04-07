@@ -1,83 +1,124 @@
-<h1>Анкета</h1>
-<p class="f_discript">Уважаемые слушатели курсов, предлагаем вам заполнить анкету, ответы на которую позволят нам эффективно выстроить вышеозначенную деятельность.</p>
-<div id="notebook">
-	<form action="#">
-		<div class="left">
-			<ol>
-				<li>
-					<p>Как Вы оцениваете содержание нашего сайта?</p>
-					<fieldset>
-						<input id="like" type="radio" name="question_1" value="0">
-		     			<label for="like" class="radio">нравится</label>
-						<input id="dislike" type="radio" name="question_1" value="1">
-		     			<label for="dislike" class="radio">не нравится</label>
-					</fieldset>
-				</li>
-				<li>
-					<p>Какие каналы получения информации Вы используете при поиске курсов дополнительного профессионального образования?</p>
-					<fieldset>
-						<input id="internet" type="checkbox" name="question_2" value="0">
-		     			<label for="internet">интернет</label>
-						<input id="magazine" type="checkbox" name="question_2" value="1">
-		     			<label for="magazine">газеты и журналы</label>
-						<input id="recommendations" type="checkbox" name="question_2" value="3">
-		     			<label for="recommendations">рекомендации коллег и знакомых</label>
-						<input id="other" type="checkbox" name="question_2" value="4">
-		     			<label for="other"><input type="text" id="other_input" name="other"></label>
-		     			
-					</fieldset>
-				</li>
-				<li>
-					<p>Курсы дополнительного профессионального образования интересны Вам в плане:</p>
-					<fieldset>
-						<input id="progress" type="radio" name="question_3" value="0">
-		     			<label for="progress" class="radio">профессионального развития</label>
-						<input id="change" type="radio" name="question_3" value="1">
-		     			<label for="change" class="radio">смены профессиональной деятельности</label>
-					</fieldset>
-				</li>
-				<li>
-					<p>Какой формат обучения для Вас предпочтителен:</p>
-					<fieldset>
-						<input id="fulltime" type="radio" name="question_4" value="0">
-		     			<label for="fulltime" class="radio">очный</label>
-						<input id="fulltime_dist" type="radio" name="question_4" value="1">
-		     			<label for="fulltime_dist" class="radio">очно-дистанционный</label>
-						<input id="dist" type="radio" name="question_4" value="2">
-		     			<label for="dist" class="radio">дистанционный</label>
-					</fieldset>
-				</li>
-			</ol>
-		</div>
-		<div class="right">
-			<fieldset>
-				<label class="big">Представьтесь, пожалуйста:</label>
-				<input id="fio" type="text" name="fio" value="">
-			</fieldset>
-			<fieldset>
-				<label>По какому направлению хотели бы пройти курсы?</label>
-				<select>
-					<option id="-1">выберите из списка</option>
-				</select>
-			</fieldset>
-			<fieldset>
-				<label>Контактный телефон:</label>
-				<input id="phone" type="text" name="phone" value="" placeholder="+7(___)___-__-__">
-			</fieldset>
-			<fieldset>
-				<label>Адрес электронной почты:</label>
-				<input id="email" type="text" name="email" value="" placeholder="e-mail">
-			</fieldset>
-			<fieldset>
-				<img src="/popup/captcha/form" />
-				<input id="captcha" type="text" name="captcha" value="" placeholder="код с картинки">
-			</fieldset>
-			<fieldset>
-				<a href = "#" class = "submit_button confirm_button">
+<div class="mid">
+	<h1>Анкета</h1>
+	<p class="f_discript">Уважаемые слушатели курсов, предлагаем вам заполнить анкету, ответы на которую позволят нам эффективно выстроить вышеозначенную деятельность.</p>
+	<div id="notebook">
+		<form action="/popup/question/sendForm/" method="post" onsubmit="return CheckAnForm($(this));">
+			<div class="left">
+				<ol>
+					<li>
+						<p>Как Вы оцениваете содержание нашего сайта?</p>
+						<fieldset>
+							<input id="like" type="radio" name="q_1" value="нравится">
+			     			<label for="like" class="radio">нравится</label>
+							<input id="dislike" type="radio" name="q_1" value="не нравится">
+			     			<label for="dislike" class="radio">не нравится</label>
+						</fieldset>
+					</li>
+					<li>
+						<p>Какие каналы получения информации Вы используете при поиске курсов дополнительного профессионального образования?</p>
+						<fieldset>
+							<input id="internet" type="checkbox" name="q_2_1" value="интернет">
+			     			<label for="internet">интернет</label>
+							<input id="magazine" type="checkbox" name="q_2_2" value="газеты и журналы">
+			     			<label for="magazine">газеты и журналы</label>
+							<input id="recommendations" type="checkbox" name="q_2_3" value="рекомендации коллег и знакомых">
+			     			<label for="recommendations">рекомендации коллег и знакомых</label>
+							<input id="other" type="checkbox" name="q_2_2_4" value="другое">
+			     			<label for="other"><input type="text" id="other_input" name="other" placeholder="другое"></label>
+			     			
+						</fieldset>
+					</li>
+					<li>
+						<p>Курсы дополнительного профессионального образования интересны Вам в плане:</p>
+						<fieldset>
+							<input id="progress" type="radio" name="q_3" value="профессионального развития">
+			     			<label for="progress" class="radio">профессионального развития</label>
+							<input id="change" type="radio" name="q_3" value="смены профессиональной деятельности">
+			     			<label for="change" class="radio">смены профессиональной деятельности</label>
+						</fieldset>
+					</li>
+					<li class="bott">
+						<p>Какой формат обучения для Вас предпочтителен:</p>
+						<fieldset>
+							<input id="fulltime" type="radio" name="q_4" value="очный">
+			     			<label for="fulltime" class="radio">очный</label>
+							<input id="fulltime_dist" type="radio" name="q_4" value="очно-дистанционный">
+			     			<label for="fulltime_dist" class="radio">очно-дистанционный</label>
+							<input id="dist" type="radio" name="q_4" value="дистанционный">
+			     			<label for="dist" class="radio">дистанционный</label>
+						</fieldset>
+					</li>
+				</ol>
+			</div>
+			<div class="right">
+				<fieldset>
+					<label class="big">Представьтесь, пожалуйста:</label>
+					<input id="fio" type="text" name="fio" value="" placeholder="ФИО">
+				</fieldset>
+				<fieldset class="sel">
+					<label>По какому направлению хотели бы пройти курсы?</label>
+					<div class="select_outer_course">
+						<select name="course" id="course_sel">
+							<option id="-1" value="-1">выберите из списка</option>
+							{course_list}
+								<option id="{id}" value="{title}">{title}</option>
+							{/course_list}
+						</select>
+					</div>
+				</fieldset>
+				<fieldset>
+					<label>Контактный телефон:</label>
+					<input id="phone" type="text" name="phone" value="" placeholder="+7(___)___-__-__">
+				</fieldset>
+				<fieldset>
+					<label>Адрес электронной почты:</label>
+					<input id="email" type="text" name="email" value="" placeholder="e-mail">
+					<div class="en_img"></div>
+				</fieldset>
+				<fieldset class="capcha_set">
+					<img class="capcha_img" src="/popup/captcha/form" />
+					<input id="capcha" type="text" name="capcha" value="" placeholder="код с картинки">
+					<div class="en_img"></div>
+				</fieldset>
+				<fieldset>
+					<a href = "#" class = "submit_button confirm_button">
 						<span>ОТПРАВИТЬ</span>
 					</a>
-			</fieldset>
-			<img class="pen_img" src="/application/includes/images/question_form/pen.png">
-		</div>
-	</form>
+				</fieldset>
+				<div class="pen_img"></div>
+			</div>
+		</form>
+	</div>
 </div>
+
+<script type="text/javascript">
+	(function($) {
+		CheckAnForm = function(form) {
+			var errors = [];
+			var obj = form.find('#fio');
+			if (obj.val() == '') errors.push('Введите ФИО');
+			
+			obj = form.find('#email');
+			if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите электронную почту');
+			
+			
+			if (obj.val() != '') {
+				var template = /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/;
+				if (! template.test(obj.val())) {
+					errors.push('Введен не корректный e-mail');
+				}
+			} else {
+				// errors.push('Введите свой e-mail');
+			}
+
+			obj = form.find('#capcha');
+			if (obj.val() == '' || obj.val() == obj.attr('placeholder')) errors.push('Введите защитный код');
+			
+			if (errors.length > 0) {
+				alert(errors.join('\n\r'));
+				return false;
+			}
+			return true;
+		}
+	})(jQuery);
+</script>

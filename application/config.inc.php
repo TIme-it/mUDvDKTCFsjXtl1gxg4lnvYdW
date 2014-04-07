@@ -1,6 +1,6 @@
 <?php 
 $config["site"]["title_h1"] = "Заголовок &quot;Нашего Сайта&quot; ";
-$config["site"]["contact_email"] = "dorvakd9@gmail.com";
+$config["site"]["contact_email"] = "alextret91@yandex.ru";
 $config["site"]["print_word"] = "";
 $config["site"]["feedback_email"] = "alextret91@yandex.ru";
 $config["site"]["recalls_email"] = "alextret91@yandex.ru";

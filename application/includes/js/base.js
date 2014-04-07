@@ -177,6 +177,14 @@ var img_big_h = 480;
 	
 	
 	$(document).ready(function() {
+		// "другое" в анкете
+		$('#notebook #other_input').on('keyup', function(){
+			$('#notebook #other').prop('checked', 'checked');
+			if($(this).val() == ''){
+				$('#notebook #other').prop('checked', false);
+			}
+		})
+
 		// год в списке 
 		$('a.news_year').on('click', function(){
 			change_news_year_ajax($(this).data('newscount'), $(this).data('pid'), $(this).data('year'));
@@ -269,11 +277,11 @@ var img_big_h = 480;
 
 		/* sexycombo в профиле */
 
-		$("#day, #month, #year, #sex").sexyCombo();
+		$("#day, #month, #year, #sex, #course_sel").sexyCombo();
 
-		$.sexyCombo.deactivate("#day, #month, #year, #sex");
+		$.sexyCombo.deactivate("#day, #month, #year, #sex, #course_sel");
     	$("#activate").bind("click", function () {
-    		$.sexyCombo.activate("#day, #month, #year, #sex");
+    		$.sexyCombo.activate("#day, #month, #year, #sex, #course_sel");
     	});
 
     	$("#empty-combo").sexyCombo({
@@ -284,7 +292,7 @@ var img_big_h = 480;
     		autoFill: true
     	});
 
-    	$('.select_outer_day .combo div.icon, .select_outer_month .combo div.icon, .select_outer_year .combo div.icon, .select_outer_sex .combo div.icon').on('click', function(){
+    	$('.select_outer_day .combo div.icon, .select_outer_month .combo div.icon, .select_outer_year .combo div.icon, .select_outer_sex .combo div.icon, .select_outer_course .combo div.icon').on('click', function(){
 	    	if ($('.list-wrapper').hasClass('visible')){
 	    		$(this).css('background', 'url("/application/includes/images/news/news_counter_btn.png") 0px -81px');
 	    	}
@@ -293,7 +301,7 @@ var img_big_h = 480;
 	    	}
     	})
 
-    	$('.select_outer_day .list-wrapper ul li.visible, .select_outer_month .list-wrapper ul li.visible, .select_outer_year .list-wrapper ul li.visible, .select_outer_sex .list-wrapper ul li.visible').on('click', function(){
+    	$('.select_outer_day .list-wrapper ul li.visible, .select_outer_month .list-wrapper ul li.visible, .select_outer_year .list-wrapper ul li.visible, .select_outer_sex .list-wrapper ul li.visible, .select_outer_course .list-wrapper ul li.visible').on('click', function(){
 	    	if ($('.list-wrapper').hasClass('visible')){
 	    		$('.combo div.icon').css('background', 'url("/application/includes/news/news_counter_btn.png") 0px -81px');
 	    	}
@@ -302,17 +310,17 @@ var img_big_h = 480;
 	    	}
     	})
 
-    	$('.select_outer_day .combo, .select_outer_month .combo, .select_outer_year .combo, .select_outer_sex .combo').focusout(function(){
+    	$('.select_outer_day .combo, .select_outer_month .combo, .select_outer_year .combo, .select_outer_sex .combo, .select_outer_course .combo').focusout(function(){
 	    	$('.combo div.icon').css('background', '');
     	})
 
-    	$('.select_outer_day .combo div.icon, .select_outer_month .combo div.icon, .select_outer_year .combo div.icon, .select_outer_sex .combo div.icon').on('mouseover',function(){
+    	$('.select_outer_day .combo div.icon, .select_outer_month .combo div.icon, .select_outer_year .combo div.icon, .select_outer_sex .combo div.icon, .select_outer_course .combo div.icon').on('mouseover',function(){
     		if ($(this).next('.list-wrapper').hasClass('visible')){
 	    		$(this).css('background', 'url("/application/includes/images/news/news_counter_btn.png") 0px -108px');
 	    	}
     	})
 
-    	$('.select_outer_day .combo div.icon, .select_outer_month .combo div.icon, .select_outer_year .combo div.icon, .select_outer_sex .combo div.icon').on('mouseout',function(){
+    	$('.select_outer_day .combo div.icon, .select_outer_month .combo div.icon, .select_outer_year .combo div.icon, .select_outer_sex .combo div.icon, .select_outer_course .combo div.icon').on('mouseout',function(){
     		if ($(this).next('.list-wrapper').hasClass('visible')){
 	    		$(this).css('background', 'url("/application/includes/images/news/news_counter_btn.png") 0px -81px');
 	    	}

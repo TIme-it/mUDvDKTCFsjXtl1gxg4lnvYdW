@@ -67,6 +67,11 @@
 			$sql = 'SELECT 1 FROM question_answer WHERE id = '.(int)$id.' AND pid = '.(int)$pid;
 			return (bool)$this->db->get_one($sql);
 		}
+
+		public function getCourses($cid) {
+			$sql = 'SELECT id, title FROM catalog_categories WHERE cid = '.(int)$cid.' AND pid = 0';
+			return $this->db->get_all($sql);
+		}
 		
 		public function blockIP($user_ip, $time, $pid) {
 			$sql = 'SELECT 1 FROM question_ip '.
