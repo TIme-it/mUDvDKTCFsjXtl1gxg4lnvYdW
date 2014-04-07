@@ -4320,7 +4320,8 @@ pre {
 }
 
 .jcarousel ul {
-    width: 20000px;
+    /*width: 135%;*/
+    width: 3000px;
     height: 200px;
     position: relative;
     list-style: none;
