@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Мар 28 2014 г., 14:50
+-- Время создания: Апр 07 2014 г., 15:48
 -- Версия сервера: 5.6.11
 -- Версия PHP: 5.5.3
 
@@ -384,6 +384,20 @@ CREATE TABLE IF NOT EXISTS `catalog_techchars_links` (
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `catalog_users`
+--
+
+CREATE TABLE IF NOT EXISTS `catalog_users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `catalog_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `faq`
 --
 
@@ -394,6 +408,7 @@ CREATE TABLE IF NOT EXISTS `faq` (
   `email` varchar(255) NOT NULL DEFAULT '',
   `phone` varchar(255) DEFAULT NULL,
   `question` text NOT NULL,
+  `user_id` int(11) NOT NULL,
   `fioSpecialist` varchar(255) DEFAULT NULL,
   `postSpecialist` varchar(150) DEFAULT NULL,
   `dateQuestion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -410,12 +425,12 @@ CREATE TABLE IF NOT EXISTS `faq` (
 -- Дамп данных таблицы `faq`
 --
 
-INSERT INTO `faq` (`id`, `pid`, `fioUser`, `email`, `phone`, `question`, `fioSpecialist`, `postSpecialist`, `dateQuestion`, `answer`, `dateAnswer`, `IP`, `active`, `feedback`, `company`) VALUES
-(1, 40, 'Галицкий Юрий Сергеевич', 'olololo@yanda.ru', '8-927-789-20-97', 'Подскажите сколько стоит пройти курс "Информационная безопасность"?', NULL, NULL, '2014-03-26 09:25:00', '<p>Всю информацию касаемо курсов вы можете найти в разделе курсы.</p>', '1970-01-02 02:00:00', '127.0.0.1', 1, 0, ''),
-(2, 40, 'Зайцева Виктория Сергеевна', 'razdvatri@yanda.ru', '8-927-789-20-97', 'Где я могу посмотреть курсы, на которые записалась?', NULL, NULL, '2014-03-26 09:46:00', '<p>Здравствуйте, Екатерина! Сложно не видя Вас, оценить пропорции Вашего тела! Тренируясь дома, возмодно Вы делаете в основном упражнения на мышцы ног (поэтому визуально Вам кажется, что ноги "потолстели". Я рекомендовала бы Вам заниматься по программе "BODY&amp;MIND" это сделает Ваше тело гибким, подтянутым!</p>', '1970-01-02 02:00:00', '127.0.0.1', 1, 0, ''),
-(3, 40, 'Петров Алексей Сергеевич', 'olololo@yanda.ru', '8-927-789-20-97', 'Подскажите сколько стоит пройти курс "Информационная безопасность"?', NULL, NULL, '2014-03-26 10:21:00', '<p>Всю информацию касаемо курсов Вы можете найти в разделе "Курсы".</p>', '1970-01-02 02:00:00', '127.0.0.1', 1, 0, ''),
-(4, 40, 'Сидорова Елена Петровна', 'olololo@yanda.ru', '8-927-789-20-97', 'Где я могу посмотреть курсы, на которые записалась?', NULL, NULL, '2014-03-26 11:00:00', '<p>Здравствуйте, Екатерина! Сложно не видя Вас, оценить пропорции Вашего тела! Тренируясь дома, возмодно Вы делаете в основном упражнения на мышцы ног (поэтому визуально Вам кажется, что ноги "потолстели". Я рекомендовала бы Вам заниматься по программе "BODY&amp;MIND" это сделает Ваше тело гибким, подтянутым!</p>', '1970-01-02 02:00:00', '127.0.0.1', 1, 0, ''),
-(5, 40, 'Иванов Сергей Альбертович', 'olololo@yanda.ru', '8-927-789-20-97', 'Подскажите сколько стоит пройти курс "Информационная безопасность"?', NULL, NULL, '2014-03-26 11:04:00', '<p>Всю информацию касаемо курсов Вы можете найти в разделе "Курсы".</p>', '1970-01-02 02:00:00', '127.0.0.1', 1, 0, '');
+INSERT INTO `faq` (`id`, `pid`, `fioUser`, `email`, `phone`, `question`, `user_id`, `fioSpecialist`, `postSpecialist`, `dateQuestion`, `answer`, `dateAnswer`, `IP`, `active`, `feedback`, `company`) VALUES
+(1, 40, 'Галицкий Юрий Сергеевич', 'olololo@yanda.ru', '8-927-789-20-97', 'Подскажите сколько стоит пройти курс "Информационная безопасность"?', 0, NULL, NULL, '2014-03-26 09:25:00', '<p>Всю информацию касаемо курсов вы можете найти в разделе курсы.</p>', '1970-01-02 02:00:00', '127.0.0.1', 1, 0, ''),
+(2, 40, 'Зайцева Виктория Сергеевна', 'razdvatri@yanda.ru', '8-927-789-20-97', 'Где я могу посмотреть курсы, на которые записалась?', 0, NULL, NULL, '2014-03-26 09:46:00', '<p>Здравствуйте, Екатерина! Сложно не видя Вас, оценить пропорции Вашего тела! Тренируясь дома, возмодно Вы делаете в основном упражнения на мышцы ног (поэтому визуально Вам кажется, что ноги "потолстели". Я рекомендовала бы Вам заниматься по программе "BODY&amp;MIND" это сделает Ваше тело гибким, подтянутым!</p>', '1970-01-02 02:00:00', '127.0.0.1', 1, 0, ''),
+(3, 40, 'Петров Алексей Сергеевич', 'olololo@yanda.ru', '8-927-789-20-97', 'Подскажите сколько стоит пройти курс "Информационная безопасность"?', 0, NULL, NULL, '2014-03-26 10:21:00', '<p>Всю информацию касаемо курсов Вы можете найти в разделе "Курсы".</p>', '1970-01-02 02:00:00', '127.0.0.1', 1, 0, ''),
+(4, 40, 'Сидорова Елена Петровна', 'olololo@yanda.ru', '8-927-789-20-97', 'Где я могу посмотреть курсы, на которые записалась?', 0, NULL, NULL, '2014-03-26 11:00:00', '<p>Здравствуйте, Екатерина! Сложно не видя Вас, оценить пропорции Вашего тела! Тренируясь дома, возмодно Вы делаете в основном упражнения на мышцы ног (поэтому визуально Вам кажется, что ноги "потолстели". Я рекомендовала бы Вам заниматься по программе "BODY&amp;MIND" это сделает Ваше тело гибким, подтянутым!</p>', '1970-01-02 02:00:00', '127.0.0.1', 1, 0, ''),
+(5, 40, 'Иванов Сергей Альбертович', 'olololo@yanda.ru', '8-927-789-20-97', 'Подскажите сколько стоит пройти курс "Информационная безопасность"?', 0, NULL, NULL, '2014-03-26 11:04:00', '<p>Всю информацию касаемо курсов Вы можете найти в разделе "Курсы".</p>', '1970-01-02 02:00:00', '127.0.0.1', 1, 0, '');
 
 -- --------------------------------------------------------
 
@@ -613,24 +628,24 @@ CREATE TABLE IF NOT EXISTS `main` (
   `sendfile` tinyint(1) NOT NULL DEFAULT '0',
   `subsection` tinyint(1) NOT NULL DEFAULT '0',
   UNIQUE KEY `id` (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=44 ;
 
 --
 -- Дамп данных таблицы `main`
 --
 
 INSERT INTO `main` (`id`, `pid`, `cid`, `title`, `title_page`, `alias`, `note`, `description`, `keywords`, `module`, `url`, `link`, `template`, `active`, `inmenu`, `date`, `is_show_date`, `source`, `tree`, `config`, `fotogallery`, `gallery_header`, `print`, `feedback`, `sendfile`, `subsection`) VALUES
-(1, 0, 0, 'Об институте', 'Об институте', 'ob_institute', '', '', '', 1, '/pages/ob_institute/', '', '', 1, 1, 1392321600, 0, '', 0, '', 1, 1, 0, 1, 0, 0),
+(1, 0, 0, 'Об институте', 'Об институте', 'ob_institute', '', '', '', 1, '/pages/ob_institute/', '', '', 1, 1, 1392321600, 0, '', 0, '', 1, 1, 0, 0, 0, 0),
 (2, 0, 0, 'Курсы', 'Курсы', 'kursy', '', '', '', 8, '/catalog/2/', '', '', 1, 1, 1392321600, 0, '', 0, '', 1, 1, 0, 0, 0, 0),
 (7, 0, 0, 'Обучение', 'Обучение', 'obuchenie', '', '', '', 6, '/link/7/', '#', '', 1, 1, 1392321600, 0, '', 0, '', 1, 1, 0, 0, 0, 0),
 (8, 0, 0, 'Инфоматериалы', 'Инфоматериалы', 'infomaterialy', '', '', '', 6, '/link/8/', '#', '', 1, 1, 1392321600, 0, '', 0, '', 1, 1, 0, 0, 0, 0),
-(9, 0, 0, 'Портфолио', 'Портфолио', 'portfolio', '', '', '', 6, '/link/9/', '#', '', 1, 1, 1392321600, 0, '', 0, '', 1, 1, 0, 0, 0, 0),
 (10, 0, 0, 'Жизнь института', 'Жизнь института', 'jizn_instituta', '', '', '', 6, '/link/10/', '#', '', 1, 1, 1392321600, 0, '', 0, '', 1, 1, 0, 0, 0, 0),
 (11, 0, 0, 'Контакты', 'Контакты', 'kontakty', '', '', '', 1, '/pages/kontakty/', '', '', 1, 1, 1392321600, 0, '', 0, '', 1, 1, 0, 0, 0, 0),
 (39, 0, 0, 'Новости', 'Новости', 'news', '', '', '', 2, '/news/39/', '', '', 1, 0, 0, 0, '', 0, '', 1, 1, 0, 0, 0, 0),
 (40, 0, 0, 'Вопросы и ответы', 'Вопросы и ответы', 'vopros-otvet', '', '', '', 4, '/faq/40/', '', 'layoutFaq', 1, 0, 0, 0, '', 0, 'N;', 1, 1, 0, 0, 0, 0),
 (41, 0, 0, 'Отзывы', 'Отзывы', 'otzyvy', '', '', '', 14, '/reviews/41/', '', '', 1, 0, 0, 0, '', 0, '', 1, 1, 0, 0, 0, 0),
-(42, 0, 0, 'Акции', 'Акции', 'akcii', '', '', '', 12, '/actions/42/', '', '', 1, 0, 0, 0, '', 0, '', 1, 1, 0, 0, 0, 0);
+(42, 0, 0, 'Акции', 'Акции', 'akcii', '', '', '', 12, '/actions/42/', '', '', 1, 0, 0, 0, '', 0, '', 1, 1, 0, 0, 0, 0),
+(43, 8, 0, 'тест', 'тест', 'test', '', '', '', 1, '/pages/infomaterialy/test/', '', '', 1, 1, 0, 0, '', 0, '', 1, 1, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -911,7 +926,14 @@ CREATE TABLE IF NOT EXISTS `question` (
   `date_end` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `active` int(1) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Дамп данных таблицы `question`
+--
+
+INSERT INTO `question` (`id`, `question`, `date_begin`, `date_end`, `active`) VALUES
+(1, '<p>Нравится ли Вам наш сайт?</p>', '2014-03-31 20:00:00', '2014-04-05 20:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -926,7 +948,17 @@ CREATE TABLE IF NOT EXISTS `question_answer` (
   `sort` int(11) DEFAULT '0',
   `count` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Дамп данных таблицы `question_answer`
+--
+
+INSERT INTO `question_answer` (`id`, `pid`, `answer`, `sort`, `count`) VALUES
+(1, 1, 'Не нравится', 1, 1),
+(2, 1, 'Он прекрасен', 2, 0),
+(3, 1, 'Кто его делал?', 3, 0),
+(4, 1, 'Нравится', 4, 2);
 
 -- --------------------------------------------------------
 
@@ -940,7 +972,16 @@ CREATE TABLE IF NOT EXISTS `question_ip` (
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `ip` char(15) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Дамп данных таблицы `question_ip`
+--
+
+INSERT INTO `question_ip` (`id`, `pid`, `time`, `ip`) VALUES
+(1, 1, '2014-04-03 09:09:52', '127.0.0.1'),
+(2, 1, '2014-04-03 10:01:42', '127.0.0.1'),
+(3, 1, '2014-04-04 08:52:13', '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -1079,14 +1120,28 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(50) NOT NULL DEFAULT '',
   `pass` varchar(32) NOT NULL DEFAULT '',
+  `lastname` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `middlename` varchar(255) NOT NULL,
+  `subscribe` tinyint(1) NOT NULL DEFAULT '1',
   `email` varchar(100) NOT NULL DEFAULT '',
+  `tel` varchar(255) NOT NULL,
+  `adr` text NOT NULL,
   `state` tinyint(1) DEFAULT '0',
   `about` text NOT NULL,
   `bday` int(11) NOT NULL DEFAULT '0',
   `sex` tinyint(1) NOT NULL DEFAULT '0',
   `flush` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `login`, `pass`, `lastname`, `name`, `middlename`, `subscribe`, `email`, `tel`, `adr`, `state`, `about`, `bday`, `sex`, `flush`) VALUES
+(1, 'user', 'c4ca4238a0b923820dcc509a6f75849b', 'Юзеров', 'Юзер', 'Юзерович', 0, 'alextret91@yandex.ru', '+7(927)-789-20-97', 'г. Юзератти, ул. Юзерная, д. 256, кв. 128', 1, '', 579297600, 0, 0),
+(2, 'user1', 'd41bc163e711e32dda7bbcbd22a1de7d', 'Юзеровко', 'Юезрш', 'Юзерович', 1, 'alextret91@yanda.ru', '', '', 1, '', 0, 0, 0);
 
 -- --------------------------------------------------------
 
