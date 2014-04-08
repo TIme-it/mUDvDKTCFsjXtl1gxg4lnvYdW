@@ -15,6 +15,8 @@
                 if ((width > 1000) && (width < 1800)){
                     t_width = width / 4;
                 }
+				
+				t_width = ($(window).width() - 616) /2;
 
                 // if(width <= 1280){
                 //     $('.jcarousel ul').css('left', -t_width+'px')
@@ -69,6 +71,8 @@
         if ((width > 1000) && (width < 1800)){
             t_width = width / 4;
         }
+		
+		t_width = ($(window).width() - 616) /2;
 
         if(width <= 1280){
             $('.jcarousel ul').css('left', -t_width+'px')

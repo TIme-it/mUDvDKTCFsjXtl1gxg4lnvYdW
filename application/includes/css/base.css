@@ -4316,7 +4316,7 @@ pre {
 
 .jcarousel {
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     width: 100%;
     height: 200px;
 }
@@ -4642,3 +4642,33 @@ div.mid .f_discript {
 }
 
 /* QUESTION FORM BLOCK END */
+
+.slview_ .slider_bg {
+	display: none;
+}
+
+#main_slider .slview_1 .sllink {
+	display: none;
+}
+
+#main_slider .slview_ {
+	text-align: center;
+}
+
+#main_slider .slview_1  {
+	width: auto !important;
+}
+#main_slider .slview_  {
+	width: 200px;
+}
+
+.slider_bg {
+	position: relative;
+	
+	left: 0px !important;
+}
+
+#main_slider {
+	margin: 0px;
+}
+
