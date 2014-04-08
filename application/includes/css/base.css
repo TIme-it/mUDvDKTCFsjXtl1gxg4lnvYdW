@@ -1006,7 +1006,9 @@ span, p {
 }
 
 #main_slider li a {
+    display: inline-block;
     text-decoration: none;
+    width: 58%;
 }
 
 #main_slider li span {

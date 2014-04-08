@@ -5,14 +5,25 @@
         jcarousel
             .on('jcarousel:reload jcarousel:create', function () {
                 var width = $('.middle_wrap').width();
-
-                if (width >= 1600) {
-                    width = width / 3.6;
-                } else if (width >= 1000) {
-                    width = width / 4;
+                if (width >= 1800) {
+                    // t_width = width / 3.6;
+                    t_width = 500;
                 }
-                jcarousel.jcarousel('items').css('width', '483px');
-                
+                if (width <= 1000) {
+                    t_width = width / 2.7;
+                }
+                if ((width > 1000) && (width < 1800)){
+                    t_width = width / 4;
+                }
+
+                // if(width <= 1280){
+                //     $('.jcarousel ul').css('left', -t_width+'px')
+                // }
+
+                jcarousel.jcarousel('items').css('width', t_width+'px');   
+                // $('.jcarousel ul li').css('text-align', 'left');                                    
+                // $('.jcarousel ul li:eq(2)').css('width', '600px');
+                // $('.jcarousel ul li:eq(2)').css('text-align', 'center');
             })
             .jcarousel({
                 wrap: 'circular'
@@ -46,47 +57,48 @@
             });
     });
 
-    resizable_test = function(width){
+    resizable_test = function(){
+        var width = $('.middle_wrap').width();
         if (width >= 1800) {
-            $('.jcarousel ul li').css('width', '15');
-            return false;
+            // t_width = width / 3.6;
+            t_width = 383;
         }
         if (width <= 1000) {
-            $('.jcarousel ul li').css('width', '230px');
-            return false;
+            t_width = width / 2.7;
         }
-        if (width > 1000){
-            diff = width - 1800;
-            w = diff/5.22876 + 383;
+        if ((width > 1000) && (width < 1800)){
+            t_width = width / 4;
+        }
 
-            $('.jcarousel ul li').css('width', w+'px');
-            return false;
+        if(width <= 1280){
+            $('.jcarousel ul').css('left', -t_width+'px')
         }
+
+        $('.jcarousel ul li').css('width', t_width+'px');
+        $('.jcarousel ul li').css('text-align', 'left');
+        $('.jcarousel ul li:eq(2)').css('width', '600px');
+        $('.jcarousel ul li:eq(2)').css('text-align', 'center');
     }
 
     $(document).ready(function() {
         // $('.slider_bg').css('left', $('.jcarousel ul li:eq(2)').position().left-100+'px')
-        
-        $('.jcarousel-control-next').on('click', function(){
-            $('.jcarousel ul li').css('display', 'inline-block');
-            setTimeout(function (argument) {
-                if($('.jcarousel ul li:eq(0)').data('jcarousel-clone') == 'undefined'){
-                    $('.jcarousel ul li:eq(0)').css('display', 'none');
-                }
-                else {
-                    $('.jcarousel ul li:eq(1)').css('display', 'none');
-                }
-            }, 400);
-            resizable_test($('.middle_wrap').width());
-            $('.jcarousel ul li').css('width', '483px');
-            $('.jcarousel ul li:eq(2)').css('width', '600px');
-        })
+        // resizable_test();
+        // $('.jcarousel ul li:eq(1)').css('width', '8%');
+        // $('.jcarousel ul li:eq(2)').css('width', '600px');
+        // $('.jcarousel-control-next').on('click', function(){
+        //     setTimeout(function (argument) {
+        //         resizable_test();
+        //         // $('.jcarousel ul li:eq(1)').css('width', '8%');
+        //     }, 400);
+        // })
 
-        // resizable_test($('.middle_wrap').width());
 
-        $(window).resize(function(){
-            // $('.slider_bg').css('left', $('.jcarousel ul li:eq(2)').position().left-100+'px')
-            // resizable_test($('.middle_wrap').width());
-        });
+        // $(window).resize(function(){
+        //     // $('.slider_bg').css('left', $('.jcarousel ul li:eq(2)').position().left-100+'px')
+        //     setTimeout(function (argument) {
+        //         resizable_test();
+        //         // $('.jcarousel ul li:eq(1)').css('width', '8%');
+        //     }, 400);
+        // });
 	});
 })(jQuery);
