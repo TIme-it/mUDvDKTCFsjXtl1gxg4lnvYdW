@@ -1036,7 +1036,7 @@ span, p {
 .slider_bg {
     position: absolute;
     top: -145px;
-    left: 792px;
+    left: 49%;
     width: 616px;
     height: 387px;
     background: url(/application/includes/images/slider/book.png) transparent no-repeat 0 0;
@@ -4662,13 +4662,10 @@ div.mid .f_discript {
 	width: 200px;
 }
 
-.slider_bg {
-	position: relative;
-	
-	left: 0px !important;
-}
-
 #main_slider {
 	margin: 0px;
 }
 
+.jcarousel ul li div.note {
+    display: none;
+}

@@ -2,37 +2,44 @@
 <div class="jcarousel" data-jcarousel="true">
     <ul>
       {slides}
-        <li class="slview_{active}">
-          <a href="{link}" class="sllink">
+        <li class="slview_{active}" data-pos="{#}">
+          <a href="#" class="sllink" data-link="{link}" data-count="{#}">
             <span>{title}</span>
           </a>
-		  
-			<div class="slider_bg">
-			  <div class="images hide">
-				<img src="/application/includes/images/slider/education/sheet3.png" data-pos="1" alt="" />
-				<img src="/application/includes/images/slider/education/sheet2.png" data-pos="2" alt="" />
-				<img src="/application/includes/images/slider/education/sheet1.png" data-pos="3" alt="" />
-			  </div>
-			  <div class="images">
-				<img src="/application/includes/images/slider/education/sheet3.png" data-pos="1" alt="" />
-				<img src="/application/includes/images/slider/education/sheet2.png" data-pos="2" alt="" />
-				<img src="/application/includes/images/slider/education/sheet1.png" data-pos="3" alt="" />
-			  </div>
-			  <a href="#" id="leftArrow" class="jcarousel-control-prev active" class="" data-jcarouselcontrol="true"></a>
-			  <a href="#" id="rightArrow" class="jcarousel-control-next active" data-jcarouselcontrol="true"></a>
-			  <div class="note">
-				<h1>Образование</h1>
-				<p>Модернизация образования требует нового качества работы педагогов. Наш институт,  учитывая происходящие процессы обновления содержания образования, появление новых педагогических технологий, организует курсы повышения квалификации и профессиональной переподготовки.</p>
-				<a href="#" class="more_button"></a>
-			  </div>
-			</div>		  
+          <div class="note">
+            <p>{note}</p>
+          </div>
         </li>
       {/slides}
     </ul>
 </div>
+<div class="slider_bg">
+  <div class="images hide">
+	<img src="/application/includes/images/slider/education/sheet3.png" data-pos="1" alt="" />
+	<img src="/application/includes/images/slider/education/sheet2.png" data-pos="2" alt="" />
+	<img src="/application/includes/images/slider/education/sheet1.png" data-pos="3" alt="" />
+  </div>
+  <div class="images">
+	<img src="/application/includes/images/slider/education/sheet3.png" data-pos="1" alt="" />
+	<img src="/application/includes/images/slider/education/sheet2.png" data-pos="2" alt="" />
+	<img src="/application/includes/images/slider/education/sheet1.png" data-pos="3" alt="" />
+  </div>
+  <a href="#" id="leftArrow" class="jcarousel-control-prev active" class="" data-jcarouselcontrol="true"></a>
+  <a href="#" id="rightArrow" class="jcarousel-control-next active" data-jcarouselcontrol="true"></a>
+  <div class="note">
+	<h1>Образование</h1>
+	<p>Модернизация образования требует нового качества работы педагогов. Наш институт,  учитывая происходящие процессы обновления содержания образования, появление новых педагогических технологий, организует курсы повышения квалификации и профессиональной переподготовки.</p>
+	<a href="#" class="more_button"></a>
+  </div>
+</div>		  
 
-<!-- <p class="jcarousel-pagination" data-jcarouselpagination="true"><a href="#1" class="">1</a><a href="#2" class="active">2</a><a href="#3" class="">3</a><a href="#4" class="">4</a><a href="#5" class="">5</a><a href="#6" class="">6</a></p> -->
-
+<!-- <p class="jcarousel-pagination" data-jcarouselpagination="true">
+  <a href="#1" class="">1</a>
+  <a href="#2" class="">2</a>
+  <a href="#3" class="active">3</a>
+  <a href="#4" class="">4</a>
+</p>
+ -->
 </div>
 
 
