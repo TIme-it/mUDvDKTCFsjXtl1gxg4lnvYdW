@@ -232,6 +232,19 @@
 
         $('.jcarousel-control-next, .jcarousel-control-prev').on('click', function(){
             if($(this).hasClass('active')){
+                var curr_id = 1;
+                if($(this).get(0) == $('.jcarousel-control-next').get(0)){
+                  curr_id = $('.jcarousel ul li:eq(3) a').data('id')
+                }
+                if($(this).get(0) == $('.jcarousel-control-prev').get(0)){
+                  curr_id = $('.jcarousel ul li:eq(2) a').data('id')
+                }
+
+                var j = 1;
+                $('.slider_bg .images.hide img').each(function(){
+                  $(this).attr('src','/application/includes/slides/'+curr_id+'/'+j+'.png');
+                  j++;
+                })
                 // right_jsp();
                 slide_animation();
 
