@@ -952,7 +952,7 @@ span, p {
 
 #main_slider {
     position: relative;
-    height: 379px;
+    height: 275px;
     margin: 0 auto;
     min-width: 1000px;
     margin-left: 1.5%;
@@ -1035,7 +1035,7 @@ span, p {
 
 .slider_bg {
     position: absolute;
-    top: -145px;
+    top: -95px;
     left: 49%;
     width: 616px;
     height: 387px;
@@ -4319,6 +4319,7 @@ pre {
     /* overflow: hidden; */
     width: 100%;
     height: 200px;
+    top: 50px;
 }
 
 .jcarousel ul {
