@@ -39,8 +39,15 @@
 
 	$config['chpu']['active'] = 1;
 
-	$config['slides']['img_width'] = 955;
-	$config['slides']['img_height'] = 405;
+	// -- изображения на слайдер
+	$config['slide_pos1']['img_width'] = 236;
+	$config['slide_pos1']['img_height'] = 187;
+
+	$config['slide_pos2']['img_width'] = 213;
+	$config['slide_pos2']['img_height'] = 247;
+
+	$config['slide_pos3']['img_width'] = 178;
+	$config['slide_pos3']['img_height'] = 230;
 
 	// -- настройки изображений для эскиза в подсемействе
 	$config['sketch_image']['img_width'] = 300;

@@ -20,12 +20,34 @@
 				);
 			}
 			$id = $this->db->insert('slides', $data);
-			if(isset($_FILES['new_slide']['tmp_name']) && file_exists($_FILES['new_slide']['tmp_name'])) {
-				$file = $this->file->getFileInfo($_FILES['new_slide']['name']);
+			if(!file_exists($this->path.$id)){
+				mkdir($this->path.$id);
+			}
+
+			if(isset($_FILES['slide_pos1']['tmp_name']) && file_exists($_FILES['slide_pos1']['tmp_name'])) {
+				$file = $this->file->getFileInfo($_FILES['slide_pos1']['name']);
 				if($file) {
-					if(move_uploaded_file($_FILES['new_slide']['tmp_name'], $this->path.$id.'.jpg')) {
-						$this->image->analyze($this->path.$id.'.jpg');
-						$this->image->ToFile($this->path.$id.'.jpg', 80, $this->config->get('img_width','slides'), $this->config->get('img_height','slides'));
+					if(move_uploaded_file($_FILES['slide_pos1']['tmp_name'], $this->path.$id.'/1.png')) {
+						$this->image->analyze($this->path.$id.'/1.png');
+						$this->image->ToFile($this->path.$id.'/1.png', 80, $this->config->get('img_width','slide_pos1'), $this->config->get('img_height','slide_pos1'));
+					}
+				}
+			}
+			if(isset($_FILES['slide_pos2']['tmp_name']) && file_exists($_FILES['slide_pos2']['tmp_name'])) {
+				$file = $this->file->getFileInfo($_FILES['slide_pos2']['name']);
+				if($file) {
+					if(move_uploaded_file($_FILES['slide_pos2']['tmp_name'], $this->path.$id.'/2.png')) {
+						$this->image->analyze($this->path.$id.'/2.png');
+						$this->image->ToFile($this->path.$id.'/2.png', 80, $this->config->get('img_width','slide_pos2'), $this->config->get('img_height','slide_pos2'));
+					}
+				}
+			}
+			if(isset($_FILES['slide_pos3']['tmp_name']) && file_exists($_FILES['slide_pos3']['tmp_name'])) {
+				$file = $this->file->getFileInfo($_FILES['slide_pos3']['name']);
+				if($file) {
+					if(move_uploaded_file($_FILES['slide_pos3']['tmp_name'], $this->path.$id.'/3.png')) {
+						$this->image->analyze($this->path.$id.'/3.png');
+						$this->image->ToFile($this->path.$id.'/3.png', 80, $this->config->get('img_width','slide_pos3'), $this->config->get('img_height','slide_pos3'));
 					}
 				}
 			}
@@ -35,8 +57,16 @@
 
 			$this->db->delete('slides', (int)$id);
 			
-		
-			if (file_exists($this->path.$id.'.jpg')) unlink($this->path.$id.'.jpg');
+			for ($i = 1; $i < 4; $i++) { 
+				if (file_exists($this->path.$id.'/'.$i.'.png')){
+					unlink($this->path.$id.'/'.$i.'.png');	
+				}
+			}
+			
+			if (file_exists($this->path.$id)){
+				rmdir($this->path.$id);	
+			} 
+
 			$this->url->redirect('::referer');
 		}
 		public function edit_slide($id=false){
@@ -53,20 +83,60 @@
 			}
 
 			
-			if(isset($_FILES['new_slide']['tmp_name']) && file_exists($_FILES['new_slide']['tmp_name'])) {
-				$file = $this->file->getFileInfo($_FILES['new_slide']['name']);
+			if(!file_exists($this->path.$id)){
+				mkdir($this->path.$id);
+			}
+			
+			if(isset($_FILES['slide_pos1']['tmp_name']) && file_exists($_FILES['slide_pos1']['tmp_name'])) {
+				$file = $this->file->getFileInfo($_FILES['slide_pos1']['name']);
 				if($file) {
-					if(move_uploaded_file($_FILES['new_slide']['tmp_name'], $this->path.$id.'.jpg')) {
-						$this->image->analyze($this->path.$id.'.jpg');
-						$this->image->ToFile($this->path.$id.'.jpg', 80, $this->config->get('img_width','slides'), $this->config->get('img_height','slides'));
+					if(move_uploaded_file($_FILES['slide_pos1']['tmp_name'], $this->path.$id.'/1.png')) {
+						$this->image->analyze($this->path.$id.'/1.png');
+						$this->image->ToFile($this->path.$id.'/1.png', 80, $this->config->get('img_width','slide_pos1'), $this->config->get('img_height','slide_pos1'));
 					}
 				}
 			}
+			if(isset($_FILES['slide_pos2']['tmp_name']) && file_exists($_FILES['slide_pos2']['tmp_name'])) {
+				$file = $this->file->getFileInfo($_FILES['slide_pos2']['name']);
+				if($file) {
+					if(move_uploaded_file($_FILES['slide_pos2']['tmp_name'], $this->path.$id.'/2.png')) {
+						$this->image->analyze($this->path.$id.'/2.png');
+						$this->image->ToFile($this->path.$id.'/2.png', 80, $this->config->get('img_width','slide_pos2'), $this->config->get('img_height','slide_pos2'));
+					}
+				}
+			}
+			if(isset($_FILES['slide_pos3']['tmp_name']) && file_exists($_FILES['slide_pos3']['tmp_name'])) {
+				$file = $this->file->getFileInfo($_FILES['slide_pos3']['name']);
+				if($file) {
+					if(move_uploaded_file($_FILES['slide_pos3']['tmp_name'], $this->path.$id.'/3.png')) {
+						$this->image->analyze($this->path.$id.'/3.png');
+						$this->image->ToFile($this->path.$id.'/3.png', 80, $this->config->get('img_width','slide_pos3'), $this->config->get('img_height','slide_pos3'));
+					}
+				}
+			}
+
 			
 			unset($data);
+			
 			$data = $this->slides->GetOneSlide($id);
 			$data['title'] = preg_replace('/"/', '&quot;', $data['title']);
+			
+			$data['slide_pos1'] = (file_exists($this->path.$id.'/1.png'))?'<a href="/application/includes/slides/'.$id.'/1.png" target="_blank">Смотреть</a> <a href="/admin/slides/deleteImg/'.$id.'/1/" onclick="if(!confirm(\'Вы действительно хотите удалить картинку?\')) return false;">Удалить</a>':'';
+			$data['slide_pos2'] = (file_exists($this->path.$id.'/2.png'))?'<a href="/application/includes/slides/'.$id.'/2.png" target="_blank">Смотреть</a> <a href="/admin/slides/deleteImg/'.$id.'/2/" onclick="if(!confirm(\'Вы действительно хотите удалить картинку?\')) return false;">Удалить</a>':'';
+			$data['slide_pos3'] = (file_exists($this->path.$id.'/3.png'))?'<a href="/application/includes/slides/'.$id.'/3.png" target="_blank">Смотреть</a> <a href="/admin/slides/deleteImg/'.$id.'/3/" onclick="if(!confirm(\'Вы действительно хотите удалить картинку?\')) return false;">Удалить</a>':'';
+			
 			$this->html->render('slides/slide.html',$data,'content_path');
+		}
+
+		public function deleteImg($id, $num){
+			if(file_exists($this->path.$id.'/'.(int)$num.'.png')){
+				unlink($this->path.$id.'/'.(int)$num.'.png');
+				$this->session->set('alert','Изображение #'.(int)$num.' было успешно удалено');
+			}
+			else {
+				$this->session->set('alert','При удалении произошла ошибка. Обратитесь к администратору.');
+			}
+			$this->url->redirect('::referer');
 		}
 		
 		// public function index() {

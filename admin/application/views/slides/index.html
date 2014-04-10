@@ -17,10 +17,6 @@
 <h2>Новый слайд</h2>
 <form action="/admin/slides/add_slide/" method="post" class="page_form" enctype="multipart/form-data">
 	
-	<!-- <fieldset>
-		<label for="new_slide">Картинка</label>
-		<input type="file" name="new_slide" /> {new_slide}
-	</fieldset> -->
 	<fieldset>
 		<label for="title">Заголовок слайда</label>
 		<input type="text" class="text_field" name="title" > 
@@ -33,6 +29,18 @@
 		<label for="note" class="block">Описание</label>
 		<textarea name="note" class="text_field" id="note_id">{note}</textarea>
 	</fieldset>
+	<hr>
+	<fieldset>
+		<label for="slide_pos1">Изображение #1 (236х187)</label>
+		<input type="file" name="slide_pos1" /> {slide_pos1}
+		<br /><br />
+		<label for="slide_pos2">Изображение #2 (213х247)</label>
+		<input type="file" name="slide_pos2" /> {slide_pos2}
+		<br /><br />
+		<label for="slide_pos3">Изображение #3 (178х230)</label>
+		<input type="file" name="slide_pos3" /> {slide_pos3}
+	</fieldset>
+	<hr>
 	
 	<fieldset class="yellow">
 		<input type="submit" value="Добавить" />
