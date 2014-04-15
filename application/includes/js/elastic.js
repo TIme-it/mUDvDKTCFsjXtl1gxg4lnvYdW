@@ -67,13 +67,13 @@
 	// НОВОСТИ НА ГЛАВНОЙ
 	resizable_news_block = function(width){
 		if (width >= 1800) {
-			$('#news_block .scroll-pane').css('width', '1182px');
+			// $('#news_block .scroll-pane').css('width', '1182px');
 			$('#news_block .scroll-pane .item').css('width', '310px');
 			$('#news_block .scroll-pane .item').css('margin-right', '84px');
 			return false;
 		}
 		if (width <= 1000) {
-			$('#news_block .scroll-pane').css('width', '490px');
+			// $('#news_block .scroll-pane').css('width', '490px');
 			$('#news_block .scroll-pane .item').css('width', '145px');
 			$('#news_block .scroll-pane .item').css('margin-right', '20px');
 			return false;
@@ -84,7 +84,7 @@
 			spi_w = diff/4.848484 + 310;
 			spi_mr = diff/12.5 + 84;
 
-			$('#news_block .scroll-pane').css('width', sp_w+'px');
+			// $('#news_block .scroll-pane').css('width', sp_w+'px');
 			$('#news_block .scroll-pane .item').css('width', spi_w+'px');
 			$('#news_block .scroll-pane .item').css('margin-right', spi_mr+'px');
 			return false;
@@ -162,7 +162,7 @@
 		})
 
 		/* QUESTION BLOCK END */ 
-
+		$('.test_fon').css('height', $('.questions ul').height()+100);
 
 		resizable_menu($('.middle_wrap').width());
 		resizable_middle($('body').width());
@@ -171,6 +171,7 @@
 		resizable_slider_block($('.middle_wrap').width());
 			
 		$(window).resize(function(){
+			$('.test_fon').css('height', $('.questions ul').height()+100);
 			resizable_menu($('.middle_wrap').width());
 			resizable_middle($('body').width());
 			resizable_news_block($('.middle_wrap').width());

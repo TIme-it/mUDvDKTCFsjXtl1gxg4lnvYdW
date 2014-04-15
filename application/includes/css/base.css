@@ -834,6 +834,10 @@ span, p {
     #menu li.main_menu a.m_it span, #menu li .submenu li a span {
         font-size: 13px;
     }
+
+    #news_block {
+        width: 60% !important;
+    }
 }
 
 @media (max-width: 1230px) {
@@ -1887,6 +1891,7 @@ span, p {
 
 #news_block {
     position: relative;
+    width: 65%;
     float: right;
     margin-right: 1.5%;
     margin-top: 40px;

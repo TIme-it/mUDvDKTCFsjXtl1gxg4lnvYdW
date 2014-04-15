@@ -358,14 +358,14 @@ var img_big_h = 480;
 
     	/* JSP для блока новостей на главной */ 
 		var news_count_item = $('#news_block .item').size();		
-		var news_step = $('#news_block .item').outerWidth(true);
+		var news_step = $('#news_block .item:eq(0)').width()+parseInt($('#news_block .item:eq(0)').css('margin-right'));
 
 		$('.scroll-pane').off('scroll');
 
 		$('#news_block #wrap').css("width", (news_count_item * news_step) + "px");
 		$('#news_block .jspContainer').css("height", $('#news_block .jspPane').height());
 		$('#news_block .scroll-pane').css("height", $('#news_block .jspPane').height());
-		var news_api = $('#news_block .scroll-pane').jScrollPane({}).data('jsp');
+		var news_api = $('#news_block .scroll-pane').jScrollPane({showArrows: true}).data('jsp');
 
 		if (news_api != null){
 			$(window).resize(function(){
@@ -391,6 +391,10 @@ var img_big_h = 480;
 			}
 			return false;    
 		});
+
+		$(window).resize(function(){
+			news_api.reinitialise();
+		})
     	/* -- JSP для галереи */ 
 
 		
@@ -414,59 +418,6 @@ var img_big_h = 480;
 		// intervalID = setInterval(function(){
 		// 	$('.right_arrow').trigger('click');
 		// }, 5000)
-
-
-		// -- слайдер на главной
-		$(' .slider_link').on('click', function(){
-			change_slide($(this).data('id'));
-			clearInterval(intervalID);
-			intervalID = setInterval(function(){
-				$('.right_arrow').trigger('click');
-			}, 5000)
-			return false;
-				})
-		$('.right_arrow').on('click',function(){
-			link = parseInt($(" .slider_links .active").attr('href'));
-			link++;
-			next = $(' .slider_links [href^="'+link+'"]');
-
-			if(next.length!=0){
-				next.trigger('click');
-			}
-			else{
-				next = $(" .slider_links [href^='0']");
-				next.trigger('click');
-			}
-			// clearInterval(intervalID);
-			// intervalID = setInterval(function(){
-			// 	$('.right_arrow').trigger('click');
-			// }, 5000)
-			return false;
-
-		})
-		$('.left_arrow').on('click',function(){
-			link = parseInt($(" .slider_links .active").attr('href'));
-			link--;
-
-			prev = $(' .slider_links [href^="'+link+'"]');
-
-			if(prev.length!=0){
-				prev.trigger('click');
-			}
-			else{
-				count = $(" .slider_link").length;
-				count--;
-				prev = $(' .slider_links [href^="'+count+'"]');
-				prev.trigger('click');
-			}
-			// clearInterval(intervalID);
-			// intervalID = setInterval(function(){
-			// 	$('.right_arrow').trigger('click');
-			// }, 5000)
-			return false;
-
-		})
-
 
 		// -- определяем высоту #shadow
 		$('#shadow').css('height', $('body').height()+'px');
