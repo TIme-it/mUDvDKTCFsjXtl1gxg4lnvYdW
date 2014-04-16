@@ -2629,7 +2629,7 @@ span, p {
 }
 
 #courses .select_outer {
-    width: 72%;
+    width: 71%;
     float: left;
     margin-left: 15px;
     margin-top: 5px;
@@ -3643,6 +3643,16 @@ div.combo {
     position: absolute;
     top: 1px;
     right: 23px;
+}
+
+@media (max-width: 1075px) {
+    .select_outer .combo input {
+        width: 380px;
+    }
+
+    .select_outer div.combo {
+        width: 422px;
+    }
 }
 
 #courses .combo div.icon:hover {
