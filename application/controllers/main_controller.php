@@ -8,13 +8,6 @@
 			$this->html->tpl_vars['main_text'] = htmlspecialchars_decode($this->config->get('main_text', 'site'));
 			
 
-			/* INFO BLOCK BEGIN */
-
-			$this->html->tpl_vars['header_phone'] = $this->config->get('header_phone', 'site');
-			$this->html->tpl_vars['header_mail'] = $this->config->get('header_mail', 'site');
-			
-			/* INFO BLOCK END */
-
 			/* SLIDES BLOCK BEGIN */
 
 			$data['slides'] = $this->db->get_all('SELECT * FROM slides ORDER BY id ASC');

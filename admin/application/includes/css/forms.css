@@ -822,3 +822,13 @@ fieldset label[for="required"]{
 	width: 15px;
 	height: 15px;
 }
+
+ul#sortable_question_answer {
+	-webkit-padding-start: 0px;
+	-moz-padding-start: 0px;
+	-o-padding-start: 0px;
+}
+
+ul#sortable_question_answer li {
+	list-style-type: none;
+}

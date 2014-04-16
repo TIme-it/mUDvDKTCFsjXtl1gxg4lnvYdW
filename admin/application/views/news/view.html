@@ -23,11 +23,11 @@
 			<input type="text" class="text_field" name="keywords" value="{keywords}" />
 		</div>
 	</fieldset>
-	<fieldset>
+	<!-- <fieldset>
 		<label for="text" class="block">Текст страницы<span class="help" rel="1:1"></span></label>
 		<textarea name="text" class="text_field big_text mceEditor">{text}</textarea>
 		<br clear="all" />
-	</fieldset>
+	</fieldset> -->
 	<input type="hidden" name="template" value="layoutNews">
 	
 	<fieldset>
@@ -45,7 +45,3 @@
 		<a href="/{admin_dir}/module/delete/{pid}/" onclick="if(!confirm('Вы действительно хотите удалить этот раздел?')) return false" class="trash_button">Удалить раздел</a>
 	</fieldset>
 </form>
-<h2>Дополнительные модули</h2>
-{photos_block}
-{images_block}
-{files_block}

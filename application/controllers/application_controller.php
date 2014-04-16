@@ -52,6 +52,19 @@
 			$this->html->tpl_vars['header'] = $this->html->render('layouts/header.html');
 			/* HEADER BLOCK END */
 
+			/* INFO BLOCK BEGIN */
+
+			$this->html->tpl_vars['header_phone'] = $this->config->get('header_phone', 'site');
+			$this->html->tpl_vars['header_mail'] = $this->config->get('header_mail', 'site');
+			
+			/* INFO BLOCK END */
+
+			/* INFORM PANEL BEGIN */ 
+
+			$this->html->tpl_vars['inform_panel']  = $this->html->render('other/inform_panel.html');
+
+			/* INFORM PANEL END */
+
 			
 			// -- счетчик
 			$this->html->tpl_vars['left_banner'] = $this->visban_controller->show(6);

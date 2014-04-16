@@ -33,10 +33,12 @@
 			<input type="text" class="text_field" name="keywords" value="{keywords}" />
 		</div>
 	</fieldset>
+	{?main_category}
 	<fieldset>
 		<label for="character">Характеризующая картинка</label>
 		<input type="file" name="main_img" /> {character}
 	</fieldset>
+	{/?main_category}
 	
 	<!-- <fieldset>
 		<label for="text" class="block">Текст страницы</label>
@@ -79,10 +81,7 @@
 	</div>
 </div>
 	</form> -->
-<h2>Дополнительные модули</h2>
-{photos_block}
-{files_block}
-{images_block}
+
 <div style="display: {prod_display};">
 	{!main_category}
 	<h2>Курсы</h2>

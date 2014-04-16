@@ -882,7 +882,7 @@ span, p {
     background: url(/application/includes/images/search_edge.png) transparent no-repeat top right;
 }
 
-.info_panel .search form input#search {
+.info_panel .search form input#search, .inform_panel form input#search {
     margin-right: 10px;
     width: 210px;
     height: 25px;
@@ -906,7 +906,7 @@ span, p {
     color: #9eb5b7;
 }
 
-.info_panel .search form #search_btn {
+.info_panel .search form #search_btn, .inform_panel form #search_btn{
     position: absolute;
     top: 25px;
     left: 25px;
@@ -918,19 +918,19 @@ span, p {
     background: url(/application/includes/images/search_ico.png);
 }
 
-.info_panel .phone {
+.info_panel .phone, .inform_panel .phone {
     font: 20px/20px DINPro-Bold, Verdana, Arial;
     color: #e67817;
     margin-left: 20px;
 }
 
-.info_panel .mail {
+.info_panel .mail, .inform_panel .mail {
     font: 14px/22px DINPro-light, Verdana, Arial;
     color: #444;
     margin-left: 25px;
 }
 
-.info_panel .mail:hover {
+.info_panel .mail:hover, .inform_panel .mail:hover {
     color: #ff0000;
 }
 
@@ -4634,6 +4634,7 @@ div.mid {
     margin: 0 auto;
     width: 1000px;
     padding-left: 1.5%;
+    margin-top: 40px;
 }
 
 div.mid h1 {
@@ -4648,6 +4649,59 @@ div.mid .f_discript {
 }
 
 /* QUESTION FORM BLOCK END */
+
+/* INFORM PANEL BEGIN */
+
+.inform_panel {
+    margin-top: 50px;
+}
+
+
+.inform_panel .formSearch {
+    padding-left: 365px;
+    padding-right: 20%;
+}
+
+.inform_panel .phone, .inform_panel .mail {
+    position: relative;
+    z-index: 40;
+    float: left;
+    line-height: 48px;
+}
+
+.inform_panel .enter {
+    position: relative;
+    z-index: 40;
+    float: right;
+}
+
+.inform_panel form {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 0;
+}
+
+.inform_panel form input#search {
+    width: 50% !important;
+    margin-top: 10px;
+}
+
+.inform_panel form #search_btn {
+    position: relative;
+    top: 2px;
+}
+
+
+@media (max-width: 1228px) {
+    .inform_panel {
+        margin-top: 60px;
+    }
+}
+
+
+/* INFORM PANEL END */
 
 .slview_ .slider_bg {
 	display: none;

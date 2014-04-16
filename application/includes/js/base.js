@@ -44,47 +44,6 @@ var img_big_h = 480;
 		$('#scroll a[href=#'+id+']').parent().addClass('active');
 	};
 
-	function change_slide(id){
-		$(' .slider_link').removeClass('active');
-		link = $(" .slider_links").find("[data-id='" + id + "']");
-		header =  $(" .slider_links").find("[data-header-id='" + id + "']");
-		note =  $(" .slider_links").find("[data-note-id='" + id + "']");
-		url = $(" .slider_links").find("[data-link-id='" + id + "']");
-		link_adress =  $(" .slider_links").find("[data-link-id='" + id + "']");
-		link.addClass('active');
-		$('#slider_background').stop().fadeOut();
-	
-		$('#slider_background').find('.link_adress').attr('href',link_adress.html());
-		 setTimeout(function(){
-		 		$('#slider_background').css('background', 'transparent url("/application/includes/slides/'+link.data('id')+'.jpg") 0 0 no-repeat')
-				$('.note_block .slider_header').html(header.html());
-				$('.note_block .slider_note').html(note.html());
-				$('.note_block a').attr('href', url.html());
-		 		$('#slider_background').stop().fadeIn();
-		 }, 420)
-
-				
-
-	}
-	function slider_init(id){
-		$(' .slider_link').removeClass('active');
-		link = $(" .slider_links").find("[data-id='" + id + "']");
-		url = $(" .slider_links").find("[data-link-id='" + id + "']");
-		header =  $(" .slider_links").find("[data-header-id='" + id + "']");
-		note =  $(" .slider_links").find("[data-note-id='" + id + "']");
-		link_adress =  $(" .slider_links").find("[data-link-id='" + id + "']");
-		link.addClass('active');
-	
-		$('#slider_background').find('.link_adress').attr('href',link_adress.html());
- 		$('#slider_background').css('background', 'transparent url("/application/includes/slides/'+link.data('id')+'.jpg") 0 0 no-repeat')
-
-				
-		$('.note_block .slider_header').html(header.html());
-		$('.note_block .slider_note').html(note.html());
-		$('.note_block a').attr('href', url.html());
-
-	}
-
 	ui_init = function(root){
 		if(!root){
 			root = $('body')
@@ -203,11 +162,6 @@ var img_big_h = 480;
 				}
 			});
 		})
-
-		// Заглшука на ссылки
-		$('a[href="#"]').on('click', function(){
-			return false;
-		})		
 		
 		$('.head_info.not_auth').on('click', function(){
 			$('.login_block').show();
