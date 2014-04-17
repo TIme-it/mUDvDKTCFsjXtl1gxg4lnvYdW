@@ -328,7 +328,7 @@ var img_big_h = 480;
 
 		$('.scroll-pane').off('scroll');
 
-		$('#news_block #wrap').css("width", (news_count_item * news_step) + "px");
+		$('#news_block #wrap').css("width", (news_count_item * news_step)+20 + "px");
 		$('#news_block .jspContainer').css("height", $('#news_block .jspPane').height());
 		$('#news_block .scroll-pane').css("height", $('#news_block .jspPane').height());
 		var news_api = $('#news_block .scroll-pane').jScrollPane({showArrows: true}).data('jsp');
@@ -337,7 +337,7 @@ var img_big_h = 480;
 			$(window).resize(function(){
 				news_count_item = $('#news_block .item').size();		
 				news_step = $('#news_block .item').outerWidth(true);
-				$('#news_block #wrap').css("width", (news_count_item * news_step) + "px");
+				$('#news_block #wrap').css("width", (news_count_item * news_step)+20 + "px");
 				$('#news_block .jspContainer').css("height", $('#news_block .jspPane').height());
 				$('#news_block .scroll-pane').css("height", $('#news_block .jspPane').height());
 				// news_api.reinitialise();
