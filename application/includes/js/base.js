@@ -136,6 +136,18 @@ var img_big_h = 480;
 	
 	
 	$(document).ready(function() {
+		// popup с изображением
+
+		$('.open_gallery.fancy').on('click', function(){
+			$('.open_gallery.fancy').fancybox({
+				afterShow   : function(){
+					$('.fancybox-close').css('left', ($('.fancybox-wrap.fancybox-type-image').width()-70)/2);
+	   			}
+			});
+		})
+		
+
+
 		// "другое" в анкете
 		$('#notebook #other_input').on('keyup', function(){
 			$('#notebook #other').prop('checked', 'checked');

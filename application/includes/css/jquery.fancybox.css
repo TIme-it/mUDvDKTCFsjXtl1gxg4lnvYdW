@@ -140,10 +140,10 @@
 
 .fancybox-nav span {
 	position: absolute;
-	top: 50%;
-	width: 16px;
-	height: 26px;
-	margin-top: -18px;
+	top: 42%;
+	width: 39px;
+	height: 84px;
+	/*margin-top: -18px;*/
 	cursor: pointer;
 	z-index: 8040;
 	/*visibility: hidden;*/
@@ -161,17 +161,16 @@
 
 .fancybox-next span {
 	right: 10px;
-	background-position: 16px 0px;
 }
 
 .fancybox-prev:hover > span {
 	left: 10px;
-	background-position: 0 26px;
+	background-position: 0 -84px;
 }
 
 .fancybox-next:hover > span {
 	right: 10px;
-	background-position: 16px 26px;
+	background-position: 0px -84px;
 }
 
 .fancybox-nav:hover span {
