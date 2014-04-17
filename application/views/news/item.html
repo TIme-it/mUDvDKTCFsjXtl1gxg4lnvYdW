@@ -3,7 +3,8 @@
 <div class="text_bg news_item">
 	<div class="text">
 		{text}
-		{text_info}
+		{?author}<p class="author">Автор: {author}</p>{/?author}
+		{?source}<p class="source">Источник: {source}</p>{/?source}
 		<span class="date">{date}</span>
 		{social}
 	</div>

@@ -35,13 +35,17 @@
 
 			/* ACTIONS BLOCK BEGIN */
 
-			$this->html->tpl_vars['actions_list'] = $this->actions->getLast(42, 1);
+			$actions_id = $this->config->get('actions_id', 'site');
+			$this->html->tpl_vars['actions_link'] = $this->config->get('actions_link', 'site');
+			$this->html->tpl_vars['actions_list'] = $this->actions->getLast($actions_id, 1);
 			
 			/* ACTIONS BLOCK END*/
 
 			/* NEWS BLOCK BEGIN */ 
 
-			$data['news_list'] = $this->news->getLast(39, 15);
+			$news_id = $this->config->get('news_id', 'site');
+			$this->html->tpl_vars['news_link'] = $this->config->get('news_link', 'site');
+			$data['news_list'] = $this->news->getLast($news_id, 15);
 			if(!empty($data['news_list'])){
 				foreach ($data['news_list'] as $i => &$item) {
 					$item['date'] = $this->date->format2($item['date']);
@@ -60,7 +64,9 @@
 
 			/* REVIEWS BLOCK BEGIN */
 
-			$data['reviews_list'] = $this->reviews->getReviews(41, 0, 3, 1);
+			$reviews_id = $this->config->get('reviews_id', 'site');
+			$this->html->tpl_vars['reviews_link'] = $this->config->get('reviews_link', 'site');
+			$data['reviews_list'] = $this->reviews->getReviews($reviews_id, 0, 3, 1);
 			// выделение жирным фамилии
 			if(!empty($data['reviews_list'])){
 				foreach ($data['reviews_list'] as $i => &$item) {

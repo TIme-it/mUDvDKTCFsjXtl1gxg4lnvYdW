@@ -83,4 +83,10 @@ $config["site"]["footer_link_item4"] = "/kontakty/";
 $config["site"]["footer_item5"] = "";
 $config["site"]["footer_link_item5"] = "";
 $config["site"]["logo_text"] = "Межрегиональный институт дополнительного профессионального образования";
+$config["site"]["actions_id"] = "42";
+$config["site"]["actions_link"] = "/akcii/";
+$config["site"]["news_id"] = "39";
+$config["site"]["news_link"] = "/news/";
+$config["site"]["reviews_id"] = "41";
+$config["site"]["reviews_link"] = "/otzyvy/";
 ?>
